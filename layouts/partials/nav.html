@@ -1,0 +1,154 @@
+{{ $nav := index .Site.Data.nav .Site.Language.Lang }}
+
+   <div class="navbar w-nav" data-animation="over-left" data-collapse="medium" data-doc-height="1" data-duration="400" data-easing="ease" data-easing2="ease" data-no-scroll="1" role="banner">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container w-container">
+      <div class="nav-wrapper">
+
+      <!-- Brand -->
+       <a class="nav-brand w-nav-brand" href="{{ $nav.brand.href }}" id="w-node-_0fa776c9-c4c7-cf77-e291-bcce3ca4c522-3ca4c51d">
+        <img class="logo" alt="{{ $nav.brand.logo.alt }}" loading="lazy" src="{{ $nav.brand.logo.src }}"/>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu w-nav-menu" role="navigation">
+
+         <!-- Top links -->
+         {{ range $nav.main_links }}
+         <a class="nav-link w-nav-link" href="{{ .href }}">
+          {{ .name }}
+         </a>
+         {{ end }}
+
+         <!-- Dropdown -->
+         <div class="nav-dropdown w-dropdown" data-delay="200" data-hover="false">
+          <div class="nav-dropdown-toggle w-dropdown-toggle">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            {{ $nav.dropdown.title }}
+           </div>
+          </div>
+          <nav class="nav-dropdown-wrapper w-dropdown-list">
+           <div class="nav-dropdown-grid">
+
+            <!-- Multilayout -->
+            {{ range $nav.dropdown.multilayout }}
+            <div class="nav-dropdown-column">
+             <div class="text-style-badge">
+              {{ .title }}
+             </div>
+             <div class="nav-dropdown-multilayout">
+              {{ range .items }}
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" class="icon-height-small" loading="lazy" src="{{ .icon }}"/>
+               <div class="nav-dropdown-multilayout-content">
+                <div class="text-size-small text-weight-medium">
+                 {{ .label }}
+                </div>
+                <div class="nav-dropdown-multilayout-links">
+                 {{ range $index, $v := .versions }}
+                 <a class="nav-dropdown-multilayout-link" href="{{ $v.href }}">
+                  {{ $v.name }}
+                 </a>
+                 {{ end }}
+                </div>
+               </div>
+              </div>
+              {{ end }}
+             </div>
+            </div>
+            {{ end }}
+
+            <!-- Other Columns -->
+            {{ range $nav.dropdown.columns }}
+            <div class="nav-dropdown-column">
+             <div class="text-style-badge">
+             {{ .title }}
+             </div>
+             <div class="nav-dropdown-links">
+              {{ range .links }}
+              <a class="nav-dropdown-link w-dropdown-link" href="{{ .href }}">
+               {{ .name }}
+              </a>
+              {{ end }}
+             </div>
+            </div>
+            {{ end }}
+
+            <!-- Buy Template -->
+            <a class="nav-dropdown-column is-buy-template w-inline-block" href="{{ $nav.dropdown.buy.href }}" target="_blank">
+             <img alt="buy cloudis saas template" loading="lazy" src="{{ $nav.dropdown.buy.img }}"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                {{ $nav.dropdown.buy.heading }}
+               </div>
+               <img alt="" class="icon-height-small" loading="lazy" src="{{ $nav.dropdown.buy.icon }}"/>
+              </div>
+              <div class="text-size-tiny text-style-muted">
+               {{ $nav.dropdown.buy.description }}
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         <!-- Buttons inside menu -->
+         <div class="nav-links-buttons">
+          {{ range $nav.buttons }}
+          <a class="button {{ if eq .style "secondary" }}is-secondary{{ end }} w-button" href="{{ .href }}">
+           {{ .name }}
+          </a>
+          {{ end }}
+         </div>
+        </nav>
+
+{{ partial "cart" . }}
+       </div>
+
+       <!-- Right-side buttons -->
+       <div class="nav-buttons" id="w-node-_0fa776c9-c4c7-cf77-e291-bcce3ca4c5d0-3ca4c51d">
+        <div class="nav-info-dropdown w-dropdown" data-delay="0" data-hover="false">
+         <div class="nav-info-dropdown-toggle w-dropdown-toggle">
+          <div class="button is-only-icon is-secondary hide-tablet">
+           <img alt="" class="icon-height-small" loading="lazy" src="{{ $nav.info_dropdown.icon_info }}"/>
+          </div>
+         </div>
+         <nav class="nav-info-dropdown-wrapper w-dropdown-list">
+          <div class="nav-dropdown-column">
+           <div class="text-style-badge">
+            {{ $nav.info_dropdown.title }}
+           </div>
+           <div class="nav-info-dropdown-list">
+            {{ range $nav.info_dropdown.items }}
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" class="icon-height-small" loading="lazy" src="{{ $nav.info_dropdown.icon_check }}"/>
+             <div class="text-size-small text-weight-medium">
+              {{ . }}
+             </div>
+            </div>
+            {{ end }}
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        <!-- Secondary Buttons -->
+        {{ range $nav.secondary_buttons }}
+        <a class="button {{ if eq .style "secondary" }}is-secondary{{ end }} hide-tablet w-button" href="{{ .href }}" target="{{ if eq .target "blank" }}_blank{{ end }}">
+         {{ .name }}
+        </a>
+        {{ end }}
+
+        <!-- Mobile Menu Button -->
+        <div class="nav-menu-button w-nav-button">
+         <img alt="" class="nav-menu-icon" loading="lazy" src="{{ $nav.menu_icon }}"/>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+   </div>

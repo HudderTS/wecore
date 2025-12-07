@@ -1,0 +1,44 @@
+{{ $ben := index .Site.Data.benefits .Site.Language.Lang }}
+
+    <section class="section_home3_benefits">
+     <div class="padding-global padding-section-medium">
+      <div class="container-default">
+       <div class="home3_benefits_header" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159c7c" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        <div class="text-style-badge">
+          {{ $ben.badge }}
+        </div>
+        <div class="spacer-small">
+        </div>
+        <div class="heading-style-h2">
+         {{ $ben.heading }}
+         <span class="text-color-secondary">
+          {{ $ben.highlight }}
+         </span>
+        </div>
+       </div>
+       <div class="spacer-xlarge">
+       </div>
+       <div class="home3_benefits_grid" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159c89" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        {{ range $ben.cards }}
+        <div class="home3_benefits_card">
+         <img alt="{{ .title }}" class="icon-height-large" loading="lazy" src="{{ .icon }}"/>
+         <div class="spacer-xxlarge">
+         </div>
+         <div class="home1_benefits_card-content">
+          <div>
+           {{ .title }}
+          </div>
+          <div class="text-color-secondary max-width-small">
+           {{ .description }}
+          </div>
+         </div>
+        </div>
+        {{ end }}
+
+        {{ with $ben.image }}
+        <img alt="home3_features" class="home3_benefits_image" loading="lazy" sizes="{{ .sizes }}" src="{{ .src }}" srcset="{{ .srcset }}"/>
+        {{ end }}
+       </div>
+      </div>
+     </div>
+    </section>

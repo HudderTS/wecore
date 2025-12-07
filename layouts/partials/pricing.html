@@ -1,0 +1,85 @@
+{{ $pricing := index .Site.Data.pricing .Site.Language.Lang }}
+
+    <section class="section_home3_pricing">
+     <div class="padding-global padding-section-medium">
+      <div class="container-default">
+       <div data-w-id="15a6d86e-9913-c9ba-3c80-310c43159d4a" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        <div class="text-style-badge text-align-center">
+         {{ $pricing.badge }}
+        </div>
+        <div class="spacer-xsmall">
+        </div>
+        <h2 class="text-align-center">
+         {{ $pricing.title }}
+        </h2>
+        <div class="spacer-small">
+        </div>
+        <div class="text-align-center">
+         {{ $pricing.subtitle }}
+        </div>
+        <div class="spacer-large">
+        </div>
+       </div>
+       <div class="w-dyn-list" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159d54" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        <div class="home3_pricing_grid w-dyn-items" role="list">
+         {{ range $pricing.plans }}
+         <div class="w-dyn-item" role="listitem">
+          <div class="home3_pricing_plan-box {{ if .popular }}is-dark{{ end }}">
+           <div class="home3_pricing_plan-title">
+            <div class="heading-style-h5">
+             {{ .name }}
+            </div>
+            {{ if .popular }}
+            <div class="home3_pricing_popular w-condition-invisible">
+             {{ $pricing.popular_label }}
+            </div>
+            {{ end }}
+           </div>
+           <div class="spacer-small">
+           </div>
+           <div class="home3_pricing_price">
+            <div class="heading-style-h2">
+             {{ .price }}
+            </div>
+            <div class="text-style-muted">
+             {{ .period }}
+            </div>
+           </div>
+           <div class="spacer-small">
+           </div>
+           <div class="text-size-small">
+            {{ .description }}
+           </div>
+           <div class="spacer-small">
+           </div>
+           <a class="button max-width-full w-button {{ if .popular }}is-alternative{{ end }}" href="{{ .url }}">
+            {{ .button_label }}
+           </a>
+           <div class="spacer-small">
+           </div>
+           <div class="divider">
+           </div>
+           <div class="spacer-small">
+           </div>
+           <div>
+            {{ $pricing.included_label }}
+           </div>
+           <div class="spacer-xsmall">
+           </div>
+           <div class="text-rich-text text-style-muted w-richtext">
+            <ul role="list">
+             {{ range .included }}
+             <li>
+              {{ . }}
+             </li>
+             {{ end }}
+            </ul>
+           </div>
+          </div>
+         </div>
+         {{ end }}
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>

@@ -1,0 +1,23 @@
+title: "Loved by Research Teams That Scale Fast"
+subtitle: "Testimonials"
+slides:
+  - highlight_icon: "/img/icons/missile-dot-icon.png"
+    highlight_text: "Workflow is now 3x faster, start to finish"
+    quote: "Our workflow from idea to published content is <span class='text-color-secondary'>now 3x faster</span>. WECORE streamlined every step—from briefs to approvals—so we can focus on the creative side instead of chasing updates."
+    author_image: "https://cdn.prod.website-files.com/67f0bb364d93d2a7b94033b2/67f28aea65ba7379813c3393_home1_review1.avif"
+    author_name: "Marcus Thompson"
+    author_role: "Content Lead, Loopline"
+
+  - highlight_icon: "/img/icons/missile-dot-icon.png"
+    highlight_text: "Cut content production time by 60%"
+    quote: "With WECORE, we’ve <span class='text-color-secondary'>cut our content production time by over 60%</span>. The intuitive interface and centralized workspace make it easy to stay on-brand without wasting hours coordinating between tools."
+    author_image: "https://cdn.prod.website-files.com/67f0bb364d93d2a7b94033b2/67f28d83dc2e58363335570b_home1_review2.avif"
+    author_name: "Lena Martinez"
+    author_role: "Growth Lead, Orbitfy"
+
+  - highlight_icon: "/img/icons/missile-dot-icon.png"
+    highlight_text: "Saved 15 hours a week across our team"
+    quote: "We <span class='text-color-secondary'>save around 15 hours each week</span> thanks to WECORE. Our content workflow used to involve way too much manual work—now it’s automated, integrated, and smooth."
+    author_image: "https://cdn.prod.website-files.com/67f0bb364d93d2a7b94033b2/67f28d83e3dd7a3962b741bf_home1_review3.avif"
+    author_name: "Alex Johnson"
+    author_role: "Head of Ops, Brightly"

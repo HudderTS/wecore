@@ -1,0 +1,62 @@
+logo:
+  src: "/img/logo-footer.png"
+  alt: "Cloudis Logo"
+  description: "A sleek, top-tier template crafted for Software, SaaS, and Startups"
+
+socials:
+  - name: "linkedin"
+    href: "https://www.linkedin.com/company/wecore"
+    src: "/img/icons/socials/linkedin.svg"
+  - name: "instagram"
+    href: "https://www.instagram.com/wecore"
+    src: "/img/icons/socials/instagram.svg"
+  - name: "twitter"
+    href: "https://www.x.com/wecore"
+    src: "/img/icons/socials/twitter.svg"
+
+nav:
+  - title: "Multilayout"
+    links:
+      - { name: "Home V1", href: "/home-v1" }
+      - { name: "Home V2", href: "/home-v2" }
+      - { name: "Home V3", href: "/home-v3" }
+      - { name: "Features V1", href: "/features-v1" }
+      - { name: "Features V2", href: "/features-v2" }
+      - { name: "Features V3", href: "/features-v3" }
+      - { name: "Contact V1", href: "/contact-v1" }
+      - { name: "Contact V2", href: "/contact-v2" }
+      - { name: "Contact V3", href: "/contact-v3" }
+
+  - title: "Company"
+    links:
+      - { name: "About", href: "/about" }
+      - { name: "Pricing", href: "/category/plans" }
+      - { name: "Plan", href: "/product/enterprise" }
+      - { name: "Integrations", href: "/integrations" }
+      - { name: "Integration Details", href: "/integratins/numetron" }
+      - { name: "Updates", href: "/updates" }
+      - { name: "Update Post", href: "/updates/instant-ai-summaries-for-notes" }
+
+  - title: "Account & Utility"
+    links:
+      - { name: "Sign in", href: "/account/sign-in" }
+      - { name: "Sign up", href: "/account/sign-up" }
+      - { name: "Forgot Password", href: "/account/forgot-password" }
+      - { name: "Terms & Conditions", href: "/utility/terms-conditions" }
+      - { name: "Demo", href: "/utility/demo" }
+      - { name: "404", href: "/404" }
+      - { name: "Password Protected", href: "/401" }
+
+info:
+  copyright:
+    prefix: "© Copyright 2025 |"
+    linkedword: "HUDDER"
+    href: "https://hudder.ir/"
+    suffix: ""
+  template_links:
+    - { name: "Licenses", href: "/template/licenses" }
+    - { name: "Style Guide", href: "/template/style-guide" }
+    - { name: "Changelog", href: "/template/changelog" }
+
+legal_disclaimer: >
+  This is a legal disclaimer for website footers. It should begin with a statement confirming the company’s official registration, including a placeholder for the location and a sample registration number—for instance, “Incorporated in [Location], USA (Reg. No. YY-123456).” The disclaimer should also include a note about the company’s regulatory authorization, referencing a relevant oversight body and legislation. You may use placeholders like “Licensed by the [State Regulatory Authority] under the [Relevant State Act] (License No. YY-123456).”

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wecore.ir/sitemap.xml

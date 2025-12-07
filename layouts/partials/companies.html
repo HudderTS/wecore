@@ -1,0 +1,18 @@
+{{ $co := index .Site.Data.companies .Site.Language.Lang }}
+
+    <section class="section_home3_logos">
+     <div class="padding-global padding-section-small">
+      <div class="container-default">
+       <div class="text-size-large text-align-center" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159cc4" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        {{ $co.heading }}
+       </div>
+       <div class="spacer-small">
+       </div>
+       <div class="home3_logos_grid align-center" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159cc7" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+       {{ range $co.items }}
+        <img alt="{{ .alt | default "" }}" loading="lazy" src="{{ .src }}">
+       {{ end }}
+       </div>
+      </div>
+     </div>
+    </section>

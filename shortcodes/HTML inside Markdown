@@ -1,0 +1,6 @@
+Use a shortcode (best for including inside content .md files)
+If you want to include HTML inside Markdown content, create:
+        layouts/shortcodes/new.html
+
+Then in your Markdown file:
+        {{< new >}}

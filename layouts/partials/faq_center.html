@@ -1,0 +1,52 @@
+{{ $faqc := index .Site.Data.faq_center .Site.Language.Lang }}
+
+    <section class="section_home3_faq">
+     <div class="padding-global padding-section-medium">
+      <div class="container-default">
+       <div data-w-id="15a6d86e-9913-c9ba-3c80-310c43159dc5" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        <div class="text-style-badge text-align-center">
+         {{ $faqc.badge }}
+        </div>
+        <div class="spacer-xsmall">
+        </div>
+        <h2 class="text-align-center">
+         {{ $faqc.heading }}
+        </h2>
+        <div class="spacer-small">
+        </div>
+        <div class="text-align-center">
+         {{ $faqc.subheading }}
+        </div>
+        <div class="spacer-large">
+        </div>
+       </div>
+       <div class="align-center" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159dcf" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        <div class="home3_faq_box">
+         {{ range $faqc.items }}
+         <div class="faq_accordion">
+          <div class="faq_question" data-w-id="64672b22-f29a-5fd9-0ec7-4b585e3e8203">
+           <div class="faq_question_header">
+            <div>
+             {{ .question }}
+            </div>
+           </div>
+           <div class="faq_icon">
+            <img alt="" class="icon-height-small" loading="lazy" src="https://cdn.prod.website-files.com/67f0bb364d93d2a7b94033b2/67f2b1a0222cbff56931c38a_Plus%204.svg"/>
+           </div>
+          </div>
+          <div class="faq_answer">
+           <div class="faq_answer-wrapper">
+            <div class="max-width-large">
+             <p class="text-size-small text-style-muted">
+              {{ .answer | safeHTML }}
+             </p>
+            </div>
+           </div>
+          </div>
+         </div>
+         {{ end }}
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>

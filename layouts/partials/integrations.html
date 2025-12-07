@@ -1,0 +1,55 @@
+{{ $int := index .Site.Data.integrations .Site.Language.Lang }}
+
+    <section class="section_home3_integrations background-color-secondary">
+     <div class="padding-global padding-section-medium">
+      <div class="container-default">
+       <div class="home3_integrations_heading" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159d2b" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+        <div>
+         <div class="text-style-badge">
+          {{ $int.badge }}
+         </div>
+         <div class="spacer-xsmall">
+         </div>
+         <h2>
+          {{ $int.title }}
+         </h2>
+         <div class="spacer-xsmall">
+         </div>
+         <div>
+          {{ $int.subtitle }}
+         </div>
+        </div>
+        <a class="button {{ $int.button.style }} w-button" href="{{ $int.button.url }}">
+         {{ $int.button.label }}
+        </a>
+       </div>
+       <div class="spacer-large">
+       </div>
+       <div class="w-dyn-list">
+        <div class="home3_integrations_grid w-dyn-items" data-w-id="15a6d86e-9913-c9ba-3c80-310c43159d39" role="list" style="-webkit-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
+         {{ range $int.items }}
+         <div class="home3_integrations_card w-dyn-item" role="listitem">
+          <img alt="{{ .name }}" class="icon-height-medium" loading="lazy" src="{{ .icon }}"/>
+          <div class="spacer-xlarge">
+          </div>
+          <div>
+           {{ .name }}
+          </div>
+          <div class="text-color-secondary">
+           {{ .description }}
+          </div>
+          <div class="spacer-xsmall">
+          </div>
+          <a class="button is-link w-inline-block" href="{{ .url }}">
+           <div>
+            {{ $int.learn_more_label }}
+           </div>
+           <img alt="" class="icon-height-small" loading="lazy" src="https://cdn.prod.website-files.com/67f0bb364d93d2a7b94033b2/67f2943023e65a203d226dce_Right%20-%206.svg"/>
+          </a>
+         </div>
+         {{ end }}
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>

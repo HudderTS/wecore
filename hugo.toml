@@ -1,7 +1,7 @@
 baseURL = 'https://wecore.ir/'
 canonifyURLs = false
 relativeURLs = true
-defaultContentLanguage = "fa"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false  # keep fa at root
 title = 'وِی‌کُر | WECORE'
 hasCJKLanguage = true  # good for Persian layout handling

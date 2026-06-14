@@ -1,0 +1,384 @@
+/* ==========================================================================
+   apps.css — scoped styles for /apps (layouts/apps/list.html)
+   --------------------------------------------------------------------------
+   WECORE software marketplace catalog. Built on --hd-* tokens and HD
+   utilities; adds only route-specific hero wash, stat/app/workflow/value
+   cards, the category-filter chip bar, per-domain monogram tones, and
+   responsive behavior. Direction-agnostic (logical properties + the shared
+   .hd-icon-directional arrow flip) so it works in both LTR and RTL.
+   ========================================================================== */
+
+/* Per-domain accent tones for the monogram tiles. Subtle, on-brand; mixed
+   over the dark accent so text stays white and legible. */
+:root {
+  --hd-apps-tone-cfd: #2f6df6;        /* fluid dynamics — blue        */
+  --hd-apps-tone-md: #19b6a8;         /* molecular dynamics — teal    */
+  --hd-apps-tone-chem: #8b5cf6;       /* quantum chemistry — purple   */
+  --hd-apps-tone-materials: #d6792a;  /* materials — amber            */
+  --hd-apps-tone-hep: #e0476b;        /* high-energy physics — magenta*/
+  --hd-apps-tone-climate: #2bb673;    /* weather & climate — green    */
+  --hd-apps-tone-fea: #5b6472;        /* engineering & FEA — slate    */
+  --hd-apps-tone-viz: #00a7c7;        /* visualization — cyan         */
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.section_apps_hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--hd-color-white);
+  background:
+    radial-gradient(68% 80% at 82% 16%, color-mix(in srgb, var(--hd-apps-tone-cfd) 22%, transparent), transparent 62%),
+    radial-gradient(60% 76% at 12% 28%, color-mix(in srgb, var(--hd-apps-tone-viz) 14%, transparent), transparent 68%),
+    linear-gradient(180deg, var(--hd-color-black) 0%, var(--hd-qsim-bg-deep) 60%, var(--hd-color-accent) 100%);
+}
+
+.apps-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--hd-color-white) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--hd-color-white) 8%, transparent) 1px, transparent 1px);
+  background-size: 36px 36px;
+  -webkit-mask-image: radial-gradient(92% 90% at 50% 18%, black 32%, transparent 82%);
+  mask-image: radial-gradient(92% 90% at 50% 18%, black 32%, transparent 82%);
+}
+
+.apps-hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: var(--hd-width-lg);
+}
+
+.section_apps_hero h1 {
+  color: var(--hd-color-white);
+}
+
+.section_apps_hero .hd-text-muted {
+  color: var(--hd-color-neutral-300);
+  opacity: 1;
+}
+
+.apps-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.apps-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--hd-color-neutral-200);
+}
+
+.apps-hero-trust-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+}
+
+/* --------------------------------------------------------------------------
+   Stats
+   -------------------------------------------------------------------------- */
+.apps-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.apps-stat-card {
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  padding: 1.25rem;
+  background: var(--hd-color-white);
+}
+
+/* --------------------------------------------------------------------------
+   Section headings (shared by catalog / workflow / value)
+   -------------------------------------------------------------------------- */
+.apps-section-heading {
+  max-width: var(--hd-width-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Filter chip bar
+   -------------------------------------------------------------------------- */
+.apps-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.apps-filter-chip {
+  cursor: pointer;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+  color: var(--hd-color-nav-link);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  transition: color var(--hd-transition), background var(--hd-transition),
+    border-color var(--hd-transition);
+}
+
+.apps-filter-chip:hover {
+  border-color: var(--hd-color-neutral-400);
+  background: var(--hd-color-neutral-50);
+}
+
+.apps-filter-chip-active {
+  color: var(--hd-color-white);
+  background: var(--hd-color-accent);
+  border-color: var(--hd-color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   App catalog grid + cards
+   -------------------------------------------------------------------------- */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.apps-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  transition: box-shadow var(--hd-transition), border-color var(--hd-transition),
+    transform var(--hd-transition);
+}
+
+.apps-card:hover {
+  border-color: var(--hd-color-neutral-400);
+  box-shadow: var(--hd-shadow-md);
+  transform: translateY(-2px);
+}
+
+.apps-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.apps-card-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  border-radius: var(--hd-radius);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--hd-color-white);
+  /* tone set per-card via .apps-mark-* below */
+  background: linear-gradient(150deg,
+    color-mix(in srgb, var(--hd-apps-tone-cfd) 92%, white),
+    var(--hd-apps-tone-cfd));
+}
+
+.apps-mark-cfd       { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-cfd) 88%, white), var(--hd-apps-tone-cfd)); }
+.apps-mark-md        { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-md) 88%, white), var(--hd-apps-tone-md)); }
+.apps-mark-chem      { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-chem) 88%, white), var(--hd-apps-tone-chem)); }
+.apps-mark-materials { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-materials) 88%, white), var(--hd-apps-tone-materials)); }
+.apps-mark-hep       { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-hep) 88%, white), var(--hd-apps-tone-hep)); }
+.apps-mark-climate   { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-climate) 88%, white), var(--hd-apps-tone-climate)); }
+.apps-mark-fea       { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-fea) 88%, white), var(--hd-apps-tone-fea)); }
+.apps-mark-viz       { background: linear-gradient(150deg, color-mix(in srgb, var(--hd-apps-tone-viz) 88%, white), var(--hd-apps-tone-viz)); }
+
+/* Status pill */
+.apps-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  font-family: var(--hd-font-badge);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.apps-status::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.apps-status-available {
+  color: #1f7a4d;
+  background: color-mix(in srgb, var(--hd-apps-tone-climate) 16%, white);
+}
+
+.apps-status-preview {
+  color: var(--hd-color-accent);
+  background: var(--hd-color-neutral-200);
+}
+
+.apps-status-coming_soon {
+  color: var(--hd-color-warning-text);
+  background: var(--hd-color-warning-bg);
+}
+
+.apps-card h3 {
+  margin: 0;
+}
+
+.apps-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-block-start: 0.25rem;
+}
+
+.apps-card-meta-dot {
+  opacity: 0.5;
+}
+
+.apps-cap-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.apps-cap {
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--hd-radius);
+  font-size: var(--hd-text-tiny);
+  font-weight: var(--hd-weight-medium);
+  color: var(--hd-color-nav-link);
+  background: var(--hd-color-neutral-100);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+}
+
+.apps-card-foot {
+  margin-block-start: auto;
+  padding-block-start: 1rem;
+}
+
+.apps-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+  color: var(--hd-color-accent);
+  transition: gap var(--hd-transition), color var(--hd-transition);
+}
+
+.apps-card-link:hover {
+  gap: 0.6rem;
+  color: var(--hd-color-accent-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Workflow (numbered cards)
+   -------------------------------------------------------------------------- */
+.apps-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.apps-workflow-card {
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  padding: 1.25rem;
+  background: var(--hd-color-white);
+  transition: border-color var(--hd-transition), box-shadow var(--hd-transition),
+    transform var(--hd-transition);
+}
+
+.apps-workflow-card:hover {
+  border-color: var(--hd-color-neutral-400);
+  box-shadow: var(--hd-shadow-sm);
+  transform: translateY(-1px);
+}
+
+.apps-card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: var(--hd-color-white);
+  background: var(--hd-color-accent);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Value cards
+   -------------------------------------------------------------------------- */
+.apps-value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.apps-value-card {
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-block-start: 3px solid var(--hd-color-accent);
+  border-radius: var(--hd-radius);
+  padding: 1.5rem 1.25rem;
+  background: var(--hd-color-white);
+}
+
+/* --------------------------------------------------------------------------
+   CTA
+   -------------------------------------------------------------------------- */
+.section_apps_cta .apps-cta {
+  text-align: center;
+}
+
+.apps-cta-heading {
+  max-width: var(--hd-width-md);
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive ramps — 4 → 2 → 1, matching the HD system breakpoints.
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+  .apps-stats-grid,
+  .apps-grid,
+  .apps-workflow-grid,
+  .apps-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .apps-grid,
+  .apps-workflow-grid,
+  .apps-value-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .apps-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

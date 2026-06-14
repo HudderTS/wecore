@@ -55,8 +55,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 84px;
-  color: black;
-  opacity: 0.85;
+  color: white;
+  opacity: 0.92;
+  /* dark halo keeps the white glyph legible over both dark and light thumbnails */
   text-shadow: 0 0 20px rgba(0,0,0,0.55);
   pointer-events: none;
 }

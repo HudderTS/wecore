@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>Pricing | WECORE</title>
+  <meta content="Flexible, transparent pricing for AI and HPC workloads. Pay as you go by the hour or reserve capacity — choose the model that fits your usage and control needs." name="description"/>
+  <link href="https://wecore.ir/en/pricing/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/pricing/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/pricing/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/pricing/" hreflang="x-default" rel="alternate"/>
+  <meta content="Pricing | WECORE" property="og:title"/>
+  <meta content="Flexible, transparent pricing for AI and HPC workloads. Pay as you go by the hour or reserve capacity — choose the model that fits your usage and control needs." property="og:description"/>
+  <meta content="https://wecore.ir/en/pricing/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="fa_IR" property="og:locale:alternate"/>
+  <meta content="Pricing | WECORE" name="twitter:title"/>
+  <meta content="Flexible, transparent pricing for AI and HPC workloads. Pay as you go by the hour or reserve capacity — choose the model that fits your usage and control needs." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/geist/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('pricing', { period: 'hourly' });
+  });
+</script>
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../en/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../en/">
+          Home
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            All Services
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              Products
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/hpc/">
+                 Cloud HPC
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Cloud, private &amp; hybrid HPC
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/cloud-servers/">
+                 Cloud Server
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Self-serve virtual machines
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/caas/">
+                 Private Cloud
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Dedicated OpenStack cloud
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/kaas/">
+                 Kubernetes
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Managed K8s clusters
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/qsim/">
+                 Quantum Simulation
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 GPU quantum workflows
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Company
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/about/">
+               About
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/pricing/">
+               Pricing
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Plan
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Partnerships
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/subscribe/">
+               Subscribe
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Support
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/contact/">
+               Contact
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Resources
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/apps/">
+               Apps
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/articles/">
+               Blog
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Documentation
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Why WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Performance
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Sustainability
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/product/">
+               Product
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../en/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                Consult WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               Plan the right HPC, GPU, and AI deployment model
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../fa/pricing/">
+           Fa
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../en/sign-up/">
+           Register / Login
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="Key Features">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            Key Features
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Cloud, private, and hybrid HPC
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              GPU-ready environments
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Ready-to-run software
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Self-service workflows
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Expert deployment support
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../fa/pricing/" target="">
+         Fa
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../en/sign-up/" target="">
+         Register / Login
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../en/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content" x-data="{}">
+
+    
+    <section class="section_pricing_hero">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="hd-container-md hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center hd-text-300">
+         Pricing
+        </div>
+        <div class="hd-vspace-sm"></div>
+        <h1 class="hd-text-center">
+         Pricing built for technical workloads
+        </h1>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center">
+         Hourly, pay-as-you-use pricing across servers, clusters, and GPUs — with a clear monthly view. Pick a product, pick a flavor.
+        </div>
+        <div class="hd-vspace-sm"></div>
+
+        
+        <div class="pricing-toggle-row hd-justify-center">
+         <div class="pricing-toggle hd-segmented" role="group" aria-label="Billing period">
+          <button type="button" class="pricing-toggle-btn hd-segmented-item"
+                  :class="{ 'is-active': $store.pricing.period === 'hourly' }"
+                  :aria-pressed="$store.pricing.period === 'hourly'"
+                  @click="$store.pricing.period = 'hourly'">
+           Hourly
+          </button>
+          <button type="button" class="pricing-toggle-btn hd-segmented-item"
+                  :class="{ 'is-active': $store.pricing.period === 'monthly' }"
+                  :aria-pressed="$store.pricing.period === 'monthly'"
+                  @click="$store.pricing.period = 'monthly'">
+           Monthly
+          </button>
+         </div>
+         <div class="pricing-toggle-note hd-text-tiny hd-text-muted">Monthly = hourly × 730</div>
+        </div>
+
+        <div class="hd-vspace-sm"></div>
+        
+        <div class="hd-button-group hd-align-center">
+         
+         <a class="hd-button " href="../../en/demo">
+          Book a Demo
+         </a>
+         
+         <a class="hd-button hd-button-secondary" href="../../en/contact">
+          Talk to Sales
+         </a>
+         
+        </div>
+        
+        <div class="hd-vspace-sm"></div>
+        <p class="pricing-disclaimer hd-text-tiny hd-text-muted">
+         Indicative placeholder pricing. Figures are derived from WECORE&#39;s internal unit-rate model — CPU 3,000, RAM 600, storage 120 Toman per unit-hour; Marketplace 5,100 Toman per core-hour × profile — at a placeholder rate of 1 USD = 60,000 Toman, with monthly = hourly × 730. These are not committed prices; final pricing is confirmed at launch.
+
+        </p>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    
+    <div class="pricing-prodnav-wrap">
+     <div class="hd-container">
+      <nav class="pricing-prodnav" aria-label="Products">
+       <div class="pricing-prodnav-links">
+        
+        <a class="pricing-prodnav-link" href="#cloud-servers">Cloud Servers</a>
+        
+        <a class="pricing-prodnav-link" href="#kubernetes">Kubernetes</a>
+        
+        <a class="pricing-prodnav-link" href="#cloud-hpc">Cloud HPC</a>
+        
+        <a class="pricing-prodnav-link" href="#marketplace">Marketplace</a>
+        
+        <a class="pricing-prodnav-link" href="#llm">LLM</a>
+        
+        <a class="pricing-prodnav-link" href="#cloud-desktop">Cloud Desktop</a>
+        
+       </div>
+       <div class="pricing-toggle pricing-toggle-compact hd-segmented" role="group" aria-label="Billing period">
+        <button type="button" class="pricing-toggle-btn hd-segmented-item"
+                :class="{ 'is-active': $store.pricing.period === 'hourly' }"
+                :aria-pressed="$store.pricing.period === 'hourly'"
+                @click="$store.pricing.period = 'hourly'">
+         Hourly
+        </button>
+        <button type="button" class="pricing-toggle-btn hd-segmented-item"
+                :class="{ 'is-active': $store.pricing.period === 'monthly' }"
+                :aria-pressed="$store.pricing.period === 'monthly'"
+                @click="$store.pricing.period = 'monthly'">
+         Monthly
+        </button>
+       </div>
+      </nav>
+     </div>
+    </div>
+
+    
+    
+    <section class="section_pricing_product pricing-product" id="cloud-servers">
+     <div class="hd-section-md">
+      <div class="hd-container">
+
+       <div class="pricing-product-grid" data-hd-animate="fade-up">
+        
+        <div class="plan_hero_content pricing-spec-card">
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge">Compute</div>
+          
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="hd-h3 hd-text-alternate">Cloud Servers</h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">Hourly-billed virtual machines with NVMe storage and fair-use egress. Choose a family, then a flavor.</div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-chips">
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">vCPU</span>
+           <span class="pricing-chip-value">1 – 32</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">RAM</span>
+           <span class="pricing-chip-value">4 – 256 GB</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Storage</span>
+           <span class="pricing-chip-value">50 – 1000 GB NVMe</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Network</span>
+           <span class="pricing-chip-value">Fair-use egress</span>
+          </div>
+          
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <div class="divider"></div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-startfrom">
+          <div class="hd-text-tiny hd-text-muted">Starting from</div>
+          <div class="plan_hero_price">
+           <div class="hd-h2 hd-text-alternate">
+            <span x-show="$store.pricing.period === 'hourly'">5,400</span>
+            <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,942,000</span>
+           </div>
+           <div class="hd-text-muted">
+            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
+           </div>
+          </div>
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <a class="hd-button hd-button-alternate hd-max-full" href="../../en/contact">Launch a server</a>
+        </div>
+
+        
+        <div class="pricing-product-side">
+         <div class="hd-badge">Highlights</div>
+         <div class="hd-vspace-sm"></div>
+         <ul class="pricing-feature-list" role="list">
+          
+          <li class="pricing-feature">Pay only for what runs — billed by the hour, capped to a clean monthly view</li>
+          
+          <li class="pricing-feature">General-purpose, CPU-optimized and memory-optimized families</li>
+          
+          <li class="pricing-feature">1 public IPv4 &#43; IPv6 included; outbound egress under a fair-use quota</li>
+          
+          <li class="pricing-feature">Root access, your choice of OS image, ready in minutes</li>
+          
+         </ul>
+         
+        </div>
+       </div>
+
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
+        
+        <div class="pricing-tabstrip" role="tablist" aria-label="Cloud Servers options">
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 0 }"
+                 :aria-selected="tab === 0"
+                 @click="tab = 0">
+          General Purpose
+         </button>
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 1 }"
+                 :aria-selected="tab === 1"
+                 @click="tab = 1">
+          CPU-Optimized
+         </button>
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 2 }"
+                 :aria-selected="tab === 2"
+                 @click="tab = 2">
+          Memory-Optimized
+         </button>
+         
+        </div>
+        
+
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 0">
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Flavor</th><th scope="col">vCPU</th><th scope="col">RAM</th><th scope="col">Storage</th>
+             <th scope="col" class="is-price">Price</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Flavor">g1.small</td>
+             
+             <td data-label="vCPU">1</td>
+             
+             <td data-label="RAM">4 GB</td>
+             
+             <td data-label="Storage">50 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">5,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,942,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">g2.medium</td>
+             
+             <td data-label="vCPU">2</td>
+             
+             <td data-label="RAM">8 GB</td>
+             
+             <td data-label="Storage">80 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">10,800 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">g4.large</td>
+             
+             <td data-label="vCPU">4</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td data-label="Storage">160 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">21,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">g8.xlarge</td>
+             
+             <td data-label="vCPU">8</td>
+             
+             <td data-label="RAM">32 GB</td>
+             
+             <td data-label="Storage">320 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">43,200 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>31,536,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">g16.2xlarge</td>
+             
+             <td data-label="vCPU">16</td>
+             
+             <td data-label="RAM">64 GB</td>
+             
+             <td data-label="Storage">640 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">86,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>63,072,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 1" x-cloak>
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Flavor</th><th scope="col">vCPU</th><th scope="col">RAM</th><th scope="col">Storage</th>
+             <th scope="col" class="is-price">Price</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Flavor">c2.medium</td>
+             
+             <td data-label="vCPU">2</td>
+             
+             <td data-label="RAM">4 GB</td>
+             
+             <td data-label="Storage">60 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">8,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>6,132,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">c4.large</td>
+             
+             <td data-label="vCPU">4</td>
+             
+             <td data-label="RAM">8 GB</td>
+             
+             <td data-label="Storage">100 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">16,800 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>12,264,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">c8.xlarge</td>
+             
+             <td data-label="vCPU">8</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td data-label="Storage">200 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">33,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>24,528,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">c16.2xlarge</td>
+             
+             <td data-label="vCPU">16</td>
+             
+             <td data-label="RAM">32 GB</td>
+             
+             <td data-label="Storage">320 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">67,200 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>49,056,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">c32.4xlarge</td>
+             
+             <td data-label="vCPU">32</td>
+             
+             <td data-label="RAM">64 GB</td>
+             
+             <td data-label="Storage">480 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">134,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>98,112,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 2" x-cloak>
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Flavor</th><th scope="col">vCPU</th><th scope="col">RAM</th><th scope="col">Storage</th>
+             <th scope="col" class="is-price">Price</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Flavor">m2.large</td>
+             
+             <td data-label="vCPU">2</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td data-label="Storage">80 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">15,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>11,388,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">m4.xlarge</td>
+             
+             <td data-label="vCPU">4</td>
+             
+             <td data-label="RAM">32 GB</td>
+             
+             <td data-label="Storage">160 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">31,200 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>22,776,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">m8.2xlarge</td>
+             
+             <td data-label="vCPU">8</td>
+             
+             <td data-label="RAM">64 GB</td>
+             
+             <td data-label="Storage">320 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">62,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>45,552,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">m16.4xlarge</td>
+             
+             <td data-label="vCPU">16</td>
+             
+             <td data-label="RAM">128 GB</td>
+             
+             <td data-label="Storage">640 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">124,800 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>91,104,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Flavor">m32.8xlarge</td>
+             
+             <td data-label="vCPU">32</td>
+             
+             <td data-label="RAM">256 GB</td>
+             
+             <td data-label="Storage">1000 GB NVMe</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">249,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>182,208,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+       </div>
+
+       
+       
+       <div class="hd-vspace-md"></div>
+       <div class="pricing-addons">
+        <div class="hd-text-sm hd-text-medium">Add-ons</div>
+        <div class="hd-vspace-xs"></div>
+        <div class="pricing-table-scroll">
+         <table class="pricing-table pricing-table-addons">
+          <thead>
+           <tr>
+            <th scope="col">Item</th>
+            <th scope="col" class="is-price">Price</th>
+           </tr>
+          </thead>
+          <tbody>
+           
+           
+           <tr>
+            
+            <td data-label="Item">Extra block storage</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">120 Toman / GB·hr</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 Toman / GB·mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Additional public IPv4 address</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">—</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>90,000 Toman / mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Outbound transfer beyond fair-use</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">600 Toman / GB</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>600 Toman / GB</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Snapshot backup (per server)</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">&#43;20% of plan</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>&#43;20% of plan</span>
+            </td>
+           </tr>
+           
+          </tbody>
+         </table>
+        </div>
+       </div>
+       
+
+      </div>
+     </div>
+    </section>
+    
+    <section class="section_pricing_product pricing-product" id="kubernetes">
+     <div class="hd-section-md">
+      <div class="hd-container">
+
+       <div class="pricing-product-grid" data-hd-animate="fade-up">
+        
+        <div class="plan_hero_content pricing-spec-card">
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge">Managed Kubernetes</div>
+          
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="hd-h3 hd-text-alternate">Kubernetes</h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">A managed control plane with autoscaling worker node-groups. Free control plane on Development — pay only for the nodes you run.</div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-chips">
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Control plane</span>
+           <span class="pricing-chip-value">Free – HA</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Workers</span>
+           <span class="pricing-chip-value">2 – 16 vCPU</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Nodes</span>
+           <span class="pricing-chip-value">up to 120</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Billing</span>
+           <span class="pricing-chip-value">Observed · Reserved · Hybrid</span>
+          </div>
+          
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <div class="divider"></div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-startfrom">
+          <div class="hd-text-tiny hd-text-muted">Starting from</div>
+          <div class="plan_hero_price">
+           <div class="hd-h2 hd-text-alternate">
+            <span x-show="$store.pricing.period === 'hourly'">Free</span>
+            <span x-show="$store.pricing.period === 'monthly'" x-cloak>Free</span>
+           </div>
+           <div class="hd-text-muted">
+            control plane
+           </div>
+          </div>
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <a class="hd-button hd-button-alternate hd-max-full" href="../../en/contact">Design a cluster</a>
+        </div>
+
+        
+        <div class="pricing-product-side">
+         <div class="hd-badge">Highlights</div>
+         <div class="hd-vspace-sm"></div>
+         <ul class="pricing-feature-list" role="list">
+          
+          <li class="pricing-feature">Free control plane on Development; highly-available control plane on Production</li>
+          
+          <li class="pricing-feature">Worker node-groups bill per node, minimum 2 GB RAM, autoscaling supported</li>
+          
+          <li class="pricing-feature">Three charge modes: Observed (pay for running nodes), Reserved-max (pay for reserved capacity), Hybrid</li>
+          
+          <li class="pricing-feature">Managed upgrades, ingress and monitoring baked in</li>
+          
+         </ul>
+         
+        </div>
+       </div>
+
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
+        
+        <div class="pricing-tabstrip" role="tablist" aria-label="Kubernetes options">
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 0 }"
+                 :aria-selected="tab === 0"
+                 @click="tab = 0">
+          Control plane
+         </button>
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 1 }"
+                 :aria-selected="tab === 1"
+                 @click="tab = 1">
+          Worker node-groups
+         </button>
+         
+        </div>
+        
+
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 0">
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Tier</th><th scope="col">Nodes</th><th scope="col">High availability</th>
+             <th scope="col" class="is-price">Price</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Tier">Development</td>
+             
+             <td data-label="Nodes">1 (non-HA)</td>
+             
+             <td data-label="High availability">No</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">Free</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>Free</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Tier">Production</td>
+             
+             <td data-label="Nodes">3 (HA)</td>
+             
+             <td data-label="High availability">Yes</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">25,200 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>18,396,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 1" x-cloak>
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Node size</th><th scope="col">vCPU</th><th scope="col">RAM</th>
+             <th scope="col" class="is-price">Price per node</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Node size">worker-2</td>
+             
+             <td data-label="vCPU">2</td>
+             
+             <td data-label="RAM">8 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">10,800 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node size">worker-4</td>
+             
+             <td data-label="vCPU">4</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">21,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node size">worker-8</td>
+             
+             <td data-label="vCPU">8</td>
+             
+             <td data-label="RAM">32 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">43,200 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>31,536,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node size">worker-16</td>
+             
+             <td data-label="vCPU">16</td>
+             
+             <td data-label="RAM">64 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">86,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>63,072,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+       </div>
+
+       
+       
+       <div class="hd-vspace-md"></div>
+       <div class="pricing-addons">
+        <div class="hd-text-sm hd-text-medium">Add-ons</div>
+        <div class="hd-vspace-xs"></div>
+        <div class="pricing-table-scroll">
+         <table class="pricing-table pricing-table-addons">
+          <thead>
+           <tr>
+            <th scope="col">Item</th>
+            <th scope="col" class="is-price">Price</th>
+           </tr>
+          </thead>
+          <tbody>
+           
+           
+           <tr>
+            
+            <td data-label="Item">Managed load balancer</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">—</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>180,000 Toman / mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Floating IP</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">—</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>90,000 Toman / mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Persistent volume storage</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">120 Toman / GB·hr</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 Toman / GB·mo</span>
+            </td>
+           </tr>
+           
+          </tbody>
+         </table>
+        </div>
+       </div>
+       
+
+      </div>
+     </div>
+    </section>
+    
+    <section class="section_pricing_product pricing-product" id="cloud-hpc">
+     <div class="hd-section-md">
+      <div class="hd-container">
+
+       <div class="pricing-product-grid" data-hd-animate="fade-up">
+        
+        <div class="plan_hero_content pricing-spec-card">
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge">HPC as a Service</div>
+          
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="hd-h3 hd-text-alternate">Cloud HPC</h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">A fully-configured Slurm cluster with Open OnDemand. Control, login and compute nodes are billed per node-hour and summed.</div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-chips">
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Roles</span>
+           <span class="pricing-chip-value">Control · Login · Compute</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Compute</span>
+           <span class="pricing-chip-value">8 – 32 vCPU</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">RAM</span>
+           <span class="pricing-chip-value">up to 128 GB</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Scheduler</span>
+           <span class="pricing-chip-value">Slurm &#43; Open OnDemand</span>
+          </div>
+          
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <div class="divider"></div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-startfrom">
+          <div class="hd-text-tiny hd-text-muted">Starting from</div>
+          <div class="plan_hero_price">
+           <div class="hd-h2 hd-text-alternate">
+            <span x-show="$store.pricing.period === 'hourly'">10,800</span>
+            <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000</span>
+           </div>
+           <div class="hd-text-muted">
+            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
+           </div>
+          </div>
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <a class="hd-button hd-button-alternate hd-max-full" href="../../en/hpc">Build my cluster</a>
+        </div>
+
+        
+        <div class="pricing-product-side">
+         <div class="hd-badge">Highlights</div>
+         <div class="hd-vspace-sm"></div>
+         <ul class="pricing-feature-list" role="list">
+          
+          <li class="pricing-feature">Batch scheduling with Slurm; browser access via Open OnDemand</li>
+          
+          <li class="pricing-feature">Per-node-hour billing summed across control, login and compute roles</li>
+          
+          <li class="pricing-feature">Add extra Slurm partitions (compute pools) sized to the workload</li>
+          
+          <li class="pricing-feature">Prometheus &#43; Grafana monitoring included</li>
+          
+         </ul>
+         
+        </div>
+       </div>
+
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
+        
+        <div class="pricing-tabstrip" role="tablist" aria-label="Cloud HPC options">
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 0 }"
+                 :aria-selected="tab === 0"
+                 @click="tab = 0">
+          Control
+         </button>
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 1 }"
+                 :aria-selected="tab === 1"
+                 @click="tab = 1">
+          Login
+         </button>
+         
+         <button type="button" class="pricing-tab" role="tab"
+                 :class="{ 'is-active': tab === 2 }"
+                 :aria-selected="tab === 2"
+                 @click="tab = 2">
+          Compute
+         </button>
+         
+        </div>
+        
+
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 0">
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Node</th><th scope="col">vCPU</th><th scope="col">RAM</th>
+             <th scope="col" class="is-price">Price per node</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Node">hpc-control</td>
+             
+             <td data-label="vCPU">4</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">21,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 1" x-cloak>
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Node</th><th scope="col">vCPU</th><th scope="col">RAM</th>
+             <th scope="col" class="is-price">Price per node</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Node">hpc-login</td>
+             
+             <td data-label="vCPU">2</td>
+             
+             <td data-label="RAM">8 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">10,800 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node">hpc-login-lg</td>
+             
+             <td data-label="vCPU">4</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">21,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 2" x-cloak>
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Node</th><th scope="col">vCPU</th><th scope="col">RAM</th>
+             <th scope="col" class="is-price">Price per node</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Node">compute-c8</td>
+             
+             <td data-label="vCPU">8</td>
+             
+             <td data-label="RAM">16 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">33,600 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>24,528,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node">compute-c16</td>
+             
+             <td data-label="vCPU">16</td>
+             
+             <td data-label="RAM">32 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">67,200 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>49,056,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node">compute-c32</td>
+             
+             <td data-label="vCPU">32</td>
+             
+             <td data-label="RAM">64 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">134,400 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>98,112,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Node">compute-m16</td>
+             
+             <td data-label="vCPU">16</td>
+             
+             <td data-label="RAM">128 GB</td>
+             
+             <td class="is-price" data-label="Price per node">
+              <span x-show="$store.pricing.period === 'hourly'">124,800 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>91,104,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+       </div>
+
+       
+       
+       <div class="hd-vspace-md"></div>
+       <div class="pricing-addons">
+        <div class="hd-text-sm hd-text-medium">Add-ons</div>
+        <div class="hd-vspace-xs"></div>
+        <div class="pricing-table-scroll">
+         <table class="pricing-table pricing-table-addons">
+          <thead>
+           <tr>
+            <th scope="col">Item</th>
+            <th scope="col" class="is-price">Price</th>
+           </tr>
+          </thead>
+          <tbody>
+           
+           
+           <tr>
+            
+            <td data-label="Item">Open OnDemand web access</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">Included</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>Included</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Shared scratch storage</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">120 Toman / GB·hr</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 Toman / GB·mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Cluster monitoring (Grafana)</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">Included</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>Included</span>
+            </td>
+           </tr>
+           
+          </tbody>
+         </table>
+        </div>
+       </div>
+       
+
+      </div>
+     </div>
+    </section>
+    
+    <section class="section_pricing_product pricing-product" id="marketplace">
+     <div class="hd-section-md">
+      <div class="hd-container">
+
+       <div class="pricing-product-grid" data-hd-animate="fade-up">
+        
+        <div class="plan_hero_content pricing-spec-card">
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge">Scientific Apps on Slurm</div>
+          
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="hd-h3 hd-text-alternate">Marketplace</h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">Ready-to-run scientific software on managed Slurm. Priced per core-hour at a base rate, scaled by a node-profile multiplier.</div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-chips">
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Apps</span>
+           <span class="pricing-chip-value">OpenFOAM · LAMMPS · GAUSSIAN</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Profiles</span>
+           <span class="pricing-chip-value">32 – 64 cores</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">GPU</span>
+           <span class="pricing-chip-value">Visualization A10</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Base rate</span>
+           <span class="pricing-chip-value">5,100 Toman / core·hr</span>
+          </div>
+          
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <div class="divider"></div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-startfrom">
+          <div class="hd-text-tiny hd-text-muted">Starting from</div>
+          <div class="plan_hero_price">
+           <div class="hd-h2 hd-text-alternate">
+            <span x-show="$store.pricing.period === 'hourly'">5,100</span>
+            <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,723,000</span>
+           </div>
+           <div class="hd-text-muted">
+            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
+           </div>
+          </div>
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <a class="hd-button hd-button-alternate hd-max-full" href="../../en/apps">Browse the marketplace</a>
+        </div>
+
+        
+        <div class="pricing-product-side">
+         <div class="hd-badge">Highlights</div>
+         <div class="hd-vspace-sm"></div>
+         <ul class="pricing-feature-list" role="list">
+          
+          <li class="pricing-feature">One-click simulation jobs on a managed Slurm backend</li>
+          
+          <li class="pricing-feature">Cost = cores × price-per-core × node count; base $0.085/core-hr</li>
+          
+          <li class="pricing-feature">Memory profile ×1.35, GPU visualization profile ×3.9</li>
+          
+          <li class="pricing-feature">Bring-your-own-license supported for restricted packages</li>
+          
+         </ul>
+         
+         <div class="hd-vspace-md"></div>
+         <div class="hd-badge">Available apps</div>
+         <div class="hd-vspace-sm"></div>
+         <div class="pricing-app-cards">
+          
+          <div class="pricing-app-card">
+           <div class="pricing-app-card-top">
+            <span class="pricing-app-name">OpenFOAM</span>
+            <span class="pricing-app-status">Preview</span>
+           </div>
+           <span class="pricing-app-note hd-text-tiny hd-text-muted">Computational fluid dynamics</span>
+          </div>
+          
+          <div class="pricing-app-card">
+           <div class="pricing-app-card-top">
+            <span class="pricing-app-name">LAMMPS</span>
+            <span class="pricing-app-status">Indicative</span>
+           </div>
+           <span class="pricing-app-note hd-text-tiny hd-text-muted">Molecular dynamics</span>
+          </div>
+          
+          <div class="pricing-app-card">
+           <div class="pricing-app-card-top">
+            <span class="pricing-app-name">GAUSSIAN</span>
+            <span class="pricing-app-status">Indicative</span>
+           </div>
+           <span class="pricing-app-note hd-text-tiny hd-text-muted">Computational chemistry (BYOL)</span>
+          </div>
+          
+         </div>
+         
+        </div>
+       </div>
+
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
+        
+
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 0">
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Profile</th><th scope="col">Cores / node</th><th scope="col">GPU</th><th scope="col">Multiplier</th>
+             <th scope="col" class="is-price">Price per core</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Profile">CFD Standard 32</td>
+             
+             <td data-label="Cores / node">32</td>
+             
+             <td data-label="GPU">—</td>
+             
+             <td data-label="Multiplier">×1.0</td>
+             
+             <td class="is-price" data-label="Price per core">
+              <span x-show="$store.pricing.period === 'hourly'">5,100 Toman / core·hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,723,000 Toman / core·mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Profile">CFD Memory 64</td>
+             
+             <td data-label="Cores / node">64</td>
+             
+             <td data-label="GPU">—</td>
+             
+             <td data-label="Multiplier">×1.35</td>
+             
+             <td class="is-price" data-label="Price per core">
+              <span x-show="$store.pricing.period === 'hourly'">6,885 Toman / core·hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>5,026,050 Toman / core·mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Profile">Visualization GPU A10</td>
+             
+             <td data-label="Cores / node">16</td>
+             
+             <td data-label="GPU">1× A10</td>
+             
+             <td data-label="Multiplier">×3.9</td>
+             
+             <td class="is-price" data-label="Price per core">
+              <span x-show="$store.pricing.period === 'hourly'">19,890 Toman / core·hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>14,519,700 Toman / core·mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+       </div>
+
+       
+       
+       <div class="hd-vspace-md"></div>
+       <div class="pricing-addons">
+        <div class="hd-text-sm hd-text-medium">Add-ons</div>
+        <div class="hd-vspace-xs"></div>
+        <div class="pricing-table-scroll">
+         <table class="pricing-table pricing-table-addons">
+          <thead>
+           <tr>
+            <th scope="col">Item</th>
+            <th scope="col" class="is-price">Price</th>
+           </tr>
+          </thead>
+          <tbody>
+           
+           
+           <tr>
+            
+            <td data-label="Item">Bring-your-own-license (GAUSSIAN)</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">—</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>—</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Shared project storage</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">120 Toman / GB·hr</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 Toman / GB·mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Remote desktop / visualization session</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">19,890 Toman / core·hr</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>14,519,700 Toman / core·mo</span>
+            </td>
+           </tr>
+           
+          </tbody>
+         </table>
+        </div>
+       </div>
+       
+
+      </div>
+     </div>
+    </section>
+    
+    <section class="section_pricing_product pricing-product" id="llm">
+     <div class="hd-section-md">
+      <div class="hd-container">
+
+       <div class="pricing-product-grid" data-hd-animate="fade-up">
+        
+        <div class="plan_hero_content pricing-spec-card">
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge">Inference</div>
+          <span class="pricing-status-pill">Launching</span>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="hd-h3 hd-text-alternate">LLM</h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">Serve open models such as Qwen on a managed vLLM endpoint. Per-GPU-instance pricing today; per-token billing is on the way.</div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-chips">
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Engine</span>
+           <span class="pricing-chip-value">vLLM</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Model</span>
+           <span class="pricing-chip-value">Qwen 3.6 27B</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">GPU</span>
+           <span class="pricing-chip-value">A10 – A100</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Billing</span>
+           <span class="pricing-chip-value">per GPU·hr (per-token soon)</span>
+          </div>
+          
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <div class="divider"></div>
+         <div class="hd-vspace-sm"></div>
+
+         <div class="pricing-startfrom">
+          <div class="hd-text-tiny hd-text-muted">Starting from</div>
+          <div class="plan_hero_price">
+           <div class="hd-h2 hd-text-alternate">
+            <span x-show="$store.pricing.period === 'hourly'">90,000</span>
+            <span x-show="$store.pricing.period === 'monthly'" x-cloak>65,700,000</span>
+           </div>
+           <div class="hd-text-muted">
+            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
+           </div>
+          </div>
+         </div>
+
+         <div class="hd-vspace-sm"></div>
+         <a class="hd-button hd-button-alternate hd-max-full" href="../../en/contact">Request access</a>
+        </div>
+
+        
+        <div class="pricing-product-side">
+         <div class="hd-badge">Highlights</div>
+         <div class="hd-vspace-sm"></div>
+         <ul class="pricing-feature-list" role="list">
+          
+          <li class="pricing-feature">OpenAI-compatible inference endpoint backed by vLLM</li>
+          
+          <li class="pricing-feature">License-verified open model catalog (Qwen 3.6 27B and more)</li>
+          
+          <li class="pricing-feature">Per-GPU-instance billing now; per-token billing coming at launch</li>
+          
+          <li class="pricing-feature">Reserve dedicated GPUs for steady inference workloads</li>
+          
+         </ul>
+         
+        </div>
+       </div>
+
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
+        
+
+        
+        
+        
+        <div class="pricing-tabpanel" role="tabpanel"
+             x-show="tab === 0">
+         <div class="pricing-table-scroll">
+          <table class="pricing-table">
+           <thead>
+            <tr>
+             <th scope="col">Instance</th><th scope="col">GPU</th><th scope="col">VRAM</th><th scope="col">Model fit</th>
+             <th scope="col" class="is-price">Price</th>
+            </tr>
+           </thead>
+           <tbody>
+            
+            <tr>
+             
+             <td data-label="Instance">llm.a10</td>
+             
+             <td data-label="GPU">1× A10</td>
+             
+             <td data-label="VRAM">24 GB</td>
+             
+             <td data-label="Model fit">Small models / 7B</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">90,000 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>65,700,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Instance">llm.l40s</td>
+             
+             <td data-label="GPU">1× L40S</td>
+             
+             <td data-label="VRAM">48 GB</td>
+             
+             <td data-label="Model fit">Qwen 27B inference</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">180,000 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>131,400,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Instance">llm.a100</td>
+             
+             <td data-label="GPU">1× A100</td>
+             
+             <td data-label="VRAM">80 GB</td>
+             
+             <td data-label="Model fit">Qwen 27B high-throughput</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">360,000 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>262,800,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+            <tr>
+             
+             <td data-label="Instance">llm.a100x2</td>
+             
+             <td data-label="GPU">2× A100</td>
+             
+             <td data-label="VRAM">160 GB</td>
+             
+             <td data-label="Model fit">Long-context / batch</td>
+             
+             <td class="is-price" data-label="Price">
+              <span x-show="$store.pricing.period === 'hourly'">720,000 Toman / hr</span>
+              <span x-show="$store.pricing.period === 'monthly'" x-cloak>525,600,000 Toman / mo</span>
+             </td>
+            </tr>
+            
+           </tbody>
+          </table>
+         </div>
+        </div>
+        
+       </div>
+
+       
+       
+       <div class="hd-vspace-md"></div>
+       <div class="pricing-addons">
+        <div class="hd-text-sm hd-text-medium">Add-ons</div>
+        <div class="hd-vspace-xs"></div>
+        <div class="pricing-table-scroll">
+         <table class="pricing-table pricing-table-addons">
+          <thead>
+           <tr>
+            <th scope="col">Item</th>
+            <th scope="col" class="is-price">Price</th>
+           </tr>
+          </thead>
+          <tbody>
+           
+           
+           <tr>
+            
+            <td data-label="Item">Per-token pricing</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">Coming soon</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>Coming soon</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Persistent model-cache storage</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">120 Toman / GB·hr</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 Toman / GB·mo</span>
+            </td>
+           </tr>
+           
+           <tr>
+            
+            <td data-label="Item">Dedicated reserved GPU</td>
+            
+            <td class="is-price" data-label="Price">
+             <span x-show="$store.pricing.period === 'hourly'">—</span>
+             <span x-show="$store.pricing.period === 'monthly'" x-cloak>Contact us</span>
+            </td>
+           </tr>
+           
+          </tbody>
+         </table>
+        </div>
+       </div>
+       
+
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_pricing_product pricing-product" id="cloud-desktop">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="pricing-comingsoon" data-hd-animate="fade-up">
+        <div class="pricing-comingsoon-head">
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge">Planned</div>
+          <span class="pricing-status-pill is-soon">Coming soon</span>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="hd-h3 hd-text-alternate">Cloud Desktop</h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">A full Linux desktop in your browser — secure, GPU-optional, with no SSH or VPN client to set up.</div>
+        </div>
+        <div class="pricing-comingsoon-body">
+         <div class="pricing-chips">
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">vCPU</span>
+           <span class="pricing-chip-value">4 – 16 (indicative)</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">RAM</span>
+           <span class="pricing-chip-value">16 – 64 GB (indicative)</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">GPU</span>
+           <span class="pricing-chip-value">Optional</span>
+          </div>
+          
+          <div class="pricing-chip">
+           <span class="pricing-chip-label">Access</span>
+           <span class="pricing-chip-value">Browser, no client</span>
+          </div>
+          
+         </div>
+         <div class="hd-vspace-sm"></div>
+         <ul class="pricing-feature-list pricing-feature-list-soon" role="list">
+          
+          <li class="pricing-feature">Web-based graphical desktop — a bigger laptop, in the cloud</li>
+          
+          <li class="pricing-feature">Secure access with no SSH client or VPN setup</li>
+          
+          <li class="pricing-feature">GPU-optional for visualization and ML workflows</li>
+          
+          <li class="pricing-feature">Persistent home volume that follows your session</li>
+          
+         </ul>
+         <div class="hd-vspace-sm"></div>
+         <a class="hd-button hd-button-alternate" href="../../en/contact">Register interest</a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_home_faq">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">FAQ</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-center">Pricing questions, answered</h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center">How billing works, what these placeholder numbers mean, and how to keep costs under control</div>
+        <div class="hd-vspace-lg"></div>
+       </div>
+       <div class="hd-align-center">
+        <div class="home_faq_box" x-data="{ active: null }">
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-0" aria-controls="pfaq-panel-0"
+                  aria-expanded="false" :aria-expanded="active === 0"
+                  @click="active = (active === 0 ? null : 0)">
+           <div class="faq_question_header">
+            <div>How does WECORE billing work?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 0" :class="{ 'hd-faq-panel-open': active === 0 }" id="pfaq-panel-0">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Everything is pay-as-you-use and billed by the hour. The monthly figure shown is simply the hourly rate × 730 (the average hours in a month) so you can compare at a glance — you are still billed per hour for on-demand resources.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-1" aria-controls="pfaq-panel-1"
+                  aria-expanded="false" :aria-expanded="active === 1"
+                  @click="active = (active === 1 ? null : 1)">
+           <div class="faq_question_header">
+            <div>Are these prices final?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 1" :class="{ 'hd-faq-panel-open': active === 1 }" id="pfaq-panel-1">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">No. Every figure on this page is an <strong>indicative placeholder</strong> in Toman, derived from our internal unit-rate model at a placeholder rate of 1 USD = 60,000 Toman. They keep the whole ladder consistent, but they are not committed prices — final pricing is confirmed at launch.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-2" aria-controls="pfaq-panel-2"
+                  aria-expanded="false" :aria-expanded="active === 2"
+                  @click="active = (active === 2 ? null : 2)">
+           <div class="faq_question_header">
+            <div>What does the hourly ⇄ monthly toggle change?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 2" :class="{ 'hd-faq-panel-open': active === 2 }" id="pfaq-panel-2">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Only the view. Monthly = hourly × 730. Toggle it to compare a quick monthly estimate against the hourly rate you are actually charged.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-3" aria-controls="pfaq-panel-3"
+                  aria-expanded="false" :aria-expanded="active === 3"
+                  @click="active = (active === 3 ? null : 3)">
+           <div class="faq_question_header">
+            <div>Pay-as-you-use or reserved capacity?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 3" :class="{ 'hd-faq-panel-open': active === 3 }" id="pfaq-panel-3">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">On-demand resources bill only while they run (the <em>Observed</em> mode). For steady workloads you can reserve capacity (<em>Reserved-max</em>) or mix both (<em>Hybrid</em>) on Kubernetes and HPC clusters.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-4" aria-controls="pfaq-panel-4"
+                  aria-expanded="false" :aria-expanded="active === 4"
+                  @click="active = (active === 4 ? null : 4)">
+           <div class="faq_question_header">
+            <div>How do I stop charges?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 4" :class="{ 'hd-faq-panel-open': active === 4 }" id="pfaq-panel-4">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Power off or delete the resource. Servers and clusters bill while they are active; deleting a cluster stops its charges immediately.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-5" aria-controls="pfaq-panel-5"
+                  aria-expanded="false" :aria-expanded="active === 5"
+                  @click="active = (active === 5 ? null : 5)">
+           <div class="faq_question_header">
+            <div>Is data transfer charged?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 5" :class="{ 'hd-faq-panel-open': active === 5 }" id="pfaq-panel-5">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Inbound and in-network traffic are free. Outbound egress has a fair-use quota; beyond it, transfer is billed per GB at the placeholder network rate.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-6" aria-controls="pfaq-panel-6"
+                  aria-expanded="false" :aria-expanded="active === 6"
+                  @click="active = (active === 6 ? null : 6)">
+           <div class="faq_question_header">
+            <div>What currency and payment methods do you support?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 6 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 6" :class="{ 'hd-faq-panel-open': active === 6 }" id="pfaq-panel-6">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Prices are quoted in Toman. For Iranian customers, payments settle in Rial via Zarinpal; enterprise invoicing is available on request.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="pfaq-trigger-7" aria-controls="pfaq-panel-7"
+                  aria-expanded="false" :aria-expanded="active === 7"
+                  @click="active = (active === 7 ? null : 7)">
+           <div class="faq_question_header">
+            <div>Can you help me size and quote a deployment?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 7 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 7" :class="{ 'hd-faq-panel-open': active === 7 }" id="pfaq-panel-7">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Yes. Book a demo or talk to our team and we'll size the infrastructure and prepare a tailored quote for your workload.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_pricing_cta">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="plan_hero_content pricing-cta" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-300">Talk to us</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-alternate">Need help sizing this infrastructure?</h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-muted">Tell us about your workload and we&#39;ll design the right mix of servers, clusters, and GPUs — and prepare a tailored quote.</div>
+        <div class="hd-vspace-lg"></div>
+        <div class="hd-button-group hd-align-center">
+         <a class="hd-button hd-button-alternate" href="../../en/demo">Book a Demo</a>
+         <a class="hd-button hd-button-alternate-secondary" href="../../en/contact">Talk to Sales</a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="WECORE Logo" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           Cloud, private, and hybrid HPC for technical teams
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Platform
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/">
+           Home
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/product">
+           Product
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/caas">
+           CaaS
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/hpc">
+           Cloud HPC
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/apps">
+           Apps
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/pricing/">
+           Pricing
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Company
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/about">
+           About
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/contact">
+           Contact
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/demo">
+           Request Demo
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/articles">
+           Articles
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Account
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/sign-in">
+           Sign in
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/sign-up">
+           Sign up
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/forgot-password">
+           Forgot Password
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/subscribe">
+           Subscribe
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © Copyright 2026 |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE provides cloud, private, and hybrid HPC infrastructure for technical teams. Deployment terms, pricing, and support scope are confirmed during consultation.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur"></div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>HPC on WECORE</title>
+		<link>https://wecore.ir/en/categories/hpc/</link>
+		<description>Recent content in HPC on WECORE</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://wecore.ir/en/categories/hpc/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era</title>
+				<link>https://wecore.ir/en/articles/cloud-hpc-guide/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://wecore.ir/en/articles/cloud-hpc-guide/</guid>
+				<description>&lt;p&gt;&#xA;High-performance computing used to mean one thing: a room-sized supercomputer that only governments and Fortune 500 companies could afford. That era is over. Today, HPC is a rapidly growing global market — projected to reach &lt;strong&gt;USD 87.5 billion by 2031&lt;/strong&gt; at a compound annual growth rate of &lt;strong&gt;7.79%&lt;/strong&gt; (Mordor Intelligence, 2026) — and cloud technology is the single biggest reason why.&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;But what exactly is HPC? How is it different from a supercomputer? And why are research labs, pharmaceutical companies, engineering firms, and AI startups all moving their most demanding workloads to the cloud? This guide answers all of that — and shows how WECORE&#39;s Slurm-based Cloud HPC platform brings enterprise-grade computing within reach of any team.&#xA;&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

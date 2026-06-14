@@ -1,0 +1,2310 @@
+/* ==========================================================================
+   hd.css — WECORE HD utility layer
+   --------------------------------------------------------------------------
+   Standalone utility stylesheet for the Webflow → HD migration (task W1.1).
+   Covers: reset/base, container, grid, spacing, section padding, typography,
+   display/flex, max-width, and alignment.
+
+   Every value references an --hd-* token from hd-tokens.css — no hardcoded
+   colors/sizes (a few structural constants like 1fr, auto, 100% excepted).
+   Depends on: hd-tokens.css (W0.2 + W1.1 token additions).
+
+   This file only DEFINES .hd-* classes; no template uses them yet (templates
+   migrate in W4), so it is safe to load alongside the Webflow CSS with no
+   visual change to the current site.
+
+   --------------------------------------------------------------------------
+   WEBFLOW (Client-First) → HD CLASS LOOKUP TABLE
+   --------------------------------------------------------------------------
+   Container / layout
+     .container-default ............ .hd-container
+     .container-medium ............. .hd-container-md  (or .hd-container.hd-max-md)
+     .container-large .............. .hd-container-lg
+     .container-small / -x-large ... .hd-container-sm / .hd-container-xl
+     .padding-global ............... .hd-padding-global  (folded into .hd-container)
+   Section padding
+     .padding-section-small ........ .hd-section-sm
+     .padding-section-medium ....... .hd-section-md
+     .padding-section-large ........ .hd-section-lg
+   Spacers (vertical rhythm; original = padding-top on a full-width block).
+   HD scale is 1:1 with Webflow — same name, same value, same responsive ramp:
+     .spacer-xxsmall (.5rem) ....... .hd-spacer-xxs
+     .spacer-xsmall  (1rem) ........ .hd-spacer-xs
+     .spacer-small   (1.5rem) ...... .hd-spacer-sm
+     .spacer-medium  (2rem) ........ .hd-spacer-md
+     .spacer-large   (3rem) ........ .hd-spacer-lg
+     .spacer-xlarge  (3.75rem) ..... .hd-spacer-xl
+     .spacer-xxlarge (6rem) ........ .hd-spacer-xxl
+   Typography
+     h1 / .heading-style-h1 ........ .hd-h1
+     h2 / .heading-style-h2 ........ .hd-h2
+     h3 / .heading-style-h3 ........ .hd-h3
+     h4 / .heading-style-h4 ........ .hd-h4
+     h5 / .heading-style-h5 ........ .hd-h5
+     h6 / .heading-style-h6 ........ .hd-h6
+     .text-size-tiny ............... .hd-text-tiny
+     .text-size-small .............. .hd-text-sm
+     (body base) ................... .hd-text-body
+     .text-size-large .............. .hd-text-lg
+     (xl) .......................... .hd-text-xl
+     .text-weight-medium ........... .hd-text-medium
+     .text-align-center ............ .hd-text-center
+     .text-style-badge ............. .hd-badge
+     .text-style-muted ............. .hd-text-muted
+   Color (text + background)
+     .text-color-primary ........... .hd-text-primary    (#000d14)
+     .text-color-secondary ......... .hd-text-secondary  (#727272)
+     .text-color-300 ............... .hd-text-300        (#ededed)
+     .text-color-alternate ......... .hd-text-alternate  (white)
+     .background-color-secondary ... .hd-bg-secondary    (#fafafa)
+   Max-width
+     .max-width-tiny ............... .hd-max-tiny
+     .max-width-small .............. .hd-max-sm
+     .max-width-medium ............. .hd-max-md
+     .max-width-large .............. .hd-max-lg
+     .max-width-full ............... .hd-max-full
+   Display / flex / alignment
+     .align-center ................. .hd-flex-center  (flex + center both axes + mx-auto)
+     .hide ......................... .hd-hidden
+     .hide-tablet .................. .hd-hide-tablet  (display:none ≤991px)
+     (grid wrappers: *_grid) ....... .hd-grid + .hd-grid-{2,3,4}col
+   Divider
+     .divider ...................... .hd-divider  (1px hairline, #e6e6e6)
+   Buttons (W1.2) — base .button + .is-* combo classes → .hd-button + single-
+   class modifiers. Modifiers override the base by source order (flat 0,1,0
+   specificity); usage mirrors Webflow: class="hd-button hd-button-secondary".
+     button / is-primary ........... .hd-button                      (default dark)
+     is-secondary .................. .hd-button-secondary
+     is-alternative ................ .hd-button-alternate
+     is-alternative-secondary ...... .hd-button-alternate-secondary
+     is-text ....................... .hd-button-text
+     is-small ...................... .hd-button-sm
+     is-large ...................... .hd-button-lg
+     is-icon ....................... .hd-button-icon
+     is-only-icon .................. .hd-button-icon-only
+     is-link ....................... .hd-button-link
+     is-white (on is-link) ......... .hd-button-white
+     is-form-submit ................ .hd-button-form
+     max-width-full (on button) .... .hd-button-full
+     .button-group ................. .hd-button-group  (center: + .hd-justify-center)
+   The Webflow .w-button reset (cursor/display/text-decoration/border/font) is
+   folded into .hd-button, so an <a>/<button>/<input> needs no companion class.
+   Forms (W1.3) — base .hd-input (folds .form_input + the .w-input width/display
+   reset) + single-class modifiers; checkbox/radio style the native <input>.
+     form_input / w-input .......... .hd-input
+     form_input is-select-input .... .hd-input .hd-select   (on a <select>)
+     form_input (bare, on <select>)  .hd-input .hd-select   (e.g. commerce country selector — same custom-arrow treatment; Webflow's is-select-input only added a color, never appearance:none)
+     form_input is-text-area ....... .hd-input .hd-textarea (on a <textarea>)
+     (invalid input — NEW W1.3) .... .hd-input .hd-input-error
+     form_label .................... .hd-label
+     (field wrapper) ............... .hd-form-group   (label + control + error)
+     .w-form ....................... .hd-form
+     form_message-success / w-form-done .. .hd-form-success
+     form_message-error / w-form-fail .... .hd-form-error
+     form_checkbox-icon ............ .hd-checkbox     (on the native <input>)
+     form_radio-icon ............... .hd-radio        (on the native <input>)
+     form_checkbox / form_radio .... .hd-check        (flex control+label row)
+     form_checkbox-label ........... (no class — plain <label> in .hd-check; Webflow leaves it unstyled)
+   Nav (W2.1) — Webflow nav runtime classes (w-nav* / w-dropdown*) → hd-* shims that
+   carry ONLY the visual contributions those runtime classes made to the rendered nav
+   (positioning + the open-panel chrome that lived on the JS-toggled .w--open); the
+   custom Client-First .nav-* / .container classes stay (still styled by the loaded
+   Webflow CSS) and migrate to hd-* with the templates in W4. Behaviour (show/hide,
+   click-outside, escape, focus trap) moves to AlpineJS — see layouts/partials/nav.html.
+     w-nav ......................... .hd-nav            (sticky z-index only; .navbar owns the rest)
+     w-nav-brand ................... .hd-nav-brand
+     w-nav-menu .................... .hd-nav-menu       (+ .hd-nav-menu-open responsive show/hide)
+     w-nav-button .................. .hd-nav-toggle     (now a real <button>)
+     w-nav-link .................... .hd-nav-link
+     w-dropdown .................... .hd-dropdown
+     w-dropdown-toggle ............. .hd-dropdown-toggle (now a real <button>)
+     w-dropdown-list ............... .hd-dropdown-panel  (+ .hd-dropdown-panel-end for the right-aligned info panel)
+     w-dropdown-link ............... .hd-dropdown-link
+   Buttons in the nav adopt the W1.2 .hd-button system (w-button dropped):
+     button [is-secondary] w-button   .hd-button [.hd-button-secondary]
+     button is-only-icon is-secondary .hd-button .hd-button-icon-only .hd-button-secondary
+   w-container / w-inline-block are simply dropped: the custom .container / .nav-dropdown-column
+   already provide the painted layout, and the Webflow runtime contributions (940px max-width,
+   inline-block) were already overridden or inert in the nav context.
+   Intentionally NOT mapped — these are substrings of Webflow-runtime classes,
+   not real utility classes (no rule exists in the Webflow CSS):
+     text-align-fullwidth  → part of .w-richtext-align-fullwidth
+     container-wrapper      → part of .w-commerce-…containerwrapper / .cart-wrapper
+     container (bare)       → co-class of Webflow's .w-container (nav grid; W2.1)
+   Breakpoints: sm <480px, md <768px, lg <992px  (match Webflow 479/767/991).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Reset / base (minimal — style.css already handles font-smoothing etc.)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. Container
+   .container-default → max-width:var(--content-width--container);width:100%;mx:auto
+   plus the Client-First .padding-global gutter folded in.
+   ========================================================================== */
+.hd-container {
+  width: 100%;
+  max-width: var(--hd-width-container);
+  margin-inline: auto;
+  padding-inline: var(--hd-gutter);
+}
+
+/* Narrower container variants (map to Client-First container-medium etc.) */
+.hd-container-sm,
+.hd-container-md,
+.hd-container-lg,
+.hd-container-xl {
+  width: 100%;
+  margin-inline: auto;
+}
+.hd-container-sm { max-width: var(--hd-width-sm); }
+.hd-container-md { max-width: var(--hd-width-md); }
+.hd-container-lg { max-width: var(--hd-width-lg); }
+.hd-container-xl { max-width: var(--hd-width-xl); }
+
+/* Standalone gutter utility (when you need padding-global without a container) */
+.hd-padding-global {
+  padding-inline: var(--hd-gutter);
+}
+
+/* ==========================================================================
+   3. Grid
+   ========================================================================== */
+.hd-grid {
+  display: grid;
+  gap: var(--hd-space-md);
+}
+.hd-grid-2col { grid-template-columns: repeat(2, 1fr); }
+.hd-grid-3col { grid-template-columns: repeat(3, 1fr); }
+.hd-grid-4col { grid-template-columns: repeat(4, 1fr); }
+
+/* Gap modifiers */
+.hd-gap-sm { gap: var(--hd-space-sm); }
+.hd-gap-md { gap: var(--hd-space-md); }
+.hd-gap-lg { gap: var(--hd-space-lg); }
+
+/* ==========================================================================
+   4. Spacing (spacers) — vertical rhythm.
+   Original Client-First spacers are full-width blocks with padding-top.
+   The HD scale maps 1:1 (name + value) to Webflow's SEVEN .spacer-* sizes, so
+   every spacer migrates with an exact match. md/lg/xl/xxl ramp down responsively
+   via the token @media overrides in hd-tokens.css (mirroring Webflow); the three
+   smallest (xxs/xs/sm) are fixed.
+   ========================================================================== */
+.hd-spacer-xxs,
+.hd-spacer-xs,
+.hd-spacer-sm,
+.hd-spacer-md,
+.hd-spacer-lg,
+.hd-spacer-xl,
+.hd-spacer-xxl {
+  width: 100%;
+}
+.hd-spacer-xxs { padding-top: var(--hd-space-xxs); }  /* .5rem   — spacer-xxsmall          */
+.hd-spacer-xs  { padding-top: var(--hd-space-xs); }   /* 1rem    — spacer-xsmall           */
+.hd-spacer-sm  { padding-top: var(--hd-space-sm); }   /* 1.5rem  — spacer-small            */
+.hd-spacer-md  { padding-top: var(--hd-space-md); }   /* 2rem    — spacer-medium (responsive)  */
+.hd-spacer-lg  { padding-top: var(--hd-space-lg); }   /* 3rem    — spacer-large  (responsive)  */
+.hd-spacer-xl  { padding-top: var(--hd-space-xl); }   /* 3.75rem — spacer-xlarge (responsive)  */
+.hd-spacer-xxl { padding-top: var(--hd-space-xxl); }  /* 6rem    — spacer-xxlarge (responsive) */
+.hd-vspace-xxs,
+.hd-vspace-xs,
+.hd-vspace-sm,
+.hd-vspace-md,
+.hd-vspace-lg,
+.hd-vspace-xl,
+.hd-vspace-xxl {
+  width: 100%;
+}
+.hd-vspace-xxs { padding-top: var(--hd-space-xxs); }
+.hd-vspace-xs  { padding-top: var(--hd-space-xs); }
+.hd-vspace-sm  { padding-top: var(--hd-space-sm); }
+.hd-vspace-md  { padding-top: var(--hd-space-md); }
+.hd-vspace-lg  { padding-top: var(--hd-space-lg); }
+.hd-vspace-xl  { padding-top: var(--hd-space-xl); }
+.hd-vspace-xxl { padding-top: var(--hd-space-xxl); }
+
+/* ==========================================================================
+   5. Section padding (vertical section rhythm)
+   ========================================================================== */
+.hd-section-sm {
+  padding-top: var(--hd-section-pad-sm);
+  padding-bottom: var(--hd-section-pad-sm);
+}
+.hd-section-md {
+  padding-top: var(--hd-section-pad-md);
+  padding-bottom: var(--hd-section-pad-md);
+}
+.hd-section-lg {
+  padding-top: var(--hd-section-pad-lg);
+  padding-bottom: var(--hd-section-pad-lg);
+}
+
+/* ==========================================================================
+   6. Typography
+   ========================================================================== */
+.hd-h1, .hd-h2, .hd-h3, .hd-h4, .hd-h5, .hd-h6 {
+  font-family: var(--hd-font-heading);
+  font-weight: var(--hd-weight-heading);
+  color: var(--hd-color-black);
+  margin: 0;
+}
+.hd-h1 { font-size: var(--hd-h1-size); line-height: var(--hd-h1-line); }
+.hd-h2 { font-size: var(--hd-h2-size); line-height: var(--hd-h2-line); }
+.hd-h3 { font-size: var(--hd-h3-size); line-height: var(--hd-h3-line); }
+.hd-h4 { font-size: var(--hd-h4-size); line-height: var(--hd-h4-line); }
+.hd-h5 { font-size: var(--hd-h5-size); line-height: var(--hd-h5-line); }
+.hd-h6 {
+  font-size: var(--hd-h6-size);
+  line-height: var(--hd-h6-line);
+  font-weight: var(--hd-weight-medium);  /* h6 is medium, per Webflow */
+}
+
+/* Body text sizes */
+.hd-text-body {
+  font-family: var(--hd-font-body);
+  font-size: var(--hd-text-base);
+  line-height: var(--hd-line-body);
+  color: var(--hd-color-black);
+}
+.hd-text-tiny { font-size: var(--hd-text-tiny); }
+.hd-text-sm   { font-size: var(--hd-text-sm); }
+.hd-text-lg   { font-size: var(--hd-text-lg); }
+.hd-text-xl   { font-size: var(--hd-text-xl); }
+
+/* Weight + emphasis */
+.hd-text-medium { font-weight: var(--hd-weight-medium); }
+.hd-text-muted  { opacity: 0.6; }
+
+/* Badge — mono, uppercase, small (section eyebrow labels).
+   Matches Webflow .text-style-badge byte-for-byte (no letter-spacing; line-height 1.4). */
+.hd-badge {
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+  line-height: var(--hd-leading-badge);
+  text-transform: uppercase;
+  color: var(--hd-color-neutral-900);
+}
+
+/* Alignment (text) */
+.hd-text-center { text-align: center; }
+.hd-text-left   { text-align: start; }
+.hd-text-right  { text-align: end; }
+
+/* ==========================================================================
+   6b. Color utilities (text + background)
+   Map Webflow Client-First .text-color-* / .background-color-* classes. Every
+   value references an existing --hd-color-* token and resolves byte-for-byte to
+   the Webflow source — no new tokens required.
+   ========================================================================== */
+.hd-text-primary   { color: var(--hd-color-accent); }               /* .text-color-primary        → #000d14 */
+.hd-text-secondary { color: var(--hd-color-neutral-900); }          /* .text-color-secondary      → #727272 */
+.hd-text-300       { color: var(--hd-color-neutral-300); }          /* .text-color-300            → #ededed */
+.hd-text-alternate { color: var(--hd-color-white); }                /* .text-color-alternate      → white   */
+.hd-bg-secondary   { background-color: var(--hd-color-neutral-50); }/* .background-color-secondary → #fafafa */
+
+/* ==========================================================================
+   6c. Accessibility helpers (W6.3)
+   ========================================================================== */
+.hd-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hd-skip-link {
+  position: fixed;
+  z-index: calc(var(--hd-z-nav) + 1);
+  inset-block-start: var(--hd-space-xs);
+  inset-inline-start: var(--hd-space-xs);
+  transform: translateY(calc(-100% - var(--hd-space-xs)));
+  padding: var(--hd-button-pad-y-sm) var(--hd-button-pad-x);
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-accent);
+  color: var(--hd-color-white);
+  font-weight: var(--hd-weight-medium);
+  text-decoration: none;
+  transition: transform var(--hd-transition);
+}
+
+.hd-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: var(--hd-button-focus-width) solid var(--hd-color-white);
+  outline-offset: var(--hd-button-focus-offset);
+}
+
+#main-content {
+  scroll-margin-top: calc(var(--hd-nav-height) + var(--hd-space-sm));
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--hd-button-focus-width) solid var(--hd-color-accent);
+  outline-offset: var(--hd-button-focus-offset);
+  border-radius: var(--hd-radius);
+}
+
+.hd-text-alternate button:focus-visible,
+.hd-text-alternate a:focus-visible,
+.plan_hero_content button:focus-visible,
+.plan_hero_content a:focus-visible,
+.section_caas_hero button:focus-visible,
+.section_caas_hero a:focus-visible,
+.section_kaas_hero button:focus-visible,
+.section_kaas_hero a:focus-visible,
+.section_qsim_hero button:focus-visible,
+.section_qsim_hero a:focus-visible,
+.home_banner_grid button:focus-visible,
+.home_banner_grid a:focus-visible {
+  outline-color: var(--hd-color-white);
+}
+
+.hd-text-alternate .hd-text-muted,
+.home_pricing_plan-box.is-dark .hd-text-muted,
+.home_updates_featured-card .hd-text-muted,
+.plan_hero_content .hd-text-muted {
+  opacity: 1;
+  color: var(--hd-color-neutral-300);
+}
+
+.overview_banners_left .hd-text-secondary,
+.contact2_hero_content .hd-text-secondary {
+  color: var(--hd-color-neutral-300);
+}
+
+/* ==========================================================================
+   7. Display & flex
+   ========================================================================== */
+.hd-flex        { display: flex; }
+.hd-inline-flex { display: inline-flex; }
+.hd-flex-col    { display: flex; flex-direction: column; }
+
+.hd-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+}
+.hd-align-center {
+  margin-inline: auto;
+}
+.hd-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hd-block         { display: block; }
+.hd-inline-block  { display: inline-block; }
+.hd-hidden        { display: none; }
+
+/* ==========================================================================
+   8. Max-width
+   ========================================================================== */
+.hd-max-tiny { width: 100%; max-width: var(--hd-width-tiny); }  /* 13.75rem — max-width-tiny */
+.hd-max-sm   { width: 100%; max-width: var(--hd-width-sm); }
+.hd-max-md   { width: 100%; max-width: var(--hd-width-md); }
+.hd-max-lg   { width: 100%; max-width: var(--hd-width-lg); }
+.hd-max-full { width: 100%; max-width: none; }
+
+/* ==========================================================================
+   9. Alignment helpers
+   ========================================================================== */
+.hd-items-center   { align-items: center; }
+.hd-items-start    { align-items: flex-start; }
+.hd-items-end      { align-items: flex-end; }
+.hd-justify-center { justify-content: center; }
+.hd-justify-between{ justify-content: space-between; }
+.hd-mx-auto        { margin-inline: auto; }
+.hd-ml-auto        { margin-inline-start: auto; }
+.hd-mr-auto        { margin-inline-end: auto; }
+
+/* ==========================================================================
+   10. Divider — full-width 1px hairline rule (Webflow .divider)
+   ========================================================================== */
+.hd-divider {
+  width: 100%;
+  height: 0.0625rem;                            /* 1px */
+  background-color: var(--hd-color-neutral-400);/* #e6e6e6 */
+}
+
+/* ==========================================================================
+   11. Button system (W1.2)
+   Base .hd-button + single-class modifiers (.hd-button-secondary, …). Modifiers
+   override the base by SOURCE ORDER at equal (flat) specificity — no compound
+   selectors, no !important. The Webflow .w-button reset is folded into the base
+   so an <a>, <button> or <input> needs only .hd-button (+ optional modifier).
+   States: :hover and per-variant hovers match Webflow byte-for-byte;
+   :focus-visible, :active and :disabled are added per W1.2 (Webflow shipped
+   none). Hover/active are suppressed on disabled buttons via
+   :where(:not(:disabled):not([aria-disabled="true"])) — which adds ZERO
+   specificity, so the rules stay flat.
+   ========================================================================== */
+.hd-button {
+  display: inline-block;
+  margin: 0;                              /* .w-button reset — matters for <input>/<button> */
+  font: inherit;                          /* inherit family+size; <button>/<input> need this */
+  font-weight: var(--hd-weight-medium);   /* re-set after `font:inherit` */
+  line-height: var(--hd-button-line);
+  text-align: center;
+  text-decoration: none;
+  color: var(--hd-color-white);
+  background-color: var(--hd-color-accent);
+  border: none;
+  border-radius: var(--hd-radius);
+  padding: var(--hd-button-pad-y) var(--hd-button-pad-x);
+  cursor: pointer;
+  transition: background-color var(--hd-transition),
+              border-color var(--hd-transition),
+              color var(--hd-transition),
+              opacity var(--hd-transition),
+              transform var(--hd-transition);
+}
+
+/* base states (hover matches Webflow .button:hover) */
+.hd-button:hover:where(:not(:disabled):not([aria-disabled="true"]))  { opacity: 0.9; }
+.hd-button:active:where(:not(:disabled):not([aria-disabled="true"])) { transform: scale(0.98); }
+.hd-button:focus-visible {
+  outline: var(--hd-button-focus-width) solid var(--hd-color-accent);
+  outline-offset: var(--hd-button-focus-offset);
+}
+.hd-button:disabled,
+.hd-button[aria-disabled="true"] { opacity: 0.4; cursor: not-allowed; }
+
+/* secondary — white bg, 1px neutral-200 border, black text */
+.hd-button-secondary {
+  background-color: var(--hd-color-white);
+  color: var(--hd-color-black);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+}
+.hd-button-secondary:hover:where(:not(:disabled):not([aria-disabled="true"])) {
+  background-color: var(--hd-color-neutral-100);
+}
+
+/* alternate — white bg, black text (for use on dark sections) */
+.hd-button-alternate {
+  background-color: var(--hd-color-white);
+  color: var(--hd-color-black);
+}
+.hd-button-alternate:hover:where(:not(:disabled):not([aria-disabled="true"])) {
+  background-color: var(--hd-color-neutral-200);
+}
+
+/* alternate-secondary — transparent bg, white border + text (dark sections) */
+.hd-button-alternate-secondary {
+  background-color: transparent;
+  color: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-white);
+}
+.hd-button-alternate-secondary:hover:where(:not(:disabled):not([aria-disabled="true"])) {
+  opacity: 0.6;
+}
+/* keep the focus ring visible against the dark sections this variant lives on */
+.hd-button-alternate-secondary:focus-visible { outline-color: var(--hd-color-white); }
+
+/* text — transparent bg, black text, 2px transparent border (height parity) */
+.hd-button-text {
+  background-color: transparent;
+  color: var(--hd-color-black);
+  border: var(--hd-button-border-text) solid transparent;
+}
+
+/* sizes */
+.hd-button-sm { padding: var(--hd-button-pad-y-sm) var(--hd-button-pad-x); font-size: var(--hd-button-font-sm); }
+.hd-button-lg { padding: var(--hd-button-pad-y-lg) var(--hd-button-pad-x); }
+
+/* icon — flex row with gap; icon-only squares up the horizontal padding */
+.hd-button-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hd-button-gap-icon);
+  text-decoration: none;
+}
+.hd-button-icon-only {
+  padding-inline: var(--hd-button-pad-icon-only);
+}
+
+.hd-icon-directional {
+  transform-origin: center;
+}
+
+/* link — borderless inline text-button (no box), compact font, normal weight */
+.hd-button-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--hd-button-gap-link);
+  padding: 0;
+  background-color: transparent;
+  color: var(--hd-color-black);
+  font-size: var(--hd-button-font-compact);
+  font-weight: var(--hd-weight-regular);
+}
+
+/* form submit — block-level, compact font */
+.hd-button-form {
+  display: block;
+  font-size: var(--hd-button-font-compact);
+}
+
+/* composable modifiers — full width; white text (e.g. is-link on dark) */
+.hd-button-full  { width: 100%; }
+.hd-button-white { color: var(--hd-color-white); }
+
+/* button group — flex wrapper laying buttons out with a gap.
+   For the Webflow `.button-group.align-center` combo, compose .hd-justify-center. */
+.hd-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--hd-button-group-gap);
+}
+
+/* Compound selectors so a centering helper always beats the base
+   justify-content:flex-start above, regardless of CSS source order
+   (single-class .hd-justify-center alone would lose the tie). Both the
+   .hd-align-center and the documented .hd-justify-center combo work. */
+.hd-button-group.hd-align-center,
+.hd-button-group.hd-justify-center {
+  justify-content: center;
+}
+
+/* ==========================================================================
+   12. Form system (W1.3)
+   Same flat-specificity, source-order pattern as the W1.2 buttons: base .hd-input
+   + single-class modifiers, no compound selectors (bar the unavoidable :focus /
+   :checked state pairs), no !important. .hd-input folds the Webflow .w-input base
+   (width:100%, display:block) into the custom .form_input visual, so a bare
+   <input class="hd-input"> needs no companion class; <select>/<textarea> add a
+   modifier, mirroring the Webflow combos (form_input is-select-input / is-text-area):
+       <input    class="hd-input">
+       <select   class="hd-input hd-select">…</select>
+       <textarea class="hd-input hd-textarea"></textarea>
+   Visuals are ported byte-for-byte from Webflow's .form_input / .form_label /
+   .form_message-* rules (lengths live in hd-tokens.css); the checkbox/radio
+   approximate .form_checkbox-icon / .form_radio-icon (Webflow JS-painted a fake
+   box, so the native-styled controls match its size + accent but not the exact
+   #ccc border). States Webflow drove with JS-injected .w--redirected-* classes
+   are reimplemented with native pseudo-classes (:checked / :focus-visible) so no
+   Webflow runtime is needed. NEW in W1.3 (Webflow shipped none): the .hd-input-error
+   border, input/control transitions, and the checkbox/radio :focus-visible ring.
+   The select arrow and checkbox checkmark are inline data-URI SVGs — no CDN
+   (AGENTS.md). The select's arrow inset and clearance padding use logical
+   properties so the arrow follows the inline end in RTL without template logic.
+   ========================================================================== */
+
+/* text inputs — .w-input width/display + .form_input visual. Native controls
+   don't inherit font-family, so set it (cf. .hd-button `font:inherit`). */
+.hd-input {
+  display: block;
+  width: 100%;
+  min-height: var(--hd-input-min-height);
+  margin: 0;                                       /* .w-input reset — group/label own the rhythm */
+  padding: var(--hd-input-pad-y) var(--hd-input-pad-x);
+  font-family: inherit;
+  font-size: var(--hd-text-sm);                    /* .875rem */
+  font-weight: var(--hd-weight-medium);            /* 500 */
+  line-height: var(--hd-input-line);               /* 1.4 */
+  color: var(--hd-color-black);
+  background-color: var(--hd-color-white);
+  border: var(--hd-input-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  transition: border-color var(--hd-transition);   /* NEW: smooth focus (Webflow: instant) */
+}
+.hd-input::placeholder { color: var(--hd-placeholder-color); }          /* .form_input::placeholder #0009 */
+.hd-input:focus { border-color: var(--hd-color-neutral-600); } /* matches .form_input:focus */
+.hd-input:focus-visible {
+  border-color: var(--hd-color-accent);
+}
+.hd-input:disabled,
+.hd-input[readonly] { background-color: var(--hd-color-border); cursor: not-allowed; } /* .w-input[disabled]/[readonly] bg #eee */
+
+/* error state — NEW in W1.3; red border that persists through :focus */
+.hd-input-error,
+.hd-input-error:focus { border-color: var(--hd-color-error); }
+
+/* select — appearance:none + inline-SVG chevron (no native arrow, no CDN icon) */
+.hd-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-inline-end: var(--hd-select-pad-end);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='black'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M6%209l6%206%206-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--hd-select-icon-inset) center;
+  background-size: var(--hd-select-icon-size);
+}
+
+html[dir="rtl"] .hd-select {
+  background-position: left var(--hd-select-icon-inset) center;
+}
+
+/* textarea — taller, top-aligned text, user-resizable vertically (.is-text-area) */
+.hd-textarea {
+  min-height: var(--hd-textarea-min-height);
+  padding-top: var(--hd-textarea-pad-top);
+  resize: vertical;
+}
+
+/* label — block, sits above its control (.form_label) */
+.hd-label {
+  display: block;
+  margin-bottom: var(--hd-label-gap);
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+}
+
+/* field wrapper — label + control + (optional) error message as one unit */
+.hd-form-group { margin-bottom: var(--hd-form-group-gap); }
+
+/* form wrapper — replaces .w-form (margin:0 0 15px → normalized to the HD scale) */
+.hd-form { margin-bottom: var(--hd-form-group-gap); }
+
+/* form-level banners — ported byte-for-byte from Webflow .form_message-success /
+   .form_message-error. Presentational only: Webflow's .w-form-done/.w-form-fail
+   also set display:none (revealed by JS on submit). That visibility toggle is left
+   to the consumer (AlpineJS x-show / [hidden]) in W2/W4, so these classes stay
+   composable and never hide their content unexpectedly. */
+.hd-form-success {
+  padding: var(--hd-form-msg-pad);
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-neutral-400);   /* .form_message-success bg */
+  color: var(--hd-color-neutral-900);              /* .form_message-success text */
+  text-align: center;                              /* .w-form-done */
+}
+.hd-form-error {
+  margin-top: var(--hd-form-msg-error-gap);
+  padding: var(--hd-form-msg-error-pad);
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-neutral-300);   /* .form_message-error bg */
+  color: var(--hd-color-error);                    /* .form_message-error text #e71f1f */
+}
+
+.hd-embed,
+.hd-script {
+  display: block;
+}
+
+/* checkbox + radio — style the NATIVE input via appearance:none, so the real,
+   focusable, keyboard-operable control IS the visible custom control (the modern
+   accessible pattern — no visually-hidden input needed). Ported from Webflow
+   .form_checkbox-icon / .form_radio-icon (.875rem box, accent when checked). The
+   :focus-visible ring is NEW (W1.3); it reuses the shared button focus tokens for
+   one consistent site-wide focus treatment. */
+.hd-checkbox,
+.hd-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;                                      /* never stretch inside the .hd-check row */
+  width: var(--hd-control-size);
+  height: var(--hd-control-size);
+  margin: 0;
+  background-color: var(--hd-color-white);
+  border: var(--hd-input-border) solid var(--hd-color-neutral-800); /* ≈ Webflow's #ccc custom-box border; native-styled control, not a byte-for-byte port (W6.3 may darken for 3:1 contrast) */
+  cursor: pointer;
+  transition: background-color var(--hd-transition), border-color var(--hd-transition);
+}
+.hd-checkbox { border-radius: var(--hd-control-radius); }            /* 2px corners */
+.hd-radio    { border-radius: 50%; }
+.hd-checkbox:checked {
+  background-color: var(--hd-color-accent);
+  border-color: var(--hd-color-accent);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='white'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M5%2012l4%204%2010-10'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--hd-control-check-size);
+}
+/* radio :checked = thick accent ring on white (Webflow .form_radio-icon checked:
+   border-width .25rem) — 50% radius + thick border reads as a filled dot. */
+.hd-radio:checked {
+  border-width: var(--hd-radio-ring);
+  border-color: var(--hd-color-accent);
+}
+.hd-checkbox:focus-visible,
+.hd-radio:focus-visible {
+  outline: var(--hd-button-focus-width) solid var(--hd-color-accent);
+  outline-offset: var(--hd-button-focus-offset);
+}
+.hd-checkbox:disabled,
+.hd-radio:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* checkbox/radio row — flex wrapper aligning the control with its label text
+   (.form_checkbox / .form_radio: flex row, align-center, .5rem bottom margin). */
+.hd-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--hd-control-gap);
+  margin-bottom: var(--hd-input-gap);
+}
+
+.hd-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-neutral-100);
+}
+
+.hd-segmented-item {
+  appearance: none;
+  border: 0;
+  border-radius: calc(var(--hd-radius) - 1px);
+  background-color: transparent;
+  color: var(--hd-color-neutral-900);
+  cursor: pointer;
+  font-family: var(--hd-font-body);
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
+  transition: background-color var(--hd-transition),
+              box-shadow var(--hd-transition),
+              color var(--hd-transition);
+}
+
+.hd-segmented-item:hover {
+  color: var(--hd-color-accent);
+}
+
+.hd-segmented-item.is-active,
+.hd-segmented-item[aria-selected="true"],
+.hd-segmented-item[aria-pressed="true"] {
+  background-color: var(--hd-color-white);
+  box-shadow: var(--hd-shadow-sm);
+  color: var(--hd-color-accent);
+}
+
+.hd-pill-control {
+  appearance: none;
+  border: var(--hd-button-border) solid var(--hd-color-neutral-400);
+  border-radius: 999rem;
+  background-color: var(--hd-color-white);
+  color: var(--hd-color-nav-link);
+  cursor: pointer;
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-tiny);
+  line-height: 1.2;
+  padding: 0.4rem 0.7rem;
+  transition: background-color var(--hd-transition),
+              border-color var(--hd-transition),
+              color var(--hd-transition);
+}
+
+.hd-pill-control:hover {
+  border-color: var(--hd-color-accent);
+  color: var(--hd-color-accent);
+}
+
+.hd-pill-control.is-active,
+.hd-pill-control[aria-selected="true"],
+.hd-pill-control[aria-pressed="true"] {
+  background-color: var(--hd-color-accent);
+  border-color: var(--hd-color-accent);
+  color: var(--hd-color-white);
+}
+
+/* ==========================================================================
+   13. Nav system (W2.1)
+   Thin hd-* shims for the Webflow nav runtime classes (w-nav* / w-dropdown*),
+   now driven by AlpineJS instead of Webflow's JS. Each shim carries ONLY the
+   rendered visual contribution its w-* counterpart made on top of the custom
+   Client-First .nav-* classes, which are now styled locally in this file —
+   so .nav-link.hd-nav-link renders byte-for-byte identically to the old
+   .nav-link.w-nav-link, etc. A shim only sets a property when it must fill a
+   gap left by the custom class;
+   properties the custom class owns (padding, display:flex, position, font-size…)
+   are deliberately NOT set here, so the source-order flip can't silently override
+   them. Flat specificity, no !important.
+     Open-panel chrome (border/bg/padding/shadow/absolute placement) lived on the
+   JS-toggled .w--open in Webflow. Alpine no longer adds .w--open, so that chrome is
+   folded into .hd-dropdown-panel and gated purely by Alpine x-show (display:none
+   when closed). x-cloak (bottom of file) keeps the panels hidden until Alpine
+   processes x-show, so the open-by-default chrome never flashes before hydration.
+   ========================================================================== */
+
+/* nav root — .navbar owns bg/height/sticky/top; .w-nav contributed only the
+   stacking order for the sticky bar. position is intentionally NOT set (it would
+   override .navbar's position:sticky, since hd.css loads later). */
+.hd-nav { z-index: var(--hd-z-nav); }
+
+/* brand — .w-nav-brand on an <a> wrapping only the logo <img>: float (inert on the
+   grid item) and color (#333 — no text to colour) paint nothing here and are
+   omitted; the meaningful resets are kept. */
+.hd-nav-brand {
+  position: relative;
+  text-decoration: none;
+}
+
+/* primary menu — desktop: inline flex (from the custom .nav-menu). .w-nav-menu's
+   own float/position were inert/overridden, so nothing is needed at base width.
+   The ≤991 collapse + over-left slide live in the RESPONSIVE block (Alpine toggles
+   .hd-nav-menu-open), replacing Webflow's JS + .w-nav[data-collapse=medium] rule. */
+
+/* nav links — survivors of .w-nav-link not owned by .nav-link (which keeps padding/
+   line-height/transition). margin-inline:auto is load-bearing: the links are flex
+   items of .nav-menu, so the auto margins shape their spacing in the row. */
+.hd-nav-link {
+  display: inline-block;
+  margin-inline: auto;
+  color: var(--hd-color-nav-link);
+  text-align: start;
+  text-decoration: none;
+  vertical-align: top;
+  position: relative;
+}
+
+/* mobile menu toggle (hamburger) — now a real <button>. Hidden on desktop
+   (replacing .w-nav-button display:none); shown ≤991 in the RESPONSIVE block.
+   Native button chrome is reset; padding/size/centering come from the custom
+   .nav-menu-button @991, so they are NOT set here (would override it). */
+.hd-nav-toggle {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* dropdown container — .w-dropdown survivors not owned by .nav-dropdown/.nav-info-
+   dropdown. position + z-index are intentionally omitted: the custom .nav-dropdown
+   (static) and .nav-info-dropdown (relative) own position, and that choice decides
+   which ancestor each absolute panel is placed against (.container vs the toggle). */
+.hd-dropdown {
+  display: inline-block;
+  margin-inline: auto;
+  text-align: start;
+}
+
+/* dropdown toggles ("All Services" + the info icon) — now real <button>s. Native
+   button chrome is reset; custom font-size/weight/line-height are preserved by
+   using font-family:inherit (NOT the font shorthand, which would clobber them).
+   The rest are .w-dropdown-toggle base survivors not owned by the custom
+   .nav-dropdown-toggle/.nav-info-dropdown-toggle (which own padding + display:flex). */
+.hd-dropdown-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  margin-inline: auto;
+  color: var(--hd-color-nav-link);
+  text-align: start;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: top;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* dropdown links — only display:block survives from .w-dropdown-link (the custom
+   .nav-dropdown-link owns colour/padding/margins). nowrap matches Webflow. */
+.hd-dropdown-link {
+  display: block;
+  white-space: nowrap;
+}
+
+/* dropdown panel — the open-state chrome that lived on .w-dropdown-list +
+   .nav-dropdown-wrapper.w--open, now always-applied and shown/hidden by Alpine
+   x-show. Default placement = the full-width services panel (drops below the nav).
+   margin:0 overrides the custom .nav-dropdown-wrapper base margin (1.25rem). */
+.hd-dropdown-panel {
+  display: block;
+  position: absolute;
+  inset: var(--hd-nav-height) 0% auto;     /* top below nav; left:0; right:0 → full width */
+  margin: 0;
+  padding: var(--hd-nav-panel-pad);
+  border: var(--hd-nav-panel-border) solid var(--hd-color-neutral-100);
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-white);
+  box-shadow: var(--hd-nav-panel-shadow);
+}
+
+/* info panel — right-aligned, fixed-width variant (was .nav-info-dropdown-wrapper.
+   w--open: inset 3.75rem 0 auto auto, width 22.5rem). */
+.hd-dropdown-panel-end {
+  inset: var(--hd-nav-info-panel-top) 0% auto auto;
+  width: var(--hd-nav-info-panel-width);
+}
+
+.hd-dropdown-toggle:focus-visible,
+.hd-dropdown-link:focus-visible,
+.hd-nav-link:focus-visible,
+.hd-nav-toggle:focus-visible {
+  outline: var(--hd-button-focus-width) solid var(--hd-color-accent);
+  outline-offset: var(--hd-button-focus-offset);
+  border-radius: var(--hd-radius);
+}
+
+/* ==========================================================================
+   14. FAQ accordion (W2.3)
+   The FAQ disclosure was driven by Webflow IX2 (a per-question interaction id ran
+   a height interaction + plus-icon rotation). That runtime is replaced with
+   AlpineJS state on the .faq_split_box / .home_faq_box wrapper
+   (x-data="{ active: null }", single-expand) plus the CSS below. The custom
+   Client-First .faq_* classes stay and are styled locally in this file so
+   borders/spacing/icon chrome render identically; the hd-faq-* shims add only what
+   IX2 did at runtime — the button reset on the (now real <button>) trigger, the
+   open/close height animation, and the plus→× icon rotation. Flat specificity, no
+   !important; source order lets a shim win where it must.
+     Height animation uses the grid-template-rows 0fr→1fr technique on the panel
+   host, with the answer in an overflow:hidden inner — this animates height:auto
+   without JS, matching Webflow's height interaction. Collapsed is the CSS default
+   (0fr), so nothing flashes open before Alpine hydrates (no x-cloak needed); the
+   :class binding only ADDS the -open class once active matches.
+   ========================================================================== */
+
+/* trigger — the question row, now a real <button> (Enter/Space toggle for free).
+   The custom .faq_question owns cursor/display:flex/justify-content/align-items;
+   here we only neutralise native button chrome and stretch it to the row width. */
+.hd-faq-trigger {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+}
+/* keyboard focus ring — the design-system token ring used on .hd-button (Webflow
+   shipped none on the old div trigger; the W2.3 DoD requires a focus-visible
+   outline). :focus-visible keeps it keyboard-only, so a mouse click shows none. */
+.hd-faq-trigger:focus-visible {
+  outline: var(--hd-button-focus-width) solid var(--hd-color-accent);
+  outline-offset: var(--hd-button-focus-offset);
+  border-radius: var(--hd-radius);
+}
+
+/* icon — keep .faq_icon's bordered box + hover; rotate the single plus glyph 45°
+   into an × on open (Webflow rotated the same SVG; there is no separate "minus"
+   asset). Rotating the <img>, not the box, leaves the rounded border square. */
+.hd-faq-icon > img      { transition: transform var(--hd-transition); }
+.hd-faq-icon-open > img { transform: rotate(45deg); }
+
+/* panel — CSS-only height:auto animation. The host is a 1-row grid whose track
+   animates 0fr→1fr; the inner clips the overflow so the answer reveals smoothly.
+   visibility flips the collapsed answer out of the a11y tree + tab order, and as a
+   discrete property it stays visible for the whole collapse before hiding. */
+.hd-faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--hd-transition);
+}
+.hd-faq-panel-open { grid-template-rows: 1fr; }
+.hd-faq-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility var(--hd-transition-duration);
+}
+.hd-faq-panel-open > .hd-faq-panel-inner { visibility: visible; }
+
+/* reduced-motion: toggle instantly — no height or icon-rotation animation. */
+@media (prefers-reduced-motion: reduce) {
+  .hd-faq-panel,
+  .hd-faq-panel-inner,
+  .hd-faq-icon > img { transition: none; }
+}
+
+/* ==========================================================================
+   15. Entrance animations (W3.2)
+   The Webflow IX2 "Fade Up" entrance (SCROLL_INTO_VIEW → TRANSFORM_MOVE 24px→0
+   + STYLE_OPACITY 0→1, 1000ms inOutQuart; a section's 2nd element staggered
+   +300ms) is replaced with a CSS @keyframes animation triggered by a ~1 KB
+   IntersectionObserver (static/js/hd-animations.js). The per-element inline
+   pre-state (opacity:0 + translate3d) and data-w-id handles are gone from the
+   templates; each animated element now carries data-hd-animate ("fade-up", or
+   "fade-up-2" for the staggered 2nd element).
+     The opacity:0 pre-state is gated on .hd-js (set synchronously in <head>):
+   with JS the element is hidden before first paint and the observer reveals it;
+   WITHOUT JS the rule never matches, so content stays visible — an improvement
+   over Webflow's inline opacity:0, which left content hidden when its JS failed.
+   The observer adds .hd-in on enter; animation-fill-mode:both holds the final
+   (visible) state, and its backwards fill keeps the staggered element hidden
+   through its delay. prefers-reduced-motion reveals everything instantly.
+   ========================================================================== */
+@keyframes hd-fade-up {
+  from { opacity: 0; transform: translateY(var(--hd-fade-up-distance)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* pre-state — hidden only when JS is present to reveal it (.hd-js on <html>) */
+.hd-js [data-hd-animate] { opacity: 0; }
+
+/* trigger — the observer adds .hd-in once the element scrolls into view */
+.hd-js [data-hd-animate].hd-in {
+  animation: hd-fade-up var(--hd-fade-up-duration) var(--hd-fade-up-easing) both;
+}
+
+/* "Fade Up 2nd" — the heading→grid stagger (+300ms) */
+.hd-js [data-hd-animate="fade-up-2"].hd-in {
+  animation-delay: var(--hd-fade-up-stagger);
+}
+
+/* reduced motion — reveal instantly, no fade/slide (overrides the trigger). */
+@media (prefers-reduced-motion: reduce) {
+  .hd-js [data-hd-animate],
+  .hd-js [data-hd-animate].hd-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   16. Card hover effects (W3.2)
+   Webflow drove these with IX2 MOUSE_OVER/MOUSE_OUT (lists a-3/a-4 "Preview
+   Card", a-6/a-7 "Update Card") on the card link; here they are pure CSS :hover
+   on the still-present custom classes (which migrate to hd-* with the templates
+   in W4). The data-w-id handles AND the IX2 will-change inline styles — the
+   preview-image's resting transform and the preview-box's resting bg, which,
+   being inline, would have beaten these :hover rules — are removed from the
+   templates. The preview-box resting bg is unchanged: --color-neutral--50 is
+   already its base in the Webflow CSS, so dropping the redundant inline keeps it.
+     Hover-in scale uses outQuart, everything else inOutQuart — matched to IX2 by
+   putting the hover-in easing on the :hover transition and the hover-out easing
+   on the base transition (the standard two-easing technique). The preview-box's
+   overflow:hidden (Webflow CSS) clips the scaled image inside the frame.
+   ========================================================================== */
+.overview_pages_preview-box {
+  transition: background-color var(--hd-hover-duration) var(--hd-hover-easing);
+}
+.overview_pages_preview-image {
+  transition: transform var(--hd-hover-duration) var(--hd-hover-easing); /* hover-out: inOutQuart */
+}
+.overview_pages_card:hover .overview_pages_preview-box {
+  background-color: var(--hd-color-neutral-200);
+}
+.overview_pages_card:hover .overview_pages_preview-image {
+  transform: scale(var(--hd-hover-scale-preview));
+  transition: transform var(--hd-hover-duration) var(--hd-hover-easing-in); /* hover-in: outQuart */
+}
+
+.home_updates_featured-image {
+  transition: transform var(--hd-hover-duration) var(--hd-hover-easing);
+}
+.home_updates_featured-card:hover .home_updates_featured-image {
+  transform: scale(var(--hd-hover-scale-update));
+}
+
+/* reduced motion — no animated hover transition (consistent with §14). */
+@media (prefers-reduced-motion: reduce) {
+  .overview_pages_preview-box,
+  .overview_pages_preview-image,
+  .home_updates_featured-image {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   17. Homepage shell without Webflow CSS (W4.1)
+   W4.1 removed the Webflow stylesheet from head.html before the rest of the
+   homepage partials were fully migrated in W4.2. These rules preserve the
+   rendered homepage shell and hero using local HD tokens only.
+   ========================================================================== */
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: var(--hd-color-white);
+  color: var(--hd-color-black);
+  font-family: var(--hd-font-body);
+  font-feature-settings: "ss01" 1, "ss03" 1, "ss04" 1;
+  font-size: var(--hd-text-base);
+  line-height: var(--hd-line-body);
+}
+img {
+  max-width: 100%;
+  border: 0;
+  border-radius: var(--hd-radius);
+  vertical-align: middle;
+  display: inline-block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h1 {
+  color: var(--hd-color-black);
+  font-size: var(--hd-h1-size);
+  font-weight: var(--hd-weight-heading);
+  line-height: var(--hd-h1-line);
+}
+h2 {
+  font-size: var(--hd-h2-size);
+  font-weight: var(--hd-weight-heading);
+  line-height: var(--hd-h2-line);
+}
+h3 {
+  font-size: var(--hd-h3-size);
+  font-weight: var(--hd-weight-heading);
+  line-height: var(--hd-h3-line);
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+.page-wrapper { overflow: clip; }
+.main-wrapper { display: block; }
+.section_home_hero {
+  flex-direction: column;
+  justify-content: center;
+}
+.home_hero_grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  place-items: stretch center;
+  gap: 0.375rem;
+  min-height: 50rem;
+}
+.home_hero_content {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-black);
+  color: var(--hd-color-white);
+}
+.home_hero_image {
+  object-fit: cover;
+}
+.home_hero_visual {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  border-radius: var(--hd-radius);
+  overflow: hidden;
+}
+.bottom-blur {
+  z-index: 99999;
+  height: 6rem;
+  position: fixed;
+  inset: auto 0 0;
+  backdrop-filter: blur(7px);
+  background-image: linear-gradient(#fff0, #ffffff00 90%, #fff);
+  mask-image: linear-gradient(#0000, 10%, #fff 40% 100%);
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   18. Partial templates without Webflow CSS (W4.2)
+   Custom Client-First classes still used by the cleaned partials. These are
+   copied from the legacy stylesheet with tokens translated to --hd-* names and
+   with all Webflow runtime selectors excluded.
+   ========================================================================== */
+.text-rich-text h1,.text-rich-text h2,.text-rich-text h3,.text-rich-text h4{margin-top:1.5rem;margin-bottom:1rem}
+.text-rich-text h5,.text-rich-text h6{margin-top:1.25rem;margin-bottom:1rem}
+.text-rich-text p{margin-bottom:1rem}
+.text-rich-text ul,.text-rich-text ol{margin-bottom:1.5rem}
+.text-rich-text blockquote{margin-top:2rem;margin-bottom:2rem}
+.icon-height-small{height:1.25rem}
+.icon-height-small.is-inactive{opacity:0}
+.icon-height-medium{height:2.5rem}
+.icon-height-large{height:3.75rem}
+.nav-background{z-index:0;-webkit-backdrop-filter:blur(.5rem);backdrop-filter:blur(.5rem);pointer-events:none;background-color:#ffffffd9;width:100%;height:100%;position:absolute}
+.nav-wrapper{grid-column-gap:1.25rem;grid-row-gap:1.25rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;place-items:center;display:grid}
+.nav-menu-wrapper{justify-content:center;align-items:center;display:flex}
+.nav-menu{justify-content:center;align-items:center;display:flex;position:static}
+.nav-buttons{grid-column-gap:.5rem;grid-row-gap:.5rem;justify-self:end;justify-content:flex-start;align-items:center;display:flex}
+.navbar{background-color:#0000;height:4.75rem;position:sticky;top:0}
+.nav-content{border-bottom:.0625rem solid var(--hd-color-neutral-100);justify-content:center;align-items:center;width:100%;min-width:100%;max-width:100%;height:4.75rem;display:flex;overflow:visible}
+.container{z-index:1;max-width:var(--hd-width-container);flex-flow:column;width:100%;margin-inline:auto;padding-inline:1.25rem;display:flex;position:relative}
+.nav-link{padding:1.75rem 1rem;font-size:.875rem;font-weight:500;line-height:1.4;transition:opacity .2s}
+.nav-link:hover{opacity:.5}
+.nav-link.is-cart{grid-column-gap:.25rem;grid-row-gap:.25rem;color:var(--hd-color-black);background-color:#0000}
+.nav-dropdown{position:static}
+.nav-dropdown-toggle{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:center;align-items:center;padding:1.75rem 1rem;font-size:.875rem;font-weight:500;line-height:1.4;transition:opacity .2s;display:flex}
+.nav-dropdown-toggle:hover{opacity:.5}
+.nav-dropdown-indicator{background-color:var(--hd-color-black);border-radius:3.125rem;width:.375rem;height:.375rem}
+.nav-dropdown-wrapper{width:100%;margin-inline:0;top:var(--hd-nav-height)}
+.nav-dropdown-grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr 1fr 1.25fr;grid-auto-columns:1fr;display:grid}
+.nav-dropdown-column{grid-column-gap:2rem;grid-row-gap:2rem;flex-flow:column;width:auto;display:flex}
+.nav-dropdown-column.is-buy-template{grid-column-gap:.5rem;grid-row-gap:.5rem}
+.nav-dropdown-multilayout{grid-column-gap:1.5rem;grid-row-gap:1.5rem;flex-flow:column;display:flex}
+.nav-dropdown-multilayout-item{grid-column-gap:.75rem;grid-row-gap:.75rem;display:flex}
+.nav-dropdown-multilayout-title{color:var(--hd-color-black);text-decoration:none;transition:color var(--hd-transition)}
+.nav-dropdown-multilayout-title:hover{color:var(--hd-color-accent-hover)}
+.nav-dropdown-multilayout-summary{margin-top:.125rem}
+.dot{background-color:var(--hd-color-black);border-radius:50%;width:.25rem;height:.25rem}
+.nav-dropdown-links{grid-column-gap:.25rem;grid-row-gap:.25rem;flex-flow:column;display:flex}
+.nav-dropdown-link{color:var(--hd-color-black);width:100%;margin-inline:auto;padding:0;line-height:1.4;transition:opacity .2s}
+.nav-dropdown-link:hover{opacity:.5}
+.nav-dropdown-buy-heading{justify-content:space-between;display:flex}
+.nav-info-dropdown{position:relative}
+.nav-info-dropdown-toggle{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:center;align-items:center;padding:0;font-size:.875rem;font-weight:500;line-height:1.4;transition:opacity .2s;display:flex}
+.nav-info-dropdown-toggle:hover{opacity:.5}
+.nav-info-dropdown-wrapper{margin-inline:1.25rem}
+.nav-info-dropdown-list{grid-column-gap:.75rem;grid-row-gap:.75rem;flex-flow:column;display:flex}
+.nav-info-dropdown-list-item{grid-column-gap:.25rem;grid-row-gap:.25rem;justify-content:flex-start;align-items:center;display:flex}
+.nav-links-buttons{grid-column-gap:.5rem;grid-row-gap:.5rem;justify-content:flex-start;align-items:center;display:none}
+.nav-brand{justify-self:start;padding-inline-start:0}
+.footer{flex-direction:column;justify-content:center}
+.footer_wrapper{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;display:grid}
+.footer_content{flex-flow:column;justify-content:space-between;align-items:flex-start;display:flex}
+.footer_socials{grid-column-gap:.125rem;grid-row-gap:.125rem;justify-content:flex-start;align-items:center;display:flex}
+.footer_social-link{justify-content:center;align-items:center;width:1.5rem;height:1.5rem;display:flex}
+.footer_nav{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.footer_nav-column{grid-column-gap:2rem;grid-row-gap:2rem;flex-flow:column;display:flex}
+.footer_nav-list{grid-column-gap:.25rem;grid-row-gap:.25rem;flex-flow:column;display:flex}
+.footer_nav-link{transition:opacity .2s,padding-inline-start .2s}
+.footer_nav-link:hover{opacity:.5;padding-inline-start:.75rem;display:block}
+.footer_info{justify-content:space-between;display:flex}
+.footer_info-template{grid-column-gap:.5rem;grid-row-gap:.5rem;opacity:.6;justify-content:flex-start;align-items:center;display:flex}
+.divider{background-color:var(--hd-color-neutral-400);width:100%;height:.0625rem}
+.footer_social-link-image{border-radius:0}
+.badges{z-index:9999999;grid-column-gap:.75rem;grid-row-gap:.75rem;-webkit-backdrop-filter:blur(.75rem);backdrop-filter:blur(.75rem);background-color:#ffffff03;border-radius:.875rem;flex-flow:column;padding:1rem;display:flex;position:fixed;inset:auto 2.5rem 2.5rem auto}
+.button-customize{grid-column-gap:.75rem;grid-row-gap:.75rem;background-color:#000;border-radius:.875rem;justify-content:flex-start;align-items:center;padding:.5625rem .75rem;transition:background-color .2s;display:flex}
+.button-customize:hover{background-color:#e60023}
+.button-templates{grid-column-gap:.75rem;grid-row-gap:.75rem;background-color:#fff;border-radius:.875rem;justify-content:space-between;align-items:center;padding:.5625rem .75rem;transition:background-color .2s;display:flex}
+.button-templates:hover{background-color:#f5f5f5}
+.button-templates-box{grid-column-gap:.75rem;grid-row-gap:.75rem;justify-content:flex-start;align-items:center;display:flex}
+.text-badges{font-family:var(--hd-font-badge);color:#fff;text-transform:uppercase}
+.text-badges.is-black{color:#000}
+.slider-arrow{border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);background-color:var(--hd-color-white);justify-content:center;align-items:center;width:3rem;height:3rem;padding:0;cursor:pointer;transition:background-color .2s,border-color .2s;display:flex}
+.slider-arrow:hover{background-color:var(--hd-color-neutral-200)}
+.slider-arrow.is-right{inset:auto 1.5rem 1.5rem auto}
+.slider-arrow.is-right.is-home{position:relative;inset:auto auto 2.25rem 1.75rem}
+.slider-arrow.is-left{inset:auto 4.875rem 1.5rem auto}
+.slider-arrow.is-left.is-home{display:inline-flex;position:relative;top:.75rem;bottom:auto;right:1.75rem}
+.slider-arrow.is-left-about{inset:-6rem 3.375rem auto auto}
+.slider-arrow.is-right-about{inset:-6rem 0% auto auto}
+.updates-info{grid-column-gap:.25rem;grid-row-gap:.25rem;justify-content:flex-start;align-items:center;display:flex}
+.updates_badge{background-color:var(--hd-color-neutral-100);color:var(--hd-color-neutral-900);border-radius:.25rem;padding:.25rem 1rem;font-size:.75rem}
+.faq_accordion{border-bottom:.0625rem solid var(--hd-color-neutral-200);flex-flow:column;padding-top:1rem;padding-bottom:1rem;display:flex}
+.faq_answer-wrapper{margin-top:.75rem}
+.faq_question{cursor:pointer;justify-content:space-between;display:flex}
+.faq_answer{flex:0 auto;overflow:hidden}
+.faq_question_header{grid-column-gap:1.25rem;grid-row-gap:1.25rem;justify-content:center;align-items:center;display:flex}
+.faq_icon{border-style:solid;border-width:.0625rem;border-color:#eae8e2 #eae8e2 var(--hd-color-neutral-200);border-radius:.375rem;justify-content:center;align-items:center;width:3rem;height:3rem;padding-inline-end:0;transition:background-color .2s,border-color .2s;display:flex}
+.faq_icon:hover{background-color:#eae8e2}
+.section_faq_split{flex-direction:column;justify-content:center}
+.faq_split_box{max-width:var(--hd-width-lg);border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);padding:1.5rem}
+.faq_split_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1.5fr;grid-auto-columns:1fr;place-items:start stretch;display:grid}
+.section_home_benefits{flex-direction:column;justify-content:center}
+.home_benefits_header{grid-column-gap:.375rem;grid-row-gap:.375rem;flex-flow:column;justify-content:space-between;align-items:stretch;display:flex}
+.home_benefits_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.home_benefits_card{background-color:var(--hd-color-neutral-50);padding:1rem}
+.home_benefits_image{object-fit:cover;height:100%}
+.home_benefits_video-img{display:block;width:100%;height:100%;object-fit:cover;border-radius:var(--hd-radius)}
+.section_home_about{flex-direction:column;justify-content:center}
+.home_about_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;place-items:stretch start;display:grid}
+.home_about_content{border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);flex-flow:column;justify-content:center;align-items:center;padding:1rem;display:flex}
+.home_about_list{grid-column-gap:.75rem;grid-row-gap:.75rem;flex-flow:row;display:flex}
+.home_about_list-item{grid-column-gap:.25rem;grid-row-gap:.25rem;flex-flow:row;justify-content:flex-start;align-items:center;display:flex}
+.proof-dashboard-shell{isolation:isolate;border:.0625rem solid #ffffff2e;border-radius:1.625rem;background:radial-gradient(circle at 18% 10%,#ffffff42 0 9rem,#0000 16rem),radial-gradient(circle at 32% 86%,#ffffff2b 0 8rem,#0000 18rem),linear-gradient(135deg,#111 0%,#292929 38%,#080808 100%);box-shadow:0 1.5rem 4rem #0000004d;min-height:100%;padding:2.25rem 0 0 2.25rem;position:relative;overflow:hidden}
+.proof-dashboard-shell::before,.proof-dashboard-shell::after{content:"";pointer-events:none;position:absolute;inset:-18% -12%;z-index:-1;background:repeating-radial-gradient(ellipse at 0% 35%,#ffffff45 0 .0625rem,#0000 .0625rem .42rem);filter:blur(.25rem);opacity:.42;transform:rotate(-16deg)}
+.proof-dashboard-shell::after{inset:18% -28% -35% -30%;background:repeating-radial-gradient(ellipse at 35% 55%,#ffffff2e 0 .0625rem,#0000 .0625rem .5rem);opacity:.28;transform:rotate(22deg)}
+.proof-dashboard-browser{height:100%;min-height:42rem;border:.0625rem solid #ffffff4d;border-bottom:0;border-right:0;border-radius:1.25rem 0 0 0;background:#0b0b0de6;box-shadow:inset 0 .0625rem 0 #ffffff3d,0 1rem 3rem #0009;overflow:hidden}
+.proof-browser-chrome{height:4rem;border-bottom:.0625rem solid #ffffff26;background:linear-gradient(180deg,#ffffff2b,#ffffff0a);display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:1.25rem;padding:0 1.25rem;color:#e8e8e8}
+.proof-window-controls{display:flex;gap:.5rem}
+.proof-window-controls span{width:.6rem;height:.6rem;border-radius:50%;background:#ececec;opacity:.9}
+.proof-browser-nav{display:flex;align-items:center;gap:.65rem;color:#f5f5f5aa}
+.proof-browser-nav span{font-size:1.5rem;line-height:1}
+.proof-browser-url{justify-self:stretch;max-width:23rem;height:2rem;border:.0625rem solid #ffffff80;border-radius:999rem;background:#ffffff0a;display:flex;align-items:center;justify-content:center;gap:.35rem;color:#fff;font-size:.55rem;font-weight:700}
+.proof-lock{width:.8rem;height:.8rem;flex:0 0 auto;opacity:.9}
+.proof-dashboard-app{height:calc(100% - 4rem);display:grid;grid-template-columns:minmax(13.5rem,30%) 1fr;background:#111}
+.proof-dashboard-sidebar{backdrop-filter:blur(10px);background:radial-gradient(circle at 42% 3%,#ffffff2e 0 3rem,#0000 10rem),linear-gradient(180deg,#121214ed,#070708f2);border-right:.0625rem solid #ffffff0d;padding:2rem 1.25rem;display:flex;flex-direction:column;color:#f4f4f4}
+.proof-dashboard-logo{display:flex;align-items:center;gap:.7rem;font-size:1.45rem;font-weight:700;letter-spacing:.02em}
+.proof-dashboard-logo svg{width:2.55rem;color:#ed7d2b;filter:drop-shadow(0 .5rem 1rem #e67e2266)}
+.proof-dashboard-logo sup{font-size:.42em;margin-left:.1rem}
+.proof-profile{display:flex;align-items:center;gap:.75rem;margin-top:2.4rem}
+.proof-avatar{width:2.45rem;height:2.45rem;border:.12rem solid #ffffffbf;border-radius:50%;background:linear-gradient(135deg,#f4d8bf,#252525);display:flex;align-items:center;justify-content:center;color:#1e1e1e;font-weight:800;overflow:hidden}
+.proof-avatar img{width:calc(100% - .24rem);height:calc(100% - .24rem);border-radius:50%;object-fit:cover;display:block}
+.proof-profile-name{color:#fff;font-size:1.05rem;font-weight:700;line-height:1.1}
+.proof-profile-plan{color:#b8b8b8;font-size:.78rem;font-weight:600}
+.proof-trial-card{margin-top:1.65rem;border:.0625rem solid #ffffff0f;border-radius:.5rem;background:linear-gradient(90deg,#091019,#06111e);padding:.55rem .7rem}
+.proof-trial-line{display:flex;align-items:center;gap:.55rem;color:#e9f1fb;font-size:.74rem;font-weight:700}
+.proof-trial-line svg{width:.95rem;color:#dbeeff}
+.proof-progress-track{height:.2rem;margin-top:.5rem;border-radius:999rem;background:#ffffff1a;overflow:hidden}
+.proof-progress-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,#e67e22,#f1b36d);box-shadow:0 0 1rem #e67e22b3;transition:width .25s}
+.proof-new-flow{width:100%;border:0;border-radius:.35rem;background:#ffffff10;color:#f7f7f7;margin-top:2.9rem;padding:.9rem 1rem;display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.95rem;font-weight:600;transition:background-color .2s,transform .2s}
+.proof-new-flow:hover{background:#ffffff18;transform:translateY(-.0625rem)}
+.proof-new-flow span:first-child{font-size:1.65rem;line-height:1}
+.proof-nav-list{list-style:none;margin:2.1rem -1.25rem 0;padding:0;display:flex;flex-direction:column}
+.proof-nav-button{width:100%;border:0;border-left:.18rem solid #0000;background:#0000;color:#8d8d8d;display:flex;align-items:center;gap:.75rem;padding:.85rem 1.25rem;text-align:left;font-weight:700;transition:background-color .2s,color .2s,border-color .2s}
+.proof-nav-button:hover,.proof-nav-button.proof-nav-active{background:linear-gradient(90deg,#ffffff14,#ffffff08 70%,#0000);color:#f2f2f2;border-left-color:#ffffff3d}
+.proof-nav-icon{width:1.1rem;height:1.1rem;display:inline-flex;align-items:center;justify-content:center;color:currentColor}
+.proof-nav-icon svg{width:1.1rem;height:1.1rem}
+.proof-dashboard-main{min-width:0;background:#151515;padding:2.1rem .45rem .45rem 1.25rem;display:grid;grid-template-rows:1fr auto;gap:.45rem;position:relative}
+.proof-chart-card,.proof-mini-card{border:.0625rem solid #ffffff08;background:#ffffff06;box-shadow:inset 0 .0625rem 0 #ffffff0a}
+.proof-chart-card{min-height:21rem;padding:1rem 1rem 0;display:flex;flex-direction:column;overflow:hidden}
+.proof-chart-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.proof-chart-header h3{color:#efefef;margin:0;font-size:1rem;text-transform:uppercase;letter-spacing:.02em}
+.proof-chart-header p{color:#8f8f8f;margin:.2rem 0 0;font-size:.78rem}
+.proof-chart-pill{border:.0625rem solid #ffffff17;border-radius:999rem;background:#ffffff0a;color:#f2c296;padding:.22rem .6rem;font-size:.68rem;font-weight:800;letter-spacing:.08em}
+.proof-flow-chart{flex:1;min-height:14rem;margin-top:.3rem;overflow:visible}
+.proof-chart-line{fill:none;stroke:#a7a7a7;stroke-width:3;stroke-linecap:round;opacity:.55}
+.proof-chart-point{cursor:pointer;fill:#151515;stroke:#777;stroke-width:5;transition:fill .2s,stroke .2s,stroke-width .2s,filter .2s}
+.proof-chart-point:hover,.proof-chart-point-active{fill:#0c0c0c;stroke:#e67e22;stroke-width:7;filter:drop-shadow(0 0 .7rem #e67e22)}
+.proof-chart-point-active{animation:proofPulse 1.8s ease-in-out infinite}
+.proof-chart-months{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem;margin-top:auto;padding:.5rem 0 1rem}
+.proof-chart-months button{border:0;background:#0000;color:#bdbdbd;font-size:.78rem;font-weight:800;text-align:left;transition:color .2s}
+.proof-chart-months button:hover,.proof-chart-months button.proof-month-active{color:#f2c296}
+.proof-bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;min-height:10rem}
+.proof-mini-card{display:flex;align-items:flex-start;gap:.8rem;padding:2.5rem 2.25rem;color:#777}
+.proof-mini-card svg{width:1.35rem;height:1.35rem;color:#6d6d6d}
+.proof-mini-card span{display:block;color:#8e8e8e;font-size:.78rem;font-weight:700}
+.proof-mini-card strong{display:block;margin-top:.25rem;color:#d8d8d8;font-size:1.35rem}
+.proof-chart-months--dense{grid-template-columns:repeat(12,1fr)}
+.proof-chart-months--dense button{font-size:.58rem}
+.proof-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;min-height:10rem}
+.proof-metric{border:.0625rem solid #ffffff08;background:#ffffff06;box-shadow:inset 0 .0625rem 0 #ffffff0a;min-height:10.25rem;padding:1.65rem 1rem;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between}
+.proof-metric-icon{display:inline-flex;align-items:center;justify-content:center;width:1.35rem;height:1.35rem;color:#6d6d6d}
+.proof-metric-icon svg{width:1.15rem;height:1.15rem}
+.proof-metric-body span{display:block;margin-bottom:.35rem;color:#c7c7c7;font-size:.78rem;font-weight:700}
+.proof-metric-body strong{color:#fff;font-size:1.5rem;line-height:1;font-weight:800}
+.proof-metric-body em{font-style:normal;margin-left:.35rem;font-size:.62rem;font-weight:800}
+.proof-delta-positive{color:#b9cabd}
+.proof-delta-negative{color:#c4c4c4}
+.proof-hpc-view{grid-row:1 / span 2;min-height:100%;border:.0625rem solid #ffffff08;background:radial-gradient(circle at 78% 5%,#e67e2226 0 7rem,#0000 15rem),linear-gradient(180deg,#191919,#101010);box-shadow:inset 0 .0625rem 0 #ffffff0a;padding:1rem;display:flex;flex-direction:column;gap:.8rem;overflow:hidden}
+.proof-hpc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.proof-hpc-eyebrow{margin:0 0 .25rem;color:#f2c296;font-size:.58rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.proof-hpc-header h3{margin:0;color:#fff;font-size:1.15rem;line-height:1.1}
+.proof-hpc-header p{margin:.28rem 0 0;color:#8f8f8f;font-size:.74rem;max-width:26rem}
+.proof-hpc-status-pill,.proof-hpc-badge{display:inline-flex;align-items:center;gap:.38rem;border:.0625rem solid #e67e224d;border-radius:999rem;background:#e67e2217;color:#f2c296;font-size:.62rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.proof-hpc-status-pill{padding:.3rem .65rem}
+.proof-hpc-status-pill span{width:.42rem;height:.42rem;border-radius:50%;background:#e67e22;box-shadow:0 0 .8rem #e67e22}
+.proof-hpc-toolbar{display:flex;flex-wrap:wrap;gap:.4rem}
+.proof-hpc-toolbar span{border:.0625rem solid #ffffff10;border-radius:.35rem;background:#ffffff08;color:#bdbdbd;padding:.38rem .55rem;font-size:.62rem;font-weight:800}
+.proof-hpc-card{border:.0625rem solid #ffffff12;background:linear-gradient(180deg,#ffffff0c,#ffffff05);box-shadow:inset 0 .0625rem 0 #ffffff12,0 .85rem 2.4rem #0005;padding:1rem;display:flex;flex-direction:column;gap:.85rem;cursor:pointer;transition:border-color .2s,background-color .2s,transform .2s,box-shadow .2s}
+.proof-hpc-card:hover,.proof-hpc-card:focus-visible{border-color:#e67e2280;background:#ffffff0f;box-shadow:inset 0 .0625rem 0 #ffffff17,0 1rem 2.6rem #0008;transform:translateY(-.08rem);outline:0}
+.proof-hpc-card-top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.proof-hpc-cluster-icon{width:3.25rem;height:3.25rem;border-radius:50%;background:linear-gradient(135deg,#e67e2233,#ffffff0b);border:.0625rem solid #e67e2242;color:#f2c296;display:flex;align-items:center;justify-content:center;box-shadow:0 0 1.4rem #e67e221a}
+.proof-hpc-cluster-icon svg{width:1.65rem;height:1.65rem}
+.proof-hpc-badge{padding:.24rem .55rem}
+.proof-hpc-card h4{margin:0;color:#f4f4f4;font-size:1.08rem;line-height:1.1}
+.proof-hpc-card p{margin:.2rem 0 0;color:#8f8f8f;font-size:.72rem}
+.proof-hpc-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin:0}
+.proof-hpc-specs div{border:.0625rem solid #ffffff0c;background:#00000024;padding:.55rem .45rem}
+.proof-hpc-specs dt{color:#858585;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.proof-hpc-specs dd{margin:.15rem 0 0;color:#fff;font-size:.95rem;font-weight:900}
+.proof-hpc-services{display:flex;flex-wrap:wrap;gap:.35rem}
+.proof-hpc-services span{border:.0625rem solid #ffffff12;border-radius:999rem;background:#ffffff08;color:#d0d0d0;padding:.28rem .55rem;font-size:.6rem;font-weight:800}
+.proof-hpc-card-footer{border-top:.0625rem solid #ffffff0d;padding-top:.75rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;color:#8f8f8f;font-size:.68rem;font-weight:700}
+.proof-hpc-card-footer strong{color:#f2c296;font-size:.7rem}
+.proof-hpc-modal{position:absolute;inset:0;z-index:20;background:#000000b5;backdrop-filter:blur(.35rem);display:flex;align-items:center;justify-content:center;padding:1rem}
+.proof-hpc-modal-panel{width:min(37rem,100%);max-height:calc(100% - 1rem);border:.0625rem solid #ffffff24;background:linear-gradient(180deg,#1d1d1f,#101011);box-shadow:0 1.5rem 4rem #000c,inset 0 .0625rem 0 #ffffff14;color:#efefef;overflow:auto}
+.proof-hpc-modal-header{border-bottom:.0625rem solid #ffffff12;padding:1rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.proof-hpc-modal-header p{margin:0 0 .25rem;color:#f2c296;font-size:.58rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.proof-hpc-modal-header h3{margin:0;color:#fff;font-size:1.15rem}
+.proof-hpc-modal-header span{display:block;margin-top:.2rem;color:#8f8f8f;font-size:.7rem}
+.proof-hpc-modal-close{width:2rem;height:2rem;border:.0625rem solid #ffffff14;border-radius:50%;background:#ffffff08;color:#f3f3f3;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s,color .2s}
+.proof-hpc-modal-close:hover{background:#ffffff14;color:#f2c296}
+.proof-hpc-modal-close svg{width:1rem;height:1rem}
+.proof-hpc-tabs{padding:.75rem 1rem 0;display:flex;gap:.35rem;border-bottom:.0625rem solid #ffffff10}
+.proof-hpc-tabs button{border:0;border-bottom:.12rem solid #0000;background:#0000;color:#8f8f8f;padding:.45rem .2rem .65rem;font-size:.68rem;font-weight:900;cursor:pointer;transition:color .2s,border-color .2s}
+.proof-hpc-tabs button:hover,.proof-hpc-tabs button.proof-hpc-tab-active{color:#f2c296;border-bottom-color:#e67e22}
+.proof-hpc-modal-body{padding:1rem}
+.proof-hpc-modal-grid{display:grid;grid-template-columns:minmax(9rem,.8fr) 1.2fr;gap:.65rem}
+.proof-hpc-status-card,.proof-hpc-detail-list div,.proof-hpc-service-list div,.proof-hpc-queue div{border:.0625rem solid #ffffff10;background:#ffffff07;box-shadow:inset 0 .0625rem 0 #ffffff0a}
+.proof-hpc-status-card{padding:1rem;background:linear-gradient(180deg,#e67e221f,#ffffff07)}
+.proof-hpc-status-card span,.proof-hpc-detail-list dt{display:block;color:#8f8f8f;font-size:.58rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.proof-hpc-status-card strong{display:block;margin-top:.35rem;color:#fff;font-size:1.7rem;line-height:1}
+.proof-hpc-status-card p{margin:.6rem 0 0;color:#bcbcbc;font-size:.72rem}
+.proof-hpc-detail-list{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.proof-hpc-detail-list div{padding:.7rem}
+.proof-hpc-detail-list dd{margin:.18rem 0 0;color:#f2f2f2;font-size:.72rem;font-weight:800}
+.proof-hpc-service-list,.proof-hpc-queue{display:flex;flex-direction:column;gap:.5rem}
+.proof-hpc-service-list div,.proof-hpc-queue div{padding:.75rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.proof-hpc-service-list span,.proof-hpc-queue span{color:#f1f1f1;font-size:.75rem;font-weight:800}
+.proof-hpc-service-list strong,.proof-hpc-queue strong{color:#f2c296;font-size:.62rem;text-transform:uppercase;letter-spacing:.08em}
+.proof-hpc-queue em{font-style:normal;color:#8f8f8f;font-size:.62rem;font-weight:800}
+.proof-kube-view{grid-row:1 / span 2;min-height:100%;border:.0625rem solid #ffffff08;background:radial-gradient(circle at 80% 8%,#e67e2224 0 8rem,#0000 17rem),linear-gradient(180deg,#191919,#101010);box-shadow:inset 0 .0625rem 0 #ffffff0a;padding:1rem;display:flex;flex-direction:column;gap:.75rem;overflow:hidden}
+.proof-kube-stepper{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem}
+.proof-kube-stepper button{border:.0625rem solid #ffffff10;border-radius:.35rem;background:#ffffff07;color:#8f8f8f;padding:.48rem .35rem;font-size:.58rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.proof-kube-stepper button:hover,.proof-kube-stepper button.proof-kube-step-active{border-color:#e67e2266;background:#e67e2218;color:#f2c296}
+.proof-kube-layout{min-height:0;display:grid;grid-template-columns:1fr;gap:.55rem;flex:1}
+.proof-kube-panel{border:.0625rem solid #ffffff10;background:#ffffff06;box-shadow:inset 0 .0625rem 0 #ffffff0a}
+.proof-kube-panel{min-width:0;padding:1rem;overflow:auto}
+.proof-kube-step h4{margin:0 0 .75rem;color:#fff;font-size:1rem;line-height:1.15}
+.proof-kube-step label{display:grid;gap:.35rem;margin-bottom:.7rem}
+.proof-kube-step label span,.proof-kube-help{color:#8f8f8f;font-size:.64rem;font-weight:800}
+.proof-kube-step input[type=text]{width:100%;border:.0625rem solid #ffffff14;border-radius:.35rem;background:#0d0d0e;color:#f2f2f2;padding:.58rem .65rem;font-size:.72rem;font-weight:800}
+.proof-kube-template-card,.proof-kube-option,.proof-kube-check-list div,.proof-kube-review-grid div{border:.0625rem solid #ffffff10;background:#00000024;box-shadow:inset 0 .0625rem 0 #ffffff0a}
+.proof-kube-template-card{padding:.75rem;display:grid;gap:.5rem}
+.proof-kube-template-card strong{color:#f2f2f2;font-size:.82rem}
+.proof-kube-template-card span{color:#a8a8a8;font-size:.68rem}
+.proof-kube-template-card dl,.proof-kube-review-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin:0}
+.proof-kube-template-card dl div,.proof-kube-review-grid div{padding:.55rem}
+.proof-kube-template-card dt,.proof-kube-review-grid span{display:block;color:#858585;font-size:.54rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.proof-kube-template-card dd,.proof-kube-review-grid strong{display:block;margin:.15rem 0 0;color:#f2f2f2;font-size:.7rem;font-weight:800}
+.proof-kube-option span{display:block;color:#858585;font-size:.54rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.proof-kube-option strong{display:block;margin-top:.18rem;color:#f2f2f2;font-size:.72rem}
+.proof-kube-help{margin:.65rem 0 0;line-height:1.45}
+.proof-kube-option{padding:.7rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.45rem}
+.proof-kube-option-enabled{border-color:#e67e2242;background:#e67e2210}
+.proof-kube-option strong{color:#f2c296;text-align:right}
+.proof-kube-check-list{display:grid;gap:.45rem;margin-bottom:.6rem}
+.proof-kube-check-list div{display:flex;align-items:center;gap:.5rem;padding:.68rem;color:#d8d8d8;font-size:.72rem;font-weight:800}
+.proof-kube-check-list span{width:.5rem;height:.5rem;border-radius:50%;background:#e67e22;box-shadow:0 0 .7rem #e67e22}
+.proof-kube-actions{display:flex;justify-content:flex-end;gap:.45rem}
+.proof-kube-actions button,.proof-kube-prompt-actions a,.proof-kube-prompt-actions button{border:.0625rem solid #ffffff14;border-radius:.35rem;background:#ffffff08;color:#f2f2f2;padding:.55rem .8rem;font-size:.68rem;font-weight:900;cursor:pointer;text-decoration:none;transition:background-color .2s,border-color .2s,color .2s}
+.proof-kube-actions button:hover,.proof-kube-prompt-actions a:hover,.proof-kube-prompt-actions button:hover{border-color:#e67e2266;background:#e67e2218;color:#f2c296}
+.proof-kube-actions button:last-child,.proof-kube-prompt-actions a{border-color:#e67e2266;background:#e67e22;color:#111}
+.proof-kube-actions button:last-child:hover,.proof-kube-prompt-actions a:hover{background:#f2c296;color:#111}
+.proof-kube-actions button:disabled{opacity:.42;cursor:not-allowed}
+.proof-kube-prompt{position:absolute;inset:0;z-index:21;background:#000000b8;backdrop-filter:blur(.35rem);display:flex;align-items:center;justify-content:center;padding:1rem}
+.proof-kube-prompt-panel{width:min(28rem,100%);border:.0625rem solid #ffffff24;background:linear-gradient(180deg,#1d1d1f,#101011);box-shadow:0 1.5rem 4rem #000c,inset 0 .0625rem 0 #ffffff14;padding:1.25rem;color:#efefef}
+.proof-kube-prompt-panel h3{margin:0;color:#fff;font-size:1.2rem;line-height:1.15}
+.proof-kube-prompt-panel p:not(.proof-hpc-eyebrow){margin:.65rem 0 0;color:#bcbcbc;font-size:.78rem;line-height:1.5}
+.proof-kube-prompt-panel strong{color:#f2c296}
+.proof-kube-prompt-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.proof-llm-view{grid-row:1 / span 2;min-height:100%;border:.0625rem solid #ffffff08;background:radial-gradient(circle at 50% 30%,#e67e2224 0 8rem,#0000 18rem),linear-gradient(180deg,#191919,#101010);box-shadow:inset 0 .0625rem 0 #ffffff0a;padding:1rem;display:flex;align-items:center;justify-content:center}
+.proof-llm-card{width:min(20rem,100%);border:.0625rem solid #ffffff12;background:linear-gradient(180deg,#ffffff0d,#ffffff05);box-shadow:inset 0 .0625rem 0 #ffffff12,0 1rem 2.8rem #0007;padding:1.35rem;text-align:center;color:#efefef}
+.proof-llm-icon{width:3.75rem;height:3.75rem;margin:0 auto .9rem;border:.0625rem solid #e67e2242;border-radius:50%;background:#e67e2212;color:#f2c296;display:flex;align-items:center;justify-content:center;box-shadow:0 0 1.4rem #e67e2224}
+.proof-llm-icon svg{width:2rem;height:2rem}
+.proof-llm-card h3{margin:0;color:#fff;font-size:1.25rem;line-height:1.1}
+.proof-llm-card p:not(.proof-hpc-eyebrow){margin:.55rem 0 0;color:#a8a8a8;font-size:.76rem;line-height:1.45}
+.proof-llm-card button{margin-top:1rem;border:.0625rem solid #e67e2266;border-radius:.35rem;background:#e67e22;color:#111;padding:.65rem .95rem;font-size:.72rem;font-weight:900;cursor:pointer;transition:background-color .2s,transform .2s}
+.proof-llm-card button:hover{background:#f2c296;transform:translateY(-.06rem)}
+@keyframes proofPulse{0%,100%{r:8}50%{r:11}}
+.section_home_logos{flex-direction:column;justify-content:center}
+.home_logos_grid{max-width:var(--hd-width-lg);grid-column-gap:.375rem;grid-row-gap:.375rem;flex-flow:row;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr 1fr;grid-auto-columns:1fr;display:grid;position:relative;overflow:hidden}
+.home_logos_grid.hd-align-center{place-items:start stretch}
+.section_home_reviews{flex-direction:column;justify-content:center}
+.home_reviews_slider{background-color:#0000;height:auto;right:0}
+.home_reviews_mask{height:auto}
+.home_reviews_highlight{grid-column-gap:1rem;grid-row-gap:1rem;border-radius:var(--hd-radius);background-color:var(--hd-color-black);flex-flow:row;justify-content:flex-start;align-items:center;padding:1.5rem;display:flex;position:static;top:1.5rem;left:1.5rem}
+.home_reviews_box{grid-column-gap:.375rem;grid-row-gap:.375rem;border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);flex-flow:column;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;justify-content:center;align-items:center;padding:3rem 1rem;display:flex}
+.home_reviews_image{width:6.25rem;height:6.25rem}
+.home_reviews_author-info{flex-flow:column;justify-content:center;align-items:center;margin-top:.25rem;display:flex}
+.section_home_integrations{flex-direction:column;justify-content:center}
+.home_integrations_heading{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:space-between;align-items:flex-end;display:flex}
+.home_integrations_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.home_integrations_card{border-radius:var(--hd-radius);background-color:var(--hd-color-white);padding:1rem}
+.section_home_pricing{flex-direction:column;justify-content:center}
+.home_pricing_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.home_pricing_plan-box{border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);padding:1.5rem}
+.home_pricing_plan-box.is-dark{background-color:var(--hd-color-black);color:var(--hd-color-white)}
+.home_pricing_plan-title{justify-content:space-between;align-items:center;display:flex}
+.home_pricing_popular{background-color:var(--hd-color-black);color:var(--hd-color-white);border-radius:.25rem;padding:.25rem 1rem;font-size:.75rem;font-weight:500}
+.home_pricing_price{grid-column-gap:.25rem;grid-row-gap:.25rem;justify-content:flex-start;align-items:flex-end;display:flex}
+.section_home_updates{flex-direction:column;justify-content:center}
+.home_updates_header{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:space-between;align-items:flex-end;display:flex}
+.home_updates_header-grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.home_updates_featured-card{grid-column-gap:1.5rem;grid-row-gap:1.5rem;border:.0625rem solid var(--hd-color-neutral-50);border-radius:var(--hd-radius);background-color:var(--hd-color-black);color:var(--hd-color-white);flex-flow:column;padding:1rem;transition:border-color .2s,transform .2s;display:flex}
+.home_updates_featured-card:hover{border:.0625rem solid var(--hd-color-neutral-300)}
+.home_updates_featured-image{aspect-ratio:3/2;object-fit:cover;height:100%}
+.section_home_faq{flex-direction:column;justify-content:center}
+.home_faq_box{max-width:var(--hd-width-lg);margin-inline:auto;border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);padding:1.5rem}
+.section_home_banner{background-color:var(--hd-color-black);background-image:url("/img/home/home-banner-container.avif");background-position:50%;background-repeat:no-repeat;background-size:cover;flex-direction:column;justify-content:center}
+.home_banner_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;border-radius:var(--hd-radius);color:var(--hd-color-white);flex-flow:column;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;justify-content:center;align-items:center;min-height:50rem;display:grid}
+.home_banner_image{margin-inline-end:-1.5rem;overflow:visible}
+.home_banner_image3{object-fit:cover;object-position:0% 50%;height:100%;overflow:visible}
+.faq_split_header{position:sticky;top:76px}
+.home_benefits_card-content{flex-flow:column;display:flex}
+.home_updates_header-featured,
+.home_updates_featured-content,
+.home_banner_content{flex-flow:column;display:flex}
+.home_updates_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;height:100%;display:grid}
+.home_updates_card{grid-column-gap:1.25rem;grid-row-gap:1.25rem;border:.0625rem solid var(--hd-color-neutral-50);border-radius:var(--hd-radius);background-color:var(--hd-color-white);flex-flow:column;justify-content:flex-start;align-items:flex-start;height:100%;padding:1rem;transition:border-color var(--hd-transition);display:flex}
+.home_updates_card:hover{border-color:var(--hd-color-neutral-300)}
+.home_updates_image{aspect-ratio:3/2;object-fit:cover;width:100%;max-width:none}
+
+/* ==========================================================================
+   18.1  Orphan grid definitions — page-template grids whose Webflow CSS was
+   removed in W5.2 and never ported to hd.css.  Reconstructed from the legacy
+   stylesheet (HEAD~6) with tokens translated to --hd-* names.
+   ========================================================================== */
+.about_hero_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1.5fr;grid-auto-columns:1fr;place-items:center start;display:grid}
+.about_hero_images{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:1fr auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:43.75rem;display:grid}
+.about_hero_images>.about_hero_image:first-child{grid-area:span 1/span 2/span 1/span 2}
+.about_hero_image{object-fit:cover;width:100%;height:100%}
+.about_hero_highlight{border-radius:var(--hd-radius);background-color:var(--hd-color-black);flex-flow:column;justify-content:space-between;align-items:flex-start;padding:1rem;display:flex}
+.about_hero_highlight-author{grid-column-gap:1rem;grid-row-gap:1rem;justify-content:flex-start;align-items:center;display:flex}
+.about_hero_highlight-image{width:5rem;height:5rem}
+.about_numbers_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 2fr;grid-auto-columns:1fr;display:grid}
+.about_numbers_content{grid-column-gap:2rem;grid-row-gap:2rem;flex-flow:column;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;padding-inline-start:1.5rem;display:flex}
+.about_numbers_header{grid-column-gap:.375rem;grid-row-gap:.375rem;flex-flow:column;justify-content:center;align-items:stretch;display:flex}
+.about_numbers_card{grid-column-gap:1.5rem;grid-row-gap:1.5rem;border-top:.0625rem solid var(--hd-color-neutral-200);justify-content:flex-start;align-items:center;padding-top:.75rem;display:flex}
+.about_numbers_info{flex:1}
+.about_story_header{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:space-between;align-items:flex-end;display:block}
+.about_story_slider{background-color:#0000;height:auto;display:flex;overflow:visible}
+.about_story_mask{width:28.75rem;height:100%;overflow:visible}
+.about_story_card{border-top:.0625rem solid var(--hd-color-neutral-300);flex-flow:column;justify-content:space-between;align-items:flex-start;height:20rem;margin-inline-end:.375rem;padding-top:.75rem;display:flex}
+.about_team_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.about_team_header{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:space-between;align-items:flex-end;display:flex}
+.about_team_card{border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius)}
+.about_team_image{aspect-ratio:3/4;object-fit:cover;width:100%}
+.about_team_info{padding:1rem}
+.about_team_social{grid-column-gap:.125rem;grid-row-gap:.125rem;justify-content:flex-start;align-items:center;display:flex}
+.about_team_social-link{justify-content:center;align-items:center;width:1.5rem;height:1.5rem;display:flex}
+.about_team_social-image{border-radius:0}
+.plan_hero_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:43.75rem;display:grid}
+.plan_hero_content{border-radius:var(--hd-radius);background-color:var(--hd-color-black);flex-flow:column;justify-content:center;align-items:flex-start;padding:1.5rem;display:flex}
+.plan_hero_image{object-fit:cover;width:100%;height:100%}
+.signin_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:50rem;display:grid}
+.signin_content{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);flex-flow:column;justify-content:center;align-items:center;padding:1rem;display:flex}
+.signin_image{object-fit:cover;width:100%;height:100%}
+.signup_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:50rem;display:grid}
+.signup_content{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);flex-flow:column;justify-content:center;align-items:center;padding:1rem;display:flex}
+.signup_image{object-fit:cover;width:100%;height:100%}
+.forgot_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:50rem;display:grid}
+.forgot_content{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);flex-flow:column;justify-content:center;align-items:center;padding:1rem;display:flex}
+.forgot_image{object-fit:cover;width:100%;height:100%}
+.contact2_hero_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;border-radius:var(--hd-radius);color:var(--hd-color-white);background-color:var(--hd-color-black);background-image:linear-gradient(135deg,#000d14,#000 62%,#1f1f1f);background-position:50%;background-repeat:no-repeat;background-size:cover;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;padding:1.5rem;display:grid}
+.contact2_hero_content{flex-flow:column;justify-content:space-between;display:flex}
+.contact2_hero_info{grid-column-gap:.75rem;grid-row-gap:.75rem;flex-flow:column;display:flex}
+.contact2_hero_form-box{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);padding:1.5rem}
+.contact2_hero_call{grid-column-gap:1.25rem;grid-row-gap:1.25rem;border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-200);padding:1rem;display:flex}
+.contact2_hero_call-image{object-fit:cover;width:6.25rem;height:6.25rem}
+.contact2_hero_call-content{flex:1;justify-content:space-between;align-items:center;display:flex}
+.contact2_reach_content{flex-flow:column;flex:1;justify-content:space-between;display:flex}
+.contact2_reach_grid{grid-column-gap:1rem;grid-row-gap:1rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.contact2_reach_-card{border-top:.0625rem solid var(--hd-color-neutral-200);padding-top:.75rem}
+.demo_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:2fr 1fr;grid-auto-columns:1fr;place-items:stretch start;min-height:50rem;display:grid}
+.demo_content{flex-flow:column;justify-content:center;align-items:center;display:flex}
+.demo_image{object-fit:cover;width:100%;height:100%}
+.demo_call{grid-column-gap:1.25rem;grid-row-gap:1.25rem;border-radius:var(--hd-radius);background-color:var(--hd-color-black);background-image:linear-gradient(135deg,#000d14,#000 62%,#1f1f1f);background-position:50%;background-repeat:no-repeat;background-size:cover;padding:1rem;display:flex}
+.demo_call-image{object-fit:cover;width:6.25rem;height:6.25rem}
+.demo_call-content{flex-flow:column;display:flex}
+._404_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:43.75rem;display:grid}
+._404_content{border-radius:var(--hd-radius);flex-flow:column;justify-content:center;align-items:flex-start;display:flex}
+._404_image{object-fit:cover;width:100%;height:100%}
+._404_qoute{max-width:var(--hd-width-sm);border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);padding:1.5rem}
+._404_qoute_author{grid-column-gap:1rem;grid-row-gap:1rem;justify-content:flex-start;align-items:center;display:flex}
+._404_qoute_image{width:5rem;height:5rem}
+.section_404,
+.section_about_hero,
+.section_about_numbers,
+.section_about_story,
+.section_about_team,
+.section_contact2_hero,
+.section_contact2_reach,
+.section_demo,
+.section_forgot,
+.section_home_faq,
+.section_integration_header,
+.section_integration_content,
+.section_integration_related,
+.section_overview_hero,
+.section_overview_features,
+.section_overview_benefits,
+.section_overview_banners,
+.section_plan_hero,
+.section_pricing_compare,
+.section_signin,
+.section_signup,
+.section_update_header,
+.section_update_content,
+.section_update_related{flex-direction:column;justify-content:center}
+.overview_hero_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;display:grid}
+.overview_hero_grid-box.is-right{aspect-ratio:1;border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-100);justify-content:center;align-items:flex-start;width:100%;padding-top:1.5rem;display:flex;position:relative;overflow:hidden}
+.overview_hero_grid-box.is-left{aspect-ratio:1;border-radius:var(--hd-radius);background-color:var(--hd-color-black);background-image:linear-gradient(135deg,#000d14,#000 62%,#1f1f1f);background-position:50%;background-repeat:no-repeat;background-size:cover;justify-content:center;align-items:flex-start;width:100%;padding-top:1.5rem;display:flex;position:relative;overflow:hidden}
+.overview_hero_slider{background-color:#0000;max-width:36.875rem;height:auto}
+.overview_features_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.overview_features_card{border-top:.0625rem solid var(--hd-color-neutral-200);padding-top:.75rem}
+.overview_features_figma{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);justify-content:space-between;align-items:center;padding:1.5rem 1rem;display:flex}
+.overview_features_figma-content{grid-column-gap:1.5rem;grid-row-gap:1.5rem;justify-content:flex-start;align-items:center;display:flex}
+.overview_benefits_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;display:grid}
+.overview_benefits_card{grid-column-gap:1rem;grid-row-gap:1rem;border-radius:var(--hd-radius);background-color:var(--hd-color-white);justify-content:flex-start;align-items:flex-start;padding:1rem;display:flex}
+.overview_banners_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr;grid-auto-columns:1fr;min-height:50rem;display:grid}
+.overview_banners_left{grid-column-gap:1.5rem;grid-row-gap:1.5rem;background-color:var(--hd-color-black);text-align:center;border-radius:var(--hd-radius);flex-flow:column;justify-content:center;align-items:center;padding:1.5rem;display:flex}
+.overview_banners_right{grid-column-gap:.375rem;grid-row-gap:.375rem;flex-flow:column;grid-template-rows:auto;grid-template-columns:1fr;grid-auto-columns:1fr;display:flex}
+.overview_banners_customize{grid-column-gap:1rem;grid-row-gap:1rem;border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-100);flex-flow:column;flex:1;justify-content:center;align-items:flex-start;padding:1.5rem;display:flex}
+.pricing_compare_table{border:.0625rem solid var(--hd-color-neutral-300);border-radius:var(--hd-radius);padding:1.5rem}
+.pricing_compare_header{grid-column-gap:.375rem;grid-row-gap:.375rem;border-bottom:.0625rem solid var(--hd-color-neutral-200);grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr 1fr;grid-auto-columns:1fr;place-items:end stretch;padding-bottom:1.5rem;display:grid}
+.pricing_compare_header-item{grid-column-gap:1.5rem;grid-row-gap:1.5rem;flex-flow:column;display:flex}
+.plan_hero_price,
+.pricing_compare_price{grid-column-gap:.25rem;grid-row-gap:.25rem;align-items:baseline;display:flex}
+.pricing_compare_row{grid-column-gap:.375rem;grid-row-gap:.375rem;border-bottom:.0625rem solid var(--hd-color-neutral-200);grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr 1fr;grid-auto-columns:1fr;place-items:center start;padding-top:1.5rem;padding-bottom:1.5rem;display:grid}
+.pricing_compare_header-popular{grid-column-gap:.5rem;grid-row-gap:.5rem;justify-content:flex-start;align-items:center;display:flex}
+.pricing_plans_popular{background-color:var(--hd-color-black);color:var(--hd-color-white);border-radius:.25rem;padding:.25rem 1rem;font-size:.75rem;font-weight:500}
+.updates_feed_header{grid-column-gap:.375rem;grid-row-gap:.375rem;justify-content:space-between;align-items:flex-end;display:flex}
+.updates_feed_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-rows:auto;grid-template-columns:1fr 1fr 1fr;grid-auto-columns:1fr;height:100%;display:grid}
+.updates_feed_card{grid-column-gap:1.25rem;grid-row-gap:1.25rem;border:.0625rem solid var(--hd-color-neutral-50);border-radius:var(--hd-radius);background-color:var(--hd-color-white);flex-flow:column;justify-content:flex-start;align-items:flex-start;height:100%;padding:1rem;transition:border-color var(--hd-transition);display:flex}
+.updates_feed_card:hover{border-color:var(--hd-color-neutral-300)}
+.updates_feed_image{aspect-ratio:3/2;object-fit:cover;width:100%;max-width:none}
+.updates_feed_content{flex-flow:column;flex:1;justify-content:space-between;display:flex}
+.update_header_image{aspect-ratio:2.39;object-fit:cover;width:100%}
+.update_header_wrapper{flex-flow:column;justify-content:center;align-items:flex-start;padding-inline:1.5rem;display:flex}
+.update_content_wrapper{border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);flex-flow:column;justify-content:center;align-items:flex-start;padding:1.5rem;display:flex}
+.integration_header_wrapper{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);flex-flow:column;justify-content:center;align-items:center;padding:1.5rem;display:flex}
+.integration_header_image{aspect-ratio:2.39;object-fit:cover;width:100%}
+.integration_header_icon{width:5rem;height:5rem}
+.integration_content_wrapper{border:.0625rem solid var(--hd-color-neutral-200);border-radius:var(--hd-radius);flex-flow:column;justify-content:center;align-items:flex-start;padding:1.5rem;display:flex}
+.integrations_feed_card{border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);padding:1rem}
+.integrations_feed_category{color:var(--hd-color-neutral-900);border-radius:.25rem;padding:.25rem 1rem;font-size:.75rem;font-weight:500}
+.integrations_feed_header{justify-content:space-between;align-items:center;display:flex}
+.utility-page_wrapper{max-width:var(--hd-width-md);grid-column-gap:1rem;grid-row-gap:1rem;border-radius:var(--hd-radius);background-color:var(--hd-color-neutral-50);text-align:center;flex-direction:column;justify-content:flex-start;align-self:stretch;align-items:stretch;padding:1.5rem;display:flex}
+.utility-page_form{grid-column-gap:1rem;grid-row-gap:1rem;flex-direction:column;justify-content:flex-start;align-items:stretch;display:flex}
+.section_protected{max-width:var(--hd-width-md);flex-direction:column;justify-content:center}
+.section_protected.hd-align-center{width:100vw;height:100vh}
+.form-divider{grid-column-gap:.75rem;grid-row-gap:.75rem;justify-content:center;align-items:center;display:flex}
+.form_protection{grid-column-gap:.5rem;grid-row-gap:.5rem;justify-content:center;align-items:center;display:flex}
+.icon-1x1-large{width:3.75rem;height:3.75rem}
+.div-block{flex-flow:column;display:flex}
+
+/* ==========================================================================
+   18a. Tablet landscape and below — ≤991px responsive overrides
+   All of the following rules were originally un-wrapped (applying at every
+   width), which caused the mobile nav overlay, single-column footer, and
+   other mobile-only styles to paint at desktop. Scoping them to ≤991px
+   restores the desktop layout while preserving the mobile cascade. Where a
+   selector is also covered by the tighter @767 / @479 blocks further below,
+   those blocks win by source order, so this single wrap is safe — we only
+   add a ≤991 floor, not a ceiling.
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+.hide-tablet{display:none}
+.nav-wrapper{justify-content:space-between;display:flex}
+.nav-menu-wrapper{flex:1;justify-content:flex-end;align-items:flex-end;display:flex}
+.nav-menu{z-index:999999999;background-color:var(--hd-color-white);flex-flow:column;flex:none;justify-content:flex-start;align-items:stretch;width:100%;margin-top:4.75rem;padding-bottom:10rem;position:fixed;inset:0%;overflow:scroll}
+.nav-content{overflow:visible}
+.nav-link{padding-top:1rem;padding-bottom:1rem}
+.nav-dropdown{flex:1;width:100%}
+.nav-dropdown-toggle{justify-content:flex-start;align-items:center;padding-top:1rem;padding-bottom:1rem}
+.nav-dropdown-grid{grid-row-gap:2rem;grid-template-columns:1fr 1fr}
+.nav-dropdown-column.is-buy-template{display:none}
+.nav-menu-button{justify-content:center;align-items:center;width:3rem;height:3rem;padding:.375rem .75rem 0;display:flex}
+.nav-menu-icon{width:1.5rem;max-width:none;height:1.5rem}
+.nav-links-buttons{flex-flow:column;justify-content:flex-start;align-items:stretch;padding-inline:1rem;display:flex}
+.footer{padding-top:3rem}
+.footer_wrapper{grid-column-gap:1.5rem;grid-row-gap:1.5rem;grid-template-columns:1fr}
+.slider-arrow.is-right{margin-left:.25rem;display:inline-flex;position:static}
+.slider-arrow.is-right.is-home{top:.75rem;bottom:auto;left:0}
+.slider-arrow.is-left{margin-right:.25rem;display:inline-flex;position:static}
+.slider-arrow.is-left.is-home{right:0}
+.slider-arrow.is-left-about{margin:auto 0 -4.5rem -28.75rem;display:inline-flex;position:static}
+.slider-arrow.is-right-about{margin-bottom:-4.5rem;margin-left:.25rem;display:inline-flex;position:static}
+.faq_icon{flex:none}
+.section_faq_split{padding-top:3rem}
+.home_benefits_header{flex-flow:column;gap:1.5rem}
+.home_about_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-columns:1fr}
+.proof-dashboard-shell{padding:1.5rem 0 0 1.5rem}
+.proof-dashboard-browser{min-height:37rem}
+.proof-dashboard-app{grid-template-columns:minmax(11rem,34%) 1fr}
+.proof-dashboard-sidebar{padding:1.5rem 1rem}
+.proof-dashboard-logo{font-size:1.1rem}
+.proof-dashboard-logo svg{width:2.1rem}
+.proof-new-flow{margin-top:2rem}
+.proof-chart-card{min-height:24rem}
+.proof-mini-card{padding:1.75rem 1.25rem}
+.home_reviews_box{grid-template-columns:1fr}
+.home_integrations_heading{grid-column-gap:1.5rem;grid-row-gap:1.5rem;flex-flow:column;justify-content:space-between;align-items:flex-start}
+.home_integrations_grid{grid-template-columns:1fr 1fr}
+.home_pricing_grid{grid-template-columns:1fr}
+.home_updates_header{grid-column-gap:1.5rem;grid-row-gap:1.5rem;flex-flow:column;justify-content:space-between;align-items:flex-start}
+.home_updates_header-grid,.home_banner_grid{grid-template-columns:1fr}
+.nav-wrapper{grid-column-gap:0rem;grid-row-gap:0rem}
+.footer_info{grid-column-gap:.75rem;grid-row-gap:.75rem;flex-flow:column}
+.badges{display:none}
+.slider-arrow.is-left-about{margin-left:-20rem}
+.faq_split_grid{grid-template-columns:1fr}
+.home_benefits_grid{grid-template-columns:1fr 1fr}
+.home_about_list{flex-flow:column;justify-content:center;align-items:center}
+.home_logos_grid.hd-align-center{grid-template-columns:1fr 1fr}
+.home_reviews_highlight{padding:1rem}
+.home_banner_image{margin-inline-end:-1.25rem}
+.faq_split_header{position:static}
+.nav-link.is-cart{padding-inline-end:0}
+.nav-dropdown-grid,.overview_hero_grid{grid-template-columns:1fr}
+.footer_nav{grid-column-gap:1.5rem;grid-row-gap:1.5rem;grid-template-columns:1fr 1fr}
+.footer_nav-column{grid-column-gap:.75rem;grid-row-gap:.75rem}
+.slider-arrow.is-left-about{margin-left:-17.5rem}
+.faq_question{align-items:flex-start}
+.faq_question_header{grid-column-gap:0rem;grid-row-gap:0rem;flex-flow:column;justify-content:flex-start;align-items:flex-start}
+.faq_split_box{padding:1rem}
+.home_benefits_grid{grid-column-gap:.375rem;grid-row-gap:.375rem;grid-template-columns:1fr}
+.home_about_content{align-items:stretch}
+.proof-dashboard-shell{padding:1rem}
+.proof-dashboard-browser{border-right:.0625rem solid #ffffff4d;border-bottom:.0625rem solid #ffffff4d;border-radius:1rem;min-height:auto}
+.proof-browser-chrome{height:3.2rem;grid-template-columns:auto 1fr;gap:.75rem;padding:0 .8rem}
+.proof-browser-nav{display:none}
+.proof-browser-url{max-width:none;height:1.7rem}
+.proof-dashboard-app{height:auto;grid-template-columns:1fr}
+.proof-dashboard-sidebar{padding:1rem}
+.proof-profile{margin-top:1.25rem}
+.proof-trial-card{margin-top:1rem}
+.proof-new-flow{margin-top:1rem}
+.proof-nav-list{margin:1rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
+.proof-nav-button{border-left:0;border-radius:.4rem;background:#ffffff08;padding:.65rem .7rem}
+.proof-dashboard-main{padding:.45rem;grid-template-rows:auto auto}
+.proof-chart-card{min-height:20rem}
+.proof-flow-chart{min-height:12rem}
+.proof-bottom-grid{min-height:auto}
+.proof-mini-card{padding:1.25rem}
+.proof-hpc-view{grid-row:auto;padding:.85rem}
+.proof-hpc-specs{grid-template-columns:1fr 1fr}
+.proof-hpc-modal{position:fixed;padding:.75rem}
+.proof-hpc-modal-grid{grid-template-columns:1fr}
+.proof-kube-view{grid-row:auto;padding:.85rem}
+.proof-llm-view{grid-row:auto;min-height:16rem}
+.proof-kube-layout{grid-template-columns:1fr}
+.proof-kube-stepper{grid-template-columns:1fr 1fr}
+.proof-kube-prompt{position:fixed;padding:.75rem}
+.home_reviews_highlight{width:100%;margin-top:.375rem;position:static;top:1rem;left:1rem}
+.home_integrations_grid{grid-template-columns:1fr}
+.home_pricing_plan-box{padding:1rem}
+.home_faq_box{padding:1rem}
+.home_banner_grid{grid-column-gap:3rem;grid-row-gap:3rem;justify-content:center;align-items:stretch;min-height:auto}
+.home_banner_image{height:20rem}
+.proof-metrics{grid-template-columns:1fr 1fr}
+.overview_hero_grid-box.is-right,
+.overview_hero_grid-box.is-left{padding-inline:1rem}
+.overview_benefits_grid{grid-template-columns:1fr 1fr}
+.overview_banners_grid{min-height:37.5rem}
+.updates_feed_header,
+.about_story_header,
+.about_team_header{grid-column-gap:1.5rem;grid-row-gap:1.5rem;flex-flow:column;justify-content:space-between;align-items:flex-start}
+.updates_feed_grid{grid-template-columns:1fr 1fr}
+.demo_grid{grid-column-gap:3rem;grid-row-gap:3rem;grid-template-columns:2fr}
+.contact2_hero_grid{grid-column-gap:3rem;grid-row-gap:3rem;grid-template-columns:1fr}
+.about_hero_grid,
+.about_numbers_grid{grid-column-gap:1.5rem;grid-row-gap:1.5rem;grid-template-columns:1fr}
+.about_numbers_content{padding-inline-start:0}
+.about_story_slider{padding-bottom:4.75rem;overflow:hidden}
+}
+@media screen and (max-width: 767px) {
+  .home_hero_grid { grid-template-columns: 1fr; }
+  .home_hero_content { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  /* Mobile shows the lightweight solar-system poster instead of WebGL — see
+     hero-video.css (poster reveal + aspect-ratio). The interactive canvas is
+     never initialized at this width (index.html bootstrap skips it). */
+  .home_benefits_grid { grid-template-columns: 1fr 1fr; }
+  .home_logos_grid.hd-align-center { grid-template-columns: 1fr 1fr; }
+  .home_updates_grid { grid-template-columns: 1fr; }
+  .home_banner_image { margin-inline-end: -1.25rem; }
+  .footer_info { flex-flow: column; gap: 0.75rem; }
+  .overview_features_grid { grid-template-columns: 1fr; gap: 2rem; }
+  .overview_features_figma { flex-flow: column; justify-content: space-between; align-items: flex-start; gap: 1.5rem; }
+  .overview_benefits_card { flex-flow: column; }
+  .overview_banners_grid { grid-template-columns: 1fr; min-height: auto; }
+  .overview_banners_left,
+  .overview_banners_customize { padding-top: 3rem; padding-bottom: 3rem; }
+  .contact2_hero_call-content { flex-flow: column; justify-content: space-between; align-items: flex-start; gap: .75rem; }
+  .contact2_reach_grid { grid-template-columns: 1fr; gap: 2rem; }
+  .pricing_compare_header,
+  .pricing_compare_row { grid-template-columns: 1fr 1fr 1fr; }
+  .pricing_compare_price { flex-flow: column; align-items: flex-start; gap: .125rem; }
+  .pricing_compare_header-popular { flex-flow: column; justify-content: center; align-items: flex-start; }
+  .updates_feed_grid { grid-template-columns: 1fr; }
+  .update_header_image,
+  .integration_header_image { aspect-ratio: auto; }
+  .update_header_wrapper,
+  .integration_header_wrapper { padding-inline: 0; }
+  .signin_content,
+  .signup_content,
+  .forgot_content,
+  .demo_content,
+  ._404_content { padding-top: 2rem; padding-bottom: 2rem; }
+  .about_hero_images { grid-template-columns: 1fr; }
+  .about_hero_images>.about_hero_image:first-child { grid-column: span 1 / span 1; grid-row: span 1 / span 1; }
+  .about_hero_image { height: auto; max-height: 100%; }
+  .about_story_mask { width: 20rem; }
+  /* orphan grids → single column */
+  .contact2_hero_grid,
+  .plan_hero_grid,
+  .signin_grid,
+  .signup_grid,
+  .forgot_grid,
+  ._404_grid,
+  .about_hero_grid,
+  .about_numbers_grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .demo_grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about_team_grid { grid-template-columns: 1fr 1fr; }
+}
+@media screen and (max-width: 479px) {
+  .about_hero_images>.about_hero_image:first-child { grid-column: span 1 / span 1; }
+  .home_hero_content { align-items: stretch; }
+  .home_benefits_grid,
+  .home_integrations_grid,
+  .footer_nav { grid-template-columns: 1fr; }
+  .home_about_content { align-items: stretch; }
+  .proof-dashboard-shell { padding: .75rem; }
+  .proof-dashboard-logo { font-size: 1rem; }
+  .proof-dashboard-logo svg { width: 1.9rem; }
+  .proof-nav-list,
+  .proof-bottom-grid { grid-template-columns: 1fr; }
+  .proof-chart-card { min-height: 18rem; padding: .85rem .75rem 0; }
+  .proof-chart-months button { font-size: .68rem; }
+  .proof-mini-card { padding: 1rem; }
+  .proof-hpc-header,
+  .proof-hpc-card-footer,
+  .proof-hpc-service-list div,
+  .proof-hpc-queue div { align-items: flex-start; flex-direction: column; }
+  .proof-hpc-detail-list { grid-template-columns: 1fr; }
+  .proof-hpc-modal-panel { max-height: calc(100vh - 1.5rem); }
+  .proof-kube-stepper { grid-template-columns: 1fr; }
+  .proof-kube-template-card dl,
+  .proof-kube-review-grid { grid-template-columns: 1fr; }
+  .proof-kube-option,
+  .proof-kube-actions,
+  .proof-kube-prompt-actions { align-items: stretch; flex-direction: column; }
+  .proof-kube-option strong { text-align: left; }
+  .home_pricing_plan-box,
+  .home_faq_box { padding: 1rem; }
+  .home_banner_grid { gap: 3rem; justify-content: center; align-items: stretch; min-height: auto; }
+  .home_banner_image { height: 20rem; }
+  .proof-metrics { grid-template-columns: 1fr; }
+  .proof-chart-months--dense { gap: .15rem; }
+  .proof-chart-months--dense button { font-size: .5rem; }
+  .faq_question { align-items: flex-start; }
+  .faq_question_header { flex-flow: column; justify-content: flex-start; align-items: flex-start; gap: 0; }
+  .faq_icon { flex: none; }
+  .nav-menu { height: calc(100vh - var(--hd-nav-height)); }
+  .overview_features_figma-content { justify-content: flex-start; align-items: flex-start; }
+  .overview_benefits_grid { grid-template-columns: 1fr; }
+  .overview_banners_left { justify-content: center; align-items: stretch; padding: 1.5rem 1rem; }
+  .overview_banners_customize,
+  .contact2_hero_form-box,
+  .update_content_wrapper,
+  .integration_header_wrapper,
+  .integration_content_wrapper,
+  .utility-page_wrapper { padding: 1rem; }
+  .contact2_hero_call { flex-flow: column; }
+  .pricing_compare_table { border-style: none; padding: 0; }
+  .about_numbers_card { flex-flow: column; justify-content: flex-start; align-items: flex-start; }
+  .about_story_mask { width: 17.5rem; }
+  .section_protected.hd-align-center { height: auto; min-height: 50rem; }
+  /* orphan grids — final single-column collapse */
+  .about_team_grid { grid-template-columns: 1fr; }
+}
+
+/* Breakpoint correction pass: the legacy responsive rules were originally split
+   across 991/767/479. These ranges undo phone-only rules for wider viewports. */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .nav-wrapper { gap: 1.25rem; }
+  .footer_info { flex-flow: row; gap: 0; }
+  .badges { display: flex; }
+  .slider-arrow.is-left-about { margin-left: -28.75rem; }
+  .faq_split_grid { grid-template-columns: 1fr 1.5fr; }
+  .faq_split_header { position: sticky; }
+  .home_benefits_grid { grid-template-columns: 1fr 1fr 1fr; }
+  .home_about_list { flex-flow: row; justify-content: flex-start; align-items: stretch; }
+  .home_logos_grid.hd-align-center { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .home_banner_image { margin-inline-end: -1.5rem; }
+  .overview_features_grid { gap: .375rem; }
+}
+
+@media screen and (min-width: 480px) and (max-width: 991px) {
+  .nav-link.is-cart { padding-inline-end: 1rem; }
+  .nav-dropdown-grid { grid-template-columns: 1fr 1fr; }
+  .overview_hero_grid { grid-template-columns: 1fr 1fr; }
+  .footer_nav { grid-template-columns: 1fr 1fr 1fr; gap: .375rem; }
+  .footer_nav-column { gap: 2rem; }
+  .faq_question { align-items: stretch; }
+  .faq_question_header { flex-flow: row; justify-content: center; align-items: center; gap: 1.25rem; }
+  .faq_split_box,
+  .home_faq_box,
+  .home_pricing_plan-box { padding: 1.5rem; }
+  .home_about_content { align-items: center; }
+  .proof-dashboard-shell { padding: 1.25rem 0 0 1.25rem; }
+  .proof-dashboard-browser { border-right: 0; border-bottom: 0; border-radius: 1rem 0 0 0; min-height: 36rem; }
+  .proof-browser-chrome { height: 3.5rem; grid-template-columns: auto auto 1fr; }
+  .proof-browser-nav { display: flex; }
+  .proof-dashboard-app { grid-template-columns: minmax(11rem, 34%) 1fr; }
+  .proof-nav-list { display: flex; margin: 1.5rem -1rem 0; }
+  .proof-nav-button { border-left: .18rem solid #0000; border-radius: 0; background: #0000; }
+  .proof-dashboard-main { padding: 1rem .45rem .45rem 1rem; }
+  .proof-hpc-view { grid-row: 1 / span 2; }
+  .proof-hpc-specs { grid-template-columns: repeat(4, 1fr); }
+  .proof-hpc-modal { position: absolute; }
+  .proof-hpc-modal-grid { grid-template-columns: minmax(9rem,.8fr) 1.2fr; }
+  .proof-kube-view { grid-row: 1 / span 2; }
+  .proof-llm-view { grid-row: 1 / span 2; min-height: 100%; }
+  .proof-kube-layout { grid-template-columns: 1fr; }
+  .proof-kube-stepper { grid-template-columns: repeat(3,1fr); }
+  .proof-kube-prompt { position: absolute; }
+  .home_reviews_highlight { width: auto; margin-top: 0; }
+  .home_integrations_grid { grid-template-columns: 1fr 1fr; }
+  .home_banner_grid { gap: .375rem; align-items: center; min-height: 50rem; }
+  .home_banner_image { height: auto; }
+  .proof-metrics { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .overview_features_grid { gap: .375rem; }
+}
+
+@media screen and (max-width: 767px) {
+  .utility-page_wrapper { padding: 1rem; }
+  .section_protected.hd-align-center { height: auto; min-height: 50rem; }
+  .pricing_plans_popular { order: -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-chart-point-active { animation: none; }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   Breakpoints mirror Webflow: lg <992px, md <768px, sm <480px.
+   Grids collapse to a single column below the md breakpoint (<768px), matching
+   the template's mobile behavior. Type, spacing, and section-padding scale-downs
+   are driven by the token overrides in hd-tokens.css, so they need no rules here.
+   ========================================================================== */
+
+/* lg — tablet landscape and below (≤991px): 4-col → 2-col; hide-tablet */
+@media screen and (max-width: 991px) {
+  .hd-grid-4col { grid-template-columns: repeat(2, 1fr); }
+  /* Webflow .hide-tablet. Siblings .hide-mobile-landscape/-portrait are unused
+     in the 32 layouts → omitted (add @767/@479 equivalents if ever needed). */
+  .hd-hide-tablet { display: none; }
+
+  /* Nav (W2.1) — collapse to the mobile menu at ≤991 (was data-collapse="medium").
+     The full-screen panel styling (position:fixed, column, white bg, scroll) stays
+     on the custom .nav-menu @991; here we only drive show/hide + the over-left
+     slide/fade (Webflow data-animation="over-left", data-duration="400", ease) via
+     the .hd-nav-menu-open class Alpine toggles — no inline display, no !important.
+     Declared after the base rules so these win at ≤991 by source order. */
+  .hd-nav-toggle { display: flex; }   /* hamburger visible (matches .nav-menu-button @991) */
+
+  .hd-nav-menu {
+    transform: translateX(-100%);     /* off-canvas to the left when closed */
+    opacity: 0;
+    visibility: hidden;               /* also drops the closed menu out of the tab order */
+    pointer-events: none;
+    transition: transform var(--hd-nav-menu-duration) ease,
+                opacity var(--hd-nav-menu-duration) ease,
+                visibility 0s linear var(--hd-nav-menu-duration);
+  }
+  .hd-nav-menu.hd-nav-menu-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform var(--hd-nav-menu-duration) ease,
+                opacity var(--hd-nav-menu-duration) ease;
+  }
+
+  /* services panel flows statically inside the open mobile menu (was
+     .nav-dropdown-wrapper.w--open @991). The info panel never shows ≤991 (its
+     toggle is .hide-tablet), so this shared rule is moot for it. */
+  .hd-dropdown-panel {
+    position: static;
+    margin-bottom: var(--hd-nav-panel-gap-mobile);
+    margin-inline-start: 0;
+    margin-inline-end: var(--hd-nav-panel-inset-mobile);
+  }
+}
+
+/* ==========================================================================
+   19. Page templates without Webflow CSS (W4.3)
+   ========================================================================== */
+.hd-richtext {
+  color: inherit;
+}
+
+.hd-richtext > * + * {
+  margin-top: var(--hd-space-sm);
+}
+
+.hd-richtext ul,
+.hd-richtext ol {
+  padding-inline-start: 1.5rem;
+}
+
+.hd-richtext figure {
+  max-width: 60%;
+  position: relative;
+}
+
+.hd-richtext figure img {
+  width: 100%;
+}
+
+.hd-richtext figure div {
+  color: transparent;
+  font-size: 0;
+}
+
+.hd-richtext figure.hd-richtext-figure-image {
+  display: table;
+}
+
+.hd-richtext figure.hd-richtext-figure-image > div {
+  display: inline-block;
+}
+
+.hd-richtext figure.hd-richtext-figure-image > figcaption {
+  caption-side: bottom;
+  display: table-caption;
+}
+
+.hd-richtext figure.hd-richtext-align-fullwidth {
+  clear: both;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hd-richtext figure.hd-richtext-align-fullwidth > div {
+  display: inline-block;
+  padding-bottom: inherit;
+}
+
+.hd-richtext figure.hd-richtext-align-fullwidth > figcaption {
+  display: block;
+}
+
+.hd-list,
+.hd-list-items,
+.hd-list-item {
+  display: block;
+}
+
+.hd-snap-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hd-snap-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hd-snap-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+/* Nav demo popup — replaces the unused Webflow commerce cart trigger. */
+.nav-demo-trigger {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.nav-demo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--hd-z-nav) + 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background-color: #0009;
+  backdrop-filter: blur(.35rem);
+}
+
+.nav-demo-modal-enter,
+.nav-demo-modal-leave {
+  transition: opacity .42s ease;
+}
+
+.nav-demo-modal-enter .nav-demo-panel {
+  transition: transform .42s ease, opacity .42s ease;
+}
+
+.nav-demo-modal-leave .nav-demo-panel {
+  transition: transform .28s ease, opacity .28s ease;
+}
+
+.nav-demo-modal-enter-start,
+.nav-demo-modal-leave-end {
+  opacity: 0;
+}
+
+.nav-demo-modal-enter-start .nav-demo-panel,
+.nav-demo-modal-leave-end .nav-demo-panel {
+  opacity: 0;
+  transform: translateY(1rem) scale(.98);
+}
+
+.nav-demo-modal-enter-end,
+.nav-demo-modal-leave-start {
+  opacity: 1;
+}
+
+.nav-demo-modal-enter-end .nav-demo-panel,
+.nav-demo-modal-leave-start .nav-demo-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.nav-demo-panel {
+  width: min(34rem, 100%);
+  max-height: calc(100vh - 2.5rem);
+  overflow: auto;
+  border: var(--hd-input-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-white);
+  box-shadow: var(--hd-nav-panel-shadow);
+  padding: 1.5rem;
+}
+
+.nav-demo-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.nav-demo-header h2 {
+  margin-top: .5rem;
+  margin-bottom: .375rem;
+}
+
+.nav-demo-header p {
+  max-width: 26rem;
+  margin: 0;
+  color: var(--hd-color-neutral-900);
+}
+
+.nav-demo-close {
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: var(--hd-input-border) solid var(--hd-color-neutral-200);
+  border-radius: 50%;
+  background-color: var(--hd-color-white);
+  color: var(--hd-color-black);
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--hd-transition), opacity var(--hd-transition);
+}
+
+.nav-demo-close:hover {
+  background-color: var(--hd-color-neutral-100);
+  opacity: .85;
+}
+
+.nav-demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.nav-demo-form .hd-form-group {
+  margin-bottom: 1rem;
+}
+
+.nav-demo-textarea {
+  min-height: 6.5rem;
+}
+
+.nav-demo-actions {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* md — tablet portrait and below (<768px): all multi-col grids → 1 col */
+@media screen and (max-width: 767px) {
+  .hd-grid-2col,
+  .hd-grid-3col,
+  .hd-grid-4col {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-demo-panel {
+    max-height: calc(100vh - 1.5rem);
+    padding: 1rem;
+  }
+
+  .nav-demo-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .nav-demo-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* sm — mobile (<480px): tighten the container gutter; stack/stretch buttons */
+@media screen and (max-width: 479px) {
+  .hd-container,
+  .hd-padding-global {
+    padding-inline: var(--hd-space-xs);   /* 1rem */
+  }
+  /* Buttons: alternate variants stretch to fill; the group stacks vertically
+     (Webflow .button.is-alternative / -secondary / .button-group @479). The
+     .button-group.align-center combo (flex:1) is intentionally not ported —
+     compose .hd-justify-center if a centered stacked group is ever needed. */
+  .hd-button-alternate           { align-self: stretch; }
+  .hd-button-alternate-secondary { flex: 1; align-self: stretch; }
+  .hd-button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  /* Inputs bump to 16px so iOS Safari doesn't auto-zoom on focus
+     (Webflow .form_input @479 { font-size:16px }). */
+  .hd-input { font-size: var(--hd-input-font-mobile); }
+}
+
+/* ==========================================================================
+   AlpineJS x-cloak (W2.1)
+   The dropdown panels carry their open-state chrome on .hd-dropdown-panel
+   (display:block) and are shown/hidden by Alpine x-show. Until Alpine processes
+   x-show, hide [x-cloak] elements so the panels don't flash open before hydration.
+   Declared LAST so this flat (0,1,0) rule wins over .hd-dropdown-panel's display
+   by source order — no !important. Alpine strips x-cloak once initialised.
+   ========================================================================== */
+[x-cloak] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+
+  .hd-nav-menu,
+  .hd-nav-menu.hd-nav-menu-open {
+    transition: none;
+  }
+
+  .hd-skip-link {
+    transition: none;
+  }
+}

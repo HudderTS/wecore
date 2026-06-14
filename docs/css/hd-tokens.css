@@ -1,0 +1,297 @@
+/* ==========================================================================
+   hd-tokens.css — WECORE HD design tokens
+   --------------------------------------------------------------------------
+   Standalone design-token layer for the Webflow → HD migration (task W0.2).
+
+   Every token below was extracted from the legacy Webflow export stylesheet's
+   :root / responsive `body` blocks before that stylesheet was removed in W5.2,
+   re-namespaced under --hd-*, with values verified byte-for-byte against the
+   source. New tokens (hover, transition, shadow, z-index) are added in their
+   own section and clearly marked.
+
+   This file has ZERO dependency on Webflow CSS. It only DEFINES --hd-* custom
+   properties; it consumes nothing and styles no selectors.
+   Templates migrated off the legacy `--name` tokens in W4.
+
+   Source of truth: tasks/inventory.md (W0.1).
+   ========================================================================== */
+
+:root {
+  /* ----- Brand / base colors -------------------------------------------- */
+  --hd-color-accent: #000d14;            /* was --color--accent          */
+  --hd-color-black: black;               /* was --color-base--black      */
+  --hd-color-white: white;               /* was --color-base--white      */
+
+  /* ----- Neutral scale (50 = lightest … 900 = darkest grey) ------------- */
+  --hd-color-neutral-50: #fafafa;        /* was --color-neutral--50      */
+  --hd-color-neutral-100: #f7f7f7;       /* was --color-neutral--100     */
+  --hd-color-neutral-200: #f2f2f2;       /* was --color-neutral--200     */
+  --hd-color-neutral-300: #ededed;       /* was --color-neutral--300     */
+  --hd-color-neutral-400: #e6e6e6;       /* was --color-neutral--400     */
+  --hd-color-neutral-500: #dedede;       /* was --color-neutral--500     */
+  --hd-color-neutral-600: #d9d9d9;       /* was --color-neutral--600     */
+  --hd-color-neutral-700: #d1d1d1;       /* was --color-neutral--700     */
+  --hd-color-neutral-800: #c2c2c2;       /* was --color-neutral--800     */
+  --hd-color-neutral-900: #727272;       /* was --color-neutral--900     */
+
+  /* ----- Semantic colors ------------------------------------------------ */
+  /* Resolved from Webflow's mangled commerce/system variables. The legacy
+     names (--border-color--border-primary, --*-warning) were corrupt
+     variable-id serializations; their resolved literal values are preserved
+     here under clean --hd-* names so no genuinely-used value is lost.        */
+  --hd-color-border: #eee;               /* was --base-color-neutral--neutral-lightest */
+  --hd-color-warning-bg: #fcf8d8;        /* was --base-color-system--warning-yellow      */
+  --hd-color-warning-text: #5e5515;      /* was --base-color-system--warning-yellow-dark */
+  --hd-color-error: #e71f1f;             /* W1.3: .form_message-error text / input error  */
+
+  /* ----- Typography ----------------------------------------------------- */
+  --hd-font-body: Geist, sans-serif;          /* was --fonts--body    */
+  --hd-font-heading: Geist, sans-serif;       /* was --fonts--heading */
+  --hd-font-badge: "Geist Mono", sans-serif;  /* was --fonts--badge   */
+
+  /* ----- Section padding (vertical rhythm) ------------------------------ */
+  /* Desktop values. Responsive ramp lives in the @media blocks below.
+     NOTE: in Webflow the .padding-section-* CLASSES override the base var()
+     with rem literals at 991px AND 767px, which MASK the --section-padding--*
+     var's own @767 override (72px/120px) — those var values never paint for
+     these classes. So the HD tokens ramp to the rendered CLASS values
+     (md 96→64→48, lg 144→96→64, sm 48→48→32), keeping .hd-section-*
+     byte-for-byte with Webflow's .padding-section-*.                         */
+  --hd-section-pad-sm: 48px;             /* .padding-section-small  base */
+  --hd-section-pad-md: 96px;             /* .padding-section-medium base */
+  --hd-section-pad-lg: 144px;            /* .padding-section-large  base */
+
+  /* ----- Content widths ------------------------------------------------- */
+  --hd-width-sm: 412px;                  /* was --content-width--small     */
+  --hd-width-md: 654px;                  /* was --content-width--medium    */
+  --hd-width-lg: 896px;                  /* was --content-width--large     */
+  --hd-width-xl: 1138px;                 /* was --content-width--x-large   */
+  --hd-width-container: 1428px;          /* was --content-width--container */
+  --hd-width-tiny: 13.75rem;             /* W1.1: max-width-tiny — literal in Webflow (no --content-width-- var), = 220px */
+
+  /* ----- Radius --------------------------------------------------------- */
+  --hd-radius: 6px;                      /* was --radius--default          */
+
+  /* ======================================================================
+     NEW TOKENS — not present in Webflow; added per W0.2 §3.
+     ====================================================================== */
+
+  /* Accent hover: a touch lighter than the near-black accent (#000d14)
+     so interactive states read as "lifted" without losing the brand tone. */
+  --hd-color-accent-hover: #00222e;
+
+  /* Standard transition: duration + easing used by interactive elements.   */
+  --hd-transition-duration: 200ms;
+  --hd-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --hd-transition: var(--hd-transition-duration) var(--hd-transition-easing);
+
+  /* Elevation / shadows.                                                   */
+  --hd-shadow-sm: 0 1px 2px rgba(0, 13, 20, 0.06),
+                  0 1px 3px rgba(0, 13, 20, 0.10);
+  --hd-shadow-md: 0 4px 6px rgba(0, 13, 20, 0.07),
+                  0 10px 15px rgba(0, 13, 20, 0.10);
+
+  /* Z-index scale: dropdown < nav < modal.                                 */
+  --hd-z-dropdown: 100;
+  --hd-z-nav: 1000;
+  --hd-z-modal: 2000;
+
+  /* ----- Page accents & overlays ---------------------------------------- */
+  /* qsim "quantum" accent palette — page-scoped to static/css/qsim.css.
+     Extracted from inline hex so the no-hardcoded-colors rule holds; values
+     are byte-for-byte identical to the originals.                          */
+  --hd-qsim-accent-purple: #6f6cff;
+  --hd-qsim-accent-cyan: #00d7ff;
+  --hd-qsim-ready: #31ffa5;             /* live/ready status (neon green)  */
+  --hd-qsim-bg-deep: #06090d;           /* hero gradient deep stop          */
+  --hd-qsim-panel: #111822;             /* dark panel surface               */
+
+  /* Contact hero image overlay — three-stop scrim laid over .Params.hero_image.
+     Kept as exact rgba-hex (d9 ≈ 0.851 alpha) for byte-for-byte fidelity.  */
+  --hd-overlay-hero-a: #000d14d9;
+  --hd-overlay-hero-b: #000000d9;
+  --hd-overlay-hero-c: #1f1f1fd9;
+
+  /* ======================================================================
+     SPACING SCALE — added in W1.1 for the utility layer (hd.css).
+     Values mirror the Webflow "Client-First" spacer rem values exactly so the
+     seven .hd-spacer-* sizes / .hd-grid gap render identically to the originals.
+        xxs .5rem  xs 1rem  sm 1.5rem  md 2rem  lg 3rem  xl 3.75rem  xxl 6rem
+     Responsive: md/lg/xl/xxl ramp down at the 991px/767px breakpoints (see the
+     @media blocks below), matching Webflow's .spacer-medium/large/xlarge/xxlarge;
+     xxs/xs/sm are fixed. Because md/lg also feed .hd-grid / .hd-gap-* gaps, grid
+     gaps ramp on smaller screens too — a deliberate, desirable mobile behavior.
+     ====================================================================== */
+  --hd-space-xxs: 0.5rem;                /* was spacer-xxsmall (.5rem)   */
+  --hd-space-xs: 1rem;                   /* was spacer-xsmall (1rem)     */
+  --hd-space-sm: 1.5rem;                 /* was spacer-small (1.5rem)    */
+  --hd-space-md: 2rem;                   /* was spacer-medium (2rem)     */
+  --hd-space-lg: 3rem;                   /* was spacer-large (3rem)      */
+  --hd-space-xl: 3.75rem;                /* was spacer-xlarge (3.75rem)  */
+  --hd-space-xxl: 6rem;                  /* was spacer-xxlarge (6rem)    */
+
+  /* Global horizontal gutter (Client-First .padding-global = 1.5rem).     */
+  --hd-gutter: 1.5rem;
+
+  /* ======================================================================
+     TYPE SCALE — added in W1.1. Font sizes / line-heights ported from the
+     Webflow heading-style-h* and text-size-* utilities.
+     ====================================================================== */
+  --hd-text-tiny: 0.75rem;               /* text-size-tiny    */
+  --hd-text-sm: 0.875rem;                /* text-size-small   */
+  --hd-text-base: 1rem;                  /* body base         */
+  --hd-text-lg: 1.125rem;                /* text-size-large   */
+  --hd-text-xl: 1.25rem;                 /* step above large  */
+
+  --hd-h1-size: 3.5rem;     --hd-h1-line: 1.1;
+  --hd-h2-size: 2.5rem;     --hd-h2-line: 1.15;
+  --hd-h3-size: 2rem;       --hd-h3-line: 1.2;
+  --hd-h4-size: 1.75rem;    --hd-h4-line: 1.2;
+  --hd-h5-size: 1.25rem;    --hd-h5-line: 1.3;
+  --hd-h6-size: 1.125rem;   --hd-h6-line: 1.3;
+  --hd-weight-heading: 600;
+  --hd-weight-medium: 500;
+  --hd-weight-regular: 400;              /* .is-link / normal body weight  */
+  --hd-line-body: 1.5;
+  --hd-leading-badge: 1.4;               /* text-style-badge line-height */
+
+  /* ======================================================================
+     BUTTON SYSTEM — added in W1.2. Fixed (NON-responsive) component lengths
+     for the .hd-button layer in hd.css. Colors, radius, weight and transition
+     reuse the tokens above; only button-specific lengths live here. Values are
+     byte-for-byte from Webflow's .button / .button.is-* rules.
+     NB: deliberately independent of the responsive --hd-space-* scale —
+     Webflow button padding does NOT shrink at breakpoints.
+     ====================================================================== */
+  --hd-button-pad-y: 0.75rem;            /* .button         padding-block  */
+  --hd-button-pad-x: 1.5rem;             /* .button         padding-inline */
+  --hd-button-pad-y-sm: 0.5625rem;       /* .is-small       padding-block  */
+  --hd-button-pad-y-lg: 1rem;            /* .is-large       padding-block  */
+  --hd-button-pad-icon-only: 0.75rem;    /* .is-only-icon   padding-inline */
+  --hd-button-font-sm: 0.75rem;          /* .is-small       font-size      */
+  --hd-button-font-compact: 0.875rem;    /* .is-form-submit / .is-link font*/
+  --hd-button-line: 1.4;                 /* .button         line-height    */
+  --hd-button-border: 0.0625rem;         /* .is-secondary / -alt-sec  (1px) */
+  --hd-button-border-text: 0.125rem;     /* .is-text transparent border(2px)*/
+  --hd-button-gap-icon: 1rem;            /* .is-icon        gap            */
+  --hd-button-gap-link: 0.25rem;         /* .is-link        gap            */
+  --hd-button-group-gap: 0.5rem;         /* .button-group   gap            */
+  --hd-button-focus-width: 0.125rem;     /* :focus-visible outline (NEW 2px)*/
+  --hd-button-focus-offset: 0.125rem;    /* :focus-visible offset  (NEW 2px)*/
+
+  /* ======================================================================
+     FORM SYSTEM — added in W1.3. Fixed (NON-responsive) component lengths for
+     the .hd-input / label / message / checkbox-radio layer in hd.css. Colors,
+     radius, the .875rem font (--hd-text-sm) and weight reuse tokens above;
+     only form-specific lengths live here. Ported byte-for-byte from Webflow's
+     .form_input / .form_label / .form_message-* / .form_checkbox-icon rules.
+     ====================================================================== */
+  --hd-input-min-height: 3rem;           /* .form_input min-height            */
+  --hd-input-pad-y: 0.875rem;            /* .form_input padding-block         */
+  --hd-input-pad-x: 1rem;                /* .form_input padding-inline        */
+  --hd-input-border: 0.0625rem;          /* .form_input border (1px)          */
+  --hd-input-line: 1.4;                  /* .form_input line-height           */
+  --hd-input-gap: 0.5rem;                /* .form_input margin-bottom         */
+  --hd-input-font-mobile: 16px;          /* .form_input @479 (iOS zoom guard) */
+  --hd-textarea-min-height: 8rem;        /* .form_input.is-text-area          */
+  --hd-textarea-pad-top: 0.75rem;        /* .form_input.is-text-area          */
+  --hd-label-gap: 0.25rem;               /* .form_label margin-bottom         */
+  --hd-form-group-gap: 1rem;             /* .hd-form-group margin-bottom (W1.3)*/
+  --hd-form-msg-pad: 1.25rem;            /* .form_message-success padding     */
+  --hd-form-msg-error-pad: 0.75rem;      /* .form_message-error padding       */
+  --hd-form-msg-error-gap: 0.75rem;      /* .form_message-error margin-top    */
+  --hd-control-size: 0.875rem;           /* checkbox/radio box (14px)         */
+  --hd-control-radius: 0.125rem;         /* checkbox corner (2px)             */
+  --hd-control-gap: 0.5rem;              /* control → label gap               */
+  --hd-radio-ring: 0.25rem;              /* radio :checked border ring (4px)  */
+  --hd-placeholder-color: rgba(0, 0, 0, 0.6); /* .form_input::placeholder #0009 */
+  --hd-control-check-size: 0.625rem;     /* checkmark glyph inside the box (10px) */
+  --hd-select-icon-inset: 1rem;          /* select chevron distance from inline-end */
+  --hd-select-icon-size: 1rem;           /* select chevron render box (16px)        */
+  --hd-select-pad-end: 2.5rem;           /* select padding-right, clears the arrow */
+
+  /* ======================================================================
+     NAV SYSTEM — added in W2.1 for the .hd-nav / .hd-dropdown layer in hd.css
+     (Webflow w-nav / w-dropdown → AlpineJS). Colors/radius/shadow naming reuse
+     the tokens above; only nav-specific lengths, the ported Webflow runtime text
+     color, and the dropdown-panel shadow live here. Values are byte-for-byte from
+     Webflow's .w-nav-link / .w-dropdown / .nav-dropdown-wrapper.w--open rules.
+     ====================================================================== */
+  --hd-color-nav-link: #222;             /* .w-nav-link / .w-dropdown base text color (survives the custom .nav-link/.nav-dropdown-toggle, so ported to keep nav links + the dropdown toggle byte-for-byte; W6.3 may revisit) */
+  --hd-nav-height: 4.75rem;              /* .navbar/.nav-content height; services panel drop point (inset top) */
+  --hd-nav-panel-pad: 1.5rem;            /* dropdown panel padding   (.nav-dropdown-wrapper.w--open)        */
+  --hd-nav-panel-border: 0.0625rem;      /* dropdown panel border    (1px, .w--open)                        */
+  --hd-nav-panel-shadow: 0 6px 1.25rem #00000008;  /* dropdown panel box-shadow (.w--open)                 */
+  --hd-nav-info-panel-top: 3.75rem;      /* info panel drop point    (.nav-info-dropdown-wrapper.w--open)   */
+  --hd-nav-info-panel-width: 22.5rem;    /* info panel width         (.w--open)                             */
+  --hd-nav-panel-gap-mobile: 1rem;       /* services panel margin-bottom @991 (static flow, .w--open @991)  */
+  --hd-nav-panel-inset-mobile: 1.25rem;  /* services panel margin-right  @991 (.w--open @991)               */
+  --hd-nav-menu-duration: 0.4s;          /* mobile menu slide/fade — Webflow data-duration="400" + ease     */
+
+  /* ======================================================================
+     ENTRANCE + HOVER ANIMATIONS — added in W3.2 for hd-animations.js + the
+     hd.css §15/§16 layer (Webflow IX2 → CSS @keyframes + IntersectionObserver
+     / :hover). Values are ground-truthed from the IX2 actionLists in
+     webflow.schunk.c3b8b94346b4dde6.js:
+       entrance  list a / a-2 "Fade Up": TRANSFORM_MOVE y 24px→0 + STYLE_OPACITY
+                 0→1, duration 1000ms, easing inOutQuart; the "2nd" element of a
+                 section pair runs +300ms later.
+       hover     a-3/a-4 "Preview Card": preview-image scale 1→1.03 (hover-in
+                 outQuart), preview-box bg neutral-50→neutral-200; a-6 "Update
+                 Card": featured-image scale 1→1.04; all 300ms.
+     Webflow's named IX2 easings map to these bezier presets.
+     ====================================================================== */
+  --hd-fade-up-distance: 24px;                           /* IX2 TRANSFORM_MOVE yValue:24 */
+  --hd-fade-up-duration: 1000ms;                         /* IX2 duration:1e3             */
+  --hd-fade-up-easing: cubic-bezier(0.77, 0, 0.175, 1); /* IX2 "inOutQuart"             */
+  --hd-fade-up-stagger: 300ms;                           /* IX2 "Fade Up 2nd" delay:300  */
+
+  --hd-hover-scale-preview: 1.03;                            /* a-3 TRANSFORM_SCALE  */
+  --hd-hover-scale-update: 1.04;                             /* a-6 TRANSFORM_SCALE  */
+  --hd-hover-duration: 300ms;                               /* a-3/a-6 duration:300 */
+  --hd-hover-easing: cubic-bezier(0.77, 0, 0.175, 1);       /* "inOutQuart" — bg + hover-out */
+  --hd-hover-easing-in: cubic-bezier(0.165, 0.84, 0.44, 1);/* "outQuart" — scale hover-in   */
+}
+
+/* ==========================================================================
+   Responsive token overrides
+   Two breakpoints mirror Webflow's Client-First ramp: @991 (tablet) and @767
+   (mobile). Section padding, headings, body-large text, the global gutter and
+   the md/lg/xl/xxl spacers scale here. The @767 block supersedes @991 where
+   both set the same token. Declared on :root (not body) so the tokens cascade
+   identically to Webflow's responsive `body {}` overrides.
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+  :root {
+    --hd-space-md: 1.5rem;               /* spacer-medium @991  */
+    --hd-space-lg: 2.5rem;               /* spacer-large @991   */
+    --hd-space-xl: 3rem;                 /* spacer-xlarge @991  */
+    --hd-space-xxl: 4rem;                /* spacer-xxlarge @991 */
+
+    /* section padding — .padding-section-* class overrides @991 (rem→px) */
+    --hd-section-pad-md: 64px;           /* .padding-section-medium @991 (4rem) */
+    --hd-section-pad-lg: 96px;           /* .padding-section-large  @991 (6rem) */
+  }
+}
+@media screen and (max-width: 767px) {
+  :root {
+    /* section padding — .padding-section-* class overrides @767 (rem→px).
+       These supersede the @991 values above and the masked --section-padding--*
+       var @767 values (72px/120px), matching what Webflow actually paints.    */
+    --hd-section-pad-sm: 32px;           /* .padding-section-small  @767 (2rem) */
+    --hd-section-pad-md: 48px;           /* .padding-section-medium @767 (3rem) */
+    --hd-section-pad-lg: 64px;           /* .padding-section-large  @767 (4rem) */
+
+    /* mobile type + spacing scale-down (Client-First @767 overrides) */
+    --hd-h1-size: 2.5rem;                /* heading-style-h1 @767 */
+    --hd-h2-size: 2rem;                  /* heading-style-h2 @767 */
+    --hd-h3-size: 1.5rem;                /* heading-style-h3 @767 */
+    --hd-h6-size: 0.75rem;               /* heading-style-h6 @767 */
+    --hd-text-lg: 1.25rem;               /* text-size-large  @767 (ramps UP) */
+    --hd-gutter: 1.25rem;                /* padding-global @767   */
+    --hd-space-md: 1.25rem;              /* spacer-medium @767    */
+    --hd-space-lg: 1.5rem;               /* spacer-large @767     */
+    --hd-space-xl: 2rem;                 /* spacer-xlarge @767    */
+    --hd-space-xxl: 3rem;                /* spacer-xxlarge @767   */
+  }
+}

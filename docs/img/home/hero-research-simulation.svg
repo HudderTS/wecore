@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750" viewBox="0 0 1000 750" role="img" aria-label="CFD pressure and vorticity simulation result around an airfoil">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#001a24"/>
+      <stop offset=".48" stop-color="#000d14"/>
+      <stop offset="1" stop-color="#041923"/>
+    </linearGradient>
+    <radialGradient id="lowPressure" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#6fd6ff" stop-opacity=".92"/>
+      <stop offset=".45" stop-color="#006fb2" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#053070" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="highPressure" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f7c66f" stop-opacity=".95"/>
+      <stop offset=".42" stop-color="#e67e22" stop-opacity=".56"/>
+      <stop offset="1" stop-color="#c81414" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <style>
+      .mesh{fill:none;stroke:#d7edf3;stroke-width:1;opacity:.18}
+      .stream{fill:none;stroke:#eafaff;stroke-width:2;stroke-linecap:round;opacity:.62}
+      .stream-cyan{fill:none;stroke:#6fd6ff;stroke-width:1.6;stroke-linecap:round;opacity:.45}
+      .contour{fill:none;stroke:#eafaff;stroke-width:1.2;opacity:.34}
+      .legend-text{fill:#eafaff;font:700 16px system-ui,sans-serif}
+      .legend-title{fill:#eafaff;font:800 24px system-ui,sans-serif}
+    </style>
+  </defs>
+  <rect width="1000" height="750" fill="url(#bg)"/>
+  <g transform="translate(505 415) scale(1.08 .72) rotate(-22)">
+    <g class="mesh">
+      <path d="M-430 -310H430M-430 -260H430M-430 -210H430M-430 -160H430M-430 -110H430M-430 -60H430M-430 -10H430M-430 40H430M-430 90H430M-430 140H430M-430 190H430M-430 240H430M-430 290H430"/>
+      <path d="M-430 -310V290M-365 -310V290M-300 -310V290M-235 -310V290M-170 -310V290M-105 -310V290M-40 -310V290M25 -310V290M90 -310V290M155 -310V290M220 -310V290M285 -310V290M350 -310V290M415 -310V290"/>
+    </g>
+    <ellipse cx="-145" cy="-60" rx="160" ry="54" fill="url(#lowPressure)" filter="url(#blur)"/>
+    <ellipse cx="-105" cy="74" rx="145" ry="58" fill="url(#highPressure)" filter="url(#blur)"/>
+    <ellipse cx="150" cy="-8" rx="130" ry="34" fill="url(#lowPressure)" filter="url(#blur)" opacity=".72"/>
+    <ellipse cx="294" cy="34" rx="92" ry="30" fill="url(#highPressure)" filter="url(#blur)" opacity=".64"/>
+    <ellipse cx="380" cy="-22" rx="86" ry="28" fill="url(#lowPressure)" filter="url(#blur)" opacity=".62"/>
+    <path class="contour" d="M-284 -100C-226 -154 -108 -166 -22 -102C38 -58 76 -40 143 -46"/>
+    <path class="contour" d="M-281 118C-202 176 -86 166 0 96C76 35 138 14 222 26"/>
+    <path class="contour" d="M65 -82C148 -116 230 -88 310 -42C366 -10 413 -14 452 -42"/>
+    <path class="contour" d="M80 66C150 94 220 82 286 46C348 12 395 16 447 50"/>
+    <path class="stream" d="M-440 -168C-315 -148 -216 -145 -143 -110C-75 -78 -9 -74 62 -104C160 -145 300 -125 430 -102"/>
+    <path class="stream" d="M-445 -91C-314 -88 -224 -82 -158 -48C-76 -7 -4 -18 78 -54C176 -96 305 -77 434 -55"/>
+    <path class="stream" d="M-445 0C-316 -11 -227 -7 -160 19C-70 55 -1 42 76 14C178 -23 303 -6 434 21"/>
+    <path class="stream" d="M-442 92C-304 65 -210 72 -148 110C-72 156 14 144 92 102C190 50 306 65 430 98"/>
+    <path class="stream-cyan" d="M-438 180C-300 130 -188 144 -82 186C55 238 202 202 424 180"/>
+    <path class="stream-cyan" d="M-438 -238C-296 -192 -192 -202 -80 -238C70 -284 240 -250 430 -224"/>
+    <path d="M-236 0C-182 -68 -80 -82 8 -48C45 -34 60 -13 56 3C52 24 22 38 -24 43C-105 52 -182 41 -236 0Z" fill="#f2f7f8" stroke="#00121a" stroke-width="5"/>
+    <circle cx="-72" cy="-52" r="9" fill="#eafaff"/>
+    <circle cx="168" cy="-38" r="6" fill="#6fd6ff"/>
+    <circle cx="270" cy="38" r="7" fill="#e67e22"/>
+    <circle cx="382" cy="-14" r="5" fill="#6fd6ff"/>
+  </g>
+  <g transform="translate(828 162)">
+    <rect x="0" y="0" width="98" height="328" rx="24" fill="#000d14" opacity=".72" stroke="#eafaff" stroke-opacity=".28"/>
+    <text class="legend-title" x="49" y="42" text-anchor="middle">Cp</text>
+    <linearGradient id="bar" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0" stop-color="#081447"/>
+      <stop offset=".22" stop-color="#055c94"/>
+      <stop offset=".44" stop-color="#00a6b7"/>
+      <stop offset=".64" stop-color="#c6d45a"/>
+      <stop offset=".82" stop-color="#f06d22"/>
+      <stop offset="1" stop-color="#c81414"/>
+    </linearGradient>
+    <rect x="26" y="62" width="24" height="210" fill="url(#bar)" stroke="#eafaff" stroke-opacity=".45"/>
+    <text class="legend-text" x="58" y="73">+1.3</text>
+    <text class="legend-text" x="58" y="170">0.0</text>
+    <text class="legend-text" x="58" y="277">-1.3</text>
+    <text class="legend-text" x="18" y="306" opacity=".72">pressure</text>
+  </g>
+</svg>

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era | WECORE</title>
+  <meta content="What is HPC, how does it differ from supercomputers, and why is cloud HPC reshaping research, science, and industry? A deep dive into the technology, the market, and the WECORE approach." name="description"/>
+  <link href="https://wecore.ir/en/articles/cloud-hpc-guide/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/articles/cloud-hpc-guide/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/articles/cloud-hpc-guide/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/articles/cloud-hpc-guide/" hreflang="x-default" rel="alternate"/>
+  <meta content="Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era | WECORE" property="og:title"/>
+  <meta content="What is HPC, how does it differ from supercomputers, and why is cloud HPC reshaping research, science, and industry? A deep dive into the technology, the market, and the WECORE approach." property="og:description"/>
+  <meta content="https://wecore.ir/en/articles/cloud-hpc-guide/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="fa_IR" property="og:locale:alternate"/>
+  <meta content="Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era | WECORE" name="twitter:title"/>
+  <meta content="What is HPC, how does it differ from supercomputers, and why is cloud HPC reshaping research, science, and industry? A deep dive into the technology, the market, and the WECORE approach." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../../vendor/fonts/geist/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  <script defer src="../../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../../en/">
+        <picture>
+         <source srcset="../../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../../en/">
+          Home
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            All Services
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              Products
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/hpc/">
+                 Cloud HPC
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Cloud, private &amp; hybrid HPC
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/cloud-servers/">
+                 Cloud Server
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Self-serve virtual machines
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/caas/">
+                 Private Cloud
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Dedicated OpenStack cloud
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/kaas/">
+                 Kubernetes
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Managed K8s clusters
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/qsim/">
+                 Quantum Simulation
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 GPU quantum workflows
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Company
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/about/">
+               About
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/pricing/">
+               Pricing
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Plan
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Partnerships
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/subscribe/">
+               Subscribe
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Support
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/contact/">
+               Contact
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Resources
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/apps/">
+               Apps
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/articles/">
+               Blog
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Documentation
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Why WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Performance
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Sustainability
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/product/">
+               Product
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../../en/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                Consult WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               Plan the right HPC, GPU, and AI deployment model
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../../fa/articles/cloud-hpc-guide/">
+           Fa
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../../en/sign-up/">
+           Register / Login
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="Key Features">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            Key Features
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Cloud, private, and hybrid HPC
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              GPU-ready environments
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Ready-to-run software
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Self-service workflows
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Expert deployment support
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../../fa/articles/cloud-hpc-guide/" target="">
+         Fa
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../../en/sign-up/" target="">
+         Register / Login
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../../en/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+    
+    
+    
+    <section class="section_update_header">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="update_header_wrapper">
+         <a class="hd-button hd-button-secondary hd-button-icon" href="../../../en/articles/">
+          <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-left.svg"/>
+          <div>
+           All Updates
+          </div>
+         </a>
+         <div class="hd-vspace-sm">
+         </div>
+         <h1>
+          Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era
+         </h1>
+         <div class="hd-vspace-sm">
+         </div>
+         <div>
+          What is HPC, how does it differ from supercomputers, and why is cloud HPC reshaping research, science, and industry? A deep dive into the technology, the market, and the WECORE approach.
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+         <div class="updates-info">
+          <div class="updates_badge">
+           2026-06-13
+          </div>
+          <div class="hd-text-tiny">
+           
+            <strong>Author:</strong> WECORE Team &nbsp;•&nbsp;
+           
+
+           
+            
+             HPC
+            
+             , Cloud
+            
+             , Infrastructure
+            
+           
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="hd-vspace-lg">
+       </div>
+       
+       <img
+       alt="Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era"
+       class="update_header_image"
+       data-hd-animate="fade-up-2"
+       loading="lazy"
+       sizes="100vw"
+       src="../../../img/hpc/hero-workload-1.avif"
+       />
+       
+      </div>
+     </div>
+    </section>
+    <section class="section_update_content">
+     <div>
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="update_content_wrapper">
+         <div class="text-rich-text hd-richtext">
+<p>
+High-performance computing used to mean one thing: a room-sized supercomputer that only governments and Fortune 500 companies could afford. That era is over. Today, HPC is a rapidly growing global market — projected to reach <strong>USD 87.5 billion by 2031</strong> at a compound annual growth rate of <strong>7.79%</strong> (Mordor Intelligence, 2026) — and cloud technology is the single biggest reason why.
+</p>
+<p>
+But what exactly is HPC? How is it different from a supercomputer? And why are research labs, pharmaceutical companies, engineering firms, and AI startups all moving their most demanding workloads to the cloud? This guide answers all of that — and shows how WECORE's Slurm-based Cloud HPC platform brings enterprise-grade computing within reach of any team.
+</p>
+<h2>HPC vs. Supercomputers: Hardware Beast vs. Software Intelligence</h2>
+<p>
+The terms "HPC" and "supercomputer" are often used interchangeably — but they refer to fundamentally different things.
+</p>
+<p>
+A <strong>supercomputer</strong> is a hardware machine. It is a single, physical system — often filling an entire room — built from thousands of processors working in parallel. The world's fastest supercomputers, like the U.S. Department of Energy's <em>Frontier</em> (1.2 exaflops) or China's <em>Sunway Oceanlight</em> (1.3 exaflops), are engineering marvels. They are purpose-built, capital-intensive, and require dedicated facilities with specialized cooling and power infrastructure.
+</p>
+<p>
+<strong>High-performance computing (HPC)</strong>, by contrast, is a <em>software and architectural approach</em>. HPC is the practice of aggregating computing power — whether from a single server, a cluster of machines, or a distributed cloud infrastructure — to solve problems that are too large or too complex for conventional computers. HPC is the intelligence layer: the schedulers, the parallel file systems, the workload managers, and the scientific software stacks that make massive computation possible.
+</p>
+<p>
+In short: a supercomputer is a <em>thing you buy</em>. HPC is a <em>capability you deploy</em>. And that distinction is exactly what makes cloud HPC so powerful — you no longer need to own the world's most expensive machine. You need the right software platform running on top-tier infrastructure, available on demand.
+</p>
+<blockquote>
+"A supercomputer is hardware. HPC is the software intelligence that turns any infrastructure — on-premise, cloud, or hybrid — into a platform for solving the world's hardest problems."
+</blockquote>
+<figure class="hd-richtext-align-fullwidth hd-richtext-figure-image" style="max-width:1212px">
+<div>
+<img alt="WECORE Cloud HPC platform dashboard showing Slurm cluster management" loading="lazy" src="../../../img/hpc/hero-control-1.avif"/>
+</div>
+</figure>
+<h2>The HPC Market Is Surging — and Cloud Is Leading the Charge</h2>
+<p>
+Demand for high-performance computing is accelerating across every sector. Several converging forces are driving this growth:
+</p>
+<ul role="list">
+<li>
+<strong>The AI and machine learning explosion:</strong> Training large language models and serving inference at scale runs on exactly the dense, GPU-accelerated clusters that define modern HPC. The signal is impossible to miss in the spend: <strong>Gartner projects worldwide AI spending will reach USD 2.5 trillion in 2026, up 47% year over year</strong> (Gartner, 2026). Every one of those AI build-outs pulls HPC-class compute, networking, and storage along with it.
+</li>
+<li>
+<strong>Pharmaceutical and life sciences acceleration:</strong> Drug discovery, protein folding, and molecular dynamics simulations are shifting from the wet lab to GPU-accelerated clusters. Life sciences is the <strong>fastest-growing HPC vertical, expanding at a 9.54% CAGR through 2031</strong> (Mordor Intelligence, 2026). The landmark example is DeepMind's AlphaFold, which used massive parallel computation to predict the structure of <strong>more than 200 million proteins</strong> — nearly every cataloged protein known to science — a result that was simply unreachable without HPC.
+</li>
+<li>
+<strong>Engineering simulation goes virtual:</strong> Safety and certification bodies such as Euro NCAP are steadily expanding virtual testing in their roadmaps toward 2030, pushing automakers and aerospace firms to validate designs through large-scale simulation long before any physical prototype exists. Every virtual crash, airflow, and structural model is an HPC workload.
+</li>
+<li>
+<strong>Digital twins and energy optimization:</strong> From battery storage to smart cities, organizations are building real-time digital replicas of physical systems that demand continuous, large-scale computation.
+</li>
+</ul>
+<p>
+Against this backdrop, the structural shift is as telling as the headline number. <strong>Cloud deployment already accounts for 48.88% of all HPC revenue</strong> (2025), <strong>hybrid architectures are growing even faster at an 8.22% CAGR</strong> through 2031, and <strong>managed HPC and HPC-as-a-Service are the single fastest-growing component of the market at a 9.42% CAGR</strong> (Mordor Intelligence, 2026). Independent forecasters agree on the trajectory — Grand View Research puts the market on track for roughly USD 87 billion by 2030. The market is not just growing; it is fundamentally shifting toward flexible, on-demand, fully managed consumption models — exactly the model Cloud HPC delivers.
+</p>
+<h2>Cloud HPC vs. Traditional HPC: A Fundamental Shift</h2>
+<p>
+Traditional on-premise HPC and cloud HPC serve the same fundamental purpose — running massively parallel workloads — but the operational reality is dramatically different.
+</p>
+<h3>Traditional HPC: Shared Users, Shared Queues</h3>
+<p>
+In a classic on-premise HPC setup, a university or organization deploys a cluster. Users submit jobs to a scheduler (often Slurm, PBS, or LSF), and those jobs wait in a queue. The queue is first-come, first-served — or priority-based, but still sequential. If a single user submits a massive job, everyone else waits.
+</p>
+<p>
+Tenant isolation, in the traditional model, is essentially just <strong>different operating system user accounts</strong>. All jobs share the same physical network, the same storage, the same scheduler instance. There are no hard boundaries between users — just permissions and policies enforced by the operating system. One misbehaving job can affect the entire cluster's performance.
+</p>
+<p>
+Scaling requires purchasing new hardware, installing it, configuring it, and integrating it into the existing cluster — a process that takes months.
+</p>
+<h3>Cloud HPC: True Tenant Isolation, Instant Elasticity</h3>
+<p>
+Cloud HPC changes every one of these constraints. In a properly architected cloud HPC platform — like the one WECORE delivers on its OpenStack infrastructure — each tenant gets:
+</p>
+<ul role="list">
+<li>
+<strong>Network isolation:</strong> Virtual networks, security groups, and VLANs ensure that one tenant's traffic never touches another's. This is not just a different user account — it is a completely separate network domain.
+</li>
+<li>
+<strong>Compute isolation:</strong> Dedicated virtual machines or bare-metal instances with guaranteed resources. No noisy neighbors. No shared kernel scheduling.
+</li>
+<li>
+<strong>Storage isolation:</strong> Separate volumes, object storage buckets, and access controls per tenant.
+</li>
+<li>
+<strong>Independent scheduler instances:</strong> Each HPC platform gets its own Slurm controller, its own queue, its own partitions. One tenant's jobs never compete with another's.
+</li>
+</ul>
+<p>
+Scaling is a configuration change, not a procurement cycle. Need 100 more cores? Provision them in minutes. Need a GPU pool for a week-long training run? Create it, use it, and deallocate it when done — paying only for what you consumed.
+</p>
+<figure class="hd-richtext-align-fullwidth hd-richtext-figure-image" style="max-width:1212px">
+<div>
+<img alt="Cloud HPC multi-pool compute architecture with CPU, GPU, and high-memory pools" loading="lazy" src="../../../img/hpc/feature-compute.avif"/>
+</div>
+</figure>
+<h2>How Cloud HPC Accelerates Research and Innovation</h2>
+<p>
+The practical impact of cloud HPC on research and development is not incremental — it is transformative. Here is how:
+</p>
+<h3>From Months to Hours</h3>
+<p>
+In traditional environments, a researcher who needs more compute capacity submits a request to the IT department, waits for budget approval, waits for procurement, waits for installation — and finally gets access months later. In a cloud HPC model with a self-serve panel, that same researcher provisions a 64-node cluster in <strong>minutes</strong> and starts running simulations the same day.
+</p>
+<h3>Parallel Experimentation</h3>
+<p>
+Cloud HPC allows teams to run dozens of experiments simultaneously instead of sequentially. Instead of waiting for one simulation to finish before starting the next, researchers spin up multiple clusters, test different parameters in parallel, and converge on results orders of magnitude faster. This is the difference between a research program that takes a year and one that takes a week.
+</p>
+<h3>Access to Specialized Hardware</h3>
+<p>
+Not every organization can afford to purchase and maintain NVIDIA H200 GPUs or AMD Instinct MI325X accelerators. Cloud HPC makes these resources available on a pay-as-you-go basis. A small biotech startup can access the same class of hardware as a Fortune 500 pharma company — without the capital expenditure.
+</p>
+<h3>Global Collaboration</h3>
+<p>
+Cloud-hosted HPC platforms can be accessed from anywhere. Research teams across different countries, time zones, and institutions can work on the same cluster, share data, and collaborate in real time — without the data ever needing to leave the platform's secure boundary.
+</p>
+<h2>Built on OpenStack: a Foundation You Can Trust</h2>
+<p>
+Not all cloud infrastructure is created equal. WECORE's Cloud HPC platform is built on <strong>OpenStack</strong> — the same proven, open-source cloud foundation trusted to run the world's largest telecom networks, leading research institutions, and government computing environments. When the infrastructure beneath your most important workloads is the same one chosen by organizations that cannot afford to fail, you start from a position of confidence.
+</p>
+<p>
+What that foundation means for you is simple:
+</p>
+<ul role="list">
+<li>
+<strong>Your workloads run isolated and protected.</strong> Every tenant operates in its own private space — your data, your network, and your compute are yours alone, never shared with the team in the next rack.
+</li>
+<li>
+<strong>Your performance is guaranteed, not borrowed.</strong> Resources are dedicated to you, so the heavy job running next door never slows yours down.
+</li>
+<li>
+<strong>No lock-in, no black box.</strong> Because the platform is built on open standards rather than a proprietary public cloud, you keep the freedom to move, integrate, and scale on your terms.
+</li>
+<li>
+<strong>Enterprise-grade, without the enterprise overhead.</strong> You get the resilience and control of a world-class private cloud, delivered as a service — without building or staffing a datacenter yourself.
+</li>
+</ul>
+<p>
+By choosing a purpose-built OpenStack foundation over a repackaged generic cloud, WECORE gives you a platform engineered for serious computing — secure, dependable, and ready the moment you are.
+</p>
+<figure class="hd-richtext-align-fullwidth hd-richtext-figure-image" style="max-width:1212px">
+<div>
+<img alt="OpenStack infrastructure powering WECORE Cloud HPC with multi-pool compute" loading="lazy" src="../../../img/hpc/feature-software.avif"/>
+</div>
+</figure>
+<h2>Hardware Specifications: No Compromises on Performance</h2>
+<p>
+Cloud HPC is only as good as the underlying hardware. WECORE's HPC infrastructure is built on advanced, powerful servers designed for demanding computational workloads:
+</p>
+<ul role="list">
+<li>
+<strong>Next-generation HPE servers:</strong> The latest generation of Hewlett Packard Enterprise ProLiant and Apollo systems, engineered for high-density computing and optimized for HPC workloads.
+</li>
+<li>
+<strong>Powerful processors:</strong> AMD EPYC and Intel Xeon Scalable processors, offering high core counts, large cache hierarchies, and the memory bandwidth that parallel workloads demand.
+</li>
+<li>
+<strong>DDR5 RAM:</strong> Next-generation memory with significantly higher bandwidth and capacity per module compared to DDR4 — critical for memory-intensive simulations and large dataset processing.
+</li>
+<li>
+<strong>NVMe storage:</strong> NVMe solid-state drives optimized for processing workloads, delivering the low-latency, high-throughput I/O that parallel file systems and database operations require.
+</li>
+<li>
+<strong>Unlimited, high-speed internet:</strong> Dedicated, high-bandwidth network connectivity ensures that data can flow in and out of the cluster without bottleneck — whether you are ingesting terabytes of simulation input or distributing results to collaborators worldwide.
+</li>
+</ul>
+<h2>What Is HPC Used For?</h2>
+<p>
+HPC is not a single application — it is an <em>enabling infrastructure</em> that responds to any process that demands more computation than a single machine can deliver. The use cases span virtually every sector of the economy:
+</p>
+<ul role="list">
+<li>
+<strong>Scientific and research simulations:</strong> Climate modeling, astrophysics, quantum chemistry, molecular dynamics, and computational fluid dynamics — the foundational simulations that advance human knowledge.
+</li>
+<li>
+<strong>Big data analysis and machine learning:</strong> Training large-scale AI models, processing petabyte-scale datasets, running real-time inference on production systems, and performing complex statistical analysis.
+</li>
+<li>
+<strong>Industrial and engineering simulations:</strong> Crash testing, aerodynamic analysis, structural mechanics, electromagnetic simulation, and digital twin modeling for manufacturing optimization.
+</li>
+<li>
+<strong>Medical data analysis and processing:</strong> Genomic sequencing, medical image analysis, drug interaction modeling, protein structure prediction (AlphaFold-style workloads), and epidemiological simulation.
+</li>
+<li>
+<strong>Complex software development:</strong> Large-scale compilation, continuous integration for massive codebases, hardware simulation and verification, and automated testing at scale.
+</li>
+<li>
+<strong>Ultra-heavy and advanced processing:</strong> Monte Carlo simulations for financial risk, seismic processing for oil and gas exploration, computational materials science, and national security applications.
+</li>
+</ul>
+<p>
+The common thread: these are workloads where <strong>time-to-result</strong> is the critical bottleneck. A simulation that takes 30 days on a workstation takes 30 minutes on a properly configured HPC cluster. That compression of time is not a convenience — it is a competitive advantage and, in many cases, a research breakthrough enabler.
+</p>
+<h2>Benefits and Features: Why Organizations Choose Cloud HPC</h2>
+<p>
+The value proposition of cloud HPC extends far beyond raw compute power. Here is what organizations gain:
+</p>
+<h3>Unlimited and Dedicated Resources</h3>
+<p>
+Unlike shared hosting or generic cloud instances, a properly configured cloud HPC platform provides <strong>dedicated compute resources</strong> — not oversubscribed, not shared, not subject to the "noisy neighbor" problem. When your job is allocated 1,000 cores, those cores are yours alone.
+</p>
+<h3>Instant Scalability</h3>
+<p>
+Scale from 10 cores to 10,000 cores without procurement cycles, without installation, without configuration drift. Cloud HPC platforms like WECORE's allow you to define multi-pool compute environments — CPU pools, GPU pools, high-memory pools, burst pools — and scale each independently based on workload demand.
+</p>
+<h3>Pay-as-You-Go</h3>
+<p>
+Traditional HPC requires massive upfront capital expenditure: hardware, facilities, cooling, power, networking, and the staff to maintain it all — much of which sits idle between peak workloads. Cloud HPC converts that capital cost into an operational expense: you pay only for the compute you consume, when you consume it. For organizations with variable, seasonal, or project-based workloads, eliminating the idle capacity you no longer have to buy and power can dramatically lower total cost of ownership.
+</p>
+<h3>Immediate Ordering and Immediate Delivery</h3>
+<p>
+There is no lead time. No waiting for hardware to ship, arrive, rack, and configure. Through the Cloud Panel, you select your template, choose your flavors, define your compute pools, and launch. Your HPC platform is provisioning within minutes of clicking "create."
+</p>
+<h3>Free Trial and Demo</h3>
+<p>
+The best way to evaluate an HPC platform is to run real workloads on it. WECORE offers free trials and live demos so that research teams and engineering organizations can validate performance, test their software stacks, and benchmark their workloads before committing.
+</p>
+<h3>No Time Limits</h3>
+<p>
+Your HPC platform is available for as long as you need it. There are no artificial time limits, no forced deprovisioning, no "use it or lose it" policies. Whether your project runs for a week or a year, your compute resources remain available. You set the expiry policy — not the vendor.
+</p>
+<figure class="hd-richtext-align-fullwidth hd-richtext-figure-image" style="max-width:1212px">
+<div>
+<img alt="WECORE Cloud Panel showing HPC platform management and monitoring" loading="lazy" src="../../../img/hpc/feature-controls.avif"/>
+</div>
+</figure>
+<h2>Cloud, Private, or Hybrid: Three Models, One Platform</h2>
+<p>
+Not every organization has the same requirements for data sovereignty, control, and elasticity. That is why WECORE delivers the same Slurm-based HPC platform in three deployment models:
+</p>
+<ul role="list">
+<li>
+<strong>Cloud HPC:</strong> Fully hosted on WECORE's OpenStack cloud. Elastic, on-demand, self-served from the Cloud Panel. Pay-as-you-go wallet billing. Best for teams that need fast start and variable demand.
+</li>
+<li>
+<strong>Private HPC:</strong> WECORE deploys and manages the Slurm platform on your own infrastructure, in your own datacenter. Your data never leaves your facility. Best for organizations with strict residency and compliance requirements.
+</li>
+<li>
+<strong>Hybrid HPC:</strong> Join your on-premise hardware to the WECORE platform and burst into the cloud when demand exceeds your local capacity. One Cloud Panel across both environments. Best for organizations that own hardware but need cloud overflow.
+</li>
+</ul>
+<p>
+All three models run the same Slurm scheduler, the same Open OnDemand interface, the same monitoring stack, and the same Cloud Panel workflow. You can move between models as your needs evolve — without re-architecting your workloads.
+</p>
+<h2>The Bottom Line</h2>
+<p>
+High-performance computing is no longer the exclusive domain of national labs and billion-dollar corporations. The convergence of cloud infrastructure, open-source scheduling software, pay-as-you-go economics, and on-demand hardware access has democratized access to computational power that was, until recently, unimaginable.
+</p>
+<p>
+The market is growing at nearly 8% annually. Cloud and hybrid deployments are growing even faster. Life sciences, AI, engineering, and financial services are all accelerating their adoption. And the organizations that move first — that build their research and development workflows on flexible, scalable, cloud-native HPC — will be the ones that innovate fastest.
+</p>
+<p>
+WECORE's Cloud HPC platform is designed for exactly this moment: Slurm-based, OpenStack-powered, multi-pool, self-serve, and available in cloud, private, and hybrid models. Whether you are a research lab running molecular dynamics simulations, an engineering firm performing crash analysis, or an AI team training large models, the infrastructure is ready.
+</p>
+<p>
+<strong>The only question is: what will you compute next?</strong>
+</p>
+<figure class="hd-richtext-align-fullwidth hd-richtext-figure-image" style="max-width:1212px">
+<div>
+<img alt="WECORE Cloud HPC deployment banner" loading="lazy" src="../../../img/hpc/deployment-banner.avif"/>
+</div>
+</figure>
+
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    <section class="section_update_related">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <h2 class="hd-h4">
+         Related posts
+        </h2>
+        <div class="hd-vspace-xs">
+        </div>
+        <div class="updates_feed_grid" role="list">
+         
+         <a class="updates_feed_card" href="../../../en/articles/cloud-servers/" role="listitem">
+ <img alt="Cloud Servers: Compute in Minutes — Now with Cloud GPU" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/product/premium.jpg"/>
+ <div class="updates_feed_content">
+  <div>
+   <h3 class="hd-h5">Cloud Servers: Compute in Minutes — Now with Cloud GPU</h3>
+   <div class="hd-vspace-xxs"></div>
+   <div class="hd-text-secondary articles_excerpt">Short summary: Spin up an NVMe-backed virtual machine in under two minutes, pay by the hour, and keep full root access — and when a job needs acceleration, launch a Cloud GPU server with A10, L40S, or A100 cards from the same module.</div>
+   <div class="hd-vspace-xxs"></div>
+   <div class="updates-info">
+    <div class="updates_badge">June 13, 2026</div>
+    <div class="hd-text-tiny">Cloud</div>
+   </div>
+   <div class="hd-vspace-xxs"></div>
+  </div>
+  <div class="hd-button hd-button-link">
+   <div>Read more</div>
+   <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-right-sm.svg"/>
+  </div>
+ </div>
+</a>
+
+         
+         <a class="updates_feed_card" href="../../../en/articles/kubernetes-as-a-service/" role="listitem">
+ <img alt="KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/caas/hero-dc-engineer.jpg"/>
+ <div class="updates_feed_content">
+  <div>
+   <h3 class="hd-h5">KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster</h3>
+   <div class="hd-vspace-xxs"></div>
+   <div class="hd-text-secondary articles_excerpt">Short summary: Kubernetes-as-a-Service hands you production clusters from approved templates in minutes — a managed control plane, worker node groups you size yourself, and autohealing built in — so your team ships software instead of babysitting infrastructure.</div>
+   <div class="hd-vspace-xxs"></div>
+   <div class="updates-info">
+    <div class="updates_badge">June 13, 2026</div>
+    <div class="hd-text-tiny">Cloud</div>
+   </div>
+   <div class="hd-vspace-xxs"></div>
+  </div>
+  <div class="hd-button hd-button-link">
+   <div>Read more</div>
+   <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-right-sm.svg"/>
+  </div>
+ </div>
+</a>
+
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="WECORE Logo" loading="lazy" src="../../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           Cloud, private, and hybrid HPC for technical teams
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Platform
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../../en/">
+           Home
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/product">
+           Product
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/caas">
+           CaaS
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/hpc">
+           Cloud HPC
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/apps">
+           Apps
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/pricing/">
+           Pricing
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Company
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../../en/about">
+           About
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/contact">
+           Contact
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/demo">
+           Request Demo
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/articles">
+           Articles
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Account
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../../en/sign-in">
+           Sign in
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/sign-up">
+           Sign up
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/forgot-password">
+           Forgot Password
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/subscribe">
+           Subscribe
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © Copyright 2026 |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE provides cloud, private, and hybrid HPC infrastructure for technical teams. Deployment terms, pricing, and support scope are confirmed during consultation.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur">
+    <div class="hd-embed">
+     <style>
+      .bottom-blur {
+backdrop-filter: blur(7px);
+background-image: linear-gradient(#fff0, #ffffff00 90%, #fff);
+mask-image: linear-gradient(#0000,10%,#fff 40% 100%);
+pointer-events:none;
+}
+     </style>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

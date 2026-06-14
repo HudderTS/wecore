@@ -1,0 +1,813 @@
+/* ==========================================================================
+   cloud-servers.css — scoped styles for /cloud-servers (layouts/cloud-servers)
+   --------------------------------------------------------------------------
+   A deliberately distinct identity from /caas. Where caas is a dark, full-bleed
+   datacenter-photo enterprise page, Cloud Servers is a light, self-serve,
+   "blueprint/console" developer page: a build-your-server configurator, a
+   deploy-steps strip, a tabbed OS/image gallery, and attachable add-on tiles.
+   Nothing here reuses caas-* classes.
+
+   Built on --hd-* tokens; logical properties throughout for [dir="rtl"]
+   mirroring (rtl.css). Design language inspired by DigitalOcean Droplets.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero — light split layout over a faint blueprint grid
+   -------------------------------------------------------------------------- */
+.section_cs_hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--hd-color-neutral-50);
+  border-block-end: var(--hd-button-border) solid var(--hd-color-neutral-300);
+}
+.cs-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--hd-color-accent) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--hd-color-accent) 5%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  /* fade the grid out toward the bottom-right so content stays clean */
+  -webkit-mask-image: radial-gradient(120% 120% at 0% 0%, black 35%, transparent 80%);
+  mask-image: radial-gradient(120% 120% at 0% 0%, black 35%, transparent 80%);
+}
+.cs-hero-wrap {
+  position: relative;
+  z-index: 1;
+}
+.cs-hero-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--hd-space-xl);
+  align-items: center;
+}
+.cs-hero-copy h1 {
+  margin: 0;
+}
+
+/* Trust chips — inline pills under the buttons */
+.cs-hero-trust {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+.cs-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--hd-color-nav-link);
+}
+.cs-hero-trust-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: none;
+}
+
+/* Promo pill */
+.cs-hero-promo {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 999rem;
+  color: var(--hd-color-accent);
+  background: color-mix(in srgb, var(--hd-color-accent) 6%, transparent);
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-accent) 14%, transparent);
+}
+.cs-hero-promo p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Configurator — "Build your server" console card
+   -------------------------------------------------------------------------- */
+.cs-config {
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  border-radius: calc(var(--hd-radius) * 1.5);
+  box-shadow: var(--hd-shadow-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.cs-config-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block-end: 1rem;
+  margin-block-end: 1rem;
+  border-block-end: var(--hd-button-border) solid var(--hd-color-neutral-200);
+}
+.cs-config-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999rem;
+  flex: none;
+  background: var(--hd-color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hd-color-accent) 14%, transparent);
+}
+.cs-config-title {
+  font-family: var(--hd-font-badge);
+  letter-spacing: 0.02em;
+}
+
+/* Family tabs */
+.cs-config-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.cs-config-tab {
+  border: 0;
+  font-size: var(--hd-text-tiny);
+  padding-inline: 0.4rem;
+}
+
+.cs-config-tagline {
+  margin: 0.85rem 0 0.6rem;
+}
+
+/* Size segmented control */
+.cs-config-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.cs-config-size {
+  font-size: var(--hd-text-tiny);
+}
+
+/* Readout — spec rows + price */
+.cs-config-readout {
+  margin-block-start: 1rem;
+}
+.cs-config-specs {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.cs-config-spec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-neutral-50);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+}
+.cs-config-spec dt {
+  font-family: var(--hd-font-badge);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hd-color-neutral-900);
+}
+.cs-config-spec dd {
+  margin: 0;
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+  color: var(--hd-color-accent);
+}
+.cs-config-price {
+  margin-block-start: 0.85rem;
+  padding-block-start: 0.85rem;
+  border-block-start: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  text-align: end;
+}
+.cs-config-price-value {
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-lg);
+  font-weight: 700;
+  color: var(--hd-color-accent);
+  overflow-wrap: anywhere;
+}
+
+.cs-config-cta {
+  margin-block-start: 1.25rem;
+  width: 100%;
+  justify-content: center;
+}
+.cs-config-hint {
+  margin: 0.6rem 0 0;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Stats strip — inline, divider-separated
+   -------------------------------------------------------------------------- */
+.cs-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+.cs-stats-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-inline-start: 1.25rem;
+  border-inline-start: 2px solid var(--hd-color-accent);
+}
+.cs-stats-value {
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-xl);
+  font-weight: 700;
+  color: var(--hd-color-accent);
+  line-height: 1.1;
+}
+
+/* --------------------------------------------------------------------------
+   Plan-family cards — 3-up, icon accent + workload framing + spec list
+   -------------------------------------------------------------------------- */
+.cs-family-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--hd-space-lg);
+}
+.cs-family-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  border-block-start: 3px solid var(--hd-color-accent);
+  transition: box-shadow var(--hd-transition), border-color var(--hd-transition),
+    transform var(--hd-transition);
+}
+.cs-family-card:hover {
+  box-shadow: var(--hd-shadow-md);
+  transform: translateY(-2px);
+}
+.cs-family-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.cs-family-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: none;
+  object-fit: contain;
+}
+.cs-family-card h3,
+.cs-family-card p {
+  margin: 0;
+}
+
+.cs-family-specs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.cs-family-spec {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block-end: 0.5rem;
+  border-block-end: var(--hd-button-border) solid var(--hd-color-neutral-200);
+}
+.cs-family-spec:last-child {
+  border-block-end: 0;
+  padding-block-end: 0;
+}
+.cs-family-spec-label {
+  font-family: var(--hd-font-badge);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hd-color-neutral-900);
+}
+.cs-family-spec-value {
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+  color: var(--hd-color-nav-link);
+  text-align: end;
+}
+.cs-family-foot {
+  margin-block-start: auto;
+  padding-block-start: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.cs-family-from {
+  color: var(--hd-color-accent);
+}
+.cs-family-link {
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+  color: var(--hd-color-accent);
+  transition: color var(--hd-transition);
+}
+.cs-family-link:hover {
+  color: var(--hd-color-accent-hover);
+}
+.cs-family-note {
+  max-width: var(--hd-width-lg);
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Deploy steps — numbered stepper joined by a connector line
+   -------------------------------------------------------------------------- */
+.cs-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--hd-space-lg);
+}
+.cs-step {
+  position: relative;
+  padding-block-start: 1.25rem;
+}
+/* connector line above the cards */
+.cs-step::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.65rem;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  height: 2px;
+  background: var(--hd-color-neutral-400);
+}
+.cs-step:first-child::before {
+  inset-inline-start: 1.3rem;
+}
+.cs-step:last-child::before {
+  inset-inline-end: calc(100% - 1.3rem);
+}
+.cs-step-number {
+  position: relative;
+  z-index: 1;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999rem;
+  background: var(--hd-color-accent);
+  color: var(--hd-color-white);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+  font-weight: 700;
+  margin-block-end: 1rem;
+}
+.cs-step h3,
+.cs-step p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   OS & image gallery — tabbed, monospace name tiles
+   -------------------------------------------------------------------------- */
+.cs-images-tabs {
+  display: inline-flex;
+}
+.cs-images-tab {
+  border: 0;
+}
+.cs-images-panel {
+  margin-block-start: var(--hd-space-md);
+}
+.cs-images-note {
+  margin: 0 0 var(--hd-space-sm);
+}
+.cs-images-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--hd-space-sm);
+}
+.cs-image-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+  color: var(--hd-color-nav-link);
+  transition: border-color var(--hd-transition), box-shadow var(--hd-transition),
+    transform var(--hd-transition);
+}
+.cs-image-tile::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  border-radius: 2px;
+  background: var(--hd-color-accent);
+  transform: rotate(45deg);
+}
+.cs-image-tile:hover {
+  border-color: var(--hd-color-accent);
+  box-shadow: var(--hd-shadow-sm);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Value grid — 6 cards (3x2) with checkmark icon
+   -------------------------------------------------------------------------- */
+.cs-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--hd-space-md);
+}
+.cs-value-card {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  transition: border-color var(--hd-transition), box-shadow var(--hd-transition),
+    transform var(--hd-transition);
+}
+.cs-value-card:hover {
+  border-color: var(--hd-color-neutral-400);
+  box-shadow: var(--hd-shadow-sm);
+  transform: translateY(-1px);
+}
+.cs-value-check {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-block-start: 0.1rem;
+}
+.cs-value-card h4 {
+  margin-block: 0 0.3rem;
+}
+.cs-value-card p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Add-ons — attachable resource tiles (plus-mark accent)
+   -------------------------------------------------------------------------- */
+.cs-addon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--hd-space-md);
+}
+.cs-addon-card {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 1.35rem 1.25rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  transition: box-shadow var(--hd-transition), border-color var(--hd-transition),
+    transform var(--hd-transition);
+}
+.cs-addon-card:hover {
+  box-shadow: var(--hd-shadow-md);
+  border-color: var(--hd-color-accent);
+  transform: translateY(-2px);
+}
+.cs-addon-mark {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--hd-radius);
+  background: color-mix(in srgb, var(--hd-color-accent) 8%, transparent);
+}
+.cs-addon-mark-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.cs-addon-card h3,
+.cs-addon-card p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Use cases — 3x2 lightweight cards
+   -------------------------------------------------------------------------- */
+.cs-usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--hd-space-md);
+}
+.cs-usecase-card {
+  padding: 1.5rem 1.35rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  transition: box-shadow var(--hd-transition), border-color var(--hd-transition);
+}
+.cs-usecase-card:hover {
+  box-shadow: var(--hd-shadow-sm);
+  border-color: var(--hd-color-neutral-400);
+}
+.cs-usecase-card h3,
+.cs-usecase-card p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Comparison table — lighter cs treatment
+   -------------------------------------------------------------------------- */
+.cs-compare-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  border-radius: var(--hd-radius);
+}
+.cs-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--hd-text-sm);
+}
+.cs-compare-table thead th {
+  text-align: start;
+  font-family: var(--hd-font-badge);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hd-color-neutral-900);
+  padding: 0.85rem 0.9rem;
+  border-block-end: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  white-space: nowrap;
+  background: var(--hd-color-neutral-50);
+}
+.cs-compare-table tbody td {
+  padding: 0.9rem;
+  border-block-end: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  vertical-align: middle;
+  color: var(--hd-color-nav-link);
+}
+.cs-compare-table tbody tr:last-child td {
+  border-block-end: 0;
+}
+.cs-compare-table tbody td:first-child {
+  font-weight: var(--hd-weight-heading);
+  white-space: nowrap;
+}
+.cs-compare-highlight td {
+  background: color-mix(in srgb, var(--hd-color-accent) 4%, transparent);
+}
+.cs-compare-highlight td:first-child {
+  color: var(--hd-color-accent);
+  box-shadow: inset 3px 0 0 var(--hd-color-accent);
+}
+html[dir="rtl"] .cs-compare-highlight td:first-child {
+  box-shadow: inset -3px 0 0 var(--hd-color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Regions — compact horizontal row
+   -------------------------------------------------------------------------- */
+.cs-regions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--hd-space-md);
+}
+.cs-region {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  transition: border-color var(--hd-transition), box-shadow var(--hd-transition),
+    transform var(--hd-transition);
+}
+.cs-region:hover {
+  border-color: var(--hd-color-neutral-400);
+  box-shadow: var(--hd-shadow-sm);
+  transform: translateY(-1px);
+}
+.cs-region-name {
+  margin: 0;
+}
+.cs-region-status {
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999rem;
+  font-family: var(--hd-font-badge);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cs-region-status--live {
+  color: var(--hd-color-accent);
+  background: color-mix(in srgb, var(--hd-color-accent) 10%, transparent);
+}
+.cs-region-status--soon {
+  color: var(--hd-color-neutral-900);
+  background: var(--hd-color-neutral-100);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-400);
+}
+
+/* --------------------------------------------------------------------------
+   FAQ — reuses .faq_accordion / .hd-faq-* from hd.css
+   -------------------------------------------------------------------------- */
+.cs-faq-box {
+  max-width: var(--hd-width-lg);
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Closing CTA — light blueprint band (not the dark caas card)
+   -------------------------------------------------------------------------- */
+.cs-cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--hd-radius) * 1.5);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  background: var(--hd-color-neutral-50);
+  padding: 3rem 2rem;
+}
+.cs-cta-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--hd-color-accent) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--hd-color-accent) 6%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(90% 90% at 50% 0%, black 20%, transparent 75%);
+  mask-image: radial-gradient(90% 90% at 50% 0%, black 20%, transparent 75%);
+}
+.cs-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cs-cta-heading {
+  margin: 0;
+}
+.cs-cta-heading em {
+  font-style: italic;
+  color: var(--hd-color-accent);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+  .cs-hero-layout {
+    grid-template-columns: 1fr;
+    gap: var(--hd-space-lg);
+  }
+  .cs-config {
+    max-width: 32rem;
+  }
+  .cs-stats {
+    justify-content: flex-start;
+    gap: 1.25rem 2rem;
+  }
+  .cs-family-grid {
+    grid-template-columns: 1fr;
+    max-width: 32rem;
+    margin-inline: auto;
+  }
+  .cs-steps {
+    grid-template-columns: 1fr;
+    gap: var(--hd-space-md);
+  }
+  /* drop the horizontal connector when stacked */
+  .cs-step::before {
+    display: none;
+  }
+  .cs-step {
+    padding-block-start: 0;
+  }
+  .cs-images-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-addon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-usecase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-regions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cs-config {
+    padding: 1rem;
+  }
+  .cs-config-tabs,
+  .cs-images-tabs {
+    display: grid;
+    width: 100%;
+  }
+  .cs-config-tabs {
+    grid-template-columns: 1fr;
+  }
+  .cs-images-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cs-config-specs {
+    grid-template-columns: 1fr;
+  }
+  .cs-family-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .cs-stats-item {
+    flex: 1 0 40%;
+  }
+  .cs-images-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-value-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-addon-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-usecase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Comparison table collapses to stacked cards */
+  .cs-compare-scroll {
+    border: 0;
+  }
+  .cs-compare-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .cs-compare-table,
+  .cs-compare-table tbody,
+  .cs-compare-table tr,
+  .cs-compare-table td {
+    display: block;
+    width: 100%;
+  }
+  .cs-compare-table tbody tr {
+    border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+    border-radius: var(--hd-radius);
+    padding: 0.35rem 0.85rem;
+    margin-block-end: 0.6rem;
+  }
+  .cs-compare-table tbody td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-block-end: var(--hd-button-border) solid var(--hd-color-neutral-200);
+    padding-inline: 0;
+  }
+  .cs-compare-table tbody tr td:last-child {
+    border-block-end: 0;
+  }
+  .cs-compare-highlight td:first-child {
+    box-shadow: none;
+  }
+  .cs-compare-table tbody td::before {
+    content: attr(data-label);
+    font-family: var(--hd-font-badge);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--hd-color-neutral-900);
+  }
+}

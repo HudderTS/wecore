@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>HPC ابری | وِی‌کُر</title>
+  <meta content="یک پلتفرم HPC مبتنی بر Slurm به سه شکل: کاملاً میزبانی‌شده روی ابر وِی‌کُر، استقرار خصوصی روی زیرساخت خودتان، یا ترکیبی — تا هنگام اوج تقاضا به ابر سرریز کنید." name="description"/>
+  <link href="https://wecore.ir/fa/hpc/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/hpc/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/hpc/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/hpc/" hreflang="x-default" rel="alternate"/>
+  <meta content="HPC ابری | وِی‌کُر" property="og:title"/>
+  <meta content="یک پلتفرم HPC مبتنی بر Slurm به سه شکل: کاملاً میزبانی‌شده روی ابر وِی‌کُر، استقرار خصوصی روی زیرساخت خودتان، یا ترکیبی — تا هنگام اوج تقاضا به ابر سرریز کنید." property="og:description"/>
+  <meta content="https://wecore.ir/fa/hpc/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="fa_IR" property="og:locale"/>
+  <meta content="en_US" property="og:locale:alternate"/>
+  <meta content="HPC ابری | وِی‌کُر" name="twitter:title"/>
+  <meta content="یک پلتفرم HPC مبتنی بر Slurm به سه شکل: کاملاً میزبانی‌شده روی ابر وِی‌کُر، استقرار خصوصی روی زیرساخت خودتان، یا ترکیبی — تا هنگام اوج تقاضا به ابر سرریز کنید." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/vazirmatn/Vazirmatn-FD-Regular.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  <link href="../../css/rtl.css" rel="stylesheet" type="text/css"/>
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../fa/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../fa/">
+          خانه
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            همهٔ سرویس‌ها
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              محصولات
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/hpc/">
+                 HPC ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 HPC ابری، خصوصی و ترکیبی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/cloud-servers/">
+                 سرور ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ماشین‌های مجازی خودگردان
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/caas/">
+                 ابر خصوصی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ابر OpenStack اختصاصی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/kaas/">
+                 کوبرنتیز
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 کلاسترهای مدیریت‌شدهٔ K8s
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/qsim/">
+                 شبیه‌سازی کوانتومی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 جریان‌های کاری کوانتومی GPU
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             شرکت
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/about/">
+               دربارهٔ ما
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/pricing/">
+               قیمت‌گذاری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               طرح
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               همکاری‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/subscribe/">
+               اشتراک
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پشتیبانی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/contact/">
+               تماس
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             منابع
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/apps/">
+               اپلیکیشن‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
+               بلاگ
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               مستندات
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             چرا WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               کارایی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پایداری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/product/">
+               محصول
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                گفت‌وگو با WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               مدل استقرار مناسب HPC، GPU و AI را برنامه‌ریزی کنید
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../en/hpc/">
+           En
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../fa/sign-up/">
+           ثبت‌نام / ورود
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="ویژگی‌های کلیدی">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            ویژگی‌های کلیدی
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              HPC ابری، خصوصی و ترکیبی
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              محیط‌های آمادهٔ GPU
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              نرم‌افزار آمادهٔ اجرا
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              جریان‌های کاری خودگردان
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              پشتیبانی تخصصی استقرار
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../en/hpc/" target="">
+         En
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../fa/sign-up/" target="">
+         ثبت‌نام / ورود
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../fa/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+
+    
+    
+    <section class="section_overview_hero">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-container-lg" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">
+         HPC ابری
+        </div>
+        <div class="hd-vspace-sm"></div>
+        <h1 class="hd-text-center">یک پلتفرم HPC مبتنی بر Slurm — ابری، خصوصی یا ترکیبی.</h1>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center">WECORE، HPC مبتنی بر Slurm را به سه شکل ارائه می‌دهد: کاملاً میزبانی‌شده روی ابر ما و خودگردان از طریق Cloud Panel، استقرار خصوصی روی زیرساخت خودتان، یا ترکیبی — سخت‌افزار خود را به پلتفرم WECORE بپیوندید و هنگام اوج تقاضا به ابر سرریز کنید.</div>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-button-group hd-align-center">
+         
+         <a class="hd-button" href="../../fa/contact">برنامه‌ریزی HPC</a>
+         
+         <a class="hd-button hd-button-secondary" href="../../fa/demo">درخواست دمو</a>
+         
+        </div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="overview_hero_grid" data-hd-animate="fade-up-2">
+        <div class="overview_hero_grid-box is-left">
+         <div class="proof-dashboard-shell hpc-proof-shell" dir="ltr" role="img" aria-label="Live Slurm queue preview from the WECORE Cloud Panel">
+ <div class="proof-dashboard-browser">
+  <div class="proof-browser-chrome" aria-hidden="true">
+   <div class="proof-window-controls"><span></span><span></span><span></span></div>
+   <div class="proof-browser-nav"><span>‹</span><span>›</span></div>
+   <div class="proof-browser-url">
+    <svg class="proof-lock" viewBox="0 0 24 24" aria-hidden="true">
+     <rect x="5" y="10" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+     <path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+     <circle cx="12" cy="15" r="1.2" fill="currentColor"/>
+    </svg>
+    <span>hub.wecore.ir/hpc</span>
+   </div>
+  </div>
+
+  <div class="proof-dashboard-app hpc-proof-app" aria-hidden="true">
+   
+   <aside class="proof-dashboard-sidebar">
+    <div class="proof-dashboard-logo">
+     <svg viewBox="0 0 46 32" aria-hidden="true">
+      <path d="M5 23.2 20.7 7.5c1.8-1.8 4.8-1.8 6.6 0L42 22.2c1.4 1.4 1.4 3.7 0 5.1-1.4 1.4-3.7 1.4-5.1 0L24.6 15c-.5-.5-1.3-.5-1.8 0L10.1 28c-1.4 1.4-3.7 1.4-5.1 0-1.4-1.4-1.4-3.7 0-5Z" fill="currentColor"/>
+      <path d="m14.3 25.6 8.7-8.7 8.5 8.5" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+     </svg>
+     <span>WECORE<sup>™</sup></span>
+    </div>
+
+    <div class="hpc-proof-module">
+     <span class="hpc-proof-module-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5M3 7.5 12 12m-9-4.5V16l9 5m9-13.5L12 12m9-4.5V16l-9 5m0-9v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     </span>
+     <div>
+      <strong>Cloud HPC</strong>
+      <span>Slurm platforms</span>
+     </div>
+    </div>
+
+    <nav class="hpc-proof-nav">
+     <span class="hpc-proof-nav-btn hpc-proof-nav-active"><span>▤</span> Queue</span>
+     <span class="hpc-proof-nav-btn"><span>≡</span> Jobs</span>
+     <span class="hpc-proof-nav-btn"><span>◫</span> Partitions</span>
+     <span class="hpc-proof-nav-btn"><span>▢</span> Nodes</span>
+    </nav>
+    <div class="hpc-proof-health">
+     <span class="hpc-proof-dot hpc-proof-dot-ready"></span>
+     <div>
+      <strong>Scheduler live</strong>
+      <span>squeue · scancel · sinfo</span>
+     </div>
+    </div>
+   </aside>
+
+   
+   <div class="proof-dashboard-main hpc-proof-main">
+    <div class="hpc-proof-view">
+     <div class="hpc-proof-header">
+      <div>
+       <p class="hpc-proof-eyebrow">Live Slurm queue</p>
+       <h3>aurora-research</h3>
+      </div>
+      <span class="hpc-proof-refresh"><i></i>5s refresh</span>
+     </div>
+
+     <div class="hpc-proof-stats">
+      <article class="hpc-proof-stat hpc-proof-stat-run"><span>Running</span><strong>2</strong></article>
+      <article class="hpc-proof-stat hpc-proof-stat-pend"><span>Pending</span><strong>1</strong></article>
+      <article class="hpc-proof-stat"><span>Partitions</span><strong>cpu · gpu</strong></article>
+     </div>
+
+     <div class="hpc-proof-queue">
+      <div class="hpc-proof-queue-head">
+       <span>Job</span><span>State</span><span>Partition</span><span>Nodes</span><span>Time</span>
+      </div>
+      <div class="hpc-proof-queue-row hpc-proof-row-run">
+       <span>cfd-wing-sweep</span><strong>RUNNING</strong><span>gpu</span><span>4</span><span>02:14</span>
+      </div>
+      <div class="hpc-proof-queue-row hpc-proof-row-run">
+       <span>genome-align</span><strong>RUNNING</strong><span>cpu</span><span>8</span><span>00:48</span>
+      </div>
+      <div class="hpc-proof-queue-row hpc-proof-row-pend">
+       <span>mesh-refine-042</span><strong>PENDING</strong><span>gpu</span><span>2</span><span>--</span>
+      </div>
+     </div>
+
+     <div class="hpc-proof-terminal">
+      <div><span>$</span> squeue --all --format="%i %j %T %P"</div>
+      <div><span>›</span> scheduler checks passed · login node reachable</div>
+      <div><span>›</span> scancel available for owned jobs</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+        </div>
+        <div class="overview_hero_grid-box is-right">
+         
+         <div class="hpc-models">
+          <p class="hpc-models-eyebrow">سه راه برای اجرا</p>
+          <ul class="hpc-models-list">
+           
+           <li class="hpc-models-item">
+            <span class="hpc-models-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A3.5 3.5 0 1 1 17 18Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <span class="hpc-models-text">
+             <span class="hpc-models-name">ابری</span>
+             <span class="hpc-models-note">میزبانی WECORE · کشسان و بنا به تقاضا</span>
+            </span>
+           </li>
+           
+           <li class="hpc-models-item">
+            <span class="hpc-models-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4.5" width="16" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13" width="16" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.75" r="0.95" fill="currentColor"/><circle cx="7.6" cy="16.25" r="0.95" fill="currentColor"/></svg></span>
+            <span class="hpc-models-text">
+             <span class="hpc-models-name">خصوصی</span>
+             <span class="hpc-models-note">روی زیرساخت خودتان</span>
+            </span>
+           </li>
+           
+           <li class="hpc-models-item is-key">
+            <span class="hpc-models-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16m-4-4 4 4-4 4M20 15H4m4 4-4-4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="hpc-models-text">
+             <span class="hpc-models-name">ترکیبی<span class="hpc-models-tag">منعطف‌ترین</span></span>
+             <span class="hpc-models-note">سخت‌افزار خود را وصل کنید، به ابر سرریز کنید</span>
+            </span>
+           </li>
+           
+          </ul>
+          
+          <a class="hpc-models-link" href="#models">مقایسهٔ همهٔ مدل‌ها ←</a>
+          
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_overview_features">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-max-lg" data-hd-animate="fade-up">
+        <div class="hd-h3">
+         راه‌اندازی و بهره‌برداری HPC
+         <span class="hd-text-secondary">از یک جریان کاری واحد در Cloud Panel.</span>
+        </div>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-sm">همان ساخت راهنما‌محور، عملیات زنده و بستهٔ نرم‌افزاری آماده — در هر مدل استقراری که انتخاب کنید.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="overview_features_grid" data-hd-animate="fade-up-2">
+        
+        <div class="overview_features_card">
+         <div>ساخت راهنما‌محور پلتفرم</div>
+         <div class="hd-text-secondary hd-max-sm">یک قالب Slurm، ایمیج آمادهٔ اجرا، فلیورهای نود، شبکه، دسترسی SSH و ذخیره‌سازی را انتخاب کنید، سپس پیش از آغاز تأمین منابع، سهمیه و هزینه را پیش‌بررسی کنید.</div>
+         <div class="hd-vspace-xs"></div>
+         <a class="hd-button hd-button-secondary" href="#models">مشاهدهٔ جریان کاری ←</a>
+         <div class="hd-vspace-xs"></div>
+         <img alt="ساخت راهنما‌محور پلتفرم" loading="lazy" sizes="(max-width: 912px) 100vw, 912px" src="../../img/hpc/feature-compute.avif" srcset="../../img/hpc/feature-compute-p500.avif 500w, ../../img/hpc/feature-compute.avif 912w"/>
+        </div>
+        
+        <div class="overview_features_card">
+         <div>محاسبات چنداستخری</div>
+         <div class="hd-text-secondary hd-max-sm">ظرفیت را به استخرهای CPU، GPU، حافظهٔ بالا یا سرریز تقسیم کنید — هرکدام با فلیور، تعداد نود، دیسک و هدف کاری مخصوص خود.</div>
+         <div class="hd-vspace-xs"></div>
+         <a class="hd-button hd-button-secondary" href="../../fa/contact">گفت‌وگو با فروش ←</a>
+         <div class="hd-vspace-xs"></div>
+         <img alt="محاسبات چنداستخری" loading="lazy" sizes="(max-width: 912px) 100vw, 912px" src="../../img/hpc/feature-software.avif" srcset="../../img/hpc/feature-software-p500.avif 500w, ../../img/hpc/feature-software.avif 912w"/>
+        </div>
+        
+        <div class="overview_features_card">
+         <div>نرم‌افزار و عملیات آماده</div>
+         <div class="hd-text-secondary hd-max-sm">Open OnDemand، پایش و بسته‌های علمی از پیش‌پیکربندی‌شده پشت بررسی‌های واقعی آمادگی قرار دارند — وضعیت را بازرسی کنید، لاگ‌ها را ببینید، انقضا تعیین کنید و از یک داشبورد پاک‌سازی کنید.</div>
+         <div class="hd-vspace-xs"></div>
+         <a class="hd-button hd-button-secondary" href="../../fa/demo">درخواست دمو ←</a>
+         <div class="hd-vspace-xs"></div>
+         <img alt="نرم‌افزار و عملیات آماده" loading="lazy" sizes="(max-width: 912px) 100vw, 912px" src="../../img/hpc/feature-controls.avif" srcset="../../img/hpc/feature-controls-p500.avif 500w, ../../img/hpc/feature-controls.avif 912w"/>
+        </div>
+        
+       </div>
+       
+       <div class="hd-vspace-sm"></div>
+       <div class="overview_features_workflow" data-hd-animate="fade-up">
+        <div class="overview_features_workflow-content">
+         <img alt="" aria-hidden="true" class="icon-1x1-large" loading="lazy" src="../../img/hpc/workflow-icon.avif"/>
+         <div>
+          <div>پیش‌بررسی پیش از راه‌اندازی</div>
+          <div class="hd-text-secondary">سهمیه، آمادگی کیف‌پول، برآورد ماهانه، سیاست انقضا و ورودی‌های لازم، پیش از آنکه هر پلتفرم HPC — ابری، خصوصی یا ترکیبی — وارد صف تأمین منابع شود، بررسی می‌شوند.</div>
+         </div>
+        </div>
+        <a class="hd-button" href="../../fa/contact">برنامه‌ریزی HPC</a>
+       </div>
+       
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    
+    <section class="section_overview_benefits hd-bg-secondary" id="models">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>
+         یک پلتفرم،
+         <span class="hd-text-secondary">سه راه برای اجرا.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">ابری، خصوصی یا ترکیبی — همان میز کار Slurm، متناسب با نیازهای شما به کنترل، اقامت داده و مقیاس.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+
+       <div class="hpc-compare-scroll" data-hd-animate="fade-up-2">
+        <table class="hpc-compare-table">
+         <thead>
+          <tr>
+           <th></th>
+           
+           <th scope="col">
+            <span class="hpc-compare-model">ابری</span>
+            <span class="hpc-compare-sub">میزبانی WECORE</span>
+           </th>
+           
+           <th scope="col">
+            <span class="hpc-compare-model">خصوصی</span>
+            <span class="hpc-compare-sub">روی زیرساخت شما</span>
+           </th>
+           
+           <th scope="col" class="hpc-compare-col-key">
+            <span class="hpc-compare-model">ترکیبی</span>
+            <span class="hpc-compare-sub">پیوسته به WECORE</span>
+           </th>
+           
+          </tr>
+         </thead>
+         <tbody>
+          
+          <tr>
+           <th scope="row">میزبانی</th>
+           
+           
+           <td data-label="ابری">ابر OpenStack ما</td>
+           
+           
+           <td data-label="خصوصی">دیتاسنتر خودتان</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">سخت‌افزار شما پیوسته به WECORE</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">تأمین منابع</th>
+           
+           
+           <td data-label="ابری">خودگردان در Cloud Panel</td>
+           
+           
+           <td data-label="خصوصی">استقرار WECORE روی سرورهای شما</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">یک Cloud Panel روی هر دو</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">زمان راه‌اندازی</th>
+           
+           
+           <td data-label="ابری">چند دقیقه</td>
+           
+           
+           <td data-label="خصوصی">نصب راهنما‌محور</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">اتصال موجود، گسترش در چند دقیقه</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">مقیاس و سرریز</th>
+           
+           
+           <td data-label="ابری">کشسان و بنا به تقاضا</td>
+           
+           
+           <td data-label="خصوصی">ثابت روی سخت‌افزار شما</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">سرریز به ابر WECORE در اوج</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">نگهداری</th>
+           
+           
+           <td data-label="ابری">کاملاً مدیریت‌شده توسط WECORE</td>
+           
+           
+           <td data-label="خصوصی">تیم شما، با پشتیبانی WECORE</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">مشترک — کنترل‌پلین با WECORE</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">اقامت داده</th>
+           
+           
+           <td data-label="ابری">منطقهٔ WECORE</td>
+           
+           
+           <td data-label="خصوصی">کاملاً درون‌سازمانی می‌ماند</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">دادهٔ حساس درون‌سازمان، بقیه سرریز</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">صورتحساب</th>
+           
+           
+           <td data-label="ابری">پرداخت به‌میزان مصرف از کیف‌پول</td>
+           
+           
+           <td data-label="خصوصی">استقرار لایسنس‌دار</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">ابر مصرفی، درون‌سازمان لایسنس‌دار</td>
+           
+          </tr>
+          
+          <tr>
+           <th scope="row">مناسب برای</th>
+           
+           
+           <td data-label="ابری">شروع سریع، تقاضای متغیر</td>
+           
+           
+           <td data-label="خصوصی">اقامت و انطباق سخت‌گیرانه</td>
+           
+           
+           <td class="hpc-compare-col-key" data-label="ترکیبی">سخت‌افزار خودی &#43; سرریز ابری</td>
+           
+          </tr>
+          
+         </tbody>
+        </table>
+       </div>
+
+       
+       <div class="hd-vspace-sm"></div>
+       <div class="hpc-compare-foot hd-text-tiny hd-text-muted hd-text-center" data-hd-animate="fade-up">
+        
+        
+        <span>همان زمان‌بند Slurm</span>
+        
+        <span aria-hidden="true">·</span>
+        <span>Open OnDemand &#43; پایش</span>
+        
+        <span aria-hidden="true">·</span>
+        <span>جابه‌جایی میان مدل‌ها</span>
+        
+       </div>
+       
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_overview_features">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-max-lg" data-hd-animate="fade-up">
+        <h2>ویژگی‌های ماژول</h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-sm">هر آنچه ماژول HPC در Cloud Panel به کاربران شما می‌دهد — یکسان در ابری، خصوصی و ترکیبی.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="overview_benefits_grid" data-hd-animate="fade-up-2">
+        
+        <div class="overview_benefits_card">
+         <img alt="" aria-hidden="true" class="icon-height-medium" loading="lazy" src="../../img/icons/features/responsive.svg"/>
+         <div>
+          <div>توپولوژی پلتفرم Slurm</div>
+          <div class="hd-text-secondary">نقش‌های کنترلر، ورود و محاسبه را به‌صورت یک پلتفرم هماهنگ تأمین کنید، با ورود SSH و سرویس‌های زمان‌بند آمادهٔ کاربران.</div>
+         </div>
+        </div>
+        
+        <div class="overview_benefits_card">
+         <img alt="" aria-hidden="true" class="icon-height-medium" loading="lazy" src="../../img/icons/features/customizable.svg"/>
+         <div>
+          <div>اندازه‌گذاری قالب‌محور</div>
+          <div class="hd-text-secondary">ظرفیت کنترلر، ورود و محاسبه را از قالب‌های کلاستر و فلیورهای برچسب‌خوردهٔ HPC شکل دهید — بدون ساخت دستی زیرساخت.</div>
+         </div>
+        </div>
+        
+        <div class="overview_benefits_card">
+         <img alt="" aria-hidden="true" class="icon-height-medium" loading="lazy" src="../../img/icons/features/seo.svg"/>
+         <div>
+          <div>استخرهای محاسباتی هدفمند</div>
+          <div class="hd-text-secondary">استخرهای تخصصی GPU، حافظهٔ بالا یا همه‌منظوره بیفزایید تا هر بار کاری روی پارتیشن مناسب Slurm بنشیند.</div>
+         </div>
+        </div>
+        
+        <div class="overview_benefits_card">
+         <img alt="" aria-hidden="true" class="icon-height-medium" loading="lazy" src="../../img/icons/features/performance.svg"/>
+         <div>
+          <div>عملیات زندهٔ صف</div>
+          <div class="hd-text-secondary">کارها، پارتیشن‌ها، وضعیت‌ها، زمان اجرا، کاربران و تعداد نودهای Slurm را بازرسی کنید — با کنترل‌های تازه‌سازی و لغو کار در پنل.</div>
+         </div>
+        </div>
+        
+        <div class="overview_benefits_card">
+         <img alt="" aria-hidden="true" class="icon-height-medium" loading="lazy" src="../../img/icons/features/ecommerce.svg"/>
+         <div>
+          <div>دسترسی به سرویس‌های زمان اجرا</div>
+          <div class="hd-text-secondary">Open OnDemand و پایش/Grafana تنها وقتی نمایش داده می‌شوند که بررسی‌های آمادگی‌شان موفق باشد؛ وضعیت‌های در انتظار، نزول‌یافته و ناموفق صریح می‌مانند.</div>
+         </div>
+        </div>
+        
+        <div class="overview_benefits_card">
+         <img alt="" aria-hidden="true" class="icon-height-medium" loading="lazy" src="../../img/icons/features/blog.svg"/>
+         <div>
+          <div>مصرف، هزینه و چرخهٔ عمر</div>
+          <div class="hd-text-secondary">هزینهٔ ماهانه را پیش‌نمایش کنید، کیف‌پول و سهمیه را بررسی کنید، بازهٔ انقضا تعیین کنید، زمان اجرای آماده را اندازه بگیرید و در پایان کار پاک‌سازی کنید.</div>
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_overview_banners" data-hd-animate="fade-up">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="overview_banners_grid">
+        <div class="overview_banners_left">
+         <div class="hd-badge">HPC ابری WECORE</div>
+         <h2 class="hd-text-alternate">بارهای کاری سنگین را بدون اصطکاک زیرساخت اجرا کنید</h2>
+         <div class="hd-text-secondary">ساخت راهنما‌محور، آمادگی سرویس، صف زنده و کنترل‌های چرخهٔ عمر — به‌صورت ابری، خصوصی یا ترکیبی، متناسب با نیازهای کارایی و کنترل شما.</div>
+         <div class="hd-button-group">
+          
+          <a class="hd-button hd-button-alternate" href="../../fa/contact">برنامه‌ریزی HPC</a>
+          
+          <a class="hd-button hd-button-alternate-secondary" href="../../fa/demo">درخواست دمو</a>
+          
+         </div>
+        </div>
+        <div class="overview_banners_right">
+         <img alt="" aria-hidden="true" loading="lazy" sizes="(max-width: 1374px) 100vw, 1374px" src="../../img/hpc/deployment-banner.avif" srcset="../../img/hpc/deployment-banner-p500.avif 500w, ../../img/hpc/deployment-banner.avif 1374w"/>
+         
+         <div class="overview_banners_customize">
+          <img alt="" aria-hidden="true" class="icon-height-large" loading="lazy" src="../../img/hpc/support-icon.avif"/>
+          <h2 class="hd-h3">مدل مناسب را انتخاب کنید</h2>
+          <div>ما کمک می‌کنیم بار کاری شما به مدل استقرار، قالب‌ها، فلیورها، استخرهای محاسباتی و قواعد دسترسی مناسب — ابری، خصوصی یا ترکیبی — ترجمه شود.</div>
+          <a class="hd-button" href="../../fa/contact">گفت‌وگو با WECORE</a>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="لوگوی WECORE" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           HPC ابری، خصوصی و ترکیبی برای تیم‌های فنی
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          پلتفرم
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/">
+           خانه
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/product">
+           محصول
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/caas">
+           ابر خصوصی
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/hpc">
+           HPC ابری
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/apps">
+           اپلیکیشن‌ها
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/pricing/">
+           قیمت‌گذاری
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          شرکت
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/about">
+           درباره
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/contact">
+           تماس
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/demo">
+           درخواست دمو
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/articles">
+           مقالات
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          حساب کاربری
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/sign-in">
+           ورود
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/sign-up">
+           ثبت‌نام
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/forgot-password">
+           فراموشی رمز عبور
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/subscribe">
+           اشتراک
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © کپی‌رایت ۲۰۲۶ |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE زیرساخت HPC ابری، خصوصی و ترکیبی را برای تیم‌های فنی فراهم می‌کند. شرایط استقرار، قیمت‌گذاری و دامنهٔ پشتیبانی در جریان مشاوره نهایی می‌شوند.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur">
+    <div class="hd-embed">
+     <style>
+      .bottom-blur {
+backdrop-filter: blur(7px);
+background-image: linear-gradient(#fff0, #ffffff00 90%, #fff);
+mask-image: linear-gradient(#0000,10%,#fff 40% 100%);
+pointer-events:none;
+}
+     </style>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

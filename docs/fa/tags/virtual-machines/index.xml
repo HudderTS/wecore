@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Virtual Machines on وِی‌کُر</title>
+		<link>https://wecore.ir/fa/tags/virtual-machines/</link>
+		<description>Recent content in Virtual Machines on وِی‌کُر</description>
+		<generator>Hugo</generator>
+		<language>fa</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://wecore.ir/fa/tags/virtual-machines/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>سرور ابری: محاسبات در چند دقیقه — حالا با GPU ابری</title>
+				<link>https://wecore.ir/fa/articles/cloud-servers/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://wecore.ir/fa/articles/cloud-servers/</guid>
+				<description>&lt;p&gt;&#xA;گاهی به یک ابر خصوصی کامل یا یک پلتفرم مدیریت‌شدهٔ کوبرنتیز نیاز ندارید — فقط همین حالا به یک سرور نیاز دارید. &lt;strong&gt;سرورهای ابری WECORE&lt;/strong&gt; دقیقاً همین را تحویل می‌دهند: ماشین‌های مجازی با صورتحساب ساعتی روی زیرساخت مبتنی بر NVMe، با دسترسی کامل root، که در کمتر از دو دقیقه آماده می‌شوند. یک اندازه انتخاب کنید، یک ایمیج برگزینید، دکمهٔ راه‌اندازی را بزنید و فقط بابت آنچه روشن است بپردازید.&#xA;&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

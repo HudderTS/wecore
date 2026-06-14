@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Categories on WECORE</title>
+		<link>https://wecore.ir/en/categories/</link>
+		<description>Recent content in Categories on WECORE</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://wecore.ir/en/categories/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Cloud</title>
+				<link>https://wecore.ir/en/categories/cloud/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://wecore.ir/en/categories/cloud/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>HPC</title>
+				<link>https://wecore.ir/en/categories/hpc/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://wecore.ir/en/categories/hpc/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infrastructure</title>
+				<link>https://wecore.ir/en/categories/infrastructure/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://wecore.ir/en/categories/infrastructure/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Kubernetes</title>
+				<link>https://wecore.ir/en/categories/kubernetes/</link>
+				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://wecore.ir/en/categories/kubernetes/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

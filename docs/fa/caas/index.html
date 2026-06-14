@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>ابر خصوصی | وِی‌کُر</title>
+  <meta content="ابرهای OpenStack روی سرورهای اختصاصی؛ یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph را در چند دقیقه مستقر کنید — بدون سربار هایپروایزر و بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی." name="description"/>
+  <link href="https://wecore.ir/fa/caas/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/caas/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/caas/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/caas/" hreflang="x-default" rel="alternate"/>
+  <meta content="ابر خصوصی | وِی‌کُر" property="og:title"/>
+  <meta content="ابرهای OpenStack روی سرورهای اختصاصی؛ یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph را در چند دقیقه مستقر کنید — بدون سربار هایپروایزر و بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی." property="og:description"/>
+  <meta content="https://wecore.ir/fa/caas/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="fa_IR" property="og:locale"/>
+  <meta content="en_US" property="og:locale:alternate"/>
+  <meta content="ابر خصوصی | وِی‌کُر" name="twitter:title"/>
+  <meta content="ابرهای OpenStack روی سرورهای اختصاصی؛ یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph را در چند دقیقه مستقر کنید — بدون سربار هایپروایزر و بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/vazirmatn/Vazirmatn-FD-Regular.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  <link href="../../css/rtl.css" rel="stylesheet" type="text/css"/>
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../fa/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../fa/">
+          خانه
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            همهٔ سرویس‌ها
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              محصولات
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/hpc/">
+                 HPC ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 HPC ابری، خصوصی و ترکیبی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/cloud-servers/">
+                 سرور ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ماشین‌های مجازی خودگردان
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/caas/">
+                 ابر خصوصی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ابر OpenStack اختصاصی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/kaas/">
+                 کوبرنتیز
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 کلاسترهای مدیریت‌شدهٔ K8s
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/qsim/">
+                 شبیه‌سازی کوانتومی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 جریان‌های کاری کوانتومی GPU
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             شرکت
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/about/">
+               دربارهٔ ما
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/pricing/">
+               قیمت‌گذاری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               طرح
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               همکاری‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/subscribe/">
+               اشتراک
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پشتیبانی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/contact/">
+               تماس
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             منابع
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/apps/">
+               اپلیکیشن‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
+               بلاگ
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               مستندات
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             چرا WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               کارایی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پایداری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/product/">
+               محصول
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                گفت‌وگو با WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               مدل استقرار مناسب HPC، GPU و AI را برنامه‌ریزی کنید
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../en/caas/">
+           En
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../fa/sign-up/">
+           ثبت‌نام / ورود
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="ویژگی‌های کلیدی">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            ویژگی‌های کلیدی
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              HPC ابری، خصوصی و ترکیبی
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              محیط‌های آمادهٔ GPU
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              نرم‌افزار آمادهٔ اجرا
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              جریان‌های کاری خودگردان
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              پشتیبانی تخصصی استقرار
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../en/caas/" target="">
+         En
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../fa/sign-up/" target="">
+         ثبت‌نام / ورود
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../fa/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+
+    
+    <section class="section_caas_hero">
+     <div class="caas-hero-bg"></div>
+     <div class="caas-hero-overlay"></div>
+     <div class="hd-section-sm caas-hero-wrap">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-300">
+         CaaS
+        </div>
+        <div class="hd-vspace-sm"></div>
+        <h1 class="hd-text-alternate">
+         ابر خصوصی، آمادهٔ مقیاس‌پذیری.
+        </h1>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-lg hd-text-muted">
+         ابرهای OpenStack بر روی سرورهای اختصاصی — یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph را در چند دقیقه مستقر کنید. بدون سربار هایپروایزر، بدون همسایهٔ پُرسروصدا، بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی.
+        </div>
+        <div class="hd-vspace-sm"></div>
+
+        
+        <div class="hd-button-group hd-justify-center">
+         
+         <a class="hd-button hd-button-alternate" href="../../fa/pricing/">
+          مشاهدهٔ قیمت‌ها
+         </a>
+         
+         <a class="hd-button hd-button-secondary" href="../../fa/contact">
+          تماس با فروش
+         </a>
+         
+        </div>
+        
+
+        <div class="hd-vspace-md"></div>
+
+        
+        <div class="caas-hero-trust">
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">SLA پایداری ۹۹.۹٪</span>
+         </div>
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">استقرار در چند دقیقه</span>
+         </div>
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">دسترسی ریشه کامل</span>
+         </div>
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">OpenStack &#43; Ceph</span>
+         </div>
+         
+        </div>
+        
+
+        <div class="hd-vspace-sm"></div>
+        
+        <div class="caas-hero-promo hd-text-sm hd-text-medium">
+         ۵۰٪ تخفیف ماه اول استقرار ابر خصوصی — کد تخفیف: <strong>CLOUD50</strong>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+
+    
+    
+    <section class="section_caas_stats hd-bg-secondary">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="caas-stats-grid" data-hd-animate="fade-up">
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">۹۹.۹٪</div>
+         <div class="hd-text-sm hd-text-muted">SLA پایداری</div>
+        </div>
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">۳</div>
+         <div class="hd-text-sm hd-text-muted">منطقهٔ دیتاسنتر</div>
+        </div>
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">۲۴/۷</div>
+         <div class="hd-text-sm hd-text-muted">پشتیبانی مهندسی</div>
+        </div>
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">OpenStack</div>
+         <div class="hd-text-sm hd-text-muted">متن‌باز، بدون هزینه لایسنس</div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_features">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <h2>
+         ابر خصوصی،
+         <span class="hd-text-secondary">تحت کنترل شما.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">سه ستون یک پلتفرم ابر خصوصی کامل</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-features-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-feature-card">
+         <div class="caas-feature-number">۰۱</div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-badge hd-text-300">OpenStack</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">ابر خصوصی</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">استقرار کامل OpenStack بر روی سرورهای اختصاصی تک‌مستأجر. Nova برای پردازش، Neutron برای شبکه، Cinder برای ذخیره‌سازی بلوکی، Glance برای ایمیج‌ها، Keystone برای مدیریت هویت و Horizon برای داشبورد — پشتهٔ کامل با دسترسی ریشه به صفحه کنترل.</p>
+         <div class="hd-vspace-xs"></div>
+         <a class="caas-feature-link" href="../../fa/contact">بیشتر بدانید →</a>
+        </div>
+        
+        <div class="caas-feature-card">
+         <div class="caas-feature-number">۰۲</div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-badge hd-text-300">توزیع‌شده</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">ذخیره‌سازی Ceph</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">ذخیره‌سازی هم‌گرای Ceph با تکثیر ۳ برابری روی تمام نودها. حجم‌های بلوکی RBD برای ماشین‌های مجازی، ذخیره‌سازی شیء‌گرای S3-compatible و CephFS برای فایل‌سیستم‌های اشتراکی — بدون نیاز به SAN خارجی.</p>
+         <div class="hd-vspace-xs"></div>
+         <a class="caas-feature-link" href="../../fa/contact">بیشتر بدانید →</a>
+        </div>
+        
+        <div class="caas-feature-card">
+         <div class="caas-feature-number">۰۳</div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-badge hd-text-300">شتاب‌دهی‌شده</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">پردازش GPU</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">نودهای NVIDIA GPU را در صورت نیاز به کلاستر ابر خصوصی خود متصل کنید. آموزش مدل، استنتاج، ترانسکدینگ و مصورسازی — منابع GPU را مستقل از زیرساخت پردازشی خود مقیاس کنید.</p>
+         <div class="hd-vspace-xs"></div>
+         <a class="caas-feature-link" href="../../fa/contact">بیشتر بدانید →</a>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_value hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>
+         چرا تیم‌های فنی
+         <span class="hd-text-secondary">ابر خصوصی CaaS را انتخاب می‌کنند</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">کنترل کامل زیرساخت داخلی، به‌عنوان یک سرویس مدیریت‌شده ارائه می‌شود</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-value-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">بدون سربار هایپروایزر</h4>
+          <p class="hd-text-sm hd-text-muted">OpenStack مستقیماً روی سرور فلزی اجرا می‌شود. تمام هسته‌های پردازنده، تمام حافظه و تمام IOPS در اختیار سرویس‌های شماست — بدون سربار هایپروایزر، بدون لایسنس اضافی.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">دسترسی ریشه به صفحه کنترل</h4>
+          <p class="hd-text-sm hd-text-muted">با SSH به کنترل‌کننده‌های OpenStack خود متصل شوید. Nova، Neutron و Cinder را تنظیم کنید — پشته متعلق به شماست. ما سخت‌افزار و ارتقاء پلتفرم را مدیریت می‌کنیم؛ شما مالک ابر هستید.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">بدون هزینهٔ لایسنس به‌ازای هر VM</h4>
+          <p class="hd-text-sm hd-text-muted">۱۰ ماشین مجازی یا ۱۰۰۰ ماشین اجرا کنید. برخلاف VMware vSphere یا ابرهای عمومی، هزینهٔ ماهانه شما با تعداد ماشین‌های مجازی تغییر نمی‌کند. سخت‌افزار متعلق به شماست.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">قیمت‌گذاری ماهانهٔ قابل پیش‌بینی</h4>
+          <p class="hd-text-sm hd-text-muted">نرخ ثابت ماهانه به‌ازای هر کلاستر. بدون هزینهٔ غافلگیرکنندهٔ ترافیک خروجی، بدون هزینهٔ اضافی به‌ازای هر هستهٔ مجازی و بدون هزینهٔ IOPS. از روز اول بودجه خود را دقیق برنامه‌ریزی کنید.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">استقرار سریع</h4>
+          <p class="hd-text-sm hd-text-muted">کلاستر خود را سفارش دهید و یک ابر OpenStack عملیاتی را در کمتر از ۱۰ دقیقه تحویل بگیرید. دسترسی API، داشبورد Horizon و ذخیره‌سازی Ceph — پیش از آنکه چای‌تان سرد شود، آماده است.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">ارتقاء مدیریت‌شدهٔ پلتفرم</h4>
+          <p class="hd-text-sm hd-text-muted">ما ارتقاء نسخه‌های OpenStack، بازمتعادل‌سازی Ceph، چرخهٔ عمر سخت‌افزار و مانیتورینگ ۲۴/۷ را مدیریت می‌کنیم. تیم شما روی وظایف کاری تمرکز می‌کند، نه عملیات زیرساختی.</p>
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_openstack">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">OpenStack</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         استاندارد صنعتی برای
+         <span class="hd-text-secondary">زیرساخت ابر خصوصی</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">هر کلاستر CaaS با یک توزیع کامل و عملیاتی OpenStack ارائه می‌شود</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-os-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Nova</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">پردازش — تأمین و مدیریت ماشین‌های مجازی، نمونه‌های فلزی و گروه‌های سرور</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Neutron</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">شبکه — شبکهٔ نرم‌افزارمحور با VLANها، IPهای شناور، گروه‌های امنیتی و مسیریاب‌ها</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Cinder</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">ذخیره‌سازی بلوکی — حجم‌های ماندگار با پشتیبانی Ceph RBD، به‌همراه snapshot</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Glance</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">ایمیج‌ها — ذخیره و فهرست‌بندی ایمیج‌های VM، snapshotها و قالب‌ها</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Keystone</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">هویت — RBAC چندمستأجری، ایزوله‌سازی پروژه‌ها و احراز هویت API</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Horizon</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">داشبورد — رابط کاربری تحت وب برای مدیریت کامل استقرار ابری شما</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Heat</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">ارکستراسیون — زیرساخت به‌عنوان کد با قالب‌های YAML و مقیاس‌پذیری خودکار</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Ceph</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">ذخیره‌سازی — توزیع‌شده و خودترمیم‌شونده با واسط‌های بلوکی، شیء‌گرا و فایلی</p>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_compare hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>
+         مقایسهٔ
+         <span class="hd-text-secondary">محصولات ما</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">هر محصول WECORE الگوی کاری متفاوتی را پوشش می‌دهد</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="caas-compare-scroll" data-hd-animate="fade-up-2">
+        <table class="caas-compare-table">
+         <thead>
+          <tr>
+           
+           <th scope="col">نوع طرح</th>
+           
+           <th scope="col">مناسب برای</th>
+           
+           <th scope="col">زیرساخت</th>
+           
+           <th scope="col">ذخیره‌سازی</th>
+           
+           <th scope="col">صورتحساب</th>
+           
+          </tr>
+         </thead>
+         <tbody>
+          
+          <tr class="caas-compare-highlight">
+           
+           <td data-label="نوع طرح"><strong>CaaS</strong><div class="hd-text-tiny hd-text-muted">ابر خصوصی</div></td>
+           
+           <td data-label="مناسب برای">میزبانی SaaS، محیط‌های انطباق‌پذیر، توسعه/آزمایش، CI/CD، کلان‌داده، مهاجرت از VMware</td>
+           
+           <td data-label="زیرساخت">سرور اختصاصی فلزی، تک‌مستأجر</td>
+           
+           <td data-label="ذخیره‌سازی">Ceph NVMe، تکثیر ۳ برابری</td>
+           
+           <td data-label="صورتحساب">ماهانه ثابت</td>
+           
+          </tr>
+          
+          <tr class="">
+           
+           <td data-label="نوع طرح">سرورهای ابری</td>
+           
+           <td data-label="مناسب برای">پردازش عمومی، اپلیکیشن‌های وب، وظایف موقت، پایگاه داده</td>
+           
+           <td data-label="زیرساخت">ماشین‌های مجازی چندمستأجری</td>
+           
+           <td data-label="ذخیره‌سازی">ذخیره‌سازی بلوکی NVMe</td>
+           
+           <td data-label="صورتحساب">ساعتی، پرداخت به‌میزان مصرف</td>
+           
+          </tr>
+          
+          <tr class="">
+           
+           <td data-label="نوع طرح">HPC ابری</td>
+           
+           <td data-label="مناسب برای">محاسبات علمی، شبیه‌سازی، پژوهش، وظایف دسته‌ای</td>
+           
+           <td data-label="زیرساخت">سرور فلزی مدیریت‌شده با Slurm</td>
+           
+           <td data-label="ذخیره‌سازی">حافظهٔ اشتراکی موقت NVMe</td>
+           
+           <td data-label="صورتحساب">ساعتی، پرداخت به‌ازای هر نود</td>
+           
+          </tr>
+          
+         </tbody>
+        </table>
+       </div>
+
+       <div class="hd-vspace-sm"></div>
+       <div class="caas-compare-trust hd-text-tiny hd-text-muted hd-text-center" data-hd-animate="fade-up">
+        <span>BBB rating: A+</span>
+        <span aria-hidden="true">·</span>
+        <span>Since 2024</span>
+        <span aria-hidden="true">·</span>
+        <span>Secure payments</span>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_regions">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">طراحی‌شده برای تأخیر کم</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         نزدیک به
+         <span class="hd-text-secondary">کاربران خود مستقر شوید.</span>
+        </h2>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-regions-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-region-card">
+         <div class="caas-region-image-wrap">
+          <img alt="تهران" class="caas-region-image" loading="lazy" src="../../img/caas/region-tehran.avif"/>
+          <div class="caas-region-status">فعال</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-h6">تهران</div>
+         <div class="hd-text-tiny hd-text-muted">IR-CENTRAL</div>
+        </div>
+        
+        <div class="caas-region-card">
+         <div class="caas-region-image-wrap">
+          <img alt="توسعهٔ آینده" class="caas-region-image" loading="lazy" src="../../img/caas/region-planned.avif"/>
+          <div class="caas-region-status">به‌زودی</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-h6">توسعهٔ آینده</div>
+         <div class="hd-text-tiny hd-text-muted">IR-SOUTH</div>
+        </div>
+        
+        <div class="caas-region-card">
+         <div class="caas-region-image-wrap">
+          <img alt="توسعهٔ آینده" class="caas-region-image" loading="lazy" src="../../img/caas/region-planned.avif"/>
+          <div class="caas-region-status">به‌زودی</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-h6">توسعهٔ آینده</div>
+         <div class="hd-text-tiny hd-text-muted">IR-EAST</div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_faq">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">سؤالات متداول</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-center">پرسش‌های شما دربارهٔ ابر خصوصی</h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center hd-text-muted">CaaS چیست، چگونه کار می‌کند و آیا مناسب وظایف کاری شماست</div>
+        <div class="hd-vspace-lg"></div>
+       </div>
+       <div class="hd-align-center">
+        <div class="caas-faq-box" x-data="{ active: null }">
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-0" aria-controls="caas-faq-panel-0"
+                  aria-expanded="false" :aria-expanded="active === 0"
+                  @click="active = (active === 0 ? null : 0)">
+           <div class="faq_question_header">
+            <div>CaaS — ابر خصوصی به‌عنوان سرویس — دقیقاً چیست؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 0" :class="{ 'hd-faq-panel-open': active === 0 }" id="caas-faq-panel-0">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">CaaS یک <strong>ابر خصوصی OpenStack بر روی سرورهای اختصاصی فلزی</strong> است که توسط WECORE مدیریت می‌شود. شما یک کلاستر ۳ نودی (یا بزرگ‌تر) با سرویس‌های صفحه کنترل OpenStack، ذخیره‌سازی هم‌گرای Ceph و شبکهٔ خصوصی دریافت می‌کنید — همه در چند دقیقه مستقر می‌شود. شما دسترسی ریشه به صفحه کنترل دارید؛ ما سخت‌افزار، ارتقاء پلتفرم و مانیتورینگ ۲۴/۷ را مدیریت می‌کنیم.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-1" aria-controls="caas-faq-panel-1"
+                  aria-expanded="false" :aria-expanded="active === 1"
+                  @click="active = (active === 1 ? null : 1)">
+           <div class="faq_question_header">
+            <div>چقدر سریع می‌توانم یک ابر خصوصی آماده دریافت کنم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 1" :class="{ 'hd-faq-panel-open': active === 1 }" id="caas-faq-panel-1">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">یک کلاستر استاندارد ۳ نودی OpenStack + Ceph در <strong>کمتر از ۱۰ دقیقه</strong> مستقر می‌شود. کلاسترهای بزرگ‌تر به‌طور خطی مقیاس می‌گیرند — استقرار ۵ نودی در کمتر از ۱۵ دقیقه کامل می‌شود. شما بلافاصله پس از اتمام استقرار، دسترسی API و داشبورد Horizon را دریافت می‌کنید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-2" aria-controls="caas-faq-panel-2"
+                  aria-expanded="false" :aria-expanded="active === 2"
+                  @click="active = (active === 2 ? null : 2)">
+           <div class="faq_question_header">
+            <div>آیا واقعاً دسترسی ریشه دارم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 2" :class="{ 'hd-faq-panel-open': active === 2 }" id="caas-faq-panel-2">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted"><strong>بله.</strong> شما دسترسی SSH و اطلاعات کاربری ادمین به صفحه کنترل OpenStack دارید. سیاست‌های زمان‌بندی Nova را تنظیم کنید، شبکه Neutron را تغییر دهید، گروه‌های جای‌گذاری Ceph را مدیریت کنید — پشته متعلق به شماست. ما سخت‌افزار (تعویض درایو، فریمور، وصله‌های کرنل) را مدیریت می‌کنیم و ارتقاء نسخه‌های OpenStack را بدون قطعی سرویس انجام می‌دهیم.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-3" aria-controls="caas-faq-panel-3"
+                  aria-expanded="false" :aria-expanded="active === 3"
+                  @click="active = (active === 3 ? null : 3)">
+           <div class="faq_question_header">
+            <div>قیمت‌گذاری CaaS چه تفاوتی با سرورهای ابری یا HPCaaS دارد؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 3" :class="{ 'hd-faq-panel-open': active === 3 }" id="caas-faq-panel-3">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">سرورهای ابری و HPCaaS <strong>ساعتی و بر اساس مصرف</strong> محاسبه می‌شوند — شما به‌میزان منابع مصرفی پرداخت می‌کنید. CaaS <strong>قیمت‌گذاری ماهانهٔ ثابت</strong> به‌ازای هر کلاستر دارد: یک صورتحساب قابل پیش‌بینی بدون توجه به تعداد ماشین‌های مجازی یا حجم ترافیک داخلی. این مدل برای وظایف پایدار، پلتفرم‌های SaaS و محیط‌های حساس به انطباق ایده‌آل است.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-4" aria-controls="caas-faq-panel-4"
+                  aria-expanded="false" :aria-expanded="active === 4"
+                  @click="active = (active === 4 ? null : 4)">
+           <div class="faq_question_header">
+            <div>آیا می‌توانم نودهای GPU به ابر خصوصی خود اضافه کنم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 4" :class="{ 'hd-faq-panel-open': active === 4 }" id="caas-faq-panel-4">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">بله. می‌توانید <strong>نودهای NVIDIA GPU</strong> را برای آموزش مدل، استنتاج، ترانسکدینگ یا مصورسازی به کلاستر خود متصل کنید. نودهای GPU به‌عنوان افزونه به نرخ ماهانهٔ کلاستر شما محاسبه می‌شوند.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-5" aria-controls="caas-faq-panel-5"
+                  aria-expanded="false" :aria-expanded="active === 5"
+                  @click="active = (active === 5 ? null : 5)">
+           <div class="faq_question_header">
+            <div>WECORE چه چیزهایی را مدیریت می‌کند و من چه چیزهایی را؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 5" :class="{ 'hd-faq-panel-open': active === 5 }" id="caas-faq-panel-5">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted"><strong>WECORE مدیریت می‌کند:</strong> چرخهٔ عمر سخت‌افزار، ارتقاء نسخه‌های صفحه کنترل OpenStack، سلامت و بازمتعادل‌سازی کلاستر Ceph، ساختار شبکه، مانیتورینگ ۲۴/۷ و پاسخ به رخدادها. <strong>شما مدیریت می‌کنید:</strong> ماشین‌های مجازی، شبکه‌های مستأجر، گروه‌های امنیتی، ایمیج‌ها، حجم‌ها و اپلیکیشن‌های خود. به آن مانند یک پلتفرم مدیریت‌شده فکر کنید — ما ابر را اجرا می‌کنیم تا شما وظایف کاری خود را اجرا کنید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-6" aria-controls="caas-faq-panel-6"
+                  aria-expanded="false" :aria-expanded="active === 6"
+                  @click="active = (active === 6 ? null : 6)">
+           <div class="faq_question_header">
+            <div>ذخیره‌سازی Ceph چگونه در یک کلاستر CaaS کار می‌کند؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 6 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 6" :class="{ 'hd-faq-panel-open': active === 6 }" id="caas-faq-panel-6">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Ceph به‌عنوان یک <strong>سیستم ذخیره‌سازی توزیع‌شدهٔ هم‌گرا</strong> روی تمام نودهای کلاستر شما مستقر می‌شود. داده‌ها برای دوام با تکثیر ۳ برابری ذخیره می‌شوند. Ceph سه واسط ارائه می‌دهد: <strong>RBD</strong> (ذخیره‌سازی بلوکی برای دیسک‌های VM، یکپارچه با Cinder)، <strong>RADOSGW</strong> (ذخیره‌سازی شیء‌گرای S3-compatible) و <strong>CephFS</strong> (فایل‌سیستم POSIX اشتراکی). نیازی به SAN یا NAS خارجی ندارید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="caas-faq-trigger-7" aria-controls="caas-faq-panel-7"
+                  aria-expanded="false" :aria-expanded="active === 7"
+                  @click="active = (active === 7 ? null : 7)">
+           <div class="faq_question_header">
+            <div>آیا می‌توانم از VMware vSphere به CaaS مهاجرت کنم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 7 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 7" :class="{ 'hd-faq-panel-open': active === 7 }" id="caas-faq-panel-7">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">بله. بسیاری از تیم‌ها برای اجتناب از هزینه‌های لایسنس Broadcom از VMware مهاجرت می‌کنند. OpenStack قابلیت‌های معادل (یا بهتری) ارائه می‌دهد: Nova جایگزین مدیریت پردازش vCenter می‌شود، Neutron جایگزین شبکه NSX می‌شود، Cinder + Ceph جایگزین ذخیره‌سازی vSAN می‌شود و Keystone جایگزین RBAC vSphere می‌شود. ما راهنمایی مهاجرت ارائه می‌دهیم و می‌توانیم یک کلاستر جایگزین برای شما اندازه‌گیری کنیم.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_cta">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="plan_hero_content caas-cta" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-300">آمادهٔ شروع؟</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-alternate caas-cta-heading">
+         ابر خصوصی خود را در
+         <em>چند دقیقه</em> مستقر کنید.
+        </h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-muted hd-max-md">یک کلاستر اختصاصی OpenStack &#43; Ceph متناسب با وظایف کاری خود دریافت کنید. قیمت‌گذاری ماهانهٔ ثابت، دسترسی ریشه کامل، ارتقاء مدیریت‌شدهٔ پلتفرم.</div>
+        <div class="hd-vspace-lg"></div>
+        <div class="hd-button-group hd-align-center">
+         <a class="hd-button hd-button-alternate" href="../../fa/demo">رزرو دمو</a>
+         <a class="hd-button hd-button-alternate-secondary" href="../../fa/contact">تماس با فروش</a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="لوگوی WECORE" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           HPC ابری، خصوصی و ترکیبی برای تیم‌های فنی
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          پلتفرم
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/">
+           خانه
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/product">
+           محصول
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/caas">
+           ابر خصوصی
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/hpc">
+           HPC ابری
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/apps">
+           اپلیکیشن‌ها
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/pricing/">
+           قیمت‌گذاری
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          شرکت
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/about">
+           درباره
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/contact">
+           تماس
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/demo">
+           درخواست دمو
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/articles">
+           مقالات
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          حساب کاربری
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/sign-in">
+           ورود
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/sign-up">
+           ثبت‌نام
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/forgot-password">
+           فراموشی رمز عبور
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/subscribe">
+           اشتراک
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © کپی‌رایت ۲۰۲۶ |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE زیرساخت HPC ابری، خصوصی و ترکیبی را برای تیم‌های فنی فراهم می‌کند. شرایط استقرار، قیمت‌گذاری و دامنهٔ پشتیبانی در جریان مشاوره نهایی می‌شوند.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur"></div>
+
+   
+   
+   
+   <div class="caas-construction-modal"
+        x-data="{ open: true }"
+        x-show="open"
+        x-effect="document.body.style.overflow = open ? 'hidden' : ''"
+        x-transition:enter="caas-construction-enter"
+        x-transition:enter-start="caas-construction-enter-start"
+        x-transition:enter-end="caas-construction-enter-end"
+        x-transition:leave="caas-construction-leave"
+        x-transition:leave-start="caas-construction-leave-start"
+        x-transition:leave-end="caas-construction-leave-end"
+        x-cloak
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="caas-construction-title"
+        @keydown.escape.window="open = false"
+        @click.self="open = false">
+    <div class="caas-construction-panel" x-ref="constructionPanel">
+     <button type="button" class="caas-construction-close" @click="open = false" aria-label="Close">×</button>
+     <svg class="caas-construction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8 7.2 20l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.3-2.3 2.5-2.5z"/>
+     </svg>
+     <div class="hd-badge hd-text-300">به‌زودی</div>
+     <div class="hd-vspace-xs"></div>
+     <h2 class="hd-h4" id="caas-construction-title">این سرویس در دست ساخت است</h2>
+     <div class="hd-vspace-xs"></div>
+     <p class="hd-text-sm hd-text-muted">سرویس ابر خصوصی (CaaS) ما هنوز کاملاً آماده نیست — در حال انجام آخرین مراحل هستیم و به‌زودی در دسترس قرار می‌گیرد. در این میان می‌توانید صفحه را مرور کنید.</p>
+     <div class="caas-construction-actions">
+      <button type="button" class="hd-button" @click="open = false">ادامه و مشاهدهٔ پیش‌نمایش</button>
+     </div>
+    </div>
+   </div>
+   
+   
+  </div>
+ </body>
+</html>

@@ -1,0 +1,140 @@
+/* RTL overrides for the HD design system. */
+html[dir="rtl"],
+html[lang="fa"] {
+  direction: rtl;
+
+  /* Re-point the font tokens to Vazirmatn (primary) with Mahoor as the
+     fallback. Every component resolves its font-family through these vars
+     (body / heading / badge), so this single override flips ALL text to
+     Vazirmatn in RTL/Farsi — including elements that
+     set font-family explicitly (headings, badges, .hpc-models-name,
+     .hpc-models-link, eyebrows, tags) which would otherwise keep Geist. */
+  --hd-font-body: Vazirmatn, Mahoor, Noto Naskh Arabic, sans-serif;
+  --hd-font-heading: Vazirmatn, Mahoor, Noto Naskh Arabic, sans-serif;
+  --hd-font-badge: Vazirmatn, Mahoor, Noto Naskh Arabic, sans-serif;
+}
+
+html[dir="rtl"] body,
+html[lang="fa"] body {
+  font-family: Vazirmatn, Mahoor, Noto Naskh Arabic, sans-serif;
+}
+
+html[dir="rtl"] .hd-nav,
+html[dir="rtl"] .hd-section-sm,
+html[dir="rtl"] .hd-section-md,
+html[dir="rtl"] .hd-section-lg,
+html[dir="rtl"] .hd-container,
+html[dir="rtl"] .hd-richtext,
+html[lang="fa"] .hd-nav,
+html[lang="fa"] .hd-section-sm,
+html[lang="fa"] .hd-section-md,
+html[lang="fa"] .hd-section-lg,
+html[lang="fa"] .hd-container,
+html[lang="fa"] .hd-richtext {
+  direction: rtl;
+}
+
+html[dir="rtl"] .hd-dropdown-link,
+html[dir="rtl"] .hd-dropdown-toggle,
+html[dir="rtl"] .hd-faq-trigger,
+html[lang="fa"] .hd-dropdown-link,
+html[lang="fa"] .hd-dropdown-toggle,
+html[lang="fa"] .hd-faq-trigger {
+  text-align: start;
+}
+
+html[dir="rtl"] .hd-dropdown-panel-end,
+html[lang="fa"] .hd-dropdown-panel-end {
+  inset: var(--hd-nav-info-panel-top) auto auto 0%;
+}
+
+html[dir="rtl"] .hd-select,
+html[lang="fa"] .hd-select {
+  background-position: left var(--hd-select-icon-inset) center;
+}
+
+html[dir="rtl"] .hd-icon-directional,
+html[lang="fa"] .hd-icon-directional {
+  transform: scaleX(-1);
+}
+
+@media screen and (max-width: 991px) {
+  html[dir="rtl"] .hd-nav-menu,
+  html[lang="fa"] .hd-nav-menu {
+    transform: translateX(100%);
+  }
+
+  html[dir="rtl"] .hd-nav-menu.hd-nav-menu-open,
+  html[lang="fa"] .hd-nav-menu.hd-nav-menu-open {
+    transform: translateX(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Legacy custom-class RTL mirroring
+   Physical left/right positioning on slider arrows and review components —
+   mirror positions so the layout remains spatially correct in RTL.
+   -------------------------------------------------------------------------- */
+
+/* Slider arrows — swap physical sides */
+html[dir="rtl"] .slider-arrow.is-right,
+html[lang="fa"] .slider-arrow.is-right {
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+html[dir="rtl"] .slider-arrow.is-left,
+html[lang="fa"] .slider-arrow.is-left {
+  margin-right: 0;
+  margin-left: 0.25rem;
+}
+
+html[dir="rtl"] .slider-arrow.is-right.is-home,
+html[lang="fa"] .slider-arrow.is-right.is-home {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .slider-arrow.is-left.is-home,
+html[lang="fa"] .slider-arrow.is-left.is-home {
+  right: 1.75rem;
+}
+
+html[dir="rtl"] .slider-arrow.is-right-about,
+html[lang="fa"] .slider-arrow.is-right-about {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .slider-arrow.is-left-about,
+html[lang="fa"] .slider-arrow.is-left-about {
+  margin-left: 0;
+  margin-right: -17.5rem;
+}
+
+/* Review highlight — mirror from left to right */
+html[dir="rtl"] .home_reviews_highlight,
+html[lang="fa"] .home_reviews_highlight {
+  left: auto;
+  right: 1.5rem;
+}
+
+html[dir="rtl"] .home_reviews_slider,
+html[lang="fa"] .home_reviews_slider {
+  right: auto;
+  left: 0;
+}
+
+@media screen and (max-width: 479px) {
+  html[dir="rtl"] .home_reviews_highlight,
+  html[lang="fa"] .home_reviews_highlight {
+    left: auto;
+    right: 1rem;
+  }
+
+  html[dir="rtl"] .slider-arrow.is-left-about,
+  html[lang="fa"] .slider-arrow.is-left-about {
+    margin-right: 0;
+    margin-left: -17.5rem;
+  }
+}

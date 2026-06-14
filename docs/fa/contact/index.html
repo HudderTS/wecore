@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>در تماس باشید | وِی‌کُر</title>
+  <meta content="با تیم وِی‌کُر در تماس باشید. پیام خود را بفرستید تا ظرف ۲۴ ساعت پاسخ دهیم، یا یک تماس کوتاه رزرو کنید تا دربارهٔ نیازهای ابری و HPC شما گفت‌وگو کنیم." name="description"/>
+  <link href="https://wecore.ir/fa/contact/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/contact/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/contact/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/contact/" hreflang="x-default" rel="alternate"/>
+  <meta content="در تماس باشید | وِی‌کُر" property="og:title"/>
+  <meta content="با تیم وِی‌کُر در تماس باشید. پیام خود را بفرستید تا ظرف ۲۴ ساعت پاسخ دهیم، یا یک تماس کوتاه رزرو کنید تا دربارهٔ نیازهای ابری و HPC شما گفت‌وگو کنیم." property="og:description"/>
+  <meta content="https://wecore.ir/fa/contact/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="fa_IR" property="og:locale"/>
+  <meta content="en_US" property="og:locale:alternate"/>
+  <meta content="در تماس باشید | وِی‌کُر" name="twitter:title"/>
+  <meta content="با تیم وِی‌کُر در تماس باشید. پیام خود را بفرستید تا ظرف ۲۴ ساعت پاسخ دهیم، یا یک تماس کوتاه رزرو کنید تا دربارهٔ نیازهای ابری و HPC شما گفت‌وگو کنیم." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/vazirmatn/Vazirmatn-FD-Regular.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  <link href="../../css/rtl.css" rel="stylesheet" type="text/css"/>
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../fa/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../fa/">
+          خانه
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            همهٔ سرویس‌ها
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              محصولات
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/hpc/">
+                 HPC ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 HPC ابری، خصوصی و ترکیبی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/cloud-servers/">
+                 سرور ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ماشین‌های مجازی خودگردان
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/caas/">
+                 ابر خصوصی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ابر OpenStack اختصاصی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/kaas/">
+                 کوبرنتیز
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 کلاسترهای مدیریت‌شدهٔ K8s
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/qsim/">
+                 شبیه‌سازی کوانتومی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 جریان‌های کاری کوانتومی GPU
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             شرکت
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/about/">
+               دربارهٔ ما
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/pricing/">
+               قیمت‌گذاری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               طرح
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               همکاری‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/subscribe/">
+               اشتراک
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پشتیبانی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/contact/">
+               تماس
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             منابع
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/apps/">
+               اپلیکیشن‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
+               بلاگ
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               مستندات
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             چرا WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               کارایی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پایداری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/product/">
+               محصول
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                گفت‌وگو با WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               مدل استقرار مناسب HPC، GPU و AI را برنامه‌ریزی کنید
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../en/contact/">
+           En
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../fa/sign-up/">
+           ثبت‌نام / ورود
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="ویژگی‌های کلیدی">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            ویژگی‌های کلیدی
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              HPC ابری، خصوصی و ترکیبی
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              محیط‌های آمادهٔ GPU
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              نرم‌افزار آمادهٔ اجرا
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              جریان‌های کاری خودگردان
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              پشتیبانی تخصصی استقرار
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../en/contact/" target="">
+         En
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../fa/sign-up/" target="">
+         ثبت‌نام / ورود
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../fa/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+    <section class="section_contact2_hero">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="contact2_hero_grid" style="background-image:linear-gradient(135deg,var(--hd-overlay-hero-a),var(--hd-overlay-hero-b) 62%,var(--hd-overlay-hero-c)),url('/img/contact/home-banner-container.avif')" data-hd-animate="fade-up">
+        <div class="contact2_hero_content">
+         <div>
+          <div class="hd-badge">
+           تماس
+          </div>
+          <div class="hd-vspace-xs">
+          </div>
+          <h1 class="hd-text-alternate">
+           در تماس باشید
+          </h1>
+          <div class="hd-vspace-xs">
+          </div>
+          <div>
+           خوشحال می‌شویم از شما بشنویم. فرم را پر کنید و ما ظرف ۲۴ ساعت پاسخ می‌دهیم
+          </div>
+          <div class="hd-vspace-md">
+          </div>
+         </div>
+         <div class="contact2_hero_info">
+          <div class="contact2_hero_item">
+           <div class="hd-text-sm hd-text-secondary">
+            تلفن
+           </div>
+           <a class="hd-text-sm hd-text-alternate" href="#">
+            &#43;98 (21) 82802264
+           </a>
+          </div>
+          <div class="contact2_hero_item">
+           <div class="hd-text-sm hd-text-secondary">
+            ایمیل
+           </div>
+           <a class="hd-text-sm hd-text-alternate" href="mailto:hello@wecore.ir">
+            hello@wecore.ir
+           </a>
+          </div>
+          <div class="contact2_hero_item">
+           <div class="hd-text-sm hd-text-secondary">
+            Socials
+           </div>
+           <div class="footer_socials">
+            
+            <a class="footer_social-link" href="#">
+             <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin-white.svg"/>
+            </a>
+            
+            <a class="footer_social-link" href="#">
+             <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram-white.svg"/>
+            </a>
+            
+            <a class="footer_social-link" href="#">
+             <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter-white.svg"/>
+            </a>
+            
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="contact2_hero_form-box">
+         <div class="hd-form">
+          <form data-name="Contact Form" method="post" name="wf-form-Contact-Form">
+           <div class="hd-form-group">
+            <label class="hd-label" for="name-2">نام</label>
+            <input aria-required="true" autocomplete="name" class="hd-input" data-name="Name 2" id="name-2" maxlength="256" name="name-2" placeholder="نام" required type="text"/>
+           </div>
+           <div class="hd-form-group">
+            <label class="hd-label" for="email-2">ایمیل</label>
+            <input aria-required="true" autocomplete="email" class="hd-input" data-name="Email 2" id="email-2" maxlength="256" name="email-2" placeholder="ایمیل" required spellcheck="false" type="email"/>
+           </div>
+           <div class="hd-form-group">
+            <label class="hd-label" for="Phone-2">تلفن (اختیاری)</label>
+            <input autocomplete="tel" class="hd-input" data-name="Phone 2" id="Phone-2" inputmode="tel" maxlength="256" name="Phone-2" placeholder="تلفن (اختیاری)" type="tel"/>
+           </div>
+           <div class="hd-form-group">
+            <label class="hd-label" for="Company-2">شرکت (اختیاری)</label>
+            <input autocomplete="organization" class="hd-input" data-name="Company 2" id="Company-2" maxlength="256" name="Company-2" placeholder="شرکت (اختیاری)" type="text"/>
+           </div>
+           <div class="hd-form-group">
+            <label class="hd-label" for="Message-2">پیام</label>
+            <textarea aria-required="true" autocomplete="off" class="hd-input hd-textarea" data-name="Message 2" id="Message-2" maxlength="5000" name="Message-2" placeholder="پیام" required></textarea>
+           </div>
+           <input class="hd-button" data-wait="Please wait…" type="submit" value="ارسال پیام"/>
+          </form>
+          <div class="hd-form-success" hidden aria-live="polite">
+           <div>
+            سپاسگزاریم! پیام شما دریافت شد!
+           </div>
+          </div>
+          <div class="hd-form-error" hidden aria-live="polite">
+           <div>
+            اوه! هنگام ارسال فرم مشکلی پیش آمد.
+           </div>
+          </div>
+         </div>
+         <div class="contact2_hero_call">
+          <img alt="features benefits" class="contact2_hero_call-image" loading="lazy" sizes="(max-width:912px)100vw,912px"
+                 src="../../img/home/features-benefits.avif"
+                 srcset="../../img/home/features-benefits-p500.avif 500w, ../../img/home/features-benefits.avif 912w"/>
+          <div class="contact2_hero_call-content">
+           <div class="div-block">
+            <div class="hd-text-lg hd-text-primary">
+             زنده گفت‌وگو کنیم
+            </div>
+            <div class="hd-text-sm hd-text-primary">
+             یک تماس کوتاه با تیم ما رزرو کنید
+            </div>
+           </div>
+           <a class="hd-button hd-button-secondary" href="#">
+            رزرو تماس
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="section_contact2_reach hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="contact2_reach_content">
+        <div class="contact2_reach_header" data-hd-animate="fade-up">
+         <div class="hd-badge">
+          تماس
+         </div>
+         <div class="hd-vspace-xs">
+         </div>
+         <h2>
+          مستقیم با ما در ارتباط باشید
+         </h2>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+        <div class="contact2_reach_grid" data-hd-animate="fade-up-2">
+         
+         <div class="contact2_reach_-card">
+          <img alt="" aria-hidden="true" class="icon-height-large" loading="lazy" src="../../img/benefits/big-data-workflows.avif"/>
+          <div class="hd-vspace-xxl">
+          </div>
+          <div class="contact2_reach_card-content">
+           <div>
+            دفتر
+           </div>
+           <div class="hd-text-secondary hd-max-sm">
+            کرمان، ایران
+           </div>
+           <div class="hd-vspace-xxs">
+           </div>
+           
+           <a class="hd-button hd-button-link" href="#">
+            <div>
+             مسیریابی
+            </div>
+            <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right-sm.svg"/>
+           </a>
+           
+          </div>
+         </div>
+         
+         <div class="contact2_reach_-card">
+          <img alt="" aria-hidden="true" class="icon-height-large" loading="lazy" src="../../img/contact/call-center.avif"/>
+          <div class="hd-vspace-xxl">
+          </div>
+          <div class="contact2_reach_card-content">
+           <div>
+            مرکز تماس
+           </div>
+           <div class="hd-text-secondary hd-max-sm">
+            &#43;98 (21) 82802264
+           </div>
+           <div class="hd-vspace-xxs">
+           </div>
+           
+           <a class="hd-button hd-button-link" href="#">
+            <div>
+             تماس با ما
+            </div>
+            <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right-sm.svg"/>
+           </a>
+           
+          </div>
+         </div>
+         
+         <div class="contact2_reach_-card">
+          <img alt="" aria-hidden="true" class="icon-height-large" loading="lazy" src="../../img/contact/open-hours.avif"/>
+          <div class="hd-vspace-xxl">
+          </div>
+          <div class="contact2_reach_card-content">
+           <div>
+            ساعات کاری
+           </div>
+           <div class="hd-text-secondary hd-max-sm">
+            دوشنبه تا جمعه: ۹:۰۰ تا ۱۸:۰۰
+           </div>
+           <div class="hd-vspace-xxs">
+           </div>
+           
+          </div>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+
+
+
+    <section class="section_faq_split">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="faq_split_grid">
+        <div class="faq_split_header">
+         <div class="hd-badge">
+          FAQ
+         </div>
+         <div class="hd-vspace-xs">
+         </div>
+         <h2>
+          هر آنچه باید بدانید
+         </h2>
+         <div class="hd-vspace-sm">
+         </div>
+         <div>
+          پاسخ‌های سریع تا بیشترین بهره را از فضای کاری یکپارچهٔ خود ببرید
+         </div>
+         <div class="hd-vspace-lg">
+         </div>
+        </div>
+        <div class="hd-align-center">
+         <div class="faq_split_box" x-data="{ active: null }">
+          
+          <div class="faq_accordion">
+           <button type="button" class="faq_question hd-faq-trigger"
+                   id="faq-trigger-0" aria-controls="faq-panel-0"
+                   aria-expanded="false" :aria-expanded="active === 0"
+                   @click="active = (active === 0 ? null : 0)">
+            <div class="faq_question_header">
+             <div>
+              پلتفرم شما چیست و چگونه می‌تواند به تیم SaaS من کمک کند؟
+             </div>
+            </div>
+            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+            </div>
+           </button>
+           <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 0" :class="{ 'hd-faq-panel-open': active === 0 }" id="faq-panel-0">
+            <div class="hd-faq-panel-inner">
+             <div class="faq_answer-wrapper">
+              <div class="hd-max-lg">
+               <p class="hd-text-sm hd-text-muted">
+                پلتفرم ما یک فضای کاری جامع است که برای از میان برداشتن ناکارآمدی‌های ناشی از جابه‌جایی میان ابزارهای متعدد طراحی شده است. با متمرکزسازی جریان‌های کاری شما، کارهای دستی را کاهش می‌دهد، همکاری را تقویت می‌کند و عملیات شما را روان‌تر می‌سازد و به تیم شما اجازه می‌دهد بر ابتکارهای راهبردی تمرکز کند.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+          <div class="faq_accordion">
+           <button type="button" class="faq_question hd-faq-trigger"
+                   id="faq-trigger-1" aria-controls="faq-panel-1"
+                   aria-expanded="false" :aria-expanded="active === 1"
+                   @click="active = (active === 1 ? null : 1)">
+            <div class="faq_question_header">
+             <div>
+              پلتفرم شما با چه ابزارها و برنامه‌هایی یکپارچه می‌شود؟
+             </div>
+            </div>
+            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+            </div>
+           </button>
+           <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 1" :class="{ 'hd-faq-panel-open': active === 1 }" id="faq-panel-1">
+            <div class="hd-faq-panel-inner">
+             <div class="faq_answer-wrapper">
+              <div class="hd-max-lg">
+               <p class="hd-text-sm hd-text-muted">
+                ما یکپارچه‌سازی روان با طیف گسترده‌ای از برنامه‌های پرکاربرد SaaS را ارائه می‌دهیم، از جمله سامانه‌های CRM، ابزارهای خودکارسازی بازاریابی، نرم‌افزارهای مدیریت پروژه و پلتفرم‌های ارتباطی. این امر تضمین می‌کند که داده‌های شما در میان همهٔ ابزارهای ضروری‌تان همگام و در دسترس بماند.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+          <div class="faq_accordion">
+           <button type="button" class="faq_question hd-faq-trigger"
+                   id="faq-trigger-2" aria-controls="faq-panel-2"
+                   aria-expanded="false" :aria-expanded="active === 2"
+                   @click="active = (active === 2 ? null : 2)">
+            <div class="faq_question_header">
+             <div>
+              داده‌ها در پلتفرم شما چقدر امن هستند؟
+             </div>
+            </div>
+            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+            </div>
+           </button>
+           <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 2" :class="{ 'hd-faq-panel-open': active === 2 }" id="faq-panel-2">
+            <div class="hd-faq-panel-inner">
+             <div class="faq_answer-wrapper">
+              <div class="hd-max-lg">
+               <p class="hd-text-sm hd-text-muted">
+                امنیت داده اولویت نخست ماست. ما از پروتکل‌های رمزگذاری پیشرفته، ممیزی‌های امنیتی منظم و کنترل‌های دسترسی سخت‌گیرانه برای محافظت از اطلاعات شما بهره می‌گیریم. پلتفرم ما به‌گونه‌ای طراحی شده که با استانداردها و مقررات صنعتی منطبق باشد و تضمین می‌کند که داده‌های شما محرمانه و امن بماند.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+          <div class="faq_accordion">
+           <button type="button" class="faq_question hd-faq-trigger"
+                   id="faq-trigger-3" aria-controls="faq-panel-3"
+                   aria-expanded="false" :aria-expanded="active === 3"
+                   @click="active = (active === 3 ? null : 3)">
+            <div class="faq_question_header">
+             <div>
+              آیا برای راه‌اندازی و استفاده از پلتفرم شما به دانش فنی نیاز است؟
+             </div>
+            </div>
+            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+            </div>
+           </button>
+           <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 3" :class="{ 'hd-faq-panel-open': active === 3 }" id="faq-panel-3">
+            <div class="hd-faq-panel-inner">
+             <div class="faq_answer-wrapper">
+              <div class="hd-max-lg">
+               <p class="hd-text-sm hd-text-muted">
+                ابداً. پلتفرم ما با تمرکز بر سهولت کاربری طراحی شده و رابطی شهودی دارد که به هیچ مهارت برنامه‌نویسی نیاز ندارد. هم اعضای فنی و هم غیرفنی تیم می‌توانند به‌آسانی جریان‌های کاری را راه‌اندازی و مدیریت کنند، و این آن را برای کل سازمان شما در دسترس می‌سازد.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+          <div class="faq_accordion">
+           <button type="button" class="faq_question hd-faq-trigger"
+                   id="faq-trigger-4" aria-controls="faq-panel-4"
+                   aria-expanded="false" :aria-expanded="active === 4"
+                   @click="active = (active === 4 ? null : 4)">
+            <div class="faq_question_header">
+             <div>
+              آیا پلتفرم شما می‌تواند همگام با رشد نیازهای کسب‌وکار من مقیاس بگیرد؟
+             </div>
+            </div>
+            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+            </div>
+           </button>
+           <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 4" :class="{ 'hd-faq-panel-open': active === 4 }" id="faq-panel-4">
+            <div class="hd-faq-panel-inner">
+             <div class="faq_answer-wrapper">
+              <div class="hd-max-lg">
+               <p class="hd-text-sm hd-text-muted">
+                قطعاً. پلتفرم ما برای پاسخ‌گویی به کسب‌وکارهایی در هر اندازه ساخته شده است. همچنان‌که تیم شما رشد می‌کند و جریان‌های کاری‌تان پیچیده‌تر می‌شوند، معماری مقیاس‌پذیر ما عملکرد و قابلیت اطمینان پایدار را تضمین می‌کند و با نیازهای در حال تحول شما سازگار می‌شود.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+          <div class="faq_accordion">
+           <button type="button" class="faq_question hd-faq-trigger"
+                   id="faq-trigger-5" aria-controls="faq-panel-5"
+                   aria-expanded="false" :aria-expanded="active === 5"
+                   @click="active = (active === 5 ? null : 5)">
+            <div class="faq_question_header">
+             <div>
+              چه نوع پشتیبانی مشتری ارائه می‌دهید؟
+             </div>
+            </div>
+            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+            </div>
+           </button>
+           <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 5" :class="{ 'hd-faq-panel-open': active === 5 }" id="faq-panel-5">
+            <div class="hd-faq-panel-inner">
+             <div class="faq_answer-wrapper">
+              <div class="hd-max-lg">
+               <p class="hd-text-sm hd-text-muted">
+                ما پشتیبانی جامع مشتری ارائه می‌دهیم، از جمله یاری‌رسانی شبانه‌روزی از طریق ایمیل و چت. تیم پشتیبانی اختصاصی ما متعهد است تجربه‌ای روان را تضمین کند و به هر پرسش یا نگرانی شما به‌سرعت رسیدگی نماید.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="لوگوی WECORE" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           HPC ابری، خصوصی و ترکیبی برای تیم‌های فنی
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          پلتفرم
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/">
+           خانه
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/product">
+           محصول
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/caas">
+           ابر خصوصی
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/hpc">
+           HPC ابری
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/apps">
+           اپلیکیشن‌ها
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/pricing/">
+           قیمت‌گذاری
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          شرکت
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/about">
+           درباره
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/contact">
+           تماس
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/demo">
+           درخواست دمو
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/articles">
+           مقالات
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          حساب کاربری
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/sign-in">
+           ورود
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/sign-up">
+           ثبت‌نام
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/forgot-password">
+           فراموشی رمز عبور
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/subscribe">
+           اشتراک
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © کپی‌رایت ۲۰۲۶ |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE زیرساخت HPC ابری، خصوصی و ترکیبی را برای تیم‌های فنی فراهم می‌کند. شرایط استقرار، قیمت‌گذاری و دامنهٔ پشتیبانی در جریان مشاوره نهایی می‌شوند.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur">
+    <div class="hd-embed">
+     <style>
+      .bottom-blur {
+backdrop-filter: blur(7px);
+background-image: linear-gradient(#fff0, #ffffff00 90%, #fff);
+mask-image: linear-gradient(#0000,10%,#fff 40% 100%);
+pointer-events:none;
+}
+     </style>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

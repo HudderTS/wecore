@@ -1,0 +1,26 @@
+/* ============================================================================
+   Articles / blog — thin layer on top of the updates_feed_* card system in
+   hd.css (grid is 3→2→1 responsive there). Adds only the category filter row
+   and a uniform excerpt clamp so every card in the grid is the same height.
+   ========================================================================== */
+
+/* Filter chips on the listing page + the category directory on /categories/. */
+.articles_filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+}
+
+/* Keep card bodies even so the grid rows line up regardless of summary length. */
+.articles_excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.articles_feed-empty {
+  color: var(--hd-color-neutral-600);
+}

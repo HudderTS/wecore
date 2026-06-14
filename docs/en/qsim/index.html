@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>QuFabric Quantum Simulation | WECORE</title>
+  <meta content="Self-hosted quantum simulation workspaces for GPU, Slurm, and research teams." name="description"/>
+  <link href="https://wecore.ir/en/qsim/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/qsim/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/qsim/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/qsim/" hreflang="x-default" rel="alternate"/>
+  <meta content="QuFabric Quantum Simulation | WECORE" property="og:title"/>
+  <meta content="Self-hosted quantum simulation workspaces for GPU, Slurm, and research teams." property="og:description"/>
+  <meta content="https://wecore.ir/en/qsim/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="fa_IR" property="og:locale:alternate"/>
+  <meta content="QuFabric Quantum Simulation | WECORE" name="twitter:title"/>
+  <meta content="Self-hosted quantum simulation workspaces for GPU, Slurm, and research teams." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/geist/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../en/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../en/">
+          Home
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            All Services
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              Products
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/hpc/">
+                 Cloud HPC
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Cloud, private &amp; hybrid HPC
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/cloud-servers/">
+                 Cloud Server
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Self-serve virtual machines
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/caas/">
+                 Private Cloud
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Dedicated OpenStack cloud
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/kaas/">
+                 Kubernetes
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Managed K8s clusters
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/qsim/">
+                 Quantum Simulation
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 GPU quantum workflows
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Company
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/about/">
+               About
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/pricing/">
+               Pricing
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Plan
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Partnerships
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/subscribe/">
+               Subscribe
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Support
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/contact/">
+               Contact
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Resources
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/apps/">
+               Apps
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/articles/">
+               Blog
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Documentation
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Why WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Performance
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Sustainability
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/product/">
+               Product
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../en/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                Consult WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               Plan the right HPC, GPU, and AI deployment model
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../fa/qsim/">
+           Fa
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../en/sign-up/">
+           Register / Login
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="Key Features">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            Key Features
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Cloud, private, and hybrid HPC
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              GPU-ready environments
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Ready-to-run software
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Self-service workflows
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Expert deployment support
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../fa/qsim/" target="">
+         Fa
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../en/sign-up/" target="">
+         Register / Login
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../en/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+
+    
+    <section class="section_qsim_hero">
+     <div class="qsim-hero-grid-bg"></div>
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="qsim-hero-layout">
+        <div class="qsim-hero-copy" data-hd-animate="fade-up">
+         <div class="hd-badge hd-text-300">QuFabric</div>
+         <div class="hd-vspace-sm"></div>
+         <h1 class="hd-text-alternate">Quantum simulation, on GPUs you already own.</h1>
+         <div class="hd-vspace-sm"></div>
+         <div class="hd-text-lg hd-text-muted">A self-hosted research platform for quantum algorithms, many-body physics, and quantum chemistry. Launch curated notebooks, submit Slurm-backed GPU simulations, track results, and keep data resident on your WECORE cloud.</div>
+         <div class="hd-vspace-sm"></div>
+
+         
+         <div class="hd-button-group">
+          
+          <a class="hd-button hd-button-alternate" href="../../en/demo">
+           Request early access
+          </a>
+          
+          <a class="hd-button hd-button-alternate-secondary" href="../../en/contact">
+           Read platform plan
+          </a>
+          
+         </div>
+         
+
+         <div class="hd-vspace-md"></div>
+
+         
+         <div class="qsim-hero-trust">
+          
+          <div class="qsim-hero-trust-item">
+           <img alt="" aria-hidden="true" class="qsim-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">CUDA-Q &#43; cuQuantum ready</span>
+          </div>
+          
+          <div class="qsim-hero-trust-item">
+           <img alt="" aria-hidden="true" class="qsim-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">Slurm batch and arrays</span>
+          </div>
+          
+          <div class="qsim-hero-trust-item">
+           <img alt="" aria-hidden="true" class="qsim-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">Notebook-first workflow</span>
+          </div>
+          
+          <div class="qsim-hero-trust-item">
+           <img alt="" aria-hidden="true" class="qsim-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">Data-resident by design</span>
+          </div>
+          
+         </div>
+         
+
+         <div class="hd-vspace-sm"></div>
+         
+         <div class="qsim-hero-promo hd-text-sm hd-text-medium">
+          Coming soon module: <strong>qsim</strong> — built from WECORE HPC, KaaS, and Cloud Server primitives.
+         </div>
+         
+        </div>
+
+        <div class="qsim-hero-visual" data-hd-animate="fade-up-2">
+         <div class="qsim-visual-card">
+          <img alt="IBM Quantum System Two cryogenic quantum computer at Ikerbasque" class="qsim-quantum-image" loading="eager" decoding="async" src="../../img/qsim/ibm-quantum-system-two-2025.jpg"/>
+          <div class="qsim-visual-overlay">
+           <div class="qsim-visual-window">
+            <div class="qsim-window-top">
+             <span></span><span></span><span></span>
+            </div>
+            <div class="qsim-job-row">
+             <span class="qsim-status-dot"></span>
+             <div>
+              <div class="hd-text-tiny hd-text-300">Campaign running</div>
+              <strong>vqe-lih-aer-gpu-042</strong>
+             </div>
+             <span class="qsim-status-pill">Slurm GPU</span>
+            </div>
+            <div class="qsim-queue-bars" aria-hidden="true">
+             <span style="--qsim-bar:62%"></span>
+             <span style="--qsim-bar:88%"></span>
+             <span style="--qsim-bar:43%"></span>
+             <span style="--qsim-bar:74%"></span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <p class="qsim-image-caption hd-text-tiny">Reference visual: IBM Quantum System Two at Ikerbasque, 14 Oct 2025. Author: Irekia / Eusko Jaurlaritza; CC BY 4.0.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+
+    
+    <section class="section_qsim_stats">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="qsim-stats-grid" data-hd-animate="fade-up">
+        
+        <div class="qsim-stat-card">
+         <div class="hd-h3">3</div>
+         <div class="hd-text-sm hd-text-muted">Research personas</div>
+        </div>
+        
+        <div class="qsim-stat-card">
+         <div class="hd-h3">7&#43;</div>
+         <div class="hd-text-sm hd-text-muted">Simulation engines</div>
+        </div>
+        
+        <div class="qsim-stat-card">
+         <div class="hd-h3">Multi-GPU</div>
+         <div class="hd-text-sm hd-text-muted">Execution target</div>
+        </div>
+        
+        <div class="qsim-stat-card">
+         <div class="hd-h3">Self-hosted</div>
+         <div class="hd-text-sm hd-text-muted">Deployment model</div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_workflow hd-bg-secondary" id="workflow">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="qsim-section-heading" data-hd-animate="fade-up">
+        <div class="hd-badge">Workflow</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         Everything a quantum researcher needs,
+         <span class="hd-text-secondary">without leaving your cloud.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">Inspired by modern quantum developer platforms, QuFabric brings projects, environments, jobs, and results into one governed self-service workspace.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="qsim-workflow-grid" data-hd-animate="fade-up-2">
+        
+        <div class="qsim-workflow-card">
+         <div class="qsim-card-number">01</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">Create a project</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Group notebooks, datasets, circuits, Hamiltonians, tags, quotas, and collaborators under one durable research workspace.</p>
+        </div>
+        
+        <div class="qsim-workflow-card">
+         <div class="qsim-card-number">02</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">Choose an environment</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Start from curated GPU images for CUDA-Q, Qiskit Aer-GPU, PennyLane-Lightning-GPU, qsim, quimb, PySCF, and OpenFermion.</p>
+        </div>
+        
+        <div class="qsim-workflow-card">
+         <div class="qsim-card-number">03</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">Run interactively or submit jobs</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Prototype in Jupyter, then dispatch the same code to Slurm GPU queues, arrays, or campaign sweeps.</p>
+        </div>
+        
+        <div class="qsim-workflow-card">
+         <div class="qsim-card-number">04</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">Track reproducible results</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Store engine versions, resources, input files, result schemas, logs, costs, and run history with every job.</p>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_personas">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="qsim-section-heading hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge">Research lanes</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         Curated for the way
+         <span class="hd-text-secondary">quantum teams work.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">Each lane gets templates, kernels, packages, example notebooks, and resource presets tuned to the science.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="qsim-persona-grid" data-hd-animate="fade-up-2">
+        
+        <article class="qsim-persona-card">
+         <div class="hd-badge hd-text-300">Circuits &#43; noise</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">Quantum Algorithmist</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Deep-circuit simulation, QAOA/VQE/QML campaigns, custom noise models, state vectors, expectation values, and cross-engine benchmarking.</p>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-chip-row">
+          
+          <span class="qsim-chip">CUDA-Q</span>
+          
+          <span class="qsim-chip">cuStateVec</span>
+          
+          <span class="qsim-chip">Qiskit Aer-GPU</span>
+          
+          <span class="qsim-chip">qsim</span>
+          
+         </div>
+        </article>
+        
+        <article class="qsim-persona-card">
+         <div class="hd-badge hd-text-300">Tensor networks</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">Many-Body Physicist</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Hamiltonian time evolution, MPS/MPO workflows, contraction planning, quimb/cotengra/JAX notebooks, and distributed tensor-network experiments.</p>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-chip-row">
+          
+          <span class="qsim-chip">cuTensorNet</span>
+          
+          <span class="qsim-chip">quimb</span>
+          
+          <span class="qsim-chip">cotengra</span>
+          
+          <span class="qsim-chip">JAX</span>
+          
+         </div>
+        </article>
+        
+        <article class="qsim-persona-card">
+         <div class="hd-badge hd-text-300">Molecules &#43; VQE</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">Quantum Chemist</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">OpenFermion and PySCF workflows, fermionic mappings, UCCSD templates, GPU-accelerated classical references, and reproducible chemistry notebooks.</p>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-chip-row">
+          
+          <span class="qsim-chip">PySCF</span>
+          
+          <span class="qsim-chip">gpu4pyscf</span>
+          
+          <span class="qsim-chip">OpenFermion</span>
+          
+          <span class="qsim-chip">PennyLane-QChem</span>
+          
+         </div>
+        </article>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_platform hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="qsim-platform-layout">
+        <div class="qsim-section-heading" data-hd-animate="fade-up">
+         <div class="hd-badge">Platform</div>
+         <div class="hd-vspace-xs"></div>
+         <h2>
+          A thin control plane over
+          <span class="hd-text-secondary">proven open-source engines.</span>
+         </h2>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-text-muted">QuFabric is not another simulator. It is the governed product layer that assembles the best engines on your OpenStack, GPU, and Slurm infrastructure.</div>
+        </div>
+        <div class="qsim-console-card" data-hd-animate="fade-up-2">
+         <div class="qsim-console-header">
+          <span>qsim-control</span>
+          <span class="qsim-status-pill">self-hosted</span>
+         </div>
+         <pre><code>project: molecule-vqe
+env: cudaq-cuquantum-12
+queue: gpu-a100
+items: 128 circuits
+status: RUNNING
+result: expectation + logs</code></pre>
+        </div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="qsim-platform-grid" data-hd-animate="fade-up">
+        
+        <div class="qsim-platform-card">
+         <h3 class="hd-h5">Curated Lab images</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">qBraid-style environment catalog with subject facets, kernel registration, clone-from-curated workflows, and health checks.</p>
+        </div>
+        
+        <div class="qsim-platform-card">
+         <h3 class="hd-h5">Job object, not raw scheduler IDs</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Stable project-scoped job IDs, status history, cancellation, retries, quota depletion states, and partial-result recovery.</p>
+        </div>
+        
+        <div class="qsim-platform-card">
+         <h3 class="hd-h5">Campaigns and batch fan-out</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Parameter sweeps and circuit batches map to Slurm arrays while staying visible as a single campaign.</p>
+        </div>
+        
+        <div class="qsim-platform-card">
+         <h3 class="hd-h5">Result hub</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Normalized counts, statevector, expectation, and artifact outputs with schema versions, logs, metrics, and exportable handles.</p>
+        </div>
+        
+        <div class="qsim-platform-card">
+         <h3 class="hd-h5">Quota preflight</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Estimate GPU seconds, VRAM, storage, and wallet impact before a job queues.</p>
+        </div>
+        
+        <div class="qsim-platform-card">
+         <h3 class="hd-h5">Self-hosted sovereignty</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Run on WECORE-managed OpenStack and Slurm resources; keep sensitive circuits, chemistry inputs, and results inside the operator boundary.</p>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_engines" id="engines">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="qsim-section-heading" data-hd-animate="fade-up">
+        <div class="hd-badge">Engines</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         Bring the research stack
+         <span class="hd-text-secondary">into one governed workspace.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">The first curated images assemble the engines already used by HPC centers and quantum research teams.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="qsim-engine-grid" data-hd-animate="fade-up-2">
+        
+        <div class="qsim-engine-card">
+         <h3 class="hd-h5">Circuit simulation</h3>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-engine-list">
+          
+          <span>CUDA-Q</span>
+          
+          <span>NVIDIA cuQuantum</span>
+          
+          <span>Qiskit Aer-GPU</span>
+          
+          <span>Google qsim</span>
+          
+         </div>
+        </div>
+        
+        <div class="qsim-engine-card">
+         <h3 class="hd-h5">Tensor networks</h3>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-engine-list">
+          
+          <span>cuTensorNet</span>
+          
+          <span>quimb</span>
+          
+          <span>cotengra</span>
+          
+          <span>JAX</span>
+          
+         </div>
+        </div>
+        
+        <div class="qsim-engine-card">
+         <h3 class="hd-h5">Quantum chemistry</h3>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-engine-list">
+          
+          <span>PySCF</span>
+          
+          <span>gpu4pyscf</span>
+          
+          <span>OpenFermion</span>
+          
+          <span>PennyLane-QChem</span>
+          
+         </div>
+        </div>
+        
+        <div class="qsim-engine-card">
+         <h3 class="hd-h5">Workflow layer</h3>
+         <div class="hd-vspace-sm"></div>
+         <div class="qsim-engine-list">
+          
+          <span>JupyterLab</span>
+          
+          <span>Slurm</span>
+          
+          <span>Open OnDemand</span>
+          
+          <span>Prometheus/Grafana</span>
+          
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_compare hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="qsim-section-heading hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge">Why WECORE</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         Cloud-like workflow,
+         <span class="hd-text-secondary">self-hosted execution.</span>
+        </h2>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="qsim-compare-table" data-hd-animate="fade-up-2">
+        <div class="qsim-compare-row qsim-compare-head">
+         <div>Dimension</div><div>Hosted quantum clouds</div><div>QuFabric qsim</div>
+        </div>
+        
+        <div class="qsim-compare-row">
+         <div>Deployment</div><div>Vendor SaaS account</div><div>WECORE OpenStack, Slurm, and GPU fleet</div>
+        </div>
+        
+        <div class="qsim-compare-row">
+         <div>Data residency</div><div>Inputs and results leave your institution</div><div>Projects, runs, and artifacts stay on operator storage</div>
+        </div>
+        
+        <div class="qsim-compare-row">
+         <div>Simulation control</div><div>Fixed provider images and credit meters</div><div>Curated images plus cloneable, reproducible environments</div>
+        </div>
+        
+        <div class="qsim-compare-row">
+         <div>Scaling model</div><div>Provider-specific queues</div><div>Interactive notebooks, Slurm jobs, arrays, and campaign sweeps</div>
+        </div>
+        
+        <div class="qsim-compare-row">
+         <div>Value</div><div>Access broker</div><div>Governed product layer over owned HPC infrastructure</div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_faq">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">FAQ</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-center">Quantum simulation questions, answered</h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center hd-text-muted">What QuFabric is, what it is not, and how it fits WECORE infrastructure</div>
+        <div class="hd-vspace-lg"></div>
+       </div>
+       <div class="hd-align-center">
+        <div class="qsim-faq-box" x-data="{ active: null }">
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="qsim-faq-trigger-0" aria-controls="qsim-faq-panel-0"
+                  aria-expanded="false" :aria-expanded="active === 0"
+                  @click="active = (active === 0 ? null : 0)">
+           <div class="faq_question_header">
+            <div>Is QuFabric a real quantum computer service?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 0" :class="{ 'hd-faq-panel-open': active === 0 }" id="qsim-faq-panel-0">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">No. QuFabric is a quantum-<strong>simulation</strong> platform. It runs simulators and research engines on GPU/HPC infrastructure you control. Optional real-QPU pass-through may come later, but the first release focuses on simulation.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="qsim-faq-trigger-1" aria-controls="qsim-faq-panel-1"
+                  aria-expanded="false" :aria-expanded="active === 1"
+                  @click="active = (active === 1 ? null : 1)">
+           <div class="faq_question_header">
+            <div>How is this different from qBraid, Braket, or Azure Quantum?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 1" :class="{ 'hd-faq-panel-open': active === 1 }" id="qsim-faq-panel-1">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Those are hosted cloud services. QuFabric borrows the polished workspace pattern — projects, environments, jobs, and results — but runs on WECORE-managed OpenStack, Slurm, and GPU resources so data stays resident.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="qsim-faq-trigger-2" aria-controls="qsim-faq-panel-2"
+                  aria-expanded="false" :aria-expanded="active === 2"
+                  @click="active = (active === 2 ? null : 2)">
+           <div class="faq_question_header">
+            <div>Which engines are planned first?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 2" :class="{ 'hd-faq-panel-open': active === 2 }" id="qsim-faq-panel-2">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">The first curated images target CUDA-Q, NVIDIA cuQuantum, Qiskit Aer-GPU, PennyLane-Lightning-GPU, qsim, quimb, PySCF/gpu4pyscf, and OpenFermion.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="qsim-faq-trigger-3" aria-controls="qsim-faq-panel-3"
+                  aria-expanded="false" :aria-expanded="active === 3"
+                  @click="active = (active === 3 ? null : 3)">
+           <div class="faq_question_header">
+            <div>Can researchers keep using notebooks?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 3" :class="{ 'hd-faq-panel-open': active === 3 }" id="qsim-faq-panel-3">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Yes. The intended path is notebook-first: prototype in JupyterLab or Open OnDemand, then submit the same environment to Slurm-backed jobs or campaigns.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="qsim-faq-trigger-4" aria-controls="qsim-faq-panel-4"
+                  aria-expanded="false" :aria-expanded="active === 4"
+                  @click="active = (active === 4 ? null : 4)">
+           <div class="faq_question_header">
+            <div>What makes runs reproducible?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 4" :class="{ 'hd-faq-panel-open': active === 4 }" id="qsim-faq-panel-4">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Every run captures project metadata, input artifacts, engine versions, selected environment, resource request, result schema, logs, timing, and quota impact.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    <section class="section_qsim_cta">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="plan_hero_content qsim-cta" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-300">Coming soon</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-alternate qsim-cta-heading">
+         Turn your GPU fleet into
+         <em>a quantum simulation lab.</em>
+        </h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-muted hd-max-md">QuFabric qsim is designed for research organizations that need a qBraid-like workflow without sending sensitive data or fixed-budget GPU capacity to a public cloud.</div>
+        <div class="hd-vspace-lg"></div>
+        <div class="hd-button-group hd-align-center">
+         <a class="hd-button hd-button-alternate" href="../../en/demo">Request a Demo</a>
+         <a class="hd-button hd-button-alternate-secondary" href="../../en/contact">Talk to WECORE</a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="WECORE Logo" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           Cloud, private, and hybrid HPC for technical teams
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Platform
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/">
+           Home
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/product">
+           Product
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/caas">
+           CaaS
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/hpc">
+           Cloud HPC
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/apps">
+           Apps
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/pricing/">
+           Pricing
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Company
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/about">
+           About
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/contact">
+           Contact
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/demo">
+           Request Demo
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/articles">
+           Articles
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Account
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/sign-in">
+           Sign in
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/sign-up">
+           Sign up
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/forgot-password">
+           Forgot Password
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/subscribe">
+           Subscribe
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © Copyright 2026 |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE provides cloud, private, and hybrid HPC infrastructure for technical teams. Deployment terms, pricing, and support scope are confirmed during consultation.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur"></div>
+
+   
+   
+   
+   <div class="qsim-construction-modal"
+        x-data="{ open: true }"
+        x-show="open"
+        x-effect="document.body.style.overflow = open ? 'hidden' : ''"
+        x-transition:enter="qsim-construction-enter"
+        x-transition:enter-start="qsim-construction-enter-start"
+        x-transition:enter-end="qsim-construction-enter-end"
+        x-transition:leave="qsim-construction-leave"
+        x-transition:leave-start="qsim-construction-leave-start"
+        x-transition:leave-end="qsim-construction-leave-end"
+        x-cloak
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="qsim-construction-title"
+        @keydown.escape.window="open = false"
+        @click.self="open = false">
+    <div class="qsim-construction-panel" x-ref="constructionPanel">
+     <button type="button" class="qsim-construction-close" @click="open = false" aria-label="Close">×</button>
+     <svg class="qsim-construction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8 7.2 20l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.3-2.3 2.5-2.5z"/>
+     </svg>
+     <div class="hd-badge hd-text-300">Coming soon</div>
+     <div class="hd-vspace-xs"></div>
+     <h2 class="hd-h4" id="qsim-construction-title">This platform is under construction</h2>
+     <div class="hd-vspace-xs"></div>
+     <p class="hd-text-sm hd-text-muted">QuFabric — our self-hosted quantum simulation platform — isn&#39;t quite ready yet. We&#39;re putting the finishing touches on it and it will be available soon. Feel free to look around in the meantime.</p>
+     <div class="qsim-construction-actions">
+      <button type="button" class="hd-button" @click="open = false">Continue to preview</button>
+     </div>
+    </div>
+   </div>
+   
+   
+  </div>
+ </body>
+</html>

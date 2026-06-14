@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>Apps | WECORE</title>
+  <meta content="WECORE is a scalable HPC cloud designed for modern, self-service, on-demand scientific computing workloads and AI-driven startups. Offering HPC-as-a-Service (HPCaaS) with an intuitive web-based interface and a fully integrated environment, providing computational software and tools in one seamless platform. Built for researchers, scientists, and engineers seeking a clean, professional online computing solution, WECORE is ideal for high-performance computations and one-click deployment of scientific programs." name="description"/>
+  <link href="https://wecore.ir/en/apps/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/apps/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/apps/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/apps/" hreflang="x-default" rel="alternate"/>
+  <meta content="Apps | WECORE" property="og:title"/>
+  <meta content="WECORE is a scalable HPC cloud designed for modern, self-service, on-demand scientific computing workloads and AI-driven startups. Offering HPC-as-a-Service (HPCaaS) with an intuitive web-based interface and a fully integrated environment, providing computational software and tools in one seamless platform. Built for researchers, scientists, and engineers seeking a clean, professional online computing solution, WECORE is ideal for high-performance computations and one-click deployment of scientific programs." property="og:description"/>
+  <meta content="https://wecore.ir/en/apps/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="fa_IR" property="og:locale:alternate"/>
+  <meta content="Apps | WECORE" name="twitter:title"/>
+  <meta content="WECORE is a scalable HPC cloud designed for modern, self-service, on-demand scientific computing workloads and AI-driven startups. Offering HPC-as-a-Service (HPCaaS) with an intuitive web-based interface and a fully integrated environment, providing computational software and tools in one seamless platform. Built for researchers, scientists, and engineers seeking a clean, professional online computing solution, WECORE is ideal for high-performance computations and one-click deployment of scientific programs." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/geist/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../en/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../en/">
+          Home
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            All Services
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              Products
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/hpc/">
+                 Cloud HPC
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Cloud, private &amp; hybrid HPC
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/cloud-servers/">
+                 Cloud Server
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Self-serve virtual machines
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/caas/">
+                 Private Cloud
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Dedicated OpenStack cloud
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/kaas/">
+                 Kubernetes
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Managed K8s clusters
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/qsim/">
+                 Quantum Simulation
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 GPU quantum workflows
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Company
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/about/">
+               About
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/pricing/">
+               Pricing
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Plan
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Partnerships
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/subscribe/">
+               Subscribe
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Support
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/contact/">
+               Contact
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Resources
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/apps/">
+               Apps
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/articles/">
+               Blog
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Documentation
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Why WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Performance
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Sustainability
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/product/">
+               Product
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../en/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                Consult WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               Plan the right HPC, GPU, and AI deployment model
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../fa/apps/">
+           Fa
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../en/sign-up/">
+           Register / Login
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="Key Features">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            Key Features
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Cloud, private, and hybrid HPC
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              GPU-ready environments
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Ready-to-run software
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Self-service workflows
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Expert deployment support
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../fa/apps/" target="">
+         Fa
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../en/sign-up/" target="">
+         Register / Login
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../en/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+    <section class="section_integration_header">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="integration_header_wrapper">
+         <a class="hd-button hd-button-secondary hd-button-icon" href="../../en/articles">
+          <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-left.svg"/>
+          <div>
+           Back to All Integrations
+          </div>
+         </a>
+         <div class="hd-vspace-sm">
+         </div>
+         <img alt="Numetron integration icon" class="integration_header_icon hd-align-center" loading="lazy" src="../../img/icons/integrations/data-storage.svg"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <h1 class="hd-text-center">
+          Numetron
+         </h1>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-text-center">
+          Pull key performance indicators from disparate platforms into unified, easy-to-digest snapshots
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+         <div class="integrations_feed_category hd-align-center">
+          Analytics
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+         <div class="hd-button-group">
+          <button disabled class="hd-button" type="button">
+           Connect
+          </button>
+          <a class="hd-button hd-button-secondary" href="#integration-info">
+           Learn More
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="hd-vspace-lg">
+       </div>
+       <img alt="Numetron analytics integration preview" class="integration_header_image" data-hd-animate="fade-up-2" loading="lazy" sizes="100vw" src="../../img/integrations/preview.jpg" srcset="../../img/integrations/preview-p500.jpg 500w, ../../img/integrations/preview-p800.jpg 800w, ../../img/integrations/preview-p1080.jpg 1080w, ../../img/integrations/preview-p1600.jpg 1600w, ../../img/integrations/preview-p2000.jpg 2000w, ../../img/integrations/preview-p2600.jpg 2600w, ../../img/integrations/preview.jpg 2760w"/>
+      </div>
+     </div>
+    </section>
+    <section class="section_integration_content" id="integration-info">
+     <div>
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="integration_content_wrapper">
+         <div class="text-rich-text hd-richtext">
+          <p>
+           Blipify is a dynamic integration that connects your product ecosystem with customer feedback channels, allowing teams to receive, track, and act on insights as they happen. Whether it's from surveys, reviews, support chats, or in-app feedback, Blipify ensures no signal is missed—so you can move faster and make smarter product decisions.
+          </p>
+          <h2>
+           Key Features
+          </h2>
+          <ul role="list">
+           <li>
+            <strong>
+             Real-Time Feedback Sync
+            </strong>
+            — Instantly pull customer comments, ratings, and suggestions into your preferred tools
+           </li>
+           <li>
+            <strong>
+             Feedback Prioritization Engine
+            </strong>
+            — Uses sentiment analysis and usage impact to surface the most critical feedback first
+           </li>
+           <li>
+            <strong>
+             Cross-Tool Linking
+            </strong>
+            — Connects feedback to specific product features or tickets in systems
+           </li>
+           <li>
+            <strong>
+             Custom Alerts &amp; Triggers
+            </strong>
+            — Set rules to notify the right teams when key phrases, negative sentiment, or VIP users are detected
+           </li>
+           <li>
+            <strong>
+             Smart Tagging &amp; Routing
+            </strong>
+            — Monthly insights on KPIs, trends, and workflow efficiency
+           </li>
+          </ul>
+          <h2>
+           How It Works
+          </h2>
+          <ol role="list">
+           <li>
+            <strong>
+             Connect
+            </strong>
+            your feedback sources—like Typeform, Intercom, Zendesk, or Canny.
+           </li>
+           <li>
+            <strong>
+             Customize
+            </strong>
+            your tagging, alert, and prioritization preferences.
+           </li>
+           <li>
+            <strong>
+             Sync
+            </strong>
+            feedback automatically to your team’s favorite platforms.
+           </li>
+           <li>
+            <strong>
+             Act
+            </strong>
+            on insights with linked action items and real-time updates.
+           </li>
+          </ol>
+          <figure class="hd-richtext-align-fullwidth hd-richtext-figure-image">
+           <div>
+            <img alt="Integration workflow detail preview" loading="lazy" src="../../img/integrations/body.jpg"/>
+           </div>
+          </figure>
+          <h2>
+           Pricing
+          </h2>
+          <ul role="list">
+           <li>
+            <strong>
+             Free:
+            </strong>
+            Up to 2 feedback sources, basic sync
+           </li>
+           <li>
+            <strong>
+             Team
+            </strong>
+            ($29/month): 10 sources, smart tagging, team alerts
+           </li>
+           <li>
+            <strong>
+             Pro
+            </strong>
+            ($99/month): Unlimited sources, advanced routing, sentiment engine, analytics
+           </li>
+          </ul>
+          <p>
+           Blipify helps you move beyond collecting feedback—transforming it into real-time, actionable insights your whole team can use. Start syncing, start aligning, and start building better experiences today.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="section_integration_related">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <h2 class="hd-h4">
+         Related Update
+        </h2>
+        <div class="hd-vspace-xs">
+        </div>
+        <div class="hd-list">
+         <div class="hd-list-items" data-hd-animate="fade-up-2" role="list">
+          <div class="integrations_feed_card hd-list-item" role="listitem">
+           <div class="integrations_feed_header">
+            <img alt="Triggnet automation integration icon" class="icon-height-medium" loading="lazy" src="../../img/icons/integrations/hpc-workflows.svg"/>
+            <div class="integrations_feed_category">
+             Automation
+            </div>
+           </div>
+           <div class="hd-vspace-xl">
+           </div>
+           <div>
+            Triggnet
+           </div>
+           <div class="hd-text-secondary">
+            Automate routine tasks by connecting events across your SaaS stack using smart triggers and conditions
+           </div>
+           <div class="hd-vspace-xs">
+           </div>
+           <a class="hd-button hd-button-link" href="../../en/product">
+            <div>
+             Learn More
+            </div>
+            <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-right-sm.svg"/>
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="WECORE Logo" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           Cloud, private, and hybrid HPC for technical teams
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Platform
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/">
+           Home
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/product">
+           Product
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/caas">
+           CaaS
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/hpc">
+           Cloud HPC
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/apps">
+           Apps
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/pricing/">
+           Pricing
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Company
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/about">
+           About
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/contact">
+           Contact
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/demo">
+           Request Demo
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/articles">
+           Articles
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Account
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/sign-in">
+           Sign in
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/sign-up">
+           Sign up
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/forgot-password">
+           Forgot Password
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/subscribe">
+           Subscribe
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © Copyright 2026 |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE provides cloud, private, and hybrid HPC infrastructure for technical teams. Deployment terms, pricing, and support scope are confirmed during consultation.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur">
+    <div class="hd-embed">
+     <style>
+      .bottom-blur {
+backdrop-filter: blur(7px);
+background-image: linear-gradient(#fff0, #ffffff00 90%, #fff);
+mask-image: linear-gradient(#0000,10%,#fff 40% 100%);
+pointer-events:none;
+}
+     </style>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

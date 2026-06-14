@@ -1,0 +1,490 @@
+/* ==========================================================================
+   kaas.css — scoped styles for the /kaas page (layouts/kaas/list.html)
+   --------------------------------------------------------------------------
+   Builds on --hd-* tokens and REUSES the shared proof-dashboard shell/chrome/
+   sidebar classes (hd.css) for the interactive KaaS proof-of-product demo. Adds
+   only what is KaaS-specific: the centered dark hero band, the Vultr-style demo
+   frame, and the demo internals (module badge, view nav, cluster inventory,
+   summary metrics, activity feed, 5-step create wizard, launch prompt).
+
+   The page's marketing sections (stats / features / value / openstack / compare
+   / faq / cta) intentionally reuse the .caas-* classes from caas.css so /kaas
+   and /caas stay visually consistent.
+
+   Accent inside the demo is the orange used across the proof dashboards
+   (#e67e22 / #ed7d2b). Logical properties throughout for [dir="rtl"] pages —
+   though the demo console itself is pinned dir="ltr" (real product is English).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero — centered band, white text on a near-black gradient (integrations.html
+   structure: badge → h1 → subhead → CTAs → full-width demo centerpiece).
+   -------------------------------------------------------------------------- */
+.section_kaas_hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 60% at 50% 0%,
+      color-mix(in srgb, #e67e22 16%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--hd-color-black) 0%, #0b0b0d 55%, var(--hd-color-accent) 100%);
+  color: var(--hd-color-white);
+  padding-block: 2rem 0;
+}
+.section_kaas_hero h1 { color: var(--hd-color-white); }
+.section_kaas_hero .hd-text-muted { color: var(--hd-color-neutral-300); }
+.section_kaas_hero .hd-badge {
+  color: var(--hd-color-white);
+  border-color: color-mix(in srgb, var(--hd-color-white) 22%, transparent);
+}
+
+/* Trust row + promo pill (same treatment as the caas hero) */
+.kaas-hero-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+}
+.kaas-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--hd-color-neutral-300);
+}
+.kaas-hero-trust-icon { width: 1rem; height: 1rem; flex: none; opacity: 0.7; }
+.kaas-hero-promo {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 999rem;
+  color: var(--hd-color-white);
+  background: color-mix(in srgb, var(--hd-color-white) 12%, transparent);
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 18%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Demo frame — Vultr-style: the interactive proof sits in a tall, bordered
+   "screen" as the centerpiece. We close the shared shell (which is built to be
+   flush against a grid edge) into a fully-framed standalone card.
+   -------------------------------------------------------------------------- */
+.kaas-demo-frame {
+  max-width: 70rem;
+  margin-inline: auto;
+}
+.kaas-demo-frame .proof-dashboard-shell {
+  padding: 1.5rem 0 0 1.5rem;        /* keep the inner browser flush to 3 sides */
+  border-radius: 1.25rem;
+}
+.kaas-demo-frame .proof-dashboard-browser {
+  min-height: 34rem;
+  border-right: 0.0625rem solid #ffffff4d;   /* re-close the right edge */
+  border-radius: 1rem 0 0 1rem;
+}
+
+/* Sidebar: KaaS module badge + view nav + health (replaces the analytics
+   profile/trial/flow block from the shared dashboard). */
+.kaas-demo-module {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 2rem;
+  padding: 0.7rem 0.8rem;
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 0.6rem;
+  background: #ffffff08;
+}
+.kaas-demo-module-icon {
+  width: 2.1rem; height: 2.1rem; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 0.5rem;
+  color: #f2c296;
+  background: #e67e2218;
+  border: 0.0625rem solid #e67e2240;
+}
+.kaas-demo-module-icon svg { width: 1.25rem; height: 1.25rem; }
+.kaas-demo-module strong { display: block; color: #fff; font-size: 0.92rem; line-height: 1.1; }
+.kaas-demo-module span { color: #a8a8a8; font-size: 0.66rem; font-weight: 600; }
+
+.kaas-demo-nav { display: grid; gap: 0.35rem; margin-top: 1.4rem; }
+.kaas-demo-nav-btn {
+  display: flex; align-items: center; gap: 0.55rem;
+  width: 100%;
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.45rem;
+  background: #ffffff06;
+  color: #c9c9c9;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: start;
+  transition: background-color var(--hd-transition),
+              border-color var(--hd-transition),
+              color var(--hd-transition);
+}
+.kaas-demo-nav-btn span { font-size: 0.9rem; line-height: 1; color: #f2c296; }
+.kaas-demo-nav-btn:hover { border-color: #e67e2240; background: #e67e2210; color: #fff; }
+.kaas-demo-nav-active,
+.kaas-demo-nav-active:hover {
+  border-color: #e67e2266;
+  background: #e67e2218;
+  color: #fff;
+}
+
+.kaas-demo-health {
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-top: auto;
+  padding: 0.7rem 0.8rem;
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.6rem;
+  background: #00000026;
+}
+.kaas-demo-health strong { display: block; color: #f2f2f2; font-size: 0.74rem; }
+.kaas-demo-health span { color: #8f8f8f; font-size: 0.62rem; font-weight: 600; }
+
+/* Status dots — reused everywhere in the demo */
+.kaas-demo-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; flex: none; }
+.kaas-demo-dot-ready { background: #46c08d; box-shadow: 0 0 0.5rem #46c08d99; }
+.kaas-demo-dot-warn  { background: #e67e22; box-shadow: 0 0 0.5rem #e67e2299; }
+
+/* --------------------------------------------------------------------------
+   Main panel — shared layout, KaaS content. Scroll the body so the framed
+   "screen" keeps a fixed height like a real console.
+   -------------------------------------------------------------------------- */
+.kaas-demo-main {
+  padding: 1.1rem;
+  overflow: auto;
+  display: block;
+}
+.kaas-demo-view { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.kaas-demo-header {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+}
+.kaas-demo-eyebrow {
+  margin: 0; color: #f2c296; font-size: 0.56rem; font-weight: 900;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.kaas-demo-header h3 { margin: 0.2rem 0 0; color: #fff; font-size: 1.12rem; line-height: 1.15; }
+.kaas-demo-header p { margin: 0.25rem 0 0; color: #9a9a9a; font-size: 0.72rem; max-width: 26rem; }
+
+.kaas-demo-primary,
+.kaas-demo-ghost,
+.kaas-demo-next,
+.kaas-demo-launch {
+  flex: none;
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 0.4rem;
+  background: #ffffff08;
+  color: #f2f2f2;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color var(--hd-transition),
+              border-color var(--hd-transition),
+              color var(--hd-transition),
+              opacity var(--hd-transition),
+              transform var(--hd-transition);
+}
+.kaas-demo-primary,
+.kaas-demo-next,
+.kaas-demo-launch {
+  border-color: #e67e2266;
+  background: #e67e22;
+  color: #111;
+}
+.kaas-demo-primary:hover,
+.kaas-demo-next:hover,
+.kaas-demo-launch:hover { background: #f08c33; }
+.kaas-demo-ghost:hover { border-color: #e67e2266; background: #e67e2218; color: #fff; }
+.kaas-demo-primary:active,
+.kaas-demo-ghost:active,
+.kaas-demo-next:active,
+.kaas-demo-launch:active { transform: scale(0.98); }
+.kaas-demo-launch:disabled,
+.kaas-demo-ghost:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ----- Summary metrics ----- */
+.kaas-demo-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+.kaas-demo-metric {
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.5rem;
+  background: #ffffff06;
+  padding: 0.6rem 0.7rem;
+}
+.kaas-demo-metric span {
+  display: block; color: #858585; font-size: 0.5rem; font-weight: 900;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.kaas-demo-metric strong { display: block; margin-top: 0.15rem; color: #f2f2f2; font-size: 1.25rem; }
+.kaas-demo-metric-ready strong { color: #6fd3a6; }
+.kaas-demo-metric-warn strong { color: #f2c296; }
+
+/* ----- Cluster inventory ----- */
+.kaas-demo-inventory { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55rem; }
+.kaas-demo-cluster {
+  border: 0.0625rem solid #ffffff10;
+  border-inline-start: 0.18rem solid #46c08d;
+  border-radius: 0.5rem;
+  background: #00000024;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.55rem;
+}
+.kaas-demo-cluster-warn { border-inline-start-color: #e67e22; }
+.kaas-demo-cluster-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
+.kaas-demo-cluster-tpl {
+  margin: 0; color: #858585; font-size: 0.5rem; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.kaas-demo-cluster h4 { margin: 0.15rem 0 0; color: #f2f2f2; font-size: 0.86rem; }
+.kaas-demo-badge {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  flex: none;
+  border-radius: 999rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+.kaas-demo-badge-ready { color: #6fd3a6; background: #46c08d1f; border: 0.0625rem solid #46c08d40; }
+.kaas-demo-badge-warn  { color: #f2c296; background: #e67e221f; border: 0.0625rem solid #e67e2240; }
+.kaas-demo-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin: 0; }
+.kaas-demo-facts dt {
+  color: #858585; font-size: 0.5rem; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.kaas-demo-facts dd { margin: 0.1rem 0 0; color: #e0e0e0; font-size: 0.7rem; font-weight: 700; }
+
+/* ----- Activity feed ----- */
+.kaas-demo-activity {
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.5rem;
+  background: #ffffff06;
+  padding: 0.75rem;
+}
+.kaas-demo-activity-title {
+  margin: 0 0 0.5rem; color: #858585; font-size: 0.5rem; font-weight: 900;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.kaas-demo-activity ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+.kaas-demo-activity li {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: #c4c4c4; font-size: 0.7rem; font-weight: 600;
+}
+.kaas-demo-activity li strong { color: #f2f2f2; font-weight: 800; }
+
+/* --------------------------------------------------------------------------
+   Create wizard — 5-step stepper + panel + actions
+   -------------------------------------------------------------------------- */
+.kaas-demo-stepper {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.3rem;
+}
+.kaas-demo-stepper button {
+  display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+  width: 100%;
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.35rem;
+  background: #ffffff07;
+  color: #8f8f8f;
+  padding: 0.45rem 0.3rem;
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--hd-transition),
+              border-color var(--hd-transition),
+              color var(--hd-transition);
+}
+.kaas-demo-stepper button b {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 0.95rem; height: 0.95rem; flex: none;
+  border-radius: 50%;
+  background: #ffffff14;
+  color: #c9c9c9;
+  font-size: 0.5rem;
+}
+.kaas-demo-stepper button:hover { border-color: #e67e2240; color: #d8d8d8; }
+/* Specific enough (.stepper button.active) to beat the button:hover rule above without !important. */
+.kaas-demo-stepper button.kaas-demo-step-active { border-color: #e67e2266; background: #e67e2218; color: #f2c296; }
+.kaas-demo-step-active b { background: #e67e22; color: #111; }
+.kaas-demo-step-done b { background: #46c08d; color: #08130d; }
+
+.kaas-demo-panel {
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.5rem;
+  background: #ffffff06;
+  padding: 1rem;
+  min-height: 13rem;
+}
+.kaas-demo-step h4 { margin: 0 0 0.75rem; color: #fff; font-size: 0.95rem; line-height: 1.2; }
+.kaas-demo-help { margin: 0.65rem 0 0; color: #8f8f8f; font-size: 0.66rem; font-weight: 600; line-height: 1.45; }
+
+.kaas-demo-field { display: grid; gap: 0.3rem; margin-bottom: 0.7rem; }
+.kaas-demo-field span { color: #858585; font-size: 0.54rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+.kaas-demo-field input {
+  width: 100%;
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 0.35rem;
+  background: #0d0d0e;
+  color: #f2f2f2;
+  padding: 0.55rem 0.65rem;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.kaas-demo-tpl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.kaas-demo-tpl {
+  border: 0.0625rem solid #ffffff12;
+  border-radius: 0.45rem;
+  background: #00000024;
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.kaas-demo-tpl p { margin: 0; color: #a8a8a8; font-size: 0.64rem; font-weight: 700; }
+.kaas-demo-tpl strong { color: #f2f2f2; font-size: 0.95rem; }
+.kaas-demo-tpl dl { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; margin: 0.1rem 0 0; }
+.kaas-demo-tpl dt { color: #858585; font-size: 0.5rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+.kaas-demo-tpl dd { margin: 0.1rem 0 0; color: #e0e0e0; font-size: 0.66rem; font-weight: 700; }
+.kaas-demo-tpl-selected { border-color: #e67e2266; background: #e67e2214; box-shadow: 0 0 0 0.0625rem #e67e2233 inset; }
+
+.kaas-demo-nodegroup {
+  border: 0.0625rem solid #ffffff12;
+  border-radius: 0.45rem;
+  background: #00000024;
+  padding: 0.7rem;
+}
+.kaas-demo-nodegroup-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.kaas-demo-nodegroup-head strong { color: #f2f2f2; font-size: 0.8rem; }
+.kaas-demo-tag {
+  border-radius: 999rem; padding: 0.12rem 0.45rem;
+  font-size: 0.5rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #c9c9c9; background: #ffffff12;
+}
+.kaas-demo-nodegroup dl { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin: 0; }
+.kaas-demo-nodegroup dt { color: #858585; font-size: 0.5rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+.kaas-demo-nodegroup dd { margin: 0.1rem 0 0; color: #e0e0e0; font-size: 0.7rem; font-weight: 700; }
+
+.kaas-demo-option {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.45rem;
+  background: #00000024;
+  padding: 0.6rem 0.7rem;
+  margin-bottom: 0.45rem;
+}
+.kaas-demo-option span { color: #a8a8a8; font-size: 0.72rem; font-weight: 700; }
+.kaas-demo-option strong { color: #c9c9c9; font-size: 0.66rem; font-weight: 800; }
+.kaas-demo-option-on { border-color: #e67e2242; background: #e67e2210; }
+.kaas-demo-option-on strong { color: #f2c296; }
+
+.kaas-demo-cost { display: grid; gap: 0.4rem; }
+.kaas-demo-cost-row {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.4rem;
+  background: #00000024;
+  padding: 0.55rem 0.7rem;
+}
+.kaas-demo-cost-row span { color: #9a9a9a; font-size: 0.68rem; font-weight: 700; }
+.kaas-demo-cost-row strong { color: #f2f2f2; font-size: 0.72rem; font-weight: 800; }
+
+.kaas-demo-review { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 0.7rem; }
+.kaas-demo-review div {
+  border: 0.0625rem solid #ffffff10;
+  border-radius: 0.4rem;
+  background: #00000024;
+  padding: 0.55rem;
+}
+.kaas-demo-review span { display: block; color: #858585; font-size: 0.5rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.kaas-demo-review strong { display: block; margin-top: 0.15rem; color: #f2f2f2; font-size: 0.72rem; font-weight: 800; }
+.kaas-demo-ack { display: flex; align-items: flex-start; gap: 0.5rem; color: #c4c4c4; font-size: 0.7rem; font-weight: 600; cursor: pointer; }
+.kaas-demo-ack input { margin-top: 0.15rem; accent-color: #e67e22; }
+.kaas-demo-ack input:focus-visible,
+.kaas-demo-field input:focus-visible,
+.kaas-demo-nav-btn:focus-visible,
+.kaas-demo-stepper button:focus-visible,
+.kaas-demo-prompt-actions a:focus-visible,
+.kaas-demo-prompt-actions button:focus-visible,
+.kaas-demo-primary:focus-visible,
+.kaas-demo-ghost:focus-visible,
+.kaas-demo-next:focus-visible,
+.kaas-demo-launch:focus-visible {
+  outline-color: #f2c296;
+}
+
+.kaas-demo-actions { display: flex; justify-content: flex-end; gap: 0.45rem; }
+
+/* ----- Launch prompt (dialog) ----- */
+.kaas-demo-prompt {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.25rem;
+  background: #05050acc;
+  backdrop-filter: blur(3px);
+  border-radius: 1rem 0 0 1rem;
+}
+.kaas-demo-prompt-panel {
+  max-width: 24rem;
+  border: 0.0625rem solid #ffffff1f;
+  border-radius: 0.75rem;
+  background: linear-gradient(180deg, #1a1a1c, #0e0e10);
+  box-shadow: 0 1.5rem 3rem #000000a6;
+  padding: 1.25rem;
+  text-align: center;
+}
+.kaas-demo-prompt-panel h3 { margin: 0.3rem 0 0.4rem; color: #fff; font-size: 1rem; line-height: 1.2; }
+.kaas-demo-prompt-panel p { margin: 0; color: #a8a8a8; font-size: 0.74rem; line-height: 1.5; }
+.kaas-demo-prompt-panel strong { color: #f2c296; }
+.kaas-demo-prompt-actions { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+.kaas-demo-prompt-actions a,
+.kaas-demo-prompt-actions button {
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 0.4rem;
+  background: #ffffff08;
+  color: #f2f2f2;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--hd-transition),
+              border-color var(--hd-transition),
+              color var(--hd-transition),
+              transform var(--hd-transition);
+}
+.kaas-demo-prompt-actions a { border-color: #e67e2266; background: #e67e22; color: #111; }
+.kaas-demo-prompt-actions a:hover { background: #f08c33; }
+.kaas-demo-prompt-actions button:hover { border-color: #e67e2266; background: #e67e2218; color: #fff; }
+.kaas-demo-prompt-actions a:active,
+.kaas-demo-prompt-actions button:active { transform: scale(0.98); }
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+  .kaas-demo-frame .proof-dashboard-shell { padding: 1rem; }
+  .kaas-demo-frame .proof-dashboard-browser { border-radius: 1rem; }
+  .kaas-demo-app { grid-template-columns: minmax(10rem, 32%) 1fr; }
+  .kaas-demo-inventory { grid-template-columns: 1fr 1fr; }
+}
+
+@media screen and (max-width: 767px) {
+  .kaas-demo-app { grid-template-columns: 1fr; }
+  .kaas-demo-nav { grid-template-columns: 1fr 1fr; }
+  .kaas-demo-health { display: none; }
+  .kaas-demo-metrics { grid-template-columns: 1fr 1fr; }
+  .kaas-demo-inventory { grid-template-columns: 1fr; }
+  .kaas-demo-stepper { grid-template-columns: repeat(5, 1fr); }
+  .kaas-demo-stepper button span,
+  .kaas-demo-stepper button { font-size: 0; }   /* show only the numbered bubble on mobile */
+  .kaas-demo-stepper button b { font-size: 0.58rem; }
+  .kaas-demo-header { flex-direction: column; }
+  .kaas-demo-tpl-grid,
+  .kaas-demo-review { grid-template-columns: 1fr; }
+}

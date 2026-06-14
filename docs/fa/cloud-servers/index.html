@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>سرور ابری | وِی‌کُر</title>
+  <meta content="ماشین‌های مجازی با صورتحساب ساعتی روی زیرساخت مبتنی بر NVMe. یک اندازه و ایمیج انتخاب کنید و دسترسی کامل root بگیرید — فقط بابت آنچه روشن است بپردازید." name="description"/>
+  <link href="https://wecore.ir/fa/cloud-servers/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/cloud-servers/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/cloud-servers/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/cloud-servers/" hreflang="x-default" rel="alternate"/>
+  <meta content="سرور ابری | وِی‌کُر" property="og:title"/>
+  <meta content="ماشین‌های مجازی با صورتحساب ساعتی روی زیرساخت مبتنی بر NVMe. یک اندازه و ایمیج انتخاب کنید و دسترسی کامل root بگیرید — فقط بابت آنچه روشن است بپردازید." property="og:description"/>
+  <meta content="https://wecore.ir/fa/cloud-servers/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="fa_IR" property="og:locale"/>
+  <meta content="en_US" property="og:locale:alternate"/>
+  <meta content="سرور ابری | وِی‌کُر" name="twitter:title"/>
+  <meta content="ماشین‌های مجازی با صورتحساب ساعتی روی زیرساخت مبتنی بر NVMe. یک اندازه و ایمیج انتخاب کنید و دسترسی کامل root بگیرید — فقط بابت آنچه روشن است بپردازید." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/vazirmatn/Vazirmatn-FD-Regular.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  <link href="../../css/rtl.css" rel="stylesheet" type="text/css"/>
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../fa/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../fa/">
+          خانه
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            همهٔ سرویس‌ها
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              محصولات
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/hpc/">
+                 HPC ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 HPC ابری، خصوصی و ترکیبی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/cloud-servers/">
+                 سرور ابری
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ماشین‌های مجازی خودگردان
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/caas/">
+                 ابر خصوصی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 ابر OpenStack اختصاصی
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/kaas/">
+                 کوبرنتیز
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 کلاسترهای مدیریت‌شدهٔ K8s
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../fa/qsim/">
+                 شبیه‌سازی کوانتومی
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 جریان‌های کاری کوانتومی GPU
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             شرکت
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/about/">
+               دربارهٔ ما
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/pricing/">
+               قیمت‌گذاری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               طرح
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               همکاری‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/subscribe/">
+               اشتراک
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پشتیبانی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/contact/">
+               تماس
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             منابع
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/apps/">
+               اپلیکیشن‌ها
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
+               بلاگ
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               مستندات
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             چرا WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               کارایی
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
+               پایداری
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/product/">
+               محصول
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                گفت‌وگو با WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               مدل استقرار مناسب HPC، GPU و AI را برنامه‌ریزی کنید
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../en/cloud-servers/">
+           En
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../fa/sign-up/">
+           ثبت‌نام / ورود
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="ویژگی‌های کلیدی">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            ویژگی‌های کلیدی
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              HPC ابری، خصوصی و ترکیبی
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              محیط‌های آمادهٔ GPU
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              نرم‌افزار آمادهٔ اجرا
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              جریان‌های کاری خودگردان
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              پشتیبانی تخصصی استقرار
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../en/cloud-servers/" target="">
+         En
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../fa/sign-up/" target="">
+         ثبت‌نام / ورود
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../fa/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+
+    
+    <section class="section_cs_hero">
+     <div class="cs-hero-grid-bg" aria-hidden="true"></div>
+     <div class="hd-section-md cs-hero-wrap">
+      <div class="hd-container">
+       <div class="cs-hero-layout">
+
+        <div class="cs-hero-copy" data-hd-animate="fade-up">
+         <div class="hd-badge hd-text-300">سرور ابری</div>
+         <div class="hd-vspace-sm"></div>
+         <h1>یک سرور را در کمتر از دو دقیقه بالا بیاورید.</h1>
+         <div class="hd-vspace-sm"></div>
+         <div class="hd-text-lg hd-text-muted">ماشین‌های مجازی با صورتحساب ساعتی روی زیرساخت مبتنی بر NVMe. یک اندازه انتخاب کنید، یک ایمیج برگزینید و دسترسی کامل root بگیرید — و فقط بابت آنچه روشن است بپردازید. بدون مالیات هایپروایزر، بدون صورتحساب غافلگیرکنندهٔ خروجی.</div>
+         <div class="hd-vspace-md"></div>
+
+         
+         <div class="hd-button-group">
+          
+          <a class="hd-button " href="../../fa/pricing/#cloud-servers">راه‌اندازی سرور</a>
+          
+          <a class="hd-button hd-button-secondary" href="../../fa/contact">گفتگو با فروش</a>
+          
+         </div>
+         
+
+         
+         <div class="hd-vspace-md"></div>
+         <ul class="cs-hero-trust" role="list">
+          
+          <li class="cs-hero-trust-item">
+           <img alt="" aria-hidden="true" class="cs-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">صورتحساب ساعتی</span>
+          </li>
+          
+          <li class="cs-hero-trust-item">
+           <img alt="" aria-hidden="true" class="cs-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">راه‌اندازی در چند دقیقه</span>
+          </li>
+          
+          <li class="cs-hero-trust-item">
+           <img alt="" aria-hidden="true" class="cs-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">دسترسی کامل root</span>
+          </li>
+          
+          <li class="cs-hero-trust-item">
+           <img alt="" aria-hidden="true" class="cs-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">ذخیره‌سازی NVMe</span>
+          </li>
+          
+          <li class="cs-hero-trust-item">
+           <img alt="" aria-hidden="true" class="cs-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+           <span class="hd-text-tiny hd-text-medium">IPv4 و IPv6</span>
+          </li>
+          
+         </ul>
+         
+
+         
+         <div class="hd-vspace-sm"></div>
+         <div class="cs-hero-promo hd-text-sm hd-text-medium">حساب‌های جدید <strong>۵۰۰٬۰۰۰ تومان</strong> اعتبار راه‌اندازی می‌گیرند — کافی برای اجرای یک سرور g2.medium در ماه اول.</div>
+         
+        </div>
+
+        
+        
+        
+        <div class="cs-config" data-hd-animate="fade-up-2"
+             x-data="{ fam: 0, size: 0 }">
+         <div class="cs-config-head">
+          <span class="cs-config-dot" aria-hidden="true"></span>
+          <span class="cs-config-title hd-text-sm hd-text-medium">سرور خود را بسازید</span>
+         </div>
+
+         
+         <div class="hd-segmented cs-config-tabs" role="tablist" aria-label="سرور خود را بسازید">
+          
+          <button type="button" class="hd-segmented-item cs-config-tab" role="tab"
+                  :aria-selected="fam === 0"
+                  :class="{ 'is-active': fam === 0 }"
+                  @click="fam = 0; size = 0">همه‌منظوره</button>
+          
+          <button type="button" class="hd-segmented-item cs-config-tab" role="tab"
+                  :aria-selected="fam === 1"
+                  :class="{ 'is-active': fam === 1 }"
+                  @click="fam = 1; size = 0">بهینهٔ پردازنده</button>
+          
+          <button type="button" class="hd-segmented-item cs-config-tab" role="tab"
+                  :aria-selected="fam === 2"
+                  :class="{ 'is-active': fam === 2 }"
+                  @click="fam = 2; size = 0">بهینهٔ حافظه</button>
+          
+         </div>
+
+         
+         
+         <div class="cs-config-panel" x-show="fam === 0"
+              >
+          <p class="cs-config-tagline hd-text-tiny hd-text-muted">تعادل vCPU و RAM</p>
+
+          
+          <div class="cs-config-sizes" role="tablist" aria-label="همه‌منظوره">
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 0"
+                   :class="{ 'is-active': size === 0 }"
+                   @click="size = 0">g2.small</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 1"
+                   :class="{ 'is-active': size === 1 }"
+                   @click="size = 1">g2.medium</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 2"
+                   :class="{ 'is-active': size === 2 }"
+                   @click="size = 2">g2.large</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 3"
+                   :class="{ 'is-active': size === 3 }"
+                   @click="size = 3">g2.xlarge</button>
+           
+          </div>
+
+          
+          
+          <div class="cs-config-readout" x-show="size === 0"
+               >
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۲ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۴ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۶۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۲ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۵٬۴۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 1"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۴ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۸ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۱۲۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۳ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۱۰٬۸۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 2"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۸ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۱۶ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۲۴۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۴ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۲۱٬۶۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 3"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۱۶ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۳۲ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۴۸۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۶ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۴۳٬۲۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+         </div>
+         
+         <div class="cs-config-panel" x-show="fam === 1"
+              style="display:none">
+          <p class="cs-config-tagline hd-text-tiny hd-text-muted">هسته‌های اختصاصی زیر بار</p>
+
+          
+          <div class="cs-config-sizes" role="tablist" aria-label="بهینهٔ پردازنده">
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 0"
+                   :class="{ 'is-active': size === 0 }"
+                   @click="size = 0">c2.small</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 1"
+                   :class="{ 'is-active': size === 1 }"
+                   @click="size = 1">c2.medium</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 2"
+                   :class="{ 'is-active': size === 2 }"
+                   @click="size = 2">c2.large</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 3"
+                   :class="{ 'is-active': size === 3 }"
+                   @click="size = 3">c2.xlarge</button>
+           
+          </div>
+
+          
+          
+          <div class="cs-config-readout" x-show="size === 0"
+               >
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۲ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۴ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۶۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۳ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۸٬۴۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 1"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۴ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۸ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۱۲۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۴ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۱۶٬۸۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 2"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۱۶ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۳۲ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۲۴۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۵ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۶۷٬۲۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 3"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۳۲ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۶۴ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۴۸۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۸ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۱۳۴٬۴۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+         </div>
+         
+         <div class="cs-config-panel" x-show="fam === 2"
+              style="display:none">
+          <p class="cs-config-tagline hd-text-tiny hd-text-muted">RAM برای سرویس‌های داده‌محور</p>
+
+          
+          <div class="cs-config-sizes" role="tablist" aria-label="بهینهٔ حافظه">
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 0"
+                   :class="{ 'is-active': size === 0 }"
+                   @click="size = 0">m2.small</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 1"
+                   :class="{ 'is-active': size === 1 }"
+                   @click="size = 1">m2.medium</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 2"
+                   :class="{ 'is-active': size === 2 }"
+                   @click="size = 2">m2.large</button>
+           
+           <button type="button" class="hd-pill-control cs-config-size" role="tab"
+                   :aria-selected="size === 3"
+                   :class="{ 'is-active': size === 3 }"
+                   @click="size = 3">m2.xlarge</button>
+           
+          </div>
+
+          
+          
+          <div class="cs-config-readout" x-show="size === 0"
+               >
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۲ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۱۶ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۸۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۳ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۱۵٬۶۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 1"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۴ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۳۲ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۱۶۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۴ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۳۱٬۲۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 2"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۸ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۶۴ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۳۲۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۵ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۶۲٬۴۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+          <div class="cs-config-readout" x-show="size === 3"
+               style="display:none">
+           <dl class="cs-config-specs">
+            <div class="cs-config-spec"><dt>vCPU</dt><dd>۱۶ vCPU</dd></div>
+            <div class="cs-config-spec"><dt>حافظه</dt><dd>۱۲۸ گیگابایت</dd></div>
+            <div class="cs-config-spec"><dt>ذخیره‌سازی</dt><dd>۶۴۰ گیگابایت NVMe</dd></div>
+            <div class="cs-config-spec"><dt>ترافیک</dt><dd>۸ ترابایت ترافیک</dd></div>
+           </dl>
+           <div class="cs-config-price">
+            <span class="cs-config-price-value">۱۲۴٬۸۰۰ تومان / ساعت</span>
+           </div>
+          </div>
+          
+         </div>
+         
+
+         <a class="hd-button cs-config-cta" href="../../fa/pricing/#cloud-servers">راه‌اندازی این اندازه →</a>
+         <p class="cs-config-hint hd-text-tiny hd-text-muted">یک پیش‌نمایش سریع — همهٔ پلن‌ها و نمای ماهانه در صفحهٔ قیمت‌گذاری است.</p>
+        </div>
+        
+
+       </div>
+      </div>
+     </div>
+    </section>
+
+    
+    
+    <section class="section_cs_stats">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <ul class="cs-stats" role="list" data-hd-animate="fade-up">
+        
+        <li class="cs-stats-item">
+         <span class="cs-stats-value">۹۹٫۹٪</span>
+         <span class="cs-stats-label hd-text-sm hd-text-muted">تضمین آپ‌تایم (SLA)</span>
+        </li>
+        
+        <li class="cs-stats-item">
+         <span class="cs-stats-value">&lt; ۲ دقیقه</span>
+         <span class="cs-stats-label hd-text-sm hd-text-muted">میانگین راه‌اندازی</span>
+        </li>
+        
+        <li class="cs-stats-item">
+         <span class="cs-stats-value">ساعتی</span>
+         <span class="cs-stats-label hd-text-sm hd-text-muted">صورتحساب، با سقف ماهانه</span>
+        </li>
+        
+        <li class="cs-stats-item">
+         <span class="cs-stats-value">۳</span>
+         <span class="cs-stats-label hd-text-sm hd-text-muted">خانوادهٔ پردازشی</span>
+        </li>
+        
+       </ul>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_families">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>یک خانواده انتخاب کنید، <span class="hd-text-secondary">سپس یک اندازه.</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">سه خانوادهٔ پردازشی متناسب با شکل بارهای کاری مختلف. هر خانواده از کوچک تا ۳۲ vCPU مقیاس می‌گیرد.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="cs-family-grid" data-hd-animate="fade-up-2">
+        
+        <div class="cs-family-card">
+         <div class="cs-family-head">
+          <img alt="" aria-hidden="true" class="cs-family-icon" loading="lazy" src="../../img/icons/nav/cloud-hpc.png"/>
+          <div class="hd-badge hd-text-300">همه‌منظوره</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">پردازش متوازن برای بیشتر برنامه‌ها</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">ترکیب متعادلی از vCPU و RAM برای وب‌سرور، API، پایگاه‌دادهٔ کوچک و محیط توسعه/استیجینگ. انتخاب پیش‌فرض وقتی مطمئن نیستید.</p>
+         <div class="hd-vspace-sm"></div>
+         <ul class="cs-family-specs" role="list">
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">vCPU</span>
+           <span class="cs-family-spec-value">۱ – ۱۶</span>
+          </li>
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">RAM</span>
+           <span class="cs-family-spec-value">۴ – ۶۴ گیگابایت</span>
+          </li>
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">ذخیره‌سازی</span>
+           <span class="cs-family-spec-value">۵۰ – ۶۴۰ گیگابایت NVMe</span>
+          </li>
+          
+         </ul>
+         <div class="hd-vspace-sm"></div>
+         <div class="cs-family-foot">
+          <div class="cs-family-from hd-text-sm hd-text-medium">از ۵٬۴۰۰ تومان / ساعت</div>
+          <a class="cs-family-link" href="../../fa/pricing/#cloud-servers">مشاهدهٔ اندازه‌ها →</a>
+         </div>
+        </div>
+        
+        <div class="cs-family-card">
+         <div class="cs-family-head">
+          <img alt="" aria-hidden="true" class="cs-family-icon" loading="lazy" src="../../img/icons/nav/ai-infra.png"/>
+          <div class="hd-badge hd-text-300">بهینهٔ پردازنده</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">هسته‌های اختصاصی زیر بار</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">نسبت هستهٔ بالاتر به RAM برای کارهای پردازنده‌محور: ترنسکد رسانه، پردازش داده، کارهای دسته‌ای، اجراکنندهٔ CI و فرانت‌اندهای پرترافیک.</p>
+         <div class="hd-vspace-sm"></div>
+         <ul class="cs-family-specs" role="list">
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">vCPU</span>
+           <span class="cs-family-spec-value">۲ – ۳۲</span>
+          </li>
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">RAM</span>
+           <span class="cs-family-spec-value">۴ – ۶۴ گیگابایت</span>
+          </li>
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">ذخیره‌سازی</span>
+           <span class="cs-family-spec-value">۶۰ – ۴۸۰ گیگابایت NVMe</span>
+          </li>
+          
+         </ul>
+         <div class="hd-vspace-sm"></div>
+         <div class="cs-family-foot">
+          <div class="cs-family-from hd-text-sm hd-text-medium">از ۸٬۴۰۰ تومان / ساعت</div>
+          <a class="cs-family-link" href="../../fa/pricing/#cloud-servers">مشاهدهٔ اندازه‌ها →</a>
+         </div>
+        </div>
+        
+        <div class="cs-family-card">
+         <div class="cs-family-head">
+          <img alt="" aria-hidden="true" class="cs-family-icon" loading="lazy" src="../../img/icons/nav/data-lake.png"/>
+          <div class="hd-badge hd-text-300">بهینهٔ حافظه</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">RAM برای سرویس‌های داده‌محور</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">حافظهٔ بیشتر به‌ازای هر هسته برای کش درون‌حافظه، پایگاه‌دادهٔ بزرگ، تحلیل داده و دادهٔ بلادرنگ. مجموعهٔ کاری را در RAM نگه دارید، نه روی دیسک.</p>
+         <div class="hd-vspace-sm"></div>
+         <ul class="cs-family-specs" role="list">
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">vCPU</span>
+           <span class="cs-family-spec-value">۲ – ۳۲</span>
+          </li>
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">RAM</span>
+           <span class="cs-family-spec-value">۱۶ – ۲۵۶ گیگابایت</span>
+          </li>
+          
+          <li class="cs-family-spec">
+           <span class="cs-family-spec-label">ذخیره‌سازی</span>
+           <span class="cs-family-spec-value">۸۰ – ۱۰۰۰ گیگابایت NVMe</span>
+          </li>
+          
+         </ul>
+         <div class="hd-vspace-sm"></div>
+         <div class="cs-family-foot">
+          <div class="cs-family-from hd-text-sm hd-text-medium">از ۱۵٬۶۰۰ تومان / ساعت</div>
+          <a class="cs-family-link" href="../../fa/pricing/#cloud-servers">مشاهدهٔ اندازه‌ها →</a>
+         </div>
+        </div>
+        
+       </div>
+
+       
+       <div class="hd-vspace-md"></div>
+       <div class="cs-family-note hd-text-center hd-text-sm hd-text-muted" data-hd-animate="fade-up">همهٔ قیمت‌ها ساعتی محاسبه و به یک سقف ماهانهٔ شفاف محدود می‌شوند. همهٔ پلن‌ها و معادل ماهانه را در صفحهٔ قیمت‌گذاری ببینید.</div>
+       
+       
+       <div class="hd-vspace-sm"></div>
+       <div class="hd-button-group hd-justify-center" data-hd-animate="fade-up">
+        <a class="hd-button" href="../../fa/pricing/#cloud-servers">مشاهدهٔ قیمت و پلن‌های کامل</a>
+       </div>
+       
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_steps hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">از صفر تا اجرا</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>سه مرحله تا <span class="hd-text-secondary">سرور فعال</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">بدون تیکت، بدون صف تخصیص — سلف‌سرویس از پنل یا API.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <ol class="cs-steps" data-hd-animate="fade-up-2">
+        
+        <li class="cs-step">
+         <div class="cs-step-number">۰۱</div>
+         <h3 class="hd-h6">یک ایمیج انتخاب کنید</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">یک توزیع لینوکس، یک اپ از پیش‌نصب‌شده، یا ایمیج سفارشی خودتان را بارگذاری کنید.</p>
+        </li>
+        
+        <li class="cs-step">
+         <div class="cs-step-number">۰۲</div>
+         <h3 class="hd-h6">اندازه‌اش کنید</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">یک خانواده و پلن انتخاب کنید — vCPU، RAM و NVMe مستقل از هم متناسب با بار کاری مقیاس می‌گیرند.</p>
+        </li>
+        
+        <li class="cs-step">
+         <div class="cs-step-number">۰۳</div>
+         <h3 class="hd-h6">با root راه‌اندازی کنید</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">استقرار را بزنید و در کمتر از دو دقیقه IPv4 عمومی، IPv6 و اطلاعات root را دریافت کنید.</p>
+        </li>
+        
+       </ol>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_images">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">از هرچیزی شروع کنید</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>سیستم‌عامل شما، <span class="hd-text-secondary">استک شما</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">یک توزیع تمیز، یک اپ آمادهٔ اجرا، یا ایمیج طلایی خودتان را بوت کنید.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+
+       <div class="cs-images" data-hd-animate="fade-up-2" x-data="{ tab: 0 }">
+        <div class="hd-segmented cs-images-tabs" role="tablist" aria-label="سیستم‌عامل شما،">
+         
+         <button type="button" class="hd-segmented-item cs-images-tab" role="tab"
+                 :aria-selected="tab === 0"
+                 :class="{ 'is-active': tab === 0 }"
+                 @click="tab = 0">توزیع‌ها</button>
+         
+         <button type="button" class="hd-segmented-item cs-images-tab" role="tab"
+                 :aria-selected="tab === 1"
+                 :class="{ 'is-active': tab === 1 }"
+                 @click="tab = 1">اپ‌های یک‌کلیکی</button>
+         
+         <button type="button" class="hd-segmented-item cs-images-tab" role="tab"
+                 :aria-selected="tab === 2"
+                 :class="{ 'is-active': tab === 2 }"
+                 @click="tab = 2">ایمیج سفارشی</button>
+         
+        </div>
+        
+        <div class="cs-images-panel" x-show="tab === 0"
+             >
+         <p class="cs-images-note hd-text-sm hd-text-muted">ایمیج‌های پایهٔ تمیز و مرتب وصله‌شده با دسترسی کامل root.</p>
+         <ul class="cs-images-grid" role="list">
+          
+          <li class="cs-image-tile">Ubuntu 24.04 LTS</li>
+          
+          <li class="cs-image-tile">Ubuntu 22.04 LTS</li>
+          
+          <li class="cs-image-tile">Debian 12</li>
+          
+          <li class="cs-image-tile">AlmaLinux 9</li>
+          
+          <li class="cs-image-tile">Rocky Linux 9</li>
+          
+          <li class="cs-image-tile">openSUSE Leap</li>
+          
+          <li class="cs-image-tile">Fedora Server</li>
+          
+          <li class="cs-image-tile">Arch Linux</li>
+          
+         </ul>
+        </div>
+        
+        <div class="cs-images-panel" x-show="tab === 1"
+             style="display:none">
+         <p class="cs-images-note hd-text-sm hd-text-muted">استک‌های از پیش‌پیکربندی‌شده که آمادهٔ استفاده بوت می‌شوند.</p>
+         <ul class="cs-images-grid" role="list">
+          
+          <li class="cs-image-tile">Docker</li>
+          
+          <li class="cs-image-tile">WordPress</li>
+          
+          <li class="cs-image-tile">PostgreSQL</li>
+          
+          <li class="cs-image-tile">MySQL</li>
+          
+          <li class="cs-image-tile">Node.js</li>
+          
+          <li class="cs-image-tile">GitLab</li>
+          
+          <li class="cs-image-tile">Nextcloud</li>
+          
+          <li class="cs-image-tile">Redis</li>
+          
+         </ul>
+        </div>
+        
+        <div class="cs-images-panel" x-show="tab === 2"
+             style="display:none">
+         <p class="cs-images-note hd-text-sm hd-text-muted">یک ایمیج طلایی بیاورید و هر بار سرورهای یکسان راه‌اندازی کنید.</p>
+         <ul class="cs-images-grid" role="list">
+          
+          <li class="cs-image-tile">بارگذاری QCOW2 / raw</li>
+          
+          <li class="cs-image-tile">وارد کردن از اسنپ‌شات</li>
+          
+          <li class="cs-image-tile">پشتیبانی cloud-init</li>
+          
+          <li class="cs-image-tile">کرنل دلخواه خودتان</li>
+          
+         </ul>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_value hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>چرا تیم‌ها <span class="hd-text-secondary">سرور ابری وی‌کُر را انتخاب می‌کنند</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">قیمت‌گذاری قابل‌پیش‌بینی، کارایی واقعی و کنترل — بدون مالیات ابر عمومی</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="cs-value-grid" data-hd-animate="fade-up-2">
+        
+        <div class="cs-value-card">
+         <img alt="" aria-hidden="true" class="cs-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">فقط بابت آنچه اجرا می‌شود بپردازید</h4>
+          <p class="hd-text-sm hd-text-muted">صورتحساب ساعتی با سقف ماهانهٔ شفاف. یک سرور را برای یک بعدازظهر روشن کنید یا تمام ماه اجرا کنید — حساب همیشه روشن است.</p>
+         </div>
+        </div>
+        
+        <div class="cs-value-card">
+         <img alt="" aria-hidden="true" class="cs-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">همه‌جا NVMe</h4>
+          <p class="hd-text-sm hd-text-muted">هر پلن با ذخیره‌سازی محلی NVMe پشتیبانی می‌شود. بدون دیسک مکانیکی و بدون محدودسازی IOPS — دیسک کم‌تأخیر و پایدار از کوچک‌ترین اندازه.</p>
+         </div>
+        </div>
+        
+        <div class="cs-value-card">
+         <img alt="" aria-hidden="true" class="cs-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">آماده در چند دقیقه</h4>
+          <p class="hd-text-sm hd-text-muted">یک ایمیج سیستم‌عامل و یک پلن انتخاب کنید و راه‌اندازی را بزنید. سرور شما به‌طور میانگین در کمتر از دو دقیقه با IPv4، IPv6 و دسترسی root بالا می‌آید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-value-card">
+         <img alt="" aria-hidden="true" class="cs-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">دسترسی root، سیستم‌عامل دلخواه</h4>
+          <p class="hd-text-sm hd-text-muted">دسترسی کامل root از همان بوت اول. اوبونتو، دبیان، AlmaLinux، Rocky یا ایمیج سفارشی خود را بیاورید — هسته را تنظیم کنید و هرچه خواستید نصب کنید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-value-card">
+         <img alt="" aria-hidden="true" class="cs-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">شبکه به‌صورت پیش‌فرض</h4>
+          <p class="hd-text-sm hd-text-muted">یک IPv4 عمومی به‌علاوهٔ IPv6 با هر سرور، شبکهٔ خصوصی بین سرورها و ترافیک خروجی تحت سهمیهٔ منصفانه.</p>
+         </div>
+        </div>
+        
+        <div class="cs-value-card">
+         <img alt="" aria-hidden="true" class="cs-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">اسنپ‌شات و پشتیبان‌گیری</h4>
+          <p class="hd-text-sm hd-text-muted">پیش از تغییرات پرریسک از سرور اسنپ‌شات بگیرید و در چند ثانیه بازگردانید. پشتیبان‌گیری خودکار به‌عنوان افزونه برای بارهای کاری تولیدی در دسترس است.</p>
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_addons">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">هرچه لازم دارید متصل کنید</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>سرورتان را با <span class="hd-text-secondary">افزونه‌ها کامل کنید</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">هر سرور آمادهٔ اجرا تحویل می‌شود؛ باقی را هر زمان لازم شد از پنل یا API متصل کنید.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="cs-addon-grid" data-hd-animate="fade-up-2">
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">ذخیره‌سازی بلوکی</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">والیوم‌های اضافهٔ مبتنی بر NVMe متصل کنید و بدون دست‌زدن به دیسک ریشه آن‌ها را تغییر اندازه دهید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">اسنپ‌شات</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">ایمیج لحظه‌ای از سرور بگیرید و هر زمان خواستید بازگردانید یا کلون کنید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">پشتیبان‌گیری زمان‌بندی‌شده</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">پشتیبان‌گیری خودکار روزانه یا هفتگی با نگه‌داری تحت کنترل شما — یک‌بار تنظیم کنید و فراموش کنید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">Floating IP</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">یک IPv4 عمومی را در چند ثانیه بین سرورها جابه‌جا کنید برای جابه‌جایی بدون قطعی و failover.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">فایروال ابری</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">قوانین ورودی/خروجی را برای هر سرور یا گروه از پنل تعریف کنید — بدون دستگاه اضافه.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">متعادل‌کنندهٔ بار</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">ترافیک را با بررسی سلامت و failover خودکار میان سرورها توزیع کنید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">شبکهٔ خصوصی</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">پیوند خصوصی ایزوله بین سرورها — ترافیک پایگاه‌داده و اپ را از شبکهٔ عمومی دور نگه دارید.</p>
+         </div>
+        </div>
+        
+        <div class="cs-addon-card">
+         <span class="cs-addon-mark" aria-hidden="true">
+          <img alt="" class="cs-addon-mark-icon" loading="lazy" src="../../img/icons/plus.svg"/>
+         </span>
+         <div>
+          <h3 class="hd-h6">مانیتورینگ و هشدار</h3>
+          <div class="hd-vspace-xxs"></div>
+          <p class="hd-text-sm hd-text-muted">CPU، حافظه، دیسک و پهنای‌باند را با آستانه‌های هشدار متصل به اعلان‌هایتان دنبال کنید.</p>
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_usecases hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">ساخته‌شده برای</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>یک پلتفرم، <span class="hd-text-secondary">بارهای کاری متنوع</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">سرور ابری متناسب با شکل هر چیزی که اجرا می‌کنید</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="cs-usecase-grid" data-hd-animate="fade-up-2">
+        
+        <div class="cs-usecase-card">
+         <h3 class="hd-h6">وب‌اپ و API</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">میزبانی وب‌سرور، API و بک‌اند SaaS با امکان مقیاس افقی پشت یک متعادل‌کنندهٔ بار.</p>
+        </div>
+        
+        <div class="cs-usecase-card">
+         <h3 class="hd-h6">پایگاه‌داده</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">اجرای PostgreSQL، MySQL، MongoDB یا Redis روی پلن‌های بهینهٔ حافظه با NVMe سریع و IOPS قابل‌پیش‌بینی.</p>
+        </div>
+        
+        <div class="cs-usecase-card">
+         <h3 class="hd-h6">توسعه و استیجینگ</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">محیط‌های یک‌بارمصرف را ساعتی بالا بیاورید. از یک حالت سالم اسنپ‌شات بگیرید، از آن شاخه بزنید و پس از اتمام حذف کنید.</p>
+        </div>
+        
+        <div class="cs-usecase-card">
+         <h3 class="hd-h6">CI و کارهای دسته‌ای</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">سرورهای بهینهٔ پردازنده را برای خط‌لوله‌های بیلد، پردازش داده و کارهای زمان‌بندی‌شده برست کنید — فقط بابت زمان اجرا بپردازید.</p>
+        </div>
+        
+        <div class="cs-usecase-card">
+         <h3 class="hd-h6">سرور بازی و رسانه</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">هسته‌های اختصاصی کم‌تأخیر و خروجی منصفانه، میزبانی سرور بازی و بک‌اند استریم را مقرون‌به‌صرفه و قابل‌پیش‌بینی می‌کند.</p>
+        </div>
+        
+        <div class="cs-usecase-card">
+         <h3 class="hd-h6">ابزارهای self-hosted</h3>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">GitLab، Nextcloud، استک مانیتورینگ یا VPN خودتان را با کنترل کامل root و سقف ماهانهٔ ثابت اجرا کنید.</p>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_compare">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>مقایسه با <span class="hd-text-secondary">سایر محصولات ما</span></h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">هر محصول وی‌کُر یک الگوی بار کاری متفاوت را پوشش می‌دهد</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="cs-compare-scroll" data-hd-animate="fade-up-2">
+        <table class="cs-compare-table">
+         <thead>
+          <tr>
+           <th scope="col">محصول</th><th scope="col">مناسب برای</th><th scope="col">زیرساخت</th><th scope="col">ذخیره‌سازی</th><th scope="col">صورتحساب</th>
+          </tr>
+         </thead>
+         <tbody>
+          
+          <tr class="cs-compare-highlight">
+           
+           <td data-label="محصول"><strong>سرور ابری</strong><div class="hd-text-tiny hd-text-muted">پردازش</div></td>
+           
+           <td data-label="مناسب برای">پردازش عمومی، وب‌اپ، بارهای برست، پایگاه‌داده</td>
+           
+           <td data-label="زیرساخت">VMهای چنداجاره‌ای، هایپروایزر مشترک</td>
+           
+           <td data-label="ذخیره‌سازی">ذخیره‌سازی بلوکی NVMe</td>
+           
+           <td data-label="صورتحساب">ساعتی، پرداخت به‌ازای مصرف</td>
+           
+          </tr>
+          
+          <tr class="">
+           
+           <td data-label="محصول">CaaS</td>
+           
+           <td data-label="مناسب برای">میزبانی SaaS، انطباق، توسعه/استیجینگ، CI/CD، داده‌های بزرگ، مهاجرت از VMware</td>
+           
+           <td data-label="زیرساخت">بِر‌متال اختصاصی، تک‌اجاره</td>
+           
+           <td data-label="ذخیره‌سازی">Ceph NVMe، تکرار ۳ برابر</td>
+           
+           <td data-label="صورتحساب">ماهانهٔ ثابت</td>
+           
+          </tr>
+          
+          <tr class="">
+           
+           <td data-label="محصول">Cloud HPC</td>
+           
+           <td data-label="مناسب برای">پردازش علمی، شبیه‌سازی، پژوهش، کارهای دسته‌ای</td>
+           
+           <td data-label="زیرساخت">بِر‌متال مدیریت‌شده با Slurm</td>
+           
+           <td data-label="ذخیره‌سازی">اسکرچ مشترک، NVMe</td>
+           
+           <td data-label="صورتحساب">ساعتی، پرداخت به‌ازای نود</td>
+           
+          </tr>
+          
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_regions hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">کم‌تأخیر از پایه</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>نزدیک به <span class="hd-text-secondary">کاربرانتان مستقر شوید.</span></h2>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <ul class="cs-regions" role="list" data-hd-animate="fade-up-2">
+        
+        <li class="cs-region">
+         <span class="cs-region-status cs-region-status--live">فعال</span>
+         <span class="cs-region-name hd-h6">تهران</span>
+         <span class="cs-region-code hd-text-tiny hd-text-muted">IR-CENTRAL</span>
+        </li>
+        
+        <li class="cs-region">
+         <span class="cs-region-status cs-region-status--soon">به‌زودی</span>
+         <span class="cs-region-name hd-h6">توسعهٔ برنامه‌ریزی‌شده</span>
+         <span class="cs-region-code hd-text-tiny hd-text-muted">IR-SOUTH</span>
+        </li>
+        
+        <li class="cs-region">
+         <span class="cs-region-status cs-region-status--soon">به‌زودی</span>
+         <span class="cs-region-name hd-h6">توسعهٔ برنامه‌ریزی‌شده</span>
+         <span class="cs-region-code hd-text-tiny hd-text-muted">IR-EAST</span>
+        </li>
+        
+       </ul>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_faq">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">پرسش‌های متداول</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-center">پاسخ پرسش‌های سرور ابری</h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center hd-text-muted">سرور ابری چیست، صورتحساب چگونه کار می‌کند و آیا مناسب بار کاری شماست</div>
+        <div class="hd-vspace-lg"></div>
+       </div>
+       <div class="hd-align-center">
+        <div class="cs-faq-box" x-data="{ active: null }">
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-0" aria-controls="cs-faq-panel-0"
+                  aria-expanded="false" :aria-expanded="active === 0"
+                  @click="active = (active === 0 ? null : 0)">
+           <div class="faq_question_header">
+            <div>سرور ابری چیست؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 0" :class="{ 'hd-faq-panel-open': active === 0 }" id="cs-faq-panel-0">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">سرور ابری یک <strong>ماشین مجازی</strong> است که روی زیرساخت پردازشی مشترک و مبتنی بر NVMe وی‌کُر اجرا می‌شود. vCPU، RAM و ذخیره‌سازی NVMe اختصاصی، یک IPv4 و IPv6 عمومی و دسترسی کامل root می‌گیرید — در چند دقیقه راه‌اندازی و ساعتی صورتحساب می‌شود.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-1" aria-controls="cs-faq-panel-1"
+                  aria-expanded="false" :aria-expanded="active === 1"
+                  @click="active = (active === 1 ? null : 1)">
+           <div class="faq_question_header">
+            <div>صورتحساب چگونه محاسبه می‌شود؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 1" :class="{ 'hd-faq-panel-open': active === 1 }" id="cs-faq-panel-1">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">سرورها تا زمانی که وجود دارند <strong>ساعتی صورتحساب می‌شوند</strong> و هزینه <strong>به یک سقف ماهانهٔ شفاف محدود است</strong> — پس سروری که تمام ماه روشن بماند هرگز بیش از قیمت ماهانه‌اش هزینه ندارد. رقم ساعتی و ماهانهٔ هر پلن در <a href="../../fa/pricing/#cloud-servers">صفحهٔ قیمت‌گذاری</a> آمده است.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-2" aria-controls="cs-faq-panel-2"
+                  aria-expanded="false" :aria-expanded="active === 2"
+                  @click="active = (active === 2 ? null : 2)">
+           <div class="faq_question_header">
+            <div>سرور ابری یا CaaS — کدام را لازم دارم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 2" :class="{ 'hd-faq-panel-open': active === 2 }" id="cs-faq-panel-2">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted"><strong>سرور ابری</strong> ماشین‌های مجازی ساعتیِ مجزا روی زیرساخت مشترک است — ایده‌آل برای پردازش عمومی، وب‌اپ و بارهای برست. <strong>CaaS</strong> یک ابر خصوصی کامل OpenStack روی بِر‌متال اختصاصی با قیمت ماهانهٔ ثابت می‌دهد — مناسب پلتفرم‌های پایدار، انطباق و اجرای تعداد زیادی VM. اگر فقط چند سرور می‌خواهید، از همین‌جا شروع کنید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-3" aria-controls="cs-faq-panel-3"
+                  aria-expanded="false" :aria-expanded="active === 3"
+                  @click="active = (active === 3 ? null : 3)">
+           <div class="faq_question_header">
+            <div>چقدر سریع می‌توانم یک سرور راه‌اندازی کنم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 3" :class="{ 'hd-faq-panel-open': active === 3 }" id="cs-faq-panel-3">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">بیشتر سرورها در <strong>کمتر از دو دقیقه</strong> بوت می‌شوند. یک ایمیج سیستم‌عامل و پلن انتخاب کنید، راه‌اندازی را بزنید و به‌محض پایان فرایند، IP عمومی و اطلاعات root را دریافت می‌کنید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-4" aria-controls="cs-faq-panel-4"
+                  aria-expanded="false" :aria-expanded="active === 4"
+                  @click="active = (active === 4 ? null : 4)">
+           <div class="faq_question_header">
+            <div>چه سیستم‌عامل‌هایی را می‌توانم اجرا کنم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 4" :class="{ 'hd-faq-panel-open': active === 4 }" id="cs-faq-panel-4">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">ایمیج‌های <strong>اوبونتو، دبیان، AlmaLinux، Rocky Linux و openSUSE</strong> را فراهم می‌کنیم و امکان بارگذاری <strong>ایمیج سفارشی</strong> هم هست. دسترسی کامل root دارید، پس بعد از بوت هرچه بخواهید نصب می‌کنید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-5" aria-controls="cs-faq-panel-5"
+                  aria-expanded="false" :aria-expanded="active === 5"
+                  @click="active = (active === 5 ? null : 5)">
+           <div class="faq_question_header">
+            <div>آیا IP اختصاصی می‌گیرم و خروجی چگونه است؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 5" :class="{ 'hd-faq-panel-open': active === 5 }" id="cs-faq-panel-5">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">هر سرور شامل <strong>یک IPv4 و IPv6 عمومی</strong> است. ترافیک خروجی تحت یک <strong>سهمیهٔ منصفانه</strong> است؛ فراتر از آن با نرخ ثابت و قابل‌پیش‌بینی به‌ازای هر گیگابایت محاسبه می‌شود. آدرس IPv4 اضافه به‌عنوان افزونه در دسترس است.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-6" aria-controls="cs-faq-panel-6"
+                  aria-expanded="false" :aria-expanded="active === 6"
+                  @click="active = (active === 6 ? null : 6)">
+           <div class="faq_question_header">
+            <div>آیا می‌توانم سرور را تغییر اندازه یا اسنپ‌شات بگیرم؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 6 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 6" :class="{ 'hd-faq-panel-open': active === 6 }" id="cs-faq-panel-6">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">بله. هر زمان می‌توانید از سرور <strong>اسنپ‌شات</strong> بگیرید و از آن بازگردانید یا کلون کنید، و وقتی از پلن فعلی فراتر رفتید می‌توانید به پلن بزرگ‌تر بروید. پشتیبان‌گیری خودکار زمان‌بندی‌شده برای بارهای تولیدی به‌عنوان افزونه موجود است.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="cs-faq-trigger-7" aria-controls="cs-faq-panel-7"
+                  aria-expanded="false" :aria-expanded="active === 7"
+                  @click="active = (active === 7 ? null : 7)">
+           <div class="faq_question_header">
+            <div>آیا API دارد؟</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 7 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 7" :class="{ 'hd-faq-panel-open': active === 7 }" id="cs-faq-panel-7">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">بله — هر کاری که در پنل ممکن است (راه‌اندازی، اسنپ‌شات، اتصال ذخیره‌سازی، حذف) از طریق <strong>API</strong> هم در دسترس است، تا بتوانید فرایند را خودکار و سرور ابری را به ابزار خودتان متصل کنید.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_cs_cta">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="cs-cta" data-hd-animate="fade-up">
+        <div class="cs-cta-grid-bg" aria-hidden="true"></div>
+        <div class="cs-cta-inner">
+         <div class="hd-badge hd-text-300">آمادهٔ راه‌اندازی؟</div>
+         <div class="hd-vspace-xs"></div>
+         <h2 class="cs-cta-heading">
+          سرور بعدی شما
+          <em>چند دقیقه فاصله دارد.</em>
+         </h2>
+         <div class="hd-vspace-sm"></div>
+         <div class="hd-text-muted hd-max-md">یک خانواده انتخاب کنید، اندازه را برگزینید و با دسترسی کامل root و صورتحساب ساعتی راه‌اندازی کنید. حساب‌های جدید با اعتبار راه‌اندازی شروع می‌کنند.</div>
+         <div class="hd-vspace-lg"></div>
+         <div class="hd-button-group hd-justify-center">
+          <a class="hd-button" href="../../fa/pricing/#cloud-servers">راه‌اندازی سرور</a>
+          <a class="hd-button hd-button-secondary" href="../../fa/contact">گفتگو با فروش</a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="لوگوی WECORE" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           HPC ابری، خصوصی و ترکیبی برای تیم‌های فنی
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          پلتفرم
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/">
+           خانه
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/product">
+           محصول
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/caas">
+           ابر خصوصی
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/hpc">
+           HPC ابری
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/apps">
+           اپلیکیشن‌ها
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/pricing/">
+           قیمت‌گذاری
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          شرکت
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/about">
+           درباره
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/contact">
+           تماس
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/demo">
+           درخواست دمو
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/articles">
+           مقالات
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          حساب کاربری
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../fa/sign-in">
+           ورود
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/sign-up">
+           ثبت‌نام
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/forgot-password">
+           فراموشی رمز عبور
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/subscribe">
+           اشتراک
+          </a>
+          
+          <a class="footer_nav-link" href="../../fa/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © کپی‌رایت ۲۰۲۶ |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE زیرساخت HPC ابری، خصوصی و ترکیبی را برای تیم‌های فنی فراهم می‌کند. شرایط استقرار، قیمت‌گذاری و دامنهٔ پشتیبانی در جریان مشاوره نهایی می‌شوند.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur"></div>
+  </div>
+ </body>
+</html>

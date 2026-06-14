@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster | WECORE</title>
+  <meta content="Short summary: Kubernetes-as-a-Service hands you production clusters from approved templates in minutes — a managed control plane, worker node groups you size yourself, and autohealing built in — so your team ships software instead of babysitting infrastructure." name="description"/>
+  <link href="https://wecore.ir/en/articles/kubernetes-as-a-service/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/articles/kubernetes-as-a-service/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/articles/kubernetes-as-a-service/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/articles/kubernetes-as-a-service/" hreflang="x-default" rel="alternate"/>
+  <meta content="KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster | WECORE" property="og:title"/>
+  <meta content="Short summary: Kubernetes-as-a-Service hands you production clusters from approved templates in minutes — a managed control plane, worker node groups you size yourself, and autohealing built in — so your team ships software instead of babysitting infrastructure." property="og:description"/>
+  <meta content="https://wecore.ir/en/articles/kubernetes-as-a-service/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="fa_IR" property="og:locale:alternate"/>
+  <meta content="KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster | WECORE" name="twitter:title"/>
+  <meta content="Short summary: Kubernetes-as-a-Service hands you production clusters from approved templates in minutes — a managed control plane, worker node groups you size yourself, and autohealing built in — so your team ships software instead of babysitting infrastructure." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../../vendor/fonts/geist/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  <script defer src="../../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../../en/">
+        <picture>
+         <source srcset="../../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../../en/">
+          Home
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            All Services
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              Products
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/hpc/">
+                 Cloud HPC
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Cloud, private &amp; hybrid HPC
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/data-lake.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/cloud-servers/">
+                 Cloud Server
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Self-serve virtual machines
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/caas/">
+                 Private Cloud
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Dedicated OpenStack cloud
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/ai-infra.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/kaas/">
+                 Kubernetes
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Managed K8s clusters
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/nav/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../../en/qsim/">
+                 Quantum Simulation
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 GPU quantum workflows
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Company
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/about/">
+               About
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/pricing/">
+               Pricing
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Plan
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Partnerships
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/subscribe/">
+               Subscribe
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Support
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/contact/">
+               Contact
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Resources
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/apps/">
+               Apps
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/articles/">
+               Blog
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Documentation
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Why WECORE
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Performance
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/#">
+               Sustainability
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../../en/product/">
+               Product
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../../en/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                Consult WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               Plan the right HPC, GPU, and AI deployment model
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../../fa/articles/kubernetes-as-a-service/">
+           Fa
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../../en/sign-up/">
+           Register / Login
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="Key Features">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            Key Features
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Cloud, private, and hybrid HPC
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              GPU-ready environments
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Ready-to-run software
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Self-service workflows
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Expert deployment support
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../../fa/articles/kubernetes-as-a-service/" target="">
+         Fa
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../../en/sign-up/" target="">
+         Register / Login
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../../en/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+    
+    
+    
+    <section class="section_update_header">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="update_header_wrapper">
+         <a class="hd-button hd-button-secondary hd-button-icon" href="../../../en/articles/">
+          <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-left.svg"/>
+          <div>
+           All Updates
+          </div>
+         </a>
+         <div class="hd-vspace-sm">
+         </div>
+         <h1>
+          KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster
+         </h1>
+         <div class="hd-vspace-sm">
+         </div>
+         <div>
+          Short summary: Kubernetes-as-a-Service hands you production clusters from approved templates in minutes — a managed control plane, worker node groups you size yourself, and autohealing built in — so your team ships software instead of babysitting infrastructure.
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+         <div class="updates-info">
+          <div class="updates_badge">
+           2026-06-13
+          </div>
+          <div class="hd-text-tiny">
+           
+            <strong>Author:</strong> WECORE Team &nbsp;•&nbsp;
+           
+
+           
+            
+             Cloud
+            
+             , Kubernetes
+            
+           
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="hd-vspace-lg">
+       </div>
+       
+       <img
+       alt="KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster"
+       class="update_header_image"
+       data-hd-animate="fade-up-2"
+       loading="lazy"
+       sizes="100vw"
+       src="../../../img/caas/hero-dc-engineer.jpg"
+       />
+       
+      </div>
+     </div>
+    </section>
+    <section class="section_update_content">
+     <div>
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <div class="update_content_wrapper">
+         <div class="text-rich-text hd-richtext">
+<p>
+Kubernetes won the orchestration war for a reason: it gives teams a single, declarative way to run containers across any infrastructure. But running Kubernetes <em>well</em> is a different job from running software <em>on</em> Kubernetes. Someone has to patch etcd, plan version upgrades, watch the API server at 3am, and keep the control plane healthy through every node failure. That is the operational tax — and for most organizations it is pure overhead.
+</p>
+<p>
+<strong>Kubernetes-as-a-Service (KaaS)</strong> removes that tax. Instead of standing up and operating clusters yourself, you get production-ready Kubernetes delivered from approved templates in minutes: a highly available managed control plane, worker node groups you size yourself, and add-ons like autohealing and monitoring switched on with a click. We run the control plane; you run your workloads.
+</p>
+<h2>
+What "as a Service" actually removes
+</h2>
+<p>
+The promise of KaaS is not "Kubernetes, but easier." It is the elimination of an entire category of work. In practice that means:
+</p>
+<ul role="list">
+<li>
+<strong>
+No control-plane operations
+</strong>
+— etcd, the API server, and the scheduler are run, patched, and upgraded for you, with no tenant downtime and a 99.95% control-plane SLA.
+</li>
+<li>
+<strong>
+No upgrade weekends
+</strong>
+— version upgrades are orchestrated for you. Only catalog-approved, non-deprecated Kubernetes versions are ever offered, so you never run something unsupported.
+</li>
+<li>
+<strong>
+No surprise capacity failures
+</strong>
+— preflight checks validate catalog, quota, wallet, and runtime health before a single resource is provisioned, with cost and capacity estimates shown up front.
+</li>
+<li>
+<strong>
+No manual certificate wrangling
+</strong>
+— a scoped, refresh-safe kubeconfig is generated the moment provisioning finishes. Point <code>kubectl</code> at it and deploy.
+</li>
+<li>
+<strong>
+No 3am pages for failed nodes
+</strong>
+— autohealing repairs unhealthy nodes automatically, and built-in monitoring keeps workloads online without manual intervention.
+</li>
+</ul>
+<h2>
+From template to running cluster in five steps
+</h2>
+<p>
+Speed is the headline benefit, and it comes from a guided, fully validated workflow rather than a pile of YAML. A new cluster goes live through five steps:
+</p>
+<ol role="list">
+<li>
+<strong>
+Template:
+</strong>
+Name the cluster and pick an approved template — Kubernetes versions and control-plane sizes come straight from the catalog.
+</li>
+<li>
+<strong>
+Topology:
+</strong>
+Choose the control-plane size and define worker node groups by name, machine size, and desired count.
+</li>
+<li>
+<strong>
+Add-ons &amp; Access:
+</strong>
+Toggle autohealing and monitoring; kubeconfig access is generated automatically once the cluster is live.
+</li>
+<li>
+<strong>
+Schedule &amp; Cost:
+</strong>
+Preflight estimates worker capacity, quota, and wallet readiness before you commit.
+</li>
+<li>
+<strong>
+Review &amp; Launch:
+</strong>
+Confirm the summary and launch. The cluster appears in your activity feed and you watch it move from Reconciling to Ready in real time.
+</li>
+</ol>
+<p>
+Every field is validated again server-side, so what works in the wizard works in production.
+</p>
+<figure class="hd-richtext-align-fullwidth hd-richtext-figure-image" style="max-width:1212px">
+<div>
+<img alt="Managed Kubernetes deployment" loading="lazy" src="../../../img/hpc/deployment-banner.avif"/>
+</div>
+</figure>
+<h2>
+Where teams put KaaS to work
+</h2>
+<p>
+Because a cluster is now a few minutes away instead of a multi-week project, KaaS reshapes how teams build. The common applications:
+</p>
+<ul role="list">
+<li>
+<strong>
+Microservices platforms
+</strong>
+— run dozens of independently deployable services with the rolling updates, service discovery, and self-healing Kubernetes is built for.
+</li>
+<li>
+<strong>
+CI/CD and ephemeral environments
+</strong>
+— spin up a real cluster per branch or per release, run the pipeline, and tear it down — no shared-environment contention.
+</li>
+<li>
+<strong>
+Autoscaling web and API workloads
+</strong>
+— absorb traffic spikes by scaling pods and node groups, then scale back down to control cost.
+</li>
+<li>
+<strong>
+Multi-tenant SaaS
+</strong>
+— isolate customers across namespaces and node groups on a control plane you never have to operate.
+</li>
+<li>
+<strong>
+Migration off bespoke infrastructure
+</strong>
+— move container workloads onto a standardized, supported platform instead of a snowflake stack only one engineer understands.
+</li>
+<li>
+<strong>
+Batch, data, and event-driven jobs
+</strong>
+— schedule heterogeneous workloads across mixed worker node groups sized for the job.
+</li>
+</ul>
+<h2>
+What you operate vs. what we run
+</h2>
+<p>
+The dividing line is deliberately clean. <strong>WECORE manages</strong> the Kubernetes control plane — etcd, the API server, and the scheduler — along with version upgrades, node autohealing, and 24/7 monitoring and incident response. <strong>You manage</strong> your workloads, namespaces, deployments, services, and the sizing of your worker node groups. You keep full <code>kubectl</code> control of everything that matters to your application, and hand off everything that does not.
+</p>
+<blockquote>
+“The point of Kubernetes-as-a-Service isn’t to hide Kubernetes — it’s to give you all of its power with none of the 3am control-plane pages. You ship; we keep the lights on.”
+</blockquote>
+<p>
+That is the shift KaaS delivers: clusters in minutes, supported versions by default, and an operational burden that simply moves off your team’s plate. Try the full create flow in the live demo, then launch a real cluster in WECORE Hub — your first control plane is free for 30 days on new clusters with code <strong>KUBE30</strong>.
+</p>
+
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    <section class="section_update_related">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="hd-container-md" data-hd-animate="fade-up">
+        <h2 class="hd-h4">
+         Related posts
+        </h2>
+        <div class="hd-vspace-xs">
+        </div>
+        <div class="updates_feed_grid" role="list">
+         
+         <a class="updates_feed_card" href="../../../en/articles/cloud-hpc-guide/" role="listitem">
+ <img alt="Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/hpc/hero-workload-1.avif"/>
+ <div class="updates_feed_content">
+  <div>
+   <h3 class="hd-h5">Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era</h3>
+   <div class="hd-vspace-xxs"></div>
+   <div class="hd-text-secondary articles_excerpt">What is HPC, how does it differ from supercomputers, and why is cloud HPC reshaping research, science, and industry? A deep dive into the technology, the market, and the WECORE approach.</div>
+   <div class="hd-vspace-xxs"></div>
+   <div class="updates-info">
+    <div class="updates_badge">June 13, 2026</div>
+    <div class="hd-text-tiny">HPC</div>
+   </div>
+   <div class="hd-vspace-xxs"></div>
+  </div>
+  <div class="hd-button hd-button-link">
+   <div>Read more</div>
+   <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-right-sm.svg"/>
+  </div>
+ </div>
+</a>
+
+         
+         <a class="updates_feed_card" href="../../../en/articles/cloud-servers/" role="listitem">
+ <img alt="Cloud Servers: Compute in Minutes — Now with Cloud GPU" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/product/premium.jpg"/>
+ <div class="updates_feed_content">
+  <div>
+   <h3 class="hd-h5">Cloud Servers: Compute in Minutes — Now with Cloud GPU</h3>
+   <div class="hd-vspace-xxs"></div>
+   <div class="hd-text-secondary articles_excerpt">Short summary: Spin up an NVMe-backed virtual machine in under two minutes, pay by the hour, and keep full root access — and when a job needs acceleration, launch a Cloud GPU server with A10, L40S, or A100 cards from the same module.</div>
+   <div class="hd-vspace-xxs"></div>
+   <div class="updates-info">
+    <div class="updates_badge">June 13, 2026</div>
+    <div class="hd-text-tiny">Cloud</div>
+   </div>
+   <div class="hd-vspace-xxs"></div>
+  </div>
+  <div class="hd-button hd-button-link">
+   <div>Read more</div>
+   <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../../img/icons/arrow-right-sm.svg"/>
+  </div>
+ </div>
+</a>
+
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="WECORE Logo" loading="lazy" src="../../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           Cloud, private, and hybrid HPC for technical teams
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Platform
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../../en/">
+           Home
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/product">
+           Product
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/caas">
+           CaaS
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/hpc">
+           Cloud HPC
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/apps">
+           Apps
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/pricing/">
+           Pricing
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Company
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../../en/about">
+           About
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/contact">
+           Contact
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/demo">
+           Request Demo
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/articles">
+           Articles
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Account
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../../en/sign-in">
+           Sign in
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/sign-up">
+           Sign up
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/forgot-password">
+           Forgot Password
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/subscribe">
+           Subscribe
+          </a>
+          
+          <a class="footer_nav-link" href="../../../en/404.html">
+           404
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © Copyright 2026 |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE provides cloud, private, and hybrid HPC infrastructure for technical teams. Deployment terms, pricing, and support scope are confirmed during consultation.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur">
+    <div class="hd-embed">
+     <style>
+      .bottom-blur {
+backdrop-filter: blur(7px);
+background-image: linear-gradient(#fff0, #ffffff00 90%, #fff);
+mask-image: linear-gradient(#0000,10%,#fff 40% 100%);
+pointer-events:none;
+}
+     </style>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

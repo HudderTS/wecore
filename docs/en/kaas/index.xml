@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>KaaS on WECORE</title>
-		<link>http://localhost:1313/en/kaas/</link>
+		<link>https://wecore.ir/en/kaas/</link>
 		<description>Recent content in KaaS on WECORE</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -10,6 +10,6 @@
 		
 		
 		
-			<atom:link href="http://localhost:1313/en/kaas/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://wecore.ir/en/kaas/index.xml" rel="self" type="application/rss+xml" />
 	</channel>
 </rss>

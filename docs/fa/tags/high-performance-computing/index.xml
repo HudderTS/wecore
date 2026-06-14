@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>High-Performance Computing on وِی‌کُر</title>
-		<link>http://localhost:1313/fa/tags/high-performance-computing/</link>
+		<link>https://wecore.ir/fa/tags/high-performance-computing/</link>
 		<description>Recent content in High-Performance Computing on وِی‌کُر</description>
 		<generator>Hugo</generator>
 		<language>fa</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/fa/tags/high-performance-computing/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://wecore.ir/fa/tags/high-performance-computing/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>HPC ابری: راهنمای قطعی محاسبات با کارایی بالا در عصر ابر</title>
-				<link>http://localhost:1313/fa/articles/cloud-hpc-guide/</link>
+				<link>https://wecore.ir/fa/articles/cloud-hpc-guide/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/fa/articles/cloud-hpc-guide/</guid>
+				<guid>https://wecore.ir/fa/articles/cloud-hpc-guide/</guid>
 				<description>&lt;p&gt;&#xA;محاسبات با کارایی بالا زمانی فقط یک معنا داشت: یک ابرکامپیوتر به اندازهٔ یک اتاق که تنها دولت‌ها و شرکت‌های فهرست Fortune 500 از پس هزینه‌اش برمی‌آمدند. آن دوران به سر آمده است. امروز، HPC یک بازار جهانیِ رو به رشد سریع است — که پیش‌بینی می‌شود تا سال ۲۰۳۱ با نرخ رشد مرکب سالانهٔ &lt;strong&gt;۷.۷۹٪&lt;/strong&gt; به &lt;strong&gt;۸۷.۵ میلیارد دلار&lt;/strong&gt; برسد (Mordor Intelligence، ۲۰۲۶) — و فناوری ابری مهم‌ترین دلیلِ یگانهٔ آن است.&#xA;&lt;/p&gt;</description>
 			</item>
 	</channel>

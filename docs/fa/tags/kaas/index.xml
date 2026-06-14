@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>KaaS on وِی‌کُر</title>
-		<link>http://localhost:1313/fa/tags/kaas/</link>
+		<link>https://wecore.ir/fa/tags/kaas/</link>
 		<description>Recent content in KaaS on وِی‌کُر</description>
 		<generator>Hugo</generator>
 		<language>fa</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/fa/tags/kaas/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://wecore.ir/fa/tags/kaas/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>KaaS به زبان ساده: کوبرنتیز به‌عنوان سرویس چگونه به سازمان‌ها کمک می‌کند سریع‌تر منتشر کنند</title>
-				<link>http://localhost:1313/fa/articles/kubernetes-as-a-service/</link>
+				<link>https://wecore.ir/fa/articles/kubernetes-as-a-service/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/fa/articles/kubernetes-as-a-service/</guid>
+				<guid>https://wecore.ir/fa/articles/kubernetes-as-a-service/</guid>
 				<description>&lt;p&gt;&#xA;کوبرنتیز بی‌دلیل برندهٔ نبرد ارکستریشن نشد: به تیم‌ها یک راه واحد و اعلامی می‌دهد تا کانتینرها را روی هر زیرساختی اجرا کنند. اما اجرای &lt;em&gt;خودِ&lt;/em&gt; کوبرنتیز به‌خوبی، کاری کاملاً متفاوت از اجرای نرم‌افزار &lt;em&gt;روی&lt;/em&gt; کوبرنتیز است. کسی باید etcd را وصله کند، ارتقای نسخه‌ها را برنامه‌ریزی کند، نیمه‌شب مراقب API server باشد و کنترل‌پلین را در هر خرابیِ نود سالم نگه دارد. این همان هزینهٔ عملیاتی است — و برای بیشتر سازمان‌ها سربارِ خالص محسوب می‌شود.&#xA;&lt;/p&gt;</description>
 			</item>
 	</channel>

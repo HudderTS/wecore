@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Managed Cloud on WECORE</title>
-		<link>http://localhost:1313/en/tags/managed-cloud/</link>
+		<link>https://wecore.ir/en/tags/managed-cloud/</link>
 		<description>Recent content in Managed Cloud on WECORE</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/en/tags/managed-cloud/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://wecore.ir/en/tags/managed-cloud/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster</title>
-				<link>http://localhost:1313/en/articles/kubernetes-as-a-service/</link>
+				<link>https://wecore.ir/en/articles/kubernetes-as-a-service/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/en/articles/kubernetes-as-a-service/</guid>
+				<guid>https://wecore.ir/en/articles/kubernetes-as-a-service/</guid>
 				<description>&lt;p&gt;&#xA;Kubernetes won the orchestration war for a reason: it gives teams a single, declarative way to run containers across any infrastructure. But running Kubernetes &lt;em&gt;well&lt;/em&gt; is a different job from running software &lt;em&gt;on&lt;/em&gt; Kubernetes. Someone has to patch etcd, plan version upgrades, watch the API server at 3am, and keep the control plane healthy through every node failure. That is the operational tax — and for most organizations it is pure overhead.&#xA;&lt;/p&gt;</description>
 			</item>
 	</channel>

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const closeButton = modal.querySelector(".video-modal-close");
   const backdrop = modal.querySelector(".video-modal-bg");
+  const content = modal.querySelector(".video-modal-content");
   const focusableSelector = [
     "a[href]",
     "button:not([disabled])",
@@ -52,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
   trigger.addEventListener("click", openModal);
   if (closeButton) closeButton.addEventListener("click", closeModal);
   if (backdrop) backdrop.addEventListener("click", closeModal);
+  // Tap/click anywhere outside the video content closes the modal. Listening on
+  // the modal overlay (not just the thin backdrop layer) catches the flex
+  // padding around the content too, so "empty space" taps on mobile work.
+  modal.addEventListener("click", function (event) {
+    if (content && !content.contains(event.target)) closeModal();
+  });
   modal.addEventListener("keydown", trapFocus);
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && !modal.hidden) closeModal();

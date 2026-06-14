@@ -2684,18 +2684,33 @@
    const mobileViewport = window.matchMedia('(max-width: 767px)').matches;
    
    
-   if (canvas && !mobileViewport) {
+   
+   
+   
+   
+   if (canvas) {
     try {
      const { createSolarSystem } = await import('/js/solar-system.js');
-     const app = createSolarSystem(canvas, { reduceMotion });
+     const sceneOpts = mobileViewport
+       ? { reduceMotion, interactive: false, pixelRatioCap: 1.5, sphereSegments: 24, moonSegments: 16, starCount: 1200, antialias: false }
+       : { reduceMotion };
+     const app = createSolarSystem(canvas, sceneOpts);
+     
+     
+     const reveal = () => { if (visual) visual.setAttribute('data-solar-active', 'true'); };
      
      
      if (reduceMotion) {
       app.start();
+      reveal();
      } else {
       
+      let revealed = false;
       const io = new IntersectionObserver((entries) => {
-       entries.forEach((e) => (e.isIntersecting ? app.start() : app.stop()));
+       entries.forEach((e) => {
+        if (e.isIntersecting) { app.start(); if (!revealed) { revealed = true; reveal(); } }
+        else app.stop();
+       });
       }, { threshold: 0.01 });
       io.observe(canvas);
      }
@@ -2703,8 +2718,6 @@
      
      if (visual) visual.setAttribute('data-solar-unavailable', 'true');
     }
-   } else if (canvas) {
-    if (visual) visual.setAttribute('data-solar-fallback', 'true');
    }
   </script>
  </body>

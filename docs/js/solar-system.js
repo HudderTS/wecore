@@ -225,6 +225,18 @@ export function createSolarSystem(canvas, opts = {}) {
   const daysPerSecond = opts.timeScale ?? 9;     // sim-time compression
   const dprCap = opts.pixelRatioCap ?? 2;
 
+  // Detail budget — defaults match the original desktop scene. Mobile passes
+  // lower values (fewer sphere segments, fewer stars, MSAA off) so the WebGL
+  // hero stays smooth and battery-friendly on phones.
+  const sphereSegments = opts.sphereSegments ?? 48;
+  const moonSegments = opts.moonSegments ?? 24;
+  const starCount = opts.starCount ?? 2600;
+  const antialias = opts.antialias ?? true;
+  // interactive:false keeps the scene auto-rotating but disables pointer/touch
+  // orbit. On the large mobile hero this is essential — OrbitControls otherwise
+  // forces touch-action:none and traps page scrolling under the canvas.
+  const interactive = opts.interactive ?? true;
+
   const disposables = []; // geometries / materials / textures to free on dispose()
   const track = (obj) => { disposables.push(obj); return obj; };
 
@@ -250,7 +262,7 @@ export function createSolarSystem(canvas, opts = {}) {
   camera.position.set(0, 16, 30);
   camera.lookAt(0, 0, 0);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
   renderer.setSize(w0, h0, false);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -274,6 +286,14 @@ export function createSolarSystem(canvas, opts = {}) {
   controls.autoRotate = !reduceMotion;
   controls.autoRotateSpeed = 0.35;
 
+  // Non-interactive mode (mobile): kill user orbit but let autoRotate keep
+  // running via controls.update(). OrbitControls.connect() set touch-action to
+  // 'none'; restore vertical panning so the page scrolls under the hero canvas.
+  if (!interactive) {
+    controls.enabled = false;
+    renderer.domElement.style.touchAction = 'pan-y';
+  }
+
   // ── Lights ────────────────────────────────────────────────────────────────
   // The planet shader computes its own Sun-facing terminator from world space so
   // compressed distances never flatten the day/night boundary. This light keeps
@@ -283,7 +303,7 @@ export function createSolarSystem(canvas, opts = {}) {
   scene.add(new THREE.AmbientLight(0xddefff, 0.08));
 
   // ── Sun ─────────────────────────────────────────────────────────────────────
-  const sunGeo = track(new THREE.SphereGeometry(SUN_RADIUS, 48, 48));
+  const sunGeo = track(new THREE.SphereGeometry(SUN_RADIUS, sphereSegments, sphereSegments));
   const sunMat = track(new THREE.MeshBasicMaterial({ color: SUN_CORE }));
   scene.add(new THREE.Mesh(sunGeo, sunMat));
 
@@ -298,7 +318,7 @@ export function createSolarSystem(canvas, opts = {}) {
 
   // ── Starfield (deterministic) ────────────────────────────────────────────────
   const starRng = mulberry32(0x5ec0);
-  const STAR_COUNT = 2600;
+  const STAR_COUNT = starCount;
   const starPos = new Float32Array(STAR_COUNT * 3);
   for (let i = 0; i < STAR_COUNT; i++) {
     // uniform on a large sphere shell
@@ -345,7 +365,7 @@ export function createSolarSystem(canvas, opts = {}) {
     }));
     scene.add(new THREE.LineLoop(ringGeo, ringMat));
 
-    const geo = track(new THREE.SphereGeometry(radius, 48, 48));
+    const geo = track(new THREE.SphereGeometry(radius, sphereSegments, sphereSegments));
     const mat = track(makePlanetMaterial(def.color, def.kind));
     const mesh = new THREE.Mesh(geo, mat);
     spinPivot.quaternion.copy(tiltQuaternion);
@@ -378,7 +398,7 @@ export function createSolarSystem(canvas, opts = {}) {
   }
 
   // ── Moon (child of earthGroup) ────────────────────────────────────────────────
-  const moonGeo = track(new THREE.SphereGeometry(0.16, 24, 24));
+  const moonGeo = track(new THREE.SphereGeometry(0.16, moonSegments, moonSegments));
   const moonMat = track(new THREE.MeshStandardMaterial({ color: 0xcfcfcf, roughness: 1 }));
   const moon = new THREE.Mesh(moonGeo, moonMat);
   earthGroup.add(moon);

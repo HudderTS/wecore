@@ -124,9 +124,9 @@
   }
 
   /* Mobile hero: the grid has no fixed 50rem min-height here, so give the visual
-     an intrinsic aspect ratio and reveal the poster. This works even without JS
-     (CSS-only), while the index.html bootstrap independently skips the WebGL
-     import at this width. */
+     an intrinsic aspect ratio. The poster shows by default (instant first paint,
+     works with no JS); once the bootstrap brings the WebGL scene up it sets
+     [data-solar-active] and we swap the poster for the live, interactive canvas. */
   .home_hero_visual {
     aspect-ratio: 4 / 3;
     min-height: 0;
@@ -136,6 +136,12 @@
   }
   .home_hero_visual #hero-solar-canvas {
     display: none;
+  }
+  .home_hero_visual[data-solar-active="true"] .home_hero_poster {
+    display: none;
+  }
+  .home_hero_visual[data-solar-active="true"] #hero-solar-canvas {
+    display: block;
   }
 }
 

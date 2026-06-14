@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>خانه on وِی‌کُر</title>
-		<link>https://wecore.ir/fa/</link>
+		<link>http://localhost:1313/fa/</link>
 		<description>Recent content in خانه on وِی‌کُر</description>
 		<generator>Hugo</generator>
 		<language>fa</language>
@@ -12,26 +12,26 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://wecore.ir/fa/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/fa/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>HPC ابری: راهنمای قطعی محاسبات با کارایی بالا در عصر ابر</title>
-				<link>https://wecore.ir/fa/articles/cloud-hpc-guide/</link>
+				<link>http://localhost:1313/fa/articles/cloud-hpc-guide/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/fa/articles/cloud-hpc-guide/</guid>
+				<guid>http://localhost:1313/fa/articles/cloud-hpc-guide/</guid>
 				<description>&lt;p&gt;&#xA;محاسبات با کارایی بالا زمانی فقط یک معنا داشت: یک ابرکامپیوتر به اندازهٔ یک اتاق که تنها دولت‌ها و شرکت‌های فهرست Fortune 500 از پس هزینه‌اش برمی‌آمدند. آن دوران به سر آمده است. امروز، HPC یک بازار جهانیِ رو به رشد سریع است — که پیش‌بینی می‌شود تا سال ۲۰۳۱ با نرخ رشد مرکب سالانهٔ &lt;strong&gt;۷.۷۹٪&lt;/strong&gt; به &lt;strong&gt;۸۷.۵ میلیارد دلار&lt;/strong&gt; برسد (Mordor Intelligence، ۲۰۲۶) — و فناوری ابری مهم‌ترین دلیلِ یگانهٔ آن است.&#xA;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>KaaS به زبان ساده: کوبرنتیز به‌عنوان سرویس چگونه به سازمان‌ها کمک می‌کند سریع‌تر منتشر کنند</title>
-				<link>https://wecore.ir/fa/articles/kubernetes-as-a-service/</link>
+				<link>http://localhost:1313/fa/articles/kubernetes-as-a-service/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/fa/articles/kubernetes-as-a-service/</guid>
+				<guid>http://localhost:1313/fa/articles/kubernetes-as-a-service/</guid>
 				<description>&lt;p&gt;&#xA;کوبرنتیز بی‌دلیل برندهٔ نبرد ارکستریشن نشد: به تیم‌ها یک راه واحد و اعلامی می‌دهد تا کانتینرها را روی هر زیرساختی اجرا کنند. اما اجرای &lt;em&gt;خودِ&lt;/em&gt; کوبرنتیز به‌خوبی، کاری کاملاً متفاوت از اجرای نرم‌افزار &lt;em&gt;روی&lt;/em&gt; کوبرنتیز است. کسی باید etcd را وصله کند، ارتقای نسخه‌ها را برنامه‌ریزی کند، نیمه‌شب مراقب API server باشد و کنترل‌پلین را در هر خرابیِ نود سالم نگه دارد. این همان هزینهٔ عملیاتی است — و برای بیشتر سازمان‌ها سربارِ خالص محسوب می‌شود.&#xA;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>سرور ابری: محاسبات در چند دقیقه — حالا با GPU ابری</title>
-				<link>https://wecore.ir/fa/articles/cloud-servers/</link>
+				<link>http://localhost:1313/fa/articles/cloud-servers/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/fa/articles/cloud-servers/</guid>
+				<guid>http://localhost:1313/fa/articles/cloud-servers/</guid>
 				<description>&lt;p&gt;&#xA;گاهی به یک ابر خصوصی کامل یا یک پلتفرم مدیریت‌شدهٔ کوبرنتیز نیاز ندارید — فقط همین حالا به یک سرور نیاز دارید. &lt;strong&gt;سرورهای ابری WECORE&lt;/strong&gt; دقیقاً همین را تحویل می‌دهند: ماشین‌های مجازی با صورتحساب ساعتی روی زیرساخت مبتنی بر NVMe، با دسترسی کامل root، که در کمتر از دو دقیقه آماده می‌شوند. یک اندازه انتخاب کنید، یک ایمیج برگزینید، دکمهٔ راه‌اندازی را بزنید و فقط بابت آنچه روشن است بپردازید.&#xA;&lt;/p&gt;</description>
 			</item>
 	</channel>

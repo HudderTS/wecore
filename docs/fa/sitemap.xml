@@ -2,483 +2,483 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wecore.ir/fa/categories/</loc>
+    <loc>http://localhost:1313/fa/categories/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/categories/"
+                href="http://localhost:1313/fa/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/categories/"
+                href="http://localhost:1313/en/categories/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/categories/cloud/</loc>
+    <loc>http://localhost:1313/fa/categories/cloud/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/categories/cloud/"
+                href="http://localhost:1313/fa/categories/cloud/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/categories/cloud/"
+                href="http://localhost:1313/en/categories/cloud/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/cloud-gpu/</loc>
+    <loc>http://localhost:1313/fa/tags/cloud-gpu/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/cloud-gpu/"
+                href="http://localhost:1313/fa/tags/cloud-gpu/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/cloud-gpu/"
+                href="http://localhost:1313/en/tags/cloud-gpu/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/cloud-hpc/</loc>
+    <loc>http://localhost:1313/fa/tags/cloud-hpc/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/cloud-hpc/"
+                href="http://localhost:1313/fa/tags/cloud-hpc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/cloud-hpc/"
+                href="http://localhost:1313/en/tags/cloud-hpc/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/cloud-servers/</loc>
+    <loc>http://localhost:1313/fa/tags/cloud-servers/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/cloud-servers/"
+                href="http://localhost:1313/fa/tags/cloud-servers/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/cloud-servers/"
+                href="http://localhost:1313/en/tags/cloud-servers/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/high-performance-computing/</loc>
+    <loc>http://localhost:1313/fa/tags/high-performance-computing/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/high-performance-computing/"
+                href="http://localhost:1313/fa/tags/high-performance-computing/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/high-performance-computing/"
+                href="http://localhost:1313/en/tags/high-performance-computing/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/categories/hpc/</loc>
+    <loc>http://localhost:1313/fa/categories/hpc/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/categories/hpc/"
+                href="http://localhost:1313/fa/categories/hpc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/categories/hpc/"
+                href="http://localhost:1313/en/categories/hpc/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/articles/cloud-hpc-guide/</loc>
+    <loc>http://localhost:1313/fa/articles/cloud-hpc-guide/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/articles/cloud-hpc-guide/"
+                href="http://localhost:1313/fa/articles/cloud-hpc-guide/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/articles/cloud-hpc-guide/"
+                href="http://localhost:1313/en/articles/cloud-hpc-guide/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/categories/infrastructure/</loc>
+    <loc>http://localhost:1313/fa/categories/infrastructure/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/categories/infrastructure/"
+                href="http://localhost:1313/fa/categories/infrastructure/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/categories/infrastructure/"
+                href="http://localhost:1313/en/categories/infrastructure/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/kaas/</loc>
+    <loc>http://localhost:1313/fa/tags/kaas/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/kaas/"
+                href="http://localhost:1313/fa/tags/kaas/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/kaas/"
+                href="http://localhost:1313/en/tags/kaas/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/articles/kubernetes-as-a-service/</loc>
+    <loc>http://localhost:1313/fa/articles/kubernetes-as-a-service/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/articles/kubernetes-as-a-service/"
+                href="http://localhost:1313/fa/articles/kubernetes-as-a-service/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/articles/kubernetes-as-a-service/"
+                href="http://localhost:1313/en/articles/kubernetes-as-a-service/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/categories/kubernetes/</loc>
+    <loc>http://localhost:1313/fa/categories/kubernetes/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/categories/kubernetes/"
+                href="http://localhost:1313/fa/categories/kubernetes/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/categories/kubernetes/"
+                href="http://localhost:1313/en/categories/kubernetes/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/kubernetes/</loc>
+    <loc>http://localhost:1313/fa/tags/kubernetes/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/kubernetes/"
+                href="http://localhost:1313/fa/tags/kubernetes/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/kubernetes/"
+                href="http://localhost:1313/en/tags/kubernetes/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/managed-cloud/</loc>
+    <loc>http://localhost:1313/fa/tags/managed-cloud/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/managed-cloud/"
+                href="http://localhost:1313/fa/tags/managed-cloud/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/managed-cloud/"
+                href="http://localhost:1313/en/tags/managed-cloud/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/nvme/</loc>
+    <loc>http://localhost:1313/fa/tags/nvme/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/nvme/"
+                href="http://localhost:1313/fa/tags/nvme/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/nvme/"
+                href="http://localhost:1313/en/tags/nvme/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/openstack/</loc>
+    <loc>http://localhost:1313/fa/tags/openstack/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/openstack/"
+                href="http://localhost:1313/fa/tags/openstack/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/openstack/"
+                href="http://localhost:1313/en/tags/openstack/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/research/</loc>
+    <loc>http://localhost:1313/fa/tags/research/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/research/"
+                href="http://localhost:1313/fa/tags/research/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/research/"
+                href="http://localhost:1313/en/tags/research/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/slurm/</loc>
+    <loc>http://localhost:1313/fa/tags/slurm/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/slurm/"
+                href="http://localhost:1313/fa/tags/slurm/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/slurm/"
+                href="http://localhost:1313/en/tags/slurm/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/</loc>
+    <loc>http://localhost:1313/fa/tags/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/"
+                href="http://localhost:1313/fa/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/"
+                href="http://localhost:1313/en/tags/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/tags/virtual-machines/</loc>
+    <loc>http://localhost:1313/fa/tags/virtual-machines/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/tags/virtual-machines/"
+                href="http://localhost:1313/fa/tags/virtual-machines/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/tags/virtual-machines/"
+                href="http://localhost:1313/en/tags/virtual-machines/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/</loc>
+    <loc>http://localhost:1313/fa/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/"
+                href="http://localhost:1313/fa/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/"
+                href="http://localhost:1313/en/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/articles/cloud-servers/</loc>
+    <loc>http://localhost:1313/fa/articles/cloud-servers/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/articles/cloud-servers/"
+                href="http://localhost:1313/fa/articles/cloud-servers/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/articles/cloud-servers/"
+                href="http://localhost:1313/en/articles/cloud-servers/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/articles/</loc>
+    <loc>http://localhost:1313/fa/articles/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/articles/"
+                href="http://localhost:1313/fa/articles/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/articles/"
+                href="http://localhost:1313/en/articles/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/subscribe/</loc>
+    <loc>http://localhost:1313/fa/subscribe/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/subscribe/"
+                href="http://localhost:1313/fa/subscribe/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/subscribe/"
+                href="http://localhost:1313/en/subscribe/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/hpc/</loc>
+    <loc>http://localhost:1313/fa/hpc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/hpc/"
+                href="http://localhost:1313/fa/hpc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/hpc/"
+                href="http://localhost:1313/en/hpc/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/caas/</loc>
+    <loc>http://localhost:1313/fa/caas/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/caas/"
+                href="http://localhost:1313/fa/caas/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/caas/"
+                href="http://localhost:1313/en/caas/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/apps/</loc>
+    <loc>http://localhost:1313/fa/apps/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/apps/"
+                href="http://localhost:1313/fa/apps/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/apps/"
+                href="http://localhost:1313/en/apps/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/sign-up/</loc>
+    <loc>http://localhost:1313/fa/sign-up/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/sign-up/"
+                href="http://localhost:1313/fa/sign-up/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/sign-up/"
+                href="http://localhost:1313/en/sign-up/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/contact/</loc>
+    <loc>http://localhost:1313/fa/contact/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/contact/"
+                href="http://localhost:1313/fa/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/contact/"
+                href="http://localhost:1313/en/contact/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/about/</loc>
+    <loc>http://localhost:1313/fa/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/about/"
+                href="http://localhost:1313/fa/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/about/"
+                href="http://localhost:1313/en/about/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/demo/</loc>
+    <loc>http://localhost:1313/fa/demo/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/demo/"
+                href="http://localhost:1313/fa/demo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/demo/"
+                href="http://localhost:1313/en/demo/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/cloud-servers/</loc>
+    <loc>http://localhost:1313/fa/cloud-servers/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/cloud-servers/"
+                href="http://localhost:1313/fa/cloud-servers/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/cloud-servers/"
+                href="http://localhost:1313/en/cloud-servers/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/qsim/</loc>
+    <loc>http://localhost:1313/fa/qsim/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/qsim/"
+                href="http://localhost:1313/fa/qsim/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/qsim/"
+                href="http://localhost:1313/en/qsim/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/forgot-password/</loc>
+    <loc>http://localhost:1313/fa/forgot-password/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/forgot-password/"
+                href="http://localhost:1313/fa/forgot-password/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/forgot-password/"
+                href="http://localhost:1313/en/forgot-password/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/pricing/</loc>
+    <loc>http://localhost:1313/fa/pricing/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/pricing/"
+                href="http://localhost:1313/fa/pricing/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/pricing/"
+                href="http://localhost:1313/en/pricing/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/kaas/</loc>
+    <loc>http://localhost:1313/fa/kaas/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/kaas/"
+                href="http://localhost:1313/fa/kaas/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/kaas/"
+                href="http://localhost:1313/en/kaas/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/product/</loc>
+    <loc>http://localhost:1313/fa/product/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/product/"
+                href="http://localhost:1313/fa/product/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/product/"
+                href="http://localhost:1313/en/product/"
                 />
   </url><url>
-    <loc>https://wecore.ir/fa/sign-in/</loc>
+    <loc>http://localhost:1313/fa/sign-in/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa"
-                href="https://wecore.ir/fa/sign-in/"
+                href="http://localhost:1313/fa/sign-in/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wecore.ir/en/sign-in/"
+                href="http://localhost:1313/en/sign-in/"
                 />
   </url>
 </urlset>

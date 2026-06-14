@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>فراموشی رمز عبور on وِی‌کُر</title>
-		<link>https://wecore.ir/fa/forgot-password/</link>
+		<link>http://localhost:1313/fa/forgot-password/</link>
 		<description>Recent content in فراموشی رمز عبور on وِی‌کُر</description>
 		<generator>Hugo</generator>
 		<language>fa</language>
@@ -10,6 +10,6 @@
 		
 		
 		
-			<atom:link href="https://wecore.ir/fa/forgot-password/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/fa/forgot-password/index.xml" rel="self" type="application/rss+xml" />
 	</channel>
 </rss>

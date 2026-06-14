@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on WECORE</title>
-		<link>https://wecore.ir/en/tags/</link>
+		<link>http://localhost:1313/en/tags/</link>
 		<description>Recent content in Tags on WECORE</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,89 +12,89 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://wecore.ir/en/tags/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Cloud GPU</title>
-				<link>https://wecore.ir/en/tags/cloud-gpu/</link>
+				<link>http://localhost:1313/en/tags/cloud-gpu/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/cloud-gpu/</guid>
+				<guid>http://localhost:1313/en/tags/cloud-gpu/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Cloud HPC</title>
-				<link>https://wecore.ir/en/tags/cloud-hpc/</link>
+				<link>http://localhost:1313/en/tags/cloud-hpc/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/cloud-hpc/</guid>
+				<guid>http://localhost:1313/en/tags/cloud-hpc/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Cloud Servers</title>
-				<link>https://wecore.ir/en/tags/cloud-servers/</link>
+				<link>http://localhost:1313/en/tags/cloud-servers/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/cloud-servers/</guid>
+				<guid>http://localhost:1313/en/tags/cloud-servers/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>High-Performance Computing</title>
-				<link>https://wecore.ir/en/tags/high-performance-computing/</link>
+				<link>http://localhost:1313/en/tags/high-performance-computing/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/high-performance-computing/</guid>
+				<guid>http://localhost:1313/en/tags/high-performance-computing/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>KaaS</title>
-				<link>https://wecore.ir/en/tags/kaas/</link>
+				<link>http://localhost:1313/en/tags/kaas/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/kaas/</guid>
+				<guid>http://localhost:1313/en/tags/kaas/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Kubernetes</title>
-				<link>https://wecore.ir/en/tags/kubernetes/</link>
+				<link>http://localhost:1313/en/tags/kubernetes/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/kubernetes/</guid>
+				<guid>http://localhost:1313/en/tags/kubernetes/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Managed Cloud</title>
-				<link>https://wecore.ir/en/tags/managed-cloud/</link>
+				<link>http://localhost:1313/en/tags/managed-cloud/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/managed-cloud/</guid>
+				<guid>http://localhost:1313/en/tags/managed-cloud/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>NVMe</title>
-				<link>https://wecore.ir/en/tags/nvme/</link>
+				<link>http://localhost:1313/en/tags/nvme/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/nvme/</guid>
+				<guid>http://localhost:1313/en/tags/nvme/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>OpenStack</title>
-				<link>https://wecore.ir/en/tags/openstack/</link>
+				<link>http://localhost:1313/en/tags/openstack/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/openstack/</guid>
+				<guid>http://localhost:1313/en/tags/openstack/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Research</title>
-				<link>https://wecore.ir/en/tags/research/</link>
+				<link>http://localhost:1313/en/tags/research/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/research/</guid>
+				<guid>http://localhost:1313/en/tags/research/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Slurm</title>
-				<link>https://wecore.ir/en/tags/slurm/</link>
+				<link>http://localhost:1313/en/tags/slurm/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/slurm/</guid>
+				<guid>http://localhost:1313/en/tags/slurm/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Virtual Machines</title>
-				<link>https://wecore.ir/en/tags/virtual-machines/</link>
+				<link>http://localhost:1313/en/tags/virtual-machines/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/tags/virtual-machines/</guid>
+				<guid>http://localhost:1313/en/tags/virtual-machines/</guid>
 				<description></description>
 			</item>
 	</channel>

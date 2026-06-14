@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Blog on WECORE</title>
-		<link>https://wecore.ir/en/articles/</link>
+		<link>http://localhost:1313/en/articles/</link>
 		<description>Recent content in Blog on WECORE</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,26 +12,26 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://wecore.ir/en/articles/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/en/articles/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Cloud HPC: The Definitive Guide to High-Performance Computing in the Cloud Era</title>
-				<link>https://wecore.ir/en/articles/cloud-hpc-guide/</link>
+				<link>http://localhost:1313/en/articles/cloud-hpc-guide/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/articles/cloud-hpc-guide/</guid>
+				<guid>http://localhost:1313/en/articles/cloud-hpc-guide/</guid>
 				<description>&lt;p&gt;&#xA;High-performance computing used to mean one thing: a room-sized supercomputer that only governments and Fortune 500 companies could afford. That era is over. Today, HPC is a rapidly growing global market — projected to reach &lt;strong&gt;USD 87.5 billion by 2031&lt;/strong&gt; at a compound annual growth rate of &lt;strong&gt;7.79%&lt;/strong&gt; (Mordor Intelligence, 2026) — and cloud technology is the single biggest reason why.&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;But what exactly is HPC? How is it different from a supercomputer? And why are research labs, pharmaceutical companies, engineering firms, and AI startups all moving their most demanding workloads to the cloud? This guide answers all of that — and shows how WECORE&#39;s Slurm-based Cloud HPC platform brings enterprise-grade computing within reach of any team.&#xA;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Cloud Servers: Compute in Minutes — Now with Cloud GPU</title>
-				<link>https://wecore.ir/en/articles/cloud-servers/</link>
+				<link>http://localhost:1313/en/articles/cloud-servers/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/articles/cloud-servers/</guid>
+				<guid>http://localhost:1313/en/articles/cloud-servers/</guid>
 				<description>&lt;p&gt;&#xA;Sometimes you don&#39;t need a whole private cloud or a managed Kubernetes platform — you just need a server, right now. That is exactly what &lt;strong&gt;WECORE Cloud Servers&lt;/strong&gt; deliver: hourly-billed virtual machines on NVMe-backed infrastructure, with full root access, provisioned in under two minutes. Pick a size, choose an image, hit launch, and pay only for what runs.&#xA;&lt;/p&gt;&#xA;&lt;h2&gt;What is a Cloud Server?&lt;/h2&gt;&#xA;&lt;p&gt;&#xA;A Cloud Server is a virtual machine running on WECORE&#39;s shared, NVMe-backed compute. Every instance comes with dedicated vCPU, RAM, and local NVMe storage, a public IPv4 and IPv6, and full root from first boot. There is no provisioning queue and no ticket to file — you self-serve from the panel or the API and you are running in minutes.&#xA;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>KaaS Explained: How Kubernetes-as-a-Service Helps Organizations Ship Faster</title>
-				<link>https://wecore.ir/en/articles/kubernetes-as-a-service/</link>
+				<link>http://localhost:1313/en/articles/kubernetes-as-a-service/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://wecore.ir/en/articles/kubernetes-as-a-service/</guid>
+				<guid>http://localhost:1313/en/articles/kubernetes-as-a-service/</guid>
 				<description>&lt;p&gt;&#xA;Kubernetes won the orchestration war for a reason: it gives teams a single, declarative way to run containers across any infrastructure. But running Kubernetes &lt;em&gt;well&lt;/em&gt; is a different job from running software &lt;em&gt;on&lt;/em&gt; Kubernetes. Someone has to patch etcd, plan version upgrades, watch the API server at 3am, and keep the control plane healthy through every node failure. That is the operational tax — and for most organizations it is pure overhead.&#xA;&lt;/p&gt;</description>
 			</item>
 	</channel>

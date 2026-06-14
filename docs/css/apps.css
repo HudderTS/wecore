@@ -158,6 +158,13 @@
     transform var(--hd-transition);
 }
 
+/* Filtered-out cards. A class rule of equal specificity to .apps-card (and the
+   [hidden] UA rule) — declared here, after .apps-card, so it wins on source
+   order and actually removes the card from the grid flow. */
+.apps-card[hidden] {
+  display: none;
+}
+
 .apps-card:hover {
   border-color: var(--hd-color-neutral-400);
   box-shadow: var(--hd-shadow-md);

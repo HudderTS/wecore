@@ -67,6 +67,58 @@
 
 
 
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('appsCatalog', () => ({
+      active: 'all',
+      setFilter(next) {
+        if (next === this.active) return;
+        const grid = this.$refs.grid;
+        const cards = Array.from(grid.querySelectorAll('.apps-card'));
+        const matches = (c) => next === 'all' || c.dataset.cat === next;
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduce || !grid.animate) {
+          this.active = next;
+          cards.forEach((c) => { c.hidden = !matches(c); });
+          return;
+        }
+
+        
+        const first = new Map();
+        cards.forEach((c) => { if (!c.hidden) first.set(c, c.getBoundingClientRect()); });
+
+        
+        this.active = next;
+        cards.forEach((c) => { c.hidden = !matches(c); });
+
+        
+        cards.forEach((c) => {
+          if (c.hidden) return;
+          const last = c.getBoundingClientRect();
+          const prev = first.get(c);
+          if (prev) {
+            const dx = prev.left - last.left;
+            const dy = prev.top - last.top;
+            if (dx || dy) {
+              c.animate(
+                [{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'translate(0, 0)' }],
+                { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+              );
+            }
+          } else {
+            
+            c.animate(
+              [{ opacity: 0, transform: 'scale(0.96)' }, { opacity: 1, transform: 'scale(1)' }],
+              { duration: 260, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+            );
+          }
+        });
+      },
+    }));
+  });
+</script>
  <body>
   <div class="page-wrapper">
 
@@ -761,7 +813,7 @@
 
     
     
-    <section class="section_apps_catalog" id="catalog" x-data="{ active: 'all' }">
+    <section class="section_apps_catalog" id="catalog" x-data="appsCatalog">
      <div class="hd-section-md">
       <div class="hd-container">
        <div class="apps-section-heading" data-hd-animate="fade-up">
@@ -777,63 +829,63 @@
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'all' }"
                 :aria-pressed="active === 'all'"
-                @click="active = 'all'">همه</button>
+                @click="setFilter('all')">همه</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D8%B3%DB%8C%D8%A7%D9%84%D8%A7%D8%AA' }"
                 :aria-pressed="active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D8%B3%DB%8C%D8%A7%D9%84%D8%A7%D8%AA'"
-                @click="active = '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D8%B3%DB%8C%D8%A7%D9%84%D8%A7%D8%AA'">دینامیک سیالات</button>
+                @click="setFilter('%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D8%B3%DB%8C%D8%A7%D9%84%D8%A7%D8%AA')">دینامیک سیالات</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C' }"
                 :aria-pressed="active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C'"
-                @click="active = '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C'">دینامیک مولکولی</button>
+                @click="setFilter('%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C')">دینامیک مولکولی</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D8%B4%DB%8C%D9%85%DB%8C-%DA%A9%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%85%DB%8C' }"
                 :aria-pressed="active === '%D8%B4%DB%8C%D9%85%DB%8C-%DA%A9%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%85%DB%8C'"
-                @click="active = '%D8%B4%DB%8C%D9%85%DB%8C-%DA%A9%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%85%DB%8C'">شیمی کوانتومی</button>
+                @click="setFilter('%D8%B4%DB%8C%D9%85%DB%8C-%DA%A9%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%85%DB%8C')">شیمی کوانتومی</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D8%B9%D9%84%D9%85-%D9%85%D9%88%D8%A7%D8%AF' }"
                 :aria-pressed="active === '%D8%B9%D9%84%D9%85-%D9%85%D9%88%D8%A7%D8%AF'"
-                @click="active = '%D8%B9%D9%84%D9%85-%D9%85%D9%88%D8%A7%D8%AF'">علم مواد</button>
+                @click="setFilter('%D8%B9%D9%84%D9%85-%D9%85%D9%88%D8%A7%D8%AF')">علم مواد</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7' }"
                 :aria-pressed="active === '%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7'"
-                @click="active = '%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7'">فیزیک انرژی‌بالا</button>
+                @click="setFilter('%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7')">فیزیک انرژی‌بالا</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D9%87%D9%88%D8%A7-%D9%88-%D8%A7%D9%82%D9%84%DB%8C%D9%85' }"
                 :aria-pressed="active === '%D9%87%D9%88%D8%A7-%D9%88-%D8%A7%D9%82%D9%84%DB%8C%D9%85'"
-                @click="active = '%D9%87%D9%88%D8%A7-%D9%88-%D8%A7%D9%82%D9%84%DB%8C%D9%85'">هوا و اقلیم</button>
+                @click="setFilter('%D9%87%D9%88%D8%A7-%D9%88-%D8%A7%D9%82%D9%84%DB%8C%D9%85')">هوا و اقلیم</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C-%D9%88-fea' }"
                 :aria-pressed="active === '%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C-%D9%88-fea'"
-                @click="active = '%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C-%D9%88-fea'">مهندسی و FEA</button>
+                @click="setFilter('%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C-%D9%88-fea')">مهندسی و FEA</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === '%D9%85%D8%B5%D9%88%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C' }"
                 :aria-pressed="active === '%D9%85%D8%B5%D9%88%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C'"
-                @click="active = '%D9%85%D8%B5%D9%88%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C'">مصورسازی</button>
+                @click="setFilter('%D9%85%D8%B5%D9%88%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C')">مصورسازی</button>
         
        </div>
 
        <div class="hd-vspace-md"></div>
-       <div class="apps-grid" data-hd-animate="fade-up-2">
+       <div class="apps-grid" x-ref="grid" data-hd-animate="fade-up-2">
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D8%B3%DB%8C%D8%A7%D9%84%D8%A7%D8%AA'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D8%B3%DB%8C%D8%A7%D9%84%D8%A7%D8%AA">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-cfd" aria-hidden="true">OF</div>
           <span class="apps-status apps-status-available">در دسترس</span>
@@ -870,7 +922,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-md" aria-hidden="true">LM</div>
           <span class="apps-status apps-status-available">در دسترس</span>
@@ -907,7 +959,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9-%D9%85%D9%88%D9%84%DA%A9%D9%88%D9%84%DB%8C">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-md" aria-hidden="true">GX</div>
           <span class="apps-status apps-status-available">در دسترس</span>
@@ -944,7 +996,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D8%B4%DB%8C%D9%85%DB%8C-%DA%A9%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%85%DB%8C'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D8%B4%DB%8C%D9%85%DB%8C-%DA%A9%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%85%DB%8C">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-chem" aria-hidden="true">GA</div>
           <span class="apps-status apps-status-preview">پیش‌نمایش</span>
@@ -981,7 +1033,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D8%B9%D9%84%D9%85-%D9%85%D9%88%D8%A7%D8%AF'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D8%B9%D9%84%D9%85-%D9%85%D9%88%D8%A7%D8%AF">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-materials" aria-hidden="true">QE</div>
           <span class="apps-status apps-status-preview">پیش‌نمایش</span>
@@ -1018,7 +1070,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-hep" aria-hidden="true">G4</div>
           <span class="apps-status apps-status-preview">پیش‌نمایش</span>
@@ -1055,7 +1107,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D9%81%DB%8C%D8%B2%DB%8C%DA%A9-%D8%A7%D9%86%D8%B1%DA%98%DB%8C%D8%A8%D8%A7%D9%84%D8%A7">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-hep" aria-hidden="true">RT</div>
           <span class="apps-status apps-status-preview">پیش‌نمایش</span>
@@ -1092,7 +1144,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D9%85%D8%B5%D9%88%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D9%85%D8%B5%D9%88%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-viz" aria-hidden="true">PV</div>
           <span class="apps-status apps-status-preview">پیش‌نمایش</span>
@@ -1129,7 +1181,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D9%87%D9%88%D8%A7-%D9%88-%D8%A7%D9%82%D9%84%DB%8C%D9%85'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D9%87%D9%88%D8%A7-%D9%88-%D8%A7%D9%82%D9%84%DB%8C%D9%85">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-climate" aria-hidden="true">WR</div>
           <span class="apps-status apps-status-coming_soon">به‌زودی</span>
@@ -1166,7 +1218,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === '%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C-%D9%88-fea'" x-transition.opacity>
+        <article class="apps-card" data-cat="%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C-%D9%88-fea">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-fea" aria-hidden="true">AF</div>
           <span class="apps-status apps-status-coming_soon">به‌زودی</span>

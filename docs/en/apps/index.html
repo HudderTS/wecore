@@ -65,6 +65,58 @@
 
 
 
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('appsCatalog', () => ({
+      active: 'all',
+      setFilter(next) {
+        if (next === this.active) return;
+        const grid = this.$refs.grid;
+        const cards = Array.from(grid.querySelectorAll('.apps-card'));
+        const matches = (c) => next === 'all' || c.dataset.cat === next;
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduce || !grid.animate) {
+          this.active = next;
+          cards.forEach((c) => { c.hidden = !matches(c); });
+          return;
+        }
+
+        
+        const first = new Map();
+        cards.forEach((c) => { if (!c.hidden) first.set(c, c.getBoundingClientRect()); });
+
+        
+        this.active = next;
+        cards.forEach((c) => { c.hidden = !matches(c); });
+
+        
+        cards.forEach((c) => {
+          if (c.hidden) return;
+          const last = c.getBoundingClientRect();
+          const prev = first.get(c);
+          if (prev) {
+            const dx = prev.left - last.left;
+            const dy = prev.top - last.top;
+            if (dx || dy) {
+              c.animate(
+                [{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'translate(0, 0)' }],
+                { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+              );
+            }
+          } else {
+            
+            c.animate(
+              [{ opacity: 0, transform: 'scale(0.96)' }, { opacity: 1, transform: 'scale(1)' }],
+              { duration: 260, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+            );
+          }
+        });
+      },
+    }));
+  });
+</script>
  <body>
   <div class="page-wrapper">
 
@@ -759,7 +811,7 @@
 
     
     
-    <section class="section_apps_catalog" id="catalog" x-data="{ active: 'all' }">
+    <section class="section_apps_catalog" id="catalog" x-data="appsCatalog">
      <div class="hd-section-md">
       <div class="hd-container">
        <div class="apps-section-heading" data-hd-animate="fade-up">
@@ -775,63 +827,63 @@
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'all' }"
                 :aria-pressed="active === 'all'"
-                @click="active = 'all'">All</button>
+                @click="setFilter('all')">All</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'cfd' }"
                 :aria-pressed="active === 'cfd'"
-                @click="active = 'cfd'">CFD</button>
+                @click="setFilter('cfd')">CFD</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'molecular-dynamics' }"
                 :aria-pressed="active === 'molecular-dynamics'"
-                @click="active = 'molecular-dynamics'">Molecular Dynamics</button>
+                @click="setFilter('molecular-dynamics')">Molecular Dynamics</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'quantum-chemistry' }"
                 :aria-pressed="active === 'quantum-chemistry'"
-                @click="active = 'quantum-chemistry'">Quantum Chemistry</button>
+                @click="setFilter('quantum-chemistry')">Quantum Chemistry</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'materials-science' }"
                 :aria-pressed="active === 'materials-science'"
-                @click="active = 'materials-science'">Materials Science</button>
+                @click="setFilter('materials-science')">Materials Science</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'high-energy-physics' }"
                 :aria-pressed="active === 'high-energy-physics'"
-                @click="active = 'high-energy-physics'">High-Energy Physics</button>
+                @click="setFilter('high-energy-physics')">High-Energy Physics</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'weather-climate' }"
                 :aria-pressed="active === 'weather-climate'"
-                @click="active = 'weather-climate'">Weather &amp; Climate</button>
+                @click="setFilter('weather-climate')">Weather &amp; Climate</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'engineering-fea' }"
                 :aria-pressed="active === 'engineering-fea'"
-                @click="active = 'engineering-fea'">Engineering &amp; FEA</button>
+                @click="setFilter('engineering-fea')">Engineering &amp; FEA</button>
         
         
         <button type="button" class="apps-filter-chip"
                 :class="{ 'apps-filter-chip-active': active === 'visualization' }"
                 :aria-pressed="active === 'visualization'"
-                @click="active = 'visualization'">Visualization</button>
+                @click="setFilter('visualization')">Visualization</button>
         
        </div>
 
        <div class="hd-vspace-md"></div>
-       <div class="apps-grid" data-hd-animate="fade-up-2">
+       <div class="apps-grid" x-ref="grid" data-hd-animate="fade-up-2">
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'cfd'" x-transition.opacity>
+        <article class="apps-card" data-cat="cfd">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-cfd" aria-hidden="true">OF</div>
           <span class="apps-status apps-status-available">Available</span>
@@ -868,7 +920,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'molecular-dynamics'" x-transition.opacity>
+        <article class="apps-card" data-cat="molecular-dynamics">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-md" aria-hidden="true">LM</div>
           <span class="apps-status apps-status-available">Available</span>
@@ -905,7 +957,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'molecular-dynamics'" x-transition.opacity>
+        <article class="apps-card" data-cat="molecular-dynamics">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-md" aria-hidden="true">GX</div>
           <span class="apps-status apps-status-available">Available</span>
@@ -942,7 +994,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'quantum-chemistry'" x-transition.opacity>
+        <article class="apps-card" data-cat="quantum-chemistry">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-chem" aria-hidden="true">GA</div>
           <span class="apps-status apps-status-preview">Preview</span>
@@ -979,7 +1031,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'materials-science'" x-transition.opacity>
+        <article class="apps-card" data-cat="materials-science">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-materials" aria-hidden="true">QE</div>
           <span class="apps-status apps-status-preview">Preview</span>
@@ -1016,7 +1068,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'high-energy-physics'" x-transition.opacity>
+        <article class="apps-card" data-cat="high-energy-physics">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-hep" aria-hidden="true">G4</div>
           <span class="apps-status apps-status-preview">Preview</span>
@@ -1053,7 +1105,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'high-energy-physics'" x-transition.opacity>
+        <article class="apps-card" data-cat="high-energy-physics">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-hep" aria-hidden="true">RT</div>
           <span class="apps-status apps-status-preview">Preview</span>
@@ -1090,7 +1142,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'visualization'" x-transition.opacity>
+        <article class="apps-card" data-cat="visualization">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-viz" aria-hidden="true">PV</div>
           <span class="apps-status apps-status-preview">Preview</span>
@@ -1127,7 +1179,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'weather-climate'" x-transition.opacity>
+        <article class="apps-card" data-cat="weather-climate">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-climate" aria-hidden="true">WR</div>
           <span class="apps-status apps-status-coming_soon">Coming soon</span>
@@ -1164,7 +1216,7 @@
         </article>
         
         
-        <article class="apps-card" x-show="active === 'all' || active === 'engineering-fea'" x-transition.opacity>
+        <article class="apps-card" data-cat="engineering-fea">
          <div class="apps-card-head">
           <div class="apps-card-mark apps-mark-fea" aria-hidden="true">AF</div>
           <span class="apps-status apps-status-coming_soon">Coming soon</span>

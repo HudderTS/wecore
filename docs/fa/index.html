@@ -2708,10 +2708,16 @@
       reveal();
      } else {
       
-      let revealed = false;
+      
+      
+      
+      
+      
+      app.start();
+      reveal();
       const io = new IntersectionObserver((entries) => {
        entries.forEach((e) => {
-        if (e.isIntersecting) { app.start(); if (!revealed) { revealed = true; reveal(); } }
+        if (e.isIntersecting) app.start();
         else app.stop();
        });
       }, { threshold: 0.01 });

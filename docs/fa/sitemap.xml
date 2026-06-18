@@ -397,6 +397,18 @@
                 href="https://wecore.ir/en/demo/"
                 />
   </url><url>
+    <loc>https://wecore.ir/fa/daas/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://wecore.ir/fa/daas/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://wecore.ir/en/daas/"
+                />
+  </url><url>
     <loc>https://wecore.ir/fa/cloud-servers/</loc>
     <xhtml:link
                 rel="alternate"
@@ -407,6 +419,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://wecore.ir/en/cloud-servers/"
+                />
+  </url><url>
+    <loc>https://wecore.ir/fa/llm/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://wecore.ir/fa/llm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://wecore.ir/en/llm/"
                 />
   </url><url>
     <loc>https://wecore.ir/fa/qsim/</loc>

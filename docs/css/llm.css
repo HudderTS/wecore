@@ -1,0 +1,696 @@
+/* ==========================================================================
+   llm.css — scoped styles for /llm (layouts/llm/list.html)
+   --------------------------------------------------------------------------
+   Azimuth-LLM-launcher-inspired "LLM as a Service" page. Built on --hd-*
+   tokens and HD utilities; adds only route-specific styling: a dark hero with
+   a self-contained CSS chat/inference mock, stat/workflow/use-case cards,
+   a deploy console, the open-stack grid, a comparison table, and the
+   coming-soon interstitial. Logical properties keep RTL (Persian) correct.
+   ========================================================================== */
+
+.section_llm_hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--hd-color-white);
+  background:
+    radial-gradient(70% 80% at 78% 16%, color-mix(in srgb, var(--hd-llm-accent) 18%, transparent), transparent 62%),
+    radial-gradient(62% 76% at 12% 32%, color-mix(in srgb, var(--hd-llm-accent-2) 14%, transparent), transparent 68%),
+    linear-gradient(180deg, var(--hd-color-black) 0%, var(--hd-llm-bg-deep) 58%, var(--hd-color-accent) 100%);
+}
+
+.llm-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--hd-color-white) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--hd-color-white) 8%, transparent) 1px, transparent 1px);
+  background-size: 36px 36px;
+  -webkit-mask-image: radial-gradient(90% 90% at 50% 20%, black 34%, transparent 82%);
+  mask-image: radial-gradient(90% 90% at 50% 20%, black 34%, transparent 82%);
+}
+
+.llm-hero-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: var(--hd-space-xl);
+  align-items: center;
+}
+
+.llm-hero-copy {
+  max-width: 42rem;
+}
+
+.section_llm_hero h1,
+.section_llm_hero .hd-h1,
+.section_llm_hero .hd-h2,
+.section_llm_hero .hd-h3 {
+  color: var(--hd-color-white);
+}
+
+.section_llm_hero .hd-text-muted,
+.llm-hero-trust-item,
+.llm-image-caption {
+  color: var(--hd-color-neutral-300);
+}
+
+.llm-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.llm-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.llm-hero-trust-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  filter: invert(1);
+  opacity: 0.82;
+}
+
+.llm-hero-promo {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 16%, transparent);
+  border-radius: 999rem;
+  color: var(--hd-color-white);
+  background: color-mix(in srgb, var(--hd-color-white) 10%, transparent);
+}
+
+.llm-hero-promo p {
+  margin: 0;
+}
+
+/* ----- Hero visual: CSS chat / inference mock --------------------------- */
+.llm-visual-card {
+  position: relative;
+  min-height: 34rem;
+  display: flex;
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 16%, transparent);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  padding: 1.25rem;
+  background:
+    radial-gradient(80% 70% at 100% 0%, color-mix(in srgb, var(--hd-llm-accent) 14%, transparent), transparent 70%),
+    linear-gradient(180deg, color-mix(in srgb, var(--hd-color-black) 12%, transparent), color-mix(in srgb, var(--hd-color-black) 30%, transparent)),
+    var(--hd-llm-panel);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.32);
+}
+
+.llm-chat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 14%, transparent);
+  border-radius: var(--hd-radius);
+  background: color-mix(in srgb, var(--hd-color-accent) 82%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.llm-chat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-block-end: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 12%, transparent);
+}
+
+.llm-window-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.llm-window-dots span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--hd-color-neutral-300);
+  opacity: 0.8;
+}
+
+.llm-model-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999rem;
+  color: var(--hd-color-white);
+  background: color-mix(in srgb, var(--hd-llm-accent) 22%, transparent);
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-llm-accent) 38%, transparent);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-tiny);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.llm-chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1 1 auto;
+  padding: 1.1rem 1rem;
+}
+
+.llm-msg {
+  max-width: 88%;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--hd-radius);
+  font-size: var(--hd-text-sm);
+  line-height: 1.6;
+}
+
+.llm-msg-user {
+  margin-inline-start: auto;
+  color: var(--hd-color-white);
+  background: color-mix(in srgb, var(--hd-llm-accent) 20%, transparent);
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-llm-accent) 34%, transparent);
+  border-end-end-radius: 0.25rem;
+}
+
+.llm-msg-ai {
+  margin-inline-end: auto;
+  color: var(--hd-color-neutral-300);
+  background: color-mix(in srgb, var(--hd-color-white) 8%, transparent);
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 12%, transparent);
+  border-end-start-radius: 0.25rem;
+}
+
+.llm-msg-ai strong {
+  color: var(--hd-color-white);
+}
+
+.llm-cursor {
+  display: inline-block;
+  width: 0.5rem;
+  height: 1rem;
+  margin-inline-start: 0.15rem;
+  vertical-align: text-bottom;
+  background: var(--hd-llm-ready);
+  border-radius: 1px;
+  animation: llm-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes llm-blink {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .llm-cursor {
+    animation: none;
+  }
+}
+
+.llm-chat-endpoint {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1rem;
+  border-block-start: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 12%, transparent);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-tiny);
+  color: var(--hd-color-neutral-300);
+}
+
+.llm-chat-endpoint code {
+  color: var(--hd-color-white);
+  font-family: var(--hd-font-badge);
+}
+
+.llm-throughput {
+  margin-inline-start: auto;
+  color: var(--hd-llm-ready);
+  white-space: nowrap;
+}
+
+.llm-status-dot {
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--hd-llm-ready);
+  box-shadow: 0 0 0.8rem var(--hd-llm-ready);
+}
+
+.llm-image-caption {
+  margin-block: 0.75rem 0;
+}
+
+/* ----- Stats ------------------------------------------------------------ */
+.section_llm_stats {
+  margin-top: -1px;
+  background: var(--hd-color-black);
+  color: var(--hd-color-white);
+}
+
+.llm-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.llm-stat-card {
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 12%, transparent);
+  border-radius: var(--hd-radius);
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--hd-color-white) 6%, transparent);
+}
+
+.llm-stat-card .hd-h3 {
+  color: var(--hd-color-white);
+}
+
+/* ----- Shared section heading ------------------------------------------- */
+.llm-section-heading {
+  max-width: var(--hd-width-lg);
+}
+
+.llm-section-heading.hd-align-center {
+  margin-inline: auto;
+}
+
+/* ----- Workflow + stack grids ------------------------------------------- */
+.llm-workflow-grid,
+.llm-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.375rem;
+}
+
+.llm-workflow-card,
+.llm-platform-card,
+.llm-stack-card {
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  padding: 1.25rem;
+  background: var(--hd-color-white);
+  transition: border-color var(--hd-transition), box-shadow var(--hd-transition),
+    transform var(--hd-transition);
+}
+
+.llm-workflow-card:hover,
+.llm-platform-card:hover,
+.llm-stack-card:hover {
+  border-color: var(--hd-color-neutral-400);
+  box-shadow: var(--hd-shadow-sm);
+  transform: translateY(-1px);
+}
+
+.llm-card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: var(--hd-color-white);
+  background: var(--hd-color-accent);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+}
+
+/* ----- Use cases -------------------------------------------------------- */
+.llm-usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.375rem;
+}
+
+.llm-usecase-card {
+  min-height: 24rem;
+  border-radius: var(--hd-radius);
+  padding: 1.5rem;
+  color: var(--hd-color-white);
+  background:
+    radial-gradient(90% 70% at 100% 0%, color-mix(in srgb, var(--hd-llm-accent) 18%, transparent), transparent 72%),
+    linear-gradient(180deg, var(--hd-llm-panel) 0%, var(--hd-color-accent) 100%);
+}
+
+.llm-usecase-card h3 {
+  color: var(--hd-color-white);
+}
+
+.llm-usecase-card .hd-text-muted {
+  color: var(--hd-color-neutral-300);
+  opacity: 1;
+}
+
+.llm-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.llm-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 0.65rem;
+  border-radius: 999rem;
+  font-size: var(--hd-text-tiny);
+  font-weight: var(--hd-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--hd-color-white);
+  border: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 18%, transparent);
+  background: color-mix(in srgb, var(--hd-color-white) 10%, transparent);
+}
+
+/* ----- Platform + deploy console ---------------------------------------- */
+.llm-platform-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.75fr);
+  gap: var(--hd-space-xl);
+  align-items: end;
+}
+
+.llm-console-card {
+  border-radius: 1rem;
+  padding: 1rem;
+  color: var(--hd-color-white);
+  background: var(--hd-color-accent);
+  box-shadow: var(--hd-shadow-md);
+}
+
+.llm-console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: var(--hd-button-border) solid color-mix(in srgb, var(--hd-color-white) 12%, transparent);
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+}
+
+.llm-status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999rem;
+  font-size: var(--hd-text-tiny);
+  font-weight: var(--hd-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--hd-color-white);
+  background: color-mix(in srgb, var(--hd-color-white) 14%, transparent);
+}
+
+.llm-console-card pre {
+  margin: 0;
+  padding-top: 1rem;
+  overflow: auto;
+  font-family: var(--hd-font-badge);
+  font-size: var(--hd-text-sm);
+  line-height: 1.7;
+  color: var(--hd-color-neutral-300);
+}
+
+.llm-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.375rem;
+}
+
+/* ----- Open-stack grid -------------------------------------------------- */
+.llm-stack-card {
+  background: var(--hd-color-neutral-50);
+}
+
+.llm-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.llm-stack-list span {
+  display: inline-flex;
+  padding: 0.45rem 0.7rem;
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  border-radius: 999rem;
+  background: var(--hd-color-white);
+  font-size: var(--hd-text-sm);
+  font-weight: var(--hd-weight-medium);
+}
+
+/* ----- Comparison table ------------------------------------------------- */
+.llm-compare-table {
+  overflow: hidden;
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  background: var(--hd-color-white);
+}
+
+.llm-compare-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.1fr;
+}
+
+.llm-compare-row > div {
+  padding: 1rem;
+  border-block-start: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-inline-start: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  font-size: var(--hd-text-sm);
+}
+
+.llm-compare-row > div:first-child {
+  border-inline-start: 0;
+  font-weight: var(--hd-weight-medium);
+}
+
+.llm-compare-head > div {
+  border-block-start: 0;
+  color: var(--hd-color-white);
+  background: var(--hd-color-accent);
+  font-weight: var(--hd-weight-medium);
+}
+
+/* Highlight the WECORE column so the self-hosted value reads at a glance. */
+.llm-compare-row > div:last-child {
+  background: color-mix(in srgb, var(--hd-llm-accent) 9%, var(--hd-color-white));
+}
+
+.llm-compare-head > div:last-child {
+  background: var(--hd-color-accent);
+}
+
+/* ----- FAQ -------------------------------------------------------------- */
+.llm-faq-box {
+  width: 100%;
+  max-width: var(--hd-width-lg);
+  margin-inline: auto;
+  border: var(--hd-button-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  padding: 1.5rem;
+  background: var(--hd-color-white);
+}
+
+/* ----- Closing CTA ------------------------------------------------------ */
+.llm-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.llm-cta::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -55% auto;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--hd-llm-accent) 24%, transparent), transparent 68%);
+  pointer-events: none;
+}
+
+.llm-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.llm-cta-heading em {
+  font-style: normal;
+  color: var(--hd-color-neutral-300);
+}
+
+/* ----- Responsive ------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+  .llm-hero-layout,
+  .llm-platform-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .llm-hero-copy {
+    max-width: var(--hd-width-lg);
+  }
+
+  .llm-stats-grid,
+  .llm-workflow-grid,
+  .llm-stack-grid,
+  .llm-platform-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .llm-usecase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .llm-visual-card {
+    min-height: 28rem;
+  }
+
+  .llm-stats-grid,
+  .llm-workflow-grid,
+  .llm-stack-grid,
+  .llm-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .llm-compare-row {
+    grid-template-columns: 1fr;
+  }
+
+  .llm-compare-row > div {
+    border-inline-start: 0;
+  }
+
+  .llm-compare-head {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .llm-visual-card {
+    min-height: 24rem;
+    padding: 0.85rem;
+  }
+
+  .llm-msg {
+    max-width: 95%;
+  }
+
+  .llm-faq-box {
+    padding: 1rem;
+  }
+}
+
+/* ==========================================================================
+   "Under construction" interstitial — opens on page load over a blurred
+   page; dismissible via close button, backdrop, Escape, or dismiss button.
+   Mirrors the qsim notice, scoped to /llm with the inference-green accent.
+   Logical properties keep RTL (Persian) mirroring correct.
+   ========================================================================== */
+.llm-construction-modal {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--hd-z-nav) + 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background-color: #000d14cc;
+  -webkit-backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(0.5rem);
+}
+
+.llm-construction-enter,
+.llm-construction-leave {
+  transition: opacity 0.42s ease;
+}
+
+.llm-construction-enter .llm-construction-panel {
+  transition: transform 0.42s ease, opacity 0.42s ease;
+}
+
+.llm-construction-leave .llm-construction-panel {
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.llm-construction-enter-start,
+.llm-construction-leave-end {
+  opacity: 0;
+}
+
+.llm-construction-enter-start .llm-construction-panel,
+.llm-construction-leave-end .llm-construction-panel {
+  opacity: 0;
+  transform: translateY(1rem) scale(0.98);
+}
+
+.llm-construction-enter-end,
+.llm-construction-leave-start {
+  opacity: 1;
+}
+
+.llm-construction-enter-end .llm-construction-panel,
+.llm-construction-leave-start .llm-construction-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.llm-construction-panel {
+  position: relative;
+  width: min(30rem, 100%);
+  border: var(--hd-input-border) solid var(--hd-color-neutral-200);
+  border-radius: var(--hd-radius);
+  background-color: var(--hd-color-white);
+  box-shadow: var(--hd-nav-panel-shadow);
+  padding: 2.25rem;
+  text-align: center;
+}
+
+.llm-construction-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-block-end: 1.25rem;
+  color: var(--hd-llm-accent, #34d399);
+}
+
+.llm-construction-panel h2 {
+  margin: 0 0 0.5rem;
+}
+
+.llm-construction-panel p {
+  max-width: 24rem;
+  margin: 0 auto;
+  color: var(--hd-color-neutral-900);
+}
+
+.llm-construction-actions {
+  margin-block-start: 1.75rem;
+}
+
+.llm-construction-close {
+  position: absolute;
+  inset-block-start: 0.85rem;
+  inset-inline-end: 0.85rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: var(--hd-input-border) solid var(--hd-color-neutral-200);
+  border-radius: 50%;
+  background-color: var(--hd-color-white);
+  color: var(--hd-color-black);
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--hd-transition), opacity var(--hd-transition);
+}
+
+.llm-construction-close:hover {
+  background-color: var(--hd-color-neutral-100);
+  opacity: 0.85;
+}

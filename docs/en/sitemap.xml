@@ -349,6 +349,18 @@
                 href="https://wecore.ir/en/caas/"
                 />
   </url><url>
+    <loc>https://wecore.ir/en/daas/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://wecore.ir/fa/daas/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://wecore.ir/en/daas/"
+                />
+  </url><url>
     <loc>https://wecore.ir/en/hpc/</loc>
     <xhtml:link
                 rel="alternate"
@@ -407,6 +419,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://wecore.ir/en/kaas/"
+                />
+  </url><url>
+    <loc>https://wecore.ir/en/llm/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa"
+                href="https://wecore.ir/fa/llm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://wecore.ir/en/llm/"
                 />
   </url><url>
     <loc>https://wecore.ir/en/pricing/</loc>

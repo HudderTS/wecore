@@ -106,6 +106,14 @@
   --hd-qsim-bg-deep: #06090d;           /* hero gradient deep stop          */
   --hd-qsim-panel: #111822;             /* dark panel surface               */
 
+  /* llm "inference" accent palette — page-scoped to static/css/llm.css.
+     Green-forward (streaming-token vibe) + indigo, distinct from qsim.     */
+  --hd-llm-accent: #34d399;             /* primary glow (emerald)           */
+  --hd-llm-accent-2: #818cf8;           /* secondary glow (indigo)          */
+  --hd-llm-ready: #31ffa5;              /* live/ready status (neon green)  */
+  --hd-llm-bg-deep: #06090d;            /* hero gradient deep stop          */
+  --hd-llm-panel: #111822;              /* dark panel surface               */
+
   /* Contact hero image overlay — three-stop scrim laid over .Params.hero_image.
      Kept as exact rgba-hex (d9 ≈ 0.851 alpha) for byte-for-byte fidelity.  */
   --hd-overlay-hero-a: #000d14d9;

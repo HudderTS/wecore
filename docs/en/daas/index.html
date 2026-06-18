@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8"/>
+  
+  
+  
+  
+  
+  
+  
+  <title>Cloud Desktop | WECORE</title>
+  <meta content="Secure, GPU-ready virtual desktops streamed from our OpenStack cloud to any device. Spin up persistent or pooled desktops from a golden image in minutes — no costly workstations, no per-seat VDI license." name="description"/>
+  <link href="https://wecore.ir/en/daas/" rel="canonical"/>
+  
+  <link href="https://wecore.ir/fa/daas/" hreflang="fa" rel="alternate"/>
+  <link href="https://wecore.ir/en/daas/" hreflang="en" rel="alternate"/>
+  <link href="https://wecore.ir/en/daas/" hreflang="x-default" rel="alternate"/>
+  <meta content="Cloud Desktop | WECORE" property="og:title"/>
+  <meta content="Secure, GPU-ready virtual desktops streamed from our OpenStack cloud to any device. Spin up persistent or pooled desktops from a golden image in minutes — no costly workstations, no per-seat VDI license." property="og:description"/>
+  <meta content="https://wecore.ir/en/daas/" property="og:url"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
+  <meta content="WECORE" property="og:site_name"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="fa_IR" property="og:locale:alternate"/>
+  <meta content="Cloud Desktop | WECORE" name="twitter:title"/>
+  <meta content="Secure, GPU-ready virtual desktops streamed from our OpenStack cloud to any device. Spin up persistent or pooled desktops from a golden image in minutes — no costly workstations, no per-seat VDI license." name="twitter:description"/>
+  <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Hugo" name="generator"/>
+  
+  
+  <link rel="preload" href="../../vendor/fonts/geist/gyByhwUxId8gMEwcGFU.woff2" as="font" type="font/woff2" crossorigin/>
+  
+  <link href="../../css/fonts.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd-tokens.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hd.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pricing.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/caas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/daas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/kaas.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/cloud-servers.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/qsim.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/llm.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/hpc.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/product.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/articles.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/apps.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  <script defer src="../../vendor/js/alpinejs@3.15.12.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">document.documentElement.classList.add("hd-js");</script>
+  
+  <script defer src="../../js/hd-animations.js" type="text/javascript"></script>
+  <script defer src="../../js/hd-snap-slider.js" type="text/javascript"></script>
+  <link href="../../img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../../img/webclip-apple-touch-icon.png" rel="apple-touch-icon"/>
+  
+  
+ </head>
+
+
+ <body>
+  <div class="page-wrapper">
+
+
+
+
+
+  
+    
+  
+
+
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      menuOpen: false,
+      servicesOpen: false,
+      infoOpen: false,
+      demoOpen: false,
+
+      closeAll() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = false;
+      },
+
+      closeServices(restoreFocus) {
+        this.servicesOpen = false;
+        if (restoreFocus && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+      },
+
+      closeInfo(restoreFocus) {
+        this.infoOpen = false;
+        if (restoreFocus && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      openDemo() {
+        this.menuOpen = false;
+        this.servicesOpen = false;
+        this.infoOpen = false;
+        this.demoOpen = true;
+        this.$nextTick(() => {
+          const el = this.$refs.demoPanel &&
+            this.$refs.demoPanel.querySelector('input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])');
+          if (el) el.focus();
+        });
+      },
+
+      closeDemo(restoreFocus) {
+        this.demoOpen = false;
+        if (restoreFocus && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+      },
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen;
+        if (!this.menuOpen) {
+          this.servicesOpen = false;
+          this.infoOpen = false;
+        }
+        if (this.menuOpen) this.$nextTick(() => this.focusFirst());
+      },
+
+      toggleServices() {
+        this.servicesOpen = !this.servicesOpen;
+        if (this.servicesOpen) this.infoOpen = false;
+      },
+
+      toggleInfo() {
+        this.infoOpen = !this.infoOpen;
+        if (this.infoOpen) this.servicesOpen = false;
+      },
+
+      focusFirst() {
+        const el = this.$refs.menu &&
+          this.$refs.menu.querySelector('a[href], button:not([disabled])');
+        if (el) el.focus();
+      },
+
+      focusable(panel) {
+        return Array.from(panel.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0);
+      },
+
+      focusDropdown(panelRef, direction) {
+        const panel = this.$refs[panelRef];
+        if (!panel) return;
+        const items = this.focusable(panel);
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = direction === 'previous' ? items.length - 1 : 0;
+        if (currentIndex >= 0) {
+          nextIndex = direction === 'previous'
+            ? (currentIndex - 1 + items.length) % items.length
+            : (currentIndex + 1) % items.length;
+        }
+        items[nextIndex].focus();
+      },
+
+      openServicesAndFocus() {
+        this.servicesOpen = true;
+        this.infoOpen = false;
+        this.$nextTick(() => this.focusDropdown('servicesPanel', 'next'));
+      },
+
+      openInfoAndFocus() {
+        this.infoOpen = true;
+        this.servicesOpen = false;
+        this.$nextTick(() => this.focusDropdown('infoPanel', 'next'));
+      },
+
+      
+      trapTab(e) {
+        if (!this.menuOpen) return;
+        const items = this.$refs.menu ? this.focusable(this.$refs.menu) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      trapDemoTab(e) {
+        if (!this.demoOpen) return;
+        const items = this.$refs.demoPanel ? this.focusable(this.$refs.demoPanel) : [];
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      },
+
+      
+      onEscape() {
+        const wasMenuOpen = this.menuOpen;
+        const wasServicesOpen = this.servicesOpen;
+        const wasInfoOpen = this.infoOpen;
+        const wasDemoOpen = this.demoOpen;
+        this.closeAll();
+        if (wasDemoOpen && this.$refs.demoToggle) this.$refs.demoToggle.focus();
+        else if (wasMenuOpen && this.$refs.menuToggle) this.$refs.menuToggle.focus();
+        else if (wasServicesOpen && this.$refs.servicesToggle) this.$refs.servicesToggle.focus();
+        else if (wasInfoOpen && this.$refs.infoToggle) this.$refs.infoToggle.focus();
+      },
+
+      
+      
+      
+      
+      
+      onResize() {
+        if (this.menuOpen && window.innerWidth > 991) this.closeAll();
+      },
+    }));
+  });
+</script>
+
+   <a class="hd-skip-link" href="#main-content">
+    Skip to content
+   </a>
+   <div class="navbar hd-nav" role="banner"
+        x-data="navbar"
+        x-effect="document.body.style.overflow = (menuOpen || demoOpen) ? 'hidden' : ''"
+        @keydown.escape.window="onEscape()"
+        @keydown.tab="demoOpen ? trapDemoTab($event) : trapTab($event)"
+        @resize.window.debounce.150ms="onResize()">
+    <header class="nav-content">
+     <div class="nav-background">
+     </div>
+     <div class="container">
+      <div class="nav-wrapper">
+
+      
+       <a class="nav-brand hd-nav-brand" href="../../en/">
+        <picture>
+         <source srcset="../../img/logo.avif" type="image/avif"/>
+         <source srcset="../../img/logo.webp" type="image/webp"/>
+         <img class="logo" alt="Logo: WECORE" width="942" height="178" loading="eager" fetchpriority="high" decoding="async" src="../../img/logo.png"/>
+        </picture>
+       </a>
+       <div class="nav-menu-wrapper">
+        <nav class="nav-menu hd-nav-menu" id="nav-primary-menu" role="navigation"
+             x-ref="menu"
+             :class="{ 'hd-nav-menu-open': menuOpen }">
+
+         
+         
+         <a class="nav-link hd-nav-link" href="../../en/">
+          Home
+         </a>
+         
+
+         
+         <div class="nav-dropdown hd-dropdown" @click.outside="closeServices(false)">
+          <button type="button" class="nav-dropdown-toggle hd-dropdown-toggle"
+                  x-ref="servicesToggle"
+                  @click="toggleServices()"
+                  @keydown.down.prevent="openServicesAndFocus()"
+                  @keydown.up.prevent="openServicesAndFocus(); $nextTick(() => focusDropdown('servicesPanel', 'previous'))"
+                  aria-expanded="false"
+                  :aria-expanded="servicesOpen"
+                  aria-controls="nav-services-panel"
+                  aria-haspopup="true">
+           <div class="nav-dropdown-indicator">
+           </div>
+           <div>
+            All Services
+           </div>
+          </button>
+          <nav class="nav-dropdown-wrapper hd-dropdown-panel" id="nav-services-panel"
+              x-ref="servicesPanel"
+              x-show="servicesOpen"
+               :inert="!servicesOpen"
+               :aria-hidden="!servicesOpen"
+               @keydown.down.prevent="focusDropdown('servicesPanel', 'next')"
+               @keydown.up.prevent="focusDropdown('servicesPanel', 'previous')"
+               @keydown.escape.prevent="closeServices(true)"
+               x-cloak>
+           <div class="nav-dropdown-grid">
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              Products
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/cloud-hpc.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/hpc/">
+                 Cloud HPC
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Cloud, private &amp; hybrid HPC
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/cloud-server.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/cloud-servers/">
+                 Cloud Server
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Self-serve virtual machines
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/private-cloud.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/caas/">
+                 Private Cloud
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Dedicated OpenStack cloud
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/kubernetes.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/kaas/">
+                 Kubernetes
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Managed K8s clusters
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+              &nbsp;
+             </div>
+             <div class="nav-dropdown-multilayout">
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/cloud-desktop.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/daas/">
+                 Cloud Desktop
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Streaming cloud desktops
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/llm.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/llm/">
+                 LLM Launch
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 Deploy and serve LLMs
+                </div>
+               </div>
+              </div>
+              
+              <div class="nav-dropdown-multilayout-item">
+               <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/nav/ht/quantum.png"/>
+               <div class="nav-dropdown-multilayout-content">
+                <a class="nav-dropdown-multilayout-title hd-text-sm hd-text-medium" href="../../en/qsim/">
+                 Quantum Simulation
+                </a>
+                <div class="nav-dropdown-multilayout-summary hd-text-tiny hd-text-muted">
+                 GPU quantum workflows
+                </div>
+               </div>
+              </div>
+              
+             </div>
+            </div>
+            
+
+            
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Company
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/about/">
+               About
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/pricing/">
+               Pricing
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Plan
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Partnerships
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/subscribe/">
+               Subscribe
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Support
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/contact/">
+               Contact
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/product/">
+               Product
+              </a>
+              
+             </div>
+            </div>
+            
+            <div class="nav-dropdown-column">
+             <div class="hd-badge">
+             Resources
+             </div>
+             <div class="nav-dropdown-links">
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/apps/">
+               Apps
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/articles/">
+               Blog
+              </a>
+              
+              <a class="nav-dropdown-link hd-dropdown-link" href="../../en/#">
+               Documentation
+              </a>
+              
+             </div>
+            </div>
+            
+
+            
+            <a class="nav-dropdown-column is-buy-template" href="../../en/contact" >
+             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <div class="nav-dropdown-buy-content">
+              <div class="nav-dropdown-buy-heading">
+               <div>
+                Consult WECORE
+               </div>
+               <img alt="" aria-hidden="true" class="icon-height-small hd-icon-directional" loading="lazy" src="../../img/icons/arrow-up-right.svg"/>
+              </div>
+              <div class="hd-text-tiny hd-text-muted">
+               Plan the right HPC, GPU, and AI deployment model
+              </div>
+             </div>
+            </a>
+           </div>
+          </nav>
+         </div>
+
+         
+         <div class="nav-links-buttons">
+          
+          
+          
+          <a class="hd-button hd-button-secondary" href="../../fa/daas/">
+           Fa
+          </a>
+          
+          
+          
+          <a class="hd-button " href="../../en/sign-up/">
+           Register / Login
+          </a>
+          
+         </div>
+       </nav>
+
+        <button type="button" class="nav-link is-cart nav-demo-trigger"
+                x-ref="demoToggle"
+                @click="openDemo()"
+                aria-haspopup="dialog"
+                aria-controls="nav-demo-dialog"
+                aria-expanded="false"
+                :aria-expanded="demoOpen">
+         Book Demo
+        </button>
+       </div>
+
+       
+       <div class="nav-buttons">
+        <div class="nav-info-dropdown hd-dropdown" @click.outside="closeInfo(false)">
+         <button type="button" class="nav-info-dropdown-toggle hd-dropdown-toggle hide-tablet"
+                 x-ref="infoToggle"
+                 @click="toggleInfo()"
+                 @keydown.down.prevent="openInfoAndFocus()"
+                 @keydown.up.prevent="openInfoAndFocus(); $nextTick(() => focusDropdown('infoPanel', 'previous'))"
+                 aria-expanded="false"
+                 :aria-expanded="infoOpen"
+                 aria-controls="nav-info-panel"
+                 aria-haspopup="true"
+                 aria-label="Key Features">
+          <span class="hd-button hd-button-secondary hd-button-icon-only" aria-hidden="true">
+           <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/info.svg"/>
+          </span>
+         </button>
+         <nav class="nav-info-dropdown-wrapper hd-dropdown-panel hd-dropdown-panel-end" id="nav-info-panel"
+              x-ref="infoPanel"
+              x-show="infoOpen"
+              :inert="!infoOpen"
+              :aria-hidden="!infoOpen"
+              @keydown.down.prevent="focusDropdown('infoPanel', 'next')"
+              @keydown.up.prevent="focusDropdown('infoPanel', 'previous')"
+              @keydown.escape.prevent="closeInfo(true)"
+              x-cloak>
+          <div class="nav-dropdown-column">
+           <div class="hd-badge">
+            Key Features
+           </div>
+           <div class="nav-info-dropdown-list">
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Cloud, private, and hybrid HPC
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              GPU-ready environments
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Ready-to-run software
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Self-service workflows
+             </div>
+            </div>
+            
+            <div class="nav-info-dropdown-list-item">
+             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/checkmark.svg"/>
+             <div class="hd-text-sm hd-text-medium">
+              Expert deployment support
+             </div>
+            </div>
+            
+           </div>
+          </div>
+         </nav>
+        </div>
+
+        
+        
+        
+        
+        <a class="hd-button hd-button-secondary hide-tablet" href="../../fa/daas/" target="">
+         Fa
+        </a>
+        
+        
+        
+        <a class="hd-button  hide-tablet" href="../../en/sign-up/" target="">
+         Register / Login
+        </a>
+        
+
+        
+        <button type="button" class="nav-menu-button hd-nav-toggle"
+                x-ref="menuToggle"
+                @click="toggleMenu()"
+                aria-expanded="false"
+                :aria-expanded="menuOpen"
+                aria-controls="nav-primary-menu"
+                aria-label="Open menu"
+                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+         <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
+        </button>
+       </div>
+      </div>
+     </div>
+    </header>
+    <div class="nav-demo-modal"
+         id="nav-demo-dialog"
+         x-show="demoOpen"
+         x-transition:enter="nav-demo-modal-enter"
+         x-transition:enter-start="nav-demo-modal-enter-start"
+         x-transition:enter-end="nav-demo-modal-enter-end"
+         x-transition:leave="nav-demo-modal-leave"
+         x-transition:leave-start="nav-demo-modal-leave-start"
+         x-transition:leave-end="nav-demo-modal-leave-end"
+         x-cloak
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="nav-demo-title"
+         @click.self="closeDemo(true)">
+     <div class="nav-demo-panel" x-ref="demoPanel">
+      <div class="nav-demo-header">
+       <div>
+        <div class="hd-badge">
+         Sales
+        </div>
+        <h2 id="nav-demo-title">
+         Book a Demo
+        </h2>
+        <p>
+         Leave the basics and we’ll follow up with the right HPC plan.
+        </p>
+       </div>
+       <button type="button" class="nav-demo-close" @click="closeDemo(true)" aria-label="Close demo request">
+        ×
+       </button>
+      </div>
+      <form class="nav-demo-form" method="post" name="nav-demo-form" action="../../en/contact">
+       <div class="nav-demo-grid">
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-name">Name</label>
+         <input aria-required="true" autocomplete="name" class="hd-input" id="nav-demo-name" maxlength="256" name="name" placeholder="Name" required type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-phone">Phone</label>
+         <input aria-required="true" autocomplete="tel" class="hd-input" id="nav-demo-phone" inputmode="tel" maxlength="256" name="phone" placeholder="Phone" required type="tel"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-company">Company</label>
+         <input autocomplete="organization" class="hd-input" id="nav-demo-company" maxlength="256" name="company" placeholder="Company" type="text"/>
+        </div>
+        <div class="hd-form-group">
+         <label class="hd-label" for="nav-demo-size">Company Size</label>
+         <select class="hd-input hd-select" id="nav-demo-size" name="company-size">
+          <option value="" disabled selected>Company Size</option>
+          <option value="1-10">1-10</option>
+          <option value="11-50">11-50</option>
+          <option value="51-200">51-200</option>
+          <option value="200+">200+</option>
+         </select>
+        </div>
+       </div>
+       <div class="hd-form-group">
+        <label class="hd-label" for="nav-demo-message">Notes</label>
+        <textarea class="hd-input hd-textarea nav-demo-textarea" id="nav-demo-message" maxlength="1200" name="message" placeholder="Workload, team size, timeline, or pricing question"></textarea>
+       </div>
+       <div class="nav-demo-actions">
+        <button type="submit" class="hd-button">
+         Submit
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+   <main class="main-wrapper" id="main-content">
+
+    
+    <section class="section_daas_hero">
+     <div class="hd-section-sm caas-hero-wrap">
+      <div class="hd-container">
+       <div class="hd-container-md hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-300">
+         DaaS
+        </div>
+        <div class="hd-vspace-sm"></div>
+        <h1 class="hd-text-alternate">
+         Cloud desktops, delivered.
+        </h1>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-lg hd-text-muted">
+         Secure, GPU-ready virtual desktops streamed from our OpenStack cloud to any device. Spin up persistent or pooled desktops from a golden image in minutes — no costly workstations, no per-seat VDI license, data never leaves the datacenter.
+        </div>
+        <div class="hd-vspace-sm"></div>
+
+        
+        <div class="hd-button-group hd-justify-center">
+         
+         <a class="hd-button hd-button-alternate" href="../../en/demo">
+          Book a Demo
+         </a>
+         
+         <a class="hd-button hd-button-secondary" href="../../en/contact">
+          Talk to Sales
+         </a>
+         
+        </div>
+        
+
+        <div class="hd-vspace-md"></div>
+
+        
+        <div class="caas-hero-trust">
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">Windows &amp; Linux</span>
+         </div>
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">GPU workstations</span>
+         </div>
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">Access from any device</span>
+         </div>
+         
+         <div class="caas-hero-trust-item">
+          <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
+          <span class="hd-text-tiny hd-text-medium">Built on OpenStack</span>
+         </div>
+         
+        </div>
+        
+
+        <div class="hd-vspace-sm"></div>
+        
+        <div class="caas-hero-promo hd-text-sm hd-text-medium">
+         Be first in line — join the Cloud Desktop early-access list with code <strong>DESKTOP</strong>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+
+    
+    
+    <section class="section_caas_stats hd-bg-secondary">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="caas-stats-grid" data-hd-animate="fade-up">
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">Minutes</div>
+         <div class="hd-text-sm hd-text-muted">From request to running desktop</div>
+        </div>
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">GPU-ready</div>
+         <div class="hd-text-sm hd-text-muted">Accelerated workstations on demand</div>
+        </div>
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">Any device</div>
+         <div class="hd-text-sm hd-text-muted">Browser, thin client, or native app</div>
+        </div>
+        
+        <div class="caas-stats-item">
+         <div class="hd-h3 hd-text-accent">OpenStack</div>
+         <div class="hd-text-sm hd-text-muted">Open foundation, no per-seat VDI tax</div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_features">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <h2>
+         Desktops that follow
+         <span class="hd-text-secondary">your users.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">Three pillars of a complete Desktop-as-a-Service platform</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-features-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-feature-card">
+         <div class="caas-feature-number">01</div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-badge hd-text-300">Persistent &amp; Pooled</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">Desktops for every role</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Give knowledge workers a persistent desktop that keeps their apps, files, and settings between sessions — and serve task workers from pooled, non-persistent desktops cloned from a golden image. Provision either in minutes, scale the pool up and down on demand.</p>
+         <div class="hd-vspace-xs"></div>
+         <a class="caas-feature-link" href="../../en/contact">Talk to us →</a>
+        </div>
+        
+        <div class="caas-feature-card">
+         <div class="caas-feature-number">02</div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-badge hd-text-300">Accelerated</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">GPU workstations</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">Attach NVIDIA GPUs (full or vGPU) to deliver hardware-accelerated desktops for CAD, 3D, GIS, video editing, simulation, and ML. Power-user workstations without shipping or maintaining a single physical machine.</p>
+         <div class="hd-vspace-xs"></div>
+         <a class="caas-feature-link" href="../../en/contact">Talk to us →</a>
+        </div>
+        
+        <div class="caas-feature-card">
+         <div class="caas-feature-number">03</div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-badge hd-text-300">Anywhere access</div>
+         <div class="hd-vspace-xs"></div>
+         <h3 class="hd-h4">Connection broker</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">A connection broker routes each user to the right desktop and protocol — RDP for Windows, VNC and NoMachine NX for Linux — through a single secure login portal. Reach your desktop from a laptop, tablet, thin client, or browser, anywhere.</p>
+         <div class="hd-vspace-xs"></div>
+         <a class="caas-feature-link" href="../../en/contact">Talk to us →</a>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_value hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>
+         Why teams choose
+         <span class="hd-text-secondary">Desktop-as-a-Service</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">The control of in-house VDI, without the cost and complexity of building it</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-value-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">Work from anywhere</h4>
+          <p class="hd-text-sm hd-text-muted">Your desktop lives in the cloud, not on a device. Staff, contractors, and BYOD users get the same secure environment from any laptop, tablet, or thin client — on or off the office network.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">No costly workstations</h4>
+          <p class="hd-text-sm hd-text-muted">Trade expensive desktops and refresh cycles for desktops you rent by the month. Turn capital expense into predictable operating cost, and right-size capacity as your team grows or shrinks.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">Provision from a golden image</h4>
+          <p class="hd-text-sm hd-text-muted">Build a master image once — OS, apps, security baseline — then clone fresh desktops from it in minutes. Onboard a new hire or a whole classroom without touching hardware.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">Built-in cost control</h4>
+          <p class="hd-text-sm hd-text-muted">Idle desktops auto-lock and power off, so you stop paying for sessions nobody is using. Pooled desktops return to the pool on logout, keeping utilization — and your bill — tight.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">Windows &amp; Linux</h4>
+          <p class="hd-text-sm hd-text-muted">Run Windows desktops for line-of-business apps and Linux desktops for engineering and research, side by side on the same platform, each with the right display protocol.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">Data never leaves the datacenter</h4>
+          <p class="hd-text-sm hd-text-muted">Pixels stream to the endpoint; files, code, and credentials stay inside our cloud. Centralized data plus a zero-trust login portal make compliance and remote work far easier to secure.</p>
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_openstack">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">Built on OpenStack</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         An open foundation for
+         <span class="hd-text-secondary">virtual desktops</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted hd-max-lg">DaaS is OpenStack plus a connection broker — an open-source stack that avoids the cost and lock-in of traditional VDI</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-os-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Nova</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Compute — spins up desktop instances on demand and scales pooled fleets up and down</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Glance</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Golden images — store and version master desktop images for Windows and Linux</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Neutron</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Networking — per-tenant isolated networks, security groups, and floating IPs</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Cinder</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Persistent disks — home volumes that survive reboots and rebuilds for persistent desktops</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Horizon &#43; API</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Self-service — provision, rebuild, and manage desktops from a dashboard or automation</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Connection broker</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Access — routes each user to the right desktop over RDP, VNC, or NoMachine NX</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">vGPU</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Acceleration — partition NVIDIA GPUs across desktops, or assign a full GPU per workstation</p>
+        </div>
+        
+        <div class="caas-os-card">
+         <div class="hd-h6 hd-text-accent">Heat</div>
+         <div class="hd-vspace-xxs"></div>
+         <p class="hd-text-sm hd-text-muted">Orchestration — templated, repeatable rollouts of desktop pools and classrooms</p>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_compare hd-bg-secondary">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <h2>
+         Side-by-side with
+         <span class="hd-text-secondary">our other products</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">Every WECORE product serves a different workload pattern</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+
+       
+       <div class="caas-compare-scroll" data-hd-animate="fade-up-2">
+        <table class="caas-compare-table">
+         <thead>
+          <tr>
+           
+           <th scope="col">Plan type</th>
+           
+           <th scope="col">Best for</th>
+           
+           <th scope="col">Infrastructure</th>
+           
+           <th scope="col">Access</th>
+           
+           <th scope="col">Billing</th>
+           
+          </tr>
+         </thead>
+         <tbody>
+          
+          <tr class="caas-compare-highlight">
+           
+           <td data-label="Plan type"><strong>DaaS</strong><div class="hd-text-tiny hd-text-muted">Cloud Desktop</div></td>
+           
+           <td data-label="Best for">Remote &amp; hybrid work, contractors, secure BYOD, labs &amp; training, GPU workstations</td>
+           
+           <td data-label="Infrastructure">Persistent &amp; pooled VMs on OpenStack</td>
+           
+           <td data-label="Access">RDP / VNC / NoMachine, browser portal</td>
+           
+           <td data-label="Billing">Monthly per desktop</td>
+           
+          </tr>
+          
+          <tr class="">
+           
+           <td data-label="Plan type">Cloud Servers</td>
+           
+           <td data-label="Best for">General compute, web apps, burst workloads, databases</td>
+           
+           <td data-label="Infrastructure">Multi-tenant VMs, shared hypervisor</td>
+           
+           <td data-label="Access">SSH / API</td>
+           
+           <td data-label="Billing">Hourly, pay-per-use</td>
+           
+          </tr>
+          
+          <tr class="">
+           
+           <td data-label="Plan type">Private Cloud<div class="hd-text-tiny hd-text-muted">CaaS</div></td>
+           
+           <td data-label="Best for">SaaS hosting, compliance, dev/staging, VMware migration</td>
+           
+           <td data-label="Infrastructure">Dedicated bare metal, single tenant</td>
+           
+           <td data-label="Access">Root / API to OpenStack</td>
+           
+           <td data-label="Billing">Fixed monthly</td>
+           
+          </tr>
+          
+         </tbody>
+        </table>
+       </div>
+
+       
+       <div class="hd-vspace-sm"></div>
+       <div class="caas-compare-trust hd-text-tiny hd-text-muted hd-text-center" data-hd-animate="fade-up">
+        <span>BBB rating: A&#43;</span><span aria-hidden="true">·</span><span>Since 2024</span><span aria-hidden="true">·</span><span>Secure access</span>
+       </div>
+       
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_regions">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge">Low-latency by design</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         Desktops close to
+         <span class="hd-text-secondary">your users.</span>
+        </h2>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="caas-regions-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-region-card">
+         <div class="caas-region-image-wrap">
+          <img alt="Tehran" class="caas-region-image" loading="lazy" src="../../img/caas/region-tehran.avif"/>
+          <div class="caas-region-status">Live</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-h6">Tehran</div>
+         <div class="hd-text-tiny hd-text-muted">IR-CENTRAL</div>
+        </div>
+        
+        <div class="caas-region-card">
+         <div class="caas-region-image-wrap">
+          <img alt="Expansion planned" class="caas-region-image" loading="lazy" src="../../img/caas/region-planned.avif"/>
+          <div class="caas-region-status">Coming soon</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-h6">Expansion planned</div>
+         <div class="hd-text-tiny hd-text-muted">IR-SOUTH</div>
+        </div>
+        
+        <div class="caas-region-card">
+         <div class="caas-region-image-wrap">
+          <img alt="Expansion planned" class="caas-region-image" loading="lazy" src="../../img/caas/region-planned.avif"/>
+          <div class="caas-region-status">Coming soon</div>
+         </div>
+         <div class="hd-vspace-xs"></div>
+         <div class="hd-h6">Expansion planned</div>
+         <div class="hd-text-tiny hd-text-muted">IR-EAST</div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_faq">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">FAQ</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-center">Cloud Desktop questions, answered</h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-center hd-text-muted">What DaaS is, how it works, and whether it fits your team</div>
+        <div class="hd-vspace-lg"></div>
+       </div>
+       <div class="hd-align-center">
+        <div class="caas-faq-box" x-data="{ active: null }">
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-0" aria-controls="daas-faq-panel-0"
+                  aria-expanded="false" :aria-expanded="active === 0"
+                  @click="active = (active === 0 ? null : 0)">
+           <div class="faq_question_header">
+            <div>What exactly is DaaS — Desktop-as-a-Service?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 0" :class="{ 'hd-faq-panel-open': active === 0 }" id="daas-faq-panel-0">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">DaaS delivers <strong>full virtual desktops hosted in WECORE's OpenStack cloud</strong> and streamed to whatever device your users already have. We build and run the infrastructure — compute, storage, networking, the connection broker, and the login portal — so you don't build or maintain VDI yourself. Users log in and get a desktop; you manage the images and policies.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-1" aria-controls="daas-faq-panel-1"
+                  aria-expanded="false" :aria-expanded="active === 1"
+                  @click="active = (active === 1 ? null : 1)">
+           <div class="faq_question_header">
+            <div>What&#39;s the difference between persistent and pooled desktops?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 1" :class="{ 'hd-faq-panel-open': active === 1 }" id="daas-faq-panel-1">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">A <strong>persistent</strong> desktop is dedicated to one user and keeps their installed apps, files, and settings between sessions — ideal for knowledge workers. A <strong>pooled</strong> (non-persistent) desktop is cloned from a golden image at login and returns to the pool on logout — ideal for task workers, labs, and shared kiosks where every session starts clean. You can offer both on the same platform.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-2" aria-controls="daas-faq-panel-2"
+                  aria-expanded="false" :aria-expanded="active === 2"
+                  @click="active = (active === 2 ? null : 2)">
+           <div class="faq_question_header">
+            <div>Which devices and protocols can users connect with?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 2" :class="{ 'hd-faq-panel-open': active === 2 }" id="daas-faq-panel-2">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Users reach their desktop through a single secure login portal from a <strong>laptop, tablet, thin client, or browser</strong>. The connection broker picks the right display protocol per desktop — <strong>RDP</strong> for Windows, <strong>VNC</strong> and <strong>NoMachine NX</strong> for Linux — so each workload gets a responsive session, including over modest connections.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-3" aria-controls="daas-faq-panel-3"
+                  aria-expanded="false" :aria-expanded="active === 3"
+                  @click="active = (active === 3 ? null : 3)">
+           <div class="faq_question_header">
+            <div>Can I get GPU-accelerated desktops?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 3" :class="{ 'hd-faq-panel-open': active === 3 }" id="daas-faq-panel-3">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Yes. We attach <strong>NVIDIA GPUs</strong> to desktops — a full GPU for heavy workstations or a <strong>vGPU</strong> slice shared across several desktops. That covers CAD, 3D and GIS, video editing, simulation, and ML, with no physical workstation to ship or maintain.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-4" aria-controls="daas-faq-panel-4"
+                  aria-expanded="false" :aria-expanded="active === 4"
+                  @click="active = (active === 4 ? null : 4)">
+           <div class="faq_question_header">
+            <div>How does DaaS keep our data secure?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 4" :class="{ 'hd-faq-panel-open': active === 4 }" id="daas-faq-panel-4">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Desktops run inside our datacenter and only <strong>pixels are streamed to the endpoint</strong> — files, code, and credentials never land on the device. Combined with per-tenant network isolation, a zero-trust login portal, and idle-session auto-lock, this keeps data centralized and makes remote work and compliance far easier to control.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-5" aria-controls="daas-faq-panel-5"
+                  aria-expanded="false" :aria-expanded="active === 5"
+                  @click="active = (active === 5 ? null : 5)">
+           <div class="faq_question_header">
+            <div>How does billing work, and how do you control cost?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 5" :class="{ 'hd-faq-panel-open': active === 5 }" id="daas-faq-panel-5">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">DaaS is billed <strong>monthly per desktop</strong>, with GPU desktops priced as an add-on. Cost control is built in: idle desktops <strong>auto-lock and power off</strong>, and pooled desktops return to the pool on logout — so you pay for desktops in use, not idle sessions. Scale the pool up for a project and back down when it ends.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-6" aria-controls="daas-faq-panel-6"
+                  aria-expanded="false" :aria-expanded="active === 6"
+                  @click="active = (active === 6 ? null : 6)">
+           <div class="faq_question_header">
+            <div>Can I bring my own desktop images?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 6 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 6" :class="{ 'hd-faq-panel-open': active === 6 }" id="daas-faq-panel-6">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted">Yes. You can start from our maintained Windows and Linux base images or upload your own <strong>golden image</strong> with your apps and security baseline preinstalled. Update the master once and roll the change out to every pooled desktop on next login.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+         <div class="faq_accordion">
+          <button type="button" class="faq_question hd-faq-trigger"
+                  id="daas-faq-trigger-7" aria-controls="daas-faq-panel-7"
+                  aria-expanded="false" :aria-expanded="active === 7"
+                  @click="active = (active === 7 ? null : 7)">
+           <div class="faq_question_header">
+            <div>What do you manage versus what we manage?</div>
+           </div>
+           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 7 }">
+            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
+           </div>
+          </button>
+          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 7" :class="{ 'hd-faq-panel-open': active === 7 }" id="daas-faq-panel-7">
+           <div class="hd-faq-panel-inner">
+            <div class="faq_answer-wrapper">
+             <div class="hd-max-lg">
+              <p class="hd-text-sm hd-text-muted"><strong>WECORE manages:</strong> the OpenStack platform, hypervisors and GPUs, storage, networking, the connection broker and portal, and 24/7 monitoring. <strong>You manage:</strong> your desktop images, the apps inside them, users and access policies, and which roles get persistent versus pooled desktops. We run the platform so your team runs the desktops.</p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_caas_cta">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="plan_hero_content caas-cta" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-300">Ready to go remote?</div>
+        <div class="hd-vspace-xs"></div>
+        <h2 class="hd-text-alternate caas-cta-heading">
+         Give your team a desktop in
+         <em>minutes.</em>
+        </h2>
+        <div class="hd-vspace-sm"></div>
+        <div class="hd-text-muted hd-max-md">Secure, GPU-ready cloud desktops for remote and hybrid teams — persistent or pooled, Windows or Linux, accessed from any device. Predictable monthly pricing, data kept in the datacenter.</div>
+        <div class="hd-vspace-lg"></div>
+        <div class="hd-button-group hd-align-center">
+         <a class="hd-button hd-button-alternate" href="../../en/demo">Book a Demo</a>
+         <a class="hd-button hd-button-alternate-secondary" href="../../en/contact">Talk to Sales</a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+   </main>
+
+
+   <footer class="footer hd-bg-secondary">
+    <div class="hd-section-md">
+     <div class="hd-container">
+      <div class="footer_wrapper">
+       <div class="footer_content">
+        <div class="footer_logo-box">
+         <img alt="WECORE Logo" loading="lazy" src="../../img/logo-footer.png"/>
+         <div class="hd-vspace-sm">
+         </div>
+         <div class="hd-max-tiny">
+          <div class="hd-text-sm hd-text-muted">
+           Cloud, private, and hybrid HPC for technical teams
+          </div>
+         </div>
+         <div class="hd-vspace-md">
+         </div>
+        </div>
+
+        
+        <div class="footer_socials">
+         
+         <a class="footer_social-link" href="https://www.linkedin.com/company/wecore">
+          <img alt="linkedin" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/linkedin.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.instagram.com/wecore">
+          <img alt="instagram" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/instagram.svg"/>
+         </a>
+         
+         <a class="footer_social-link" href="https://www.x.com/wecore">
+          <img alt="twitter" class="footer_social-link-image" loading="lazy" src="../../img/icons/socials/twitter.svg"/>
+         </a>
+         
+        </div>
+       </div>
+
+       
+       <nav class="footer_nav">
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Platform
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/">
+           Home
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/product">
+           Product
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/caas">
+           CaaS
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/hpc">
+           Cloud HPC
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/apps">
+           Apps
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/pricing/">
+           Pricing
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Company
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/about">
+           About
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/contact">
+           Contact
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/demo">
+           Request Demo
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/articles">
+           Articles
+          </a>
+          
+         </div>
+        </div>
+        
+        <div class="footer_nav-column">
+         <div class="hd-badge">
+          Account
+         </div>
+         <div class="footer_nav-list">
+          
+          <a class="footer_nav-link" href="../../en/sign-in">
+           Sign in
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/sign-up">
+           Sign up
+          </a>
+          
+          <a class="footer_nav-link" href="../../en/subscribe">
+           Subscribe
+          </a>
+          
+         </div>
+        </div>
+        
+       </nav>
+      </div>
+      <div class="hd-vspace-lg">
+      </div>
+
+      
+      <div class="footer_info">
+       <div class="hd-text-tiny">
+        © Copyright 2026 |
+        <a class="hd-text-tiny" href="https://hudder.ir/" target="_blank">
+         HUDDER
+        </a>
+        
+       </div>
+
+
+       <div class="footer_info-template">
+        
+        <a class="hd-text-tiny" href="../../en/">
+         English
+        </a>
+          
+            <div class="dot"></div>
+          
+        
+        <a class="hd-text-tiny" href="../../fa/">
+         فارسی
+        </a>
+          
+        
+       </div>
+      </div>
+
+
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="divider">
+      </div>
+      <div class="hd-vspace-xs">
+      </div>
+      <div class="hd-text-tiny hd-text-secondary">
+       WECORE provides cloud, private, and hybrid HPC infrastructure for technical teams. Deployment terms, pricing, and support scope are confirmed during consultation.
+
+      </div>
+     </div>
+    </div>
+   </footer>
+
+   <div class="bottom-blur"></div>
+
+   
+   
+   
+   <div class="caas-construction-modal"
+        x-data="{ open: true }"
+        x-show="open"
+        x-effect="document.body.style.overflow = open ? 'hidden' : ''"
+        x-transition:enter="caas-construction-enter"
+        x-transition:enter-start="caas-construction-enter-start"
+        x-transition:enter-end="caas-construction-enter-end"
+        x-transition:leave="caas-construction-leave"
+        x-transition:leave-start="caas-construction-leave-start"
+        x-transition:leave-end="caas-construction-leave-end"
+        x-cloak
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="daas-construction-title"
+        @keydown.escape.window="open = false"
+        @click.self="open = false">
+    <div class="caas-construction-panel" x-ref="constructionPanel">
+     <button type="button" class="caas-construction-close" @click="open = false" aria-label="Close">×</button>
+     <svg class="caas-construction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8 7.2 20l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.3-2.3 2.5-2.5z"/>
+     </svg>
+     <div class="hd-badge hd-text-300">Coming soon</div>
+     <div class="hd-vspace-xs"></div>
+     <h2 class="hd-h4" id="daas-construction-title">This service is under construction</h2>
+     <div class="hd-vspace-xs"></div>
+     <p class="hd-text-sm hd-text-muted">Our Cloud Desktop (DaaS) offering isn&#39;t quite ready yet — we&#39;re putting the finishing touches on it and it will be available soon. Feel free to look around in the meantime.</p>
+     <div class="caas-construction-actions">
+      <button type="button" class="hd-button" @click="open = false">Continue to preview</button>
+     </div>
+    </div>
+   </div>
+   
+   
+  </div>
+ </body>
+</html>

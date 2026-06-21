@@ -12,6 +12,11 @@
   position: relative;
   overflow: hidden;
   color: var(--hd-color-white);
+  /* Solid dark fallback BEFORE the gradient: a `background` shorthand that
+     contains an unsupported color-mix() layer is discarded wholesale by the
+     browser, which would drop the entire dark backdrop and leave the white
+     hero text on a white page. background-color survives that drop. */
+  background-color: var(--hd-color-black);
   background:
     radial-gradient(70% 80% at 78% 16%, color-mix(in srgb, var(--hd-llm-accent) 18%, transparent), transparent 62%),
     radial-gradient(62% 76% at 12% 32%, color-mix(in srgb, var(--hd-llm-accent-2) 14%, transparent), transparent 68%),
@@ -99,6 +104,7 @@
   border-radius: 1.25rem;
   overflow: hidden;
   padding: 1.25rem;
+  background-color: var(--hd-llm-panel); /* solid fallback if color-mix() is unsupported (see .section_llm_hero) */
   background:
     radial-gradient(80% 70% at 100% 0%, color-mix(in srgb, var(--hd-llm-accent) 14%, transparent), transparent 70%),
     linear-gradient(180deg, color-mix(in srgb, var(--hd-color-black) 12%, transparent), color-mix(in srgb, var(--hd-color-black) 30%, transparent)),
@@ -333,6 +339,7 @@
   border-radius: var(--hd-radius);
   padding: 1.5rem;
   color: var(--hd-color-white);
+  background-color: var(--hd-llm-panel); /* solid fallback if color-mix() is unsupported (see .section_llm_hero) */
   background:
     radial-gradient(90% 70% at 100% 0%, color-mix(in srgb, var(--hd-llm-accent) 18%, transparent), transparent 72%),
     linear-gradient(180deg, var(--hd-llm-panel) 0%, var(--hd-color-accent) 100%);

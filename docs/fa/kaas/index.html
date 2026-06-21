@@ -15,7 +15,7 @@
   
   <link href="https://wecore.ir/fa/kaas/" hreflang="fa" rel="alternate"/>
   <link href="https://wecore.ir/en/kaas/" hreflang="en" rel="alternate"/>
-  <link href="https://wecore.ir/en/kaas/" hreflang="x-default" rel="alternate"/>
+  <link href="https://wecore.ir/fa/kaas/" hreflang="x-default" rel="alternate"/>
   <meta content="کوبرنتیز | وِی‌کُر" property="og:title"/>
   <meta content="کلاسترهای کوبرنتیز production از روی قالب‌های تأییدشده، مستقر در چند دقیقه. کنترل‌پلین مدیریت‌شده، گروه‌های نود که خودتان اندازه می‌گذارید، خوددرمانی، مانیتورینگ و بررسی‌های پیش‌پرواز." property="og:description"/>
   <meta content="https://wecore.ir/fa/kaas/" property="og:url"/>
@@ -232,7 +232,7 @@
 </script>
 
    <a class="hd-skip-link" href="#main-content">
-    Skip to content
+    پرش به محتوا
    </a>
    <div class="navbar hd-nav" role="banner"
         x-data="navbar"
@@ -453,7 +453,7 @@
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
-               بلاگ
+               مقالات
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
@@ -466,7 +466,7 @@
 
             
             <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
-             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <img alt="پیش‌نمایش پلتفرم WECORE" loading="lazy" src="../../img/nav/platform-preview.avif"/>
              <div class="nav-dropdown-buy-content">
               <div class="nav-dropdown-buy-heading">
                <div>
@@ -606,8 +606,8 @@
                 aria-expanded="false"
                 :aria-expanded="menuOpen"
                 aria-controls="nav-primary-menu"
-                aria-label="Open menu"
-                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+                aria-label="باز کردن منو"
+                :aria-label="menuOpen ? 'بستن منو' : 'باز کردن منو'">
          <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
         </button>
        </div>
@@ -691,8 +691,9 @@
      <div class="hd-section-md">
       <div class="hd-container">
        <div class="hd-container-md hd-align-center hd-text-center" data-hd-animate="fade-up" data-hd-animate-eager>
-        <div class="hd-badge hd-text-300">
-         KaaS
+        <div class="pricing-spec-eyebrow hd-justify-center">
+         <div class="hd-badge hd-text-300">KaaS</div>
+         <span class="pricing-status-pill">بتا</span>
         </div>
         <div class="hd-vspace-sm"></div>
         <h1 class="hd-text-alternate">
@@ -761,7 +762,7 @@
         <div class="proof-dashboard-shell kaas-demo-shell"
      dir="ltr"
      role="region"
-     aria-label="Interactive WECORE Kubernetes service preview"
+     aria-label="پیش‌نمایش تعاملی سرویس کوبرنتیز WECORE"
      x-data="{ view: 'clusters', step: 1, maxStep: 5, acknowledged: false, launchPrompt: false,
                next() { this.step = Math.min(this.maxStep, this.step + 1) },
                prev() { this.step = Math.max(1, this.step - 1) },
@@ -782,9 +783,9 @@
 
   <div class="proof-dashboard-app kaas-demo-app">
    
-   <aside class="proof-dashboard-sidebar" aria-label="Kubernetes service navigation">
+   <aside class="proof-dashboard-sidebar" aria-label="ناوبری سرویس کوبرنتیز">
     <div class="proof-dashboard-logo" aria-label="WECORE">
-     <svg viewBox="0 0 46 32" role="img" aria-label="WECORE mark">
+     <svg viewBox="0 0 46 32" role="img" aria-label="نشان WECORE">
       <path d="M5 23.2 20.7 7.5c1.8-1.8 4.8-1.8 6.6 0L42 22.2c1.4 1.4 1.4 3.7 0 5.1-1.4 1.4-3.7 1.4-5.1 0L24.6 15c-.5-.5-1.3-.5-1.8 0L10.1 28c-1.4 1.4-3.7 1.4-5.1 0-1.4-1.4-1.4-3.7 0-5Z" fill="currentColor"/>
       <path d="m14.3 25.6 8.7-8.7 8.5 8.5" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
      </svg>
@@ -796,25 +797,25 @@
       <svg viewBox="0 0 24 24"><path d="m12 3 7 4v8l-7 6-7-6V7l7-4Zm0 5v8m-4-6 8 4m0-4-8 4m4-6-4-2m4 2 4-2m-4 10-4 2m4-2 4 2" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
      </span>
      <div>
-      <strong>Kubernetes</strong>
-      <span>as a Service</span>
+      <strong>کوبرنتیز</strong>
+      <span>به‌عنوان سرویس</span>
      </div>
     </div>
 
-    <nav class="kaas-demo-nav" aria-label="Workbench sections">
+    <nav class="kaas-demo-nav" aria-label="بخش‌های میزکار">
      <button type="button" class="kaas-demo-nav-btn" :class="{ 'kaas-demo-nav-active': view === 'clusters' }" :aria-pressed="view === 'clusters'" @click="view = 'clusters'">
-      <span aria-hidden="true">▦</span> Clusters
+      <span aria-hidden="true">▦</span> کلاسترها
      </button>
      <button type="button" class="kaas-demo-nav-btn" :class="{ 'kaas-demo-nav-active': view === 'create' }" :aria-pressed="view === 'create'" @click="openCreate()">
-      <span aria-hidden="true">+</span> Create cluster
+      <span aria-hidden="true">+</span> ساخت کلاستر
      </button>
     </nav>
 
     <div class="kaas-demo-health" role="status">
      <span class="kaas-demo-dot kaas-demo-dot-ready" aria-hidden="true"></span>
      <div>
-      <strong>Service ready</strong>
-      <span>Catalog · status · mutation</span>
+      <strong>سرویس آماده</strong>
+      <span>کاتالوگ · وضعیت · تغییر</span>
      </div>
     </div>
    </aside>
@@ -826,18 +827,18 @@
     <section class="kaas-demo-view" x-show="view === 'clusters'" aria-labelledby="kaas-demo-clusters-title-hero">
      <div class="kaas-demo-header">
       <div>
-       <p class="kaas-demo-eyebrow">Kubernetes as a Service</p>
-       <h3 id="kaas-demo-clusters-title-hero">Kubernetes clusters</h3>
-       <p>Create and operate tenant clusters from approved templates.</p>
+       <p class="kaas-demo-eyebrow">کوبرنتیز به‌عنوان سرویس</p>
+       <h3 id="kaas-demo-clusters-title-hero">کلاسترهای کوبرنتیز</h3>
+       <p>کلاسترهای مستأجر را از روی قالب‌های تأییدشده بسازید و بهره‌برداری کنید.</p>
       </div>
-      <button type="button" class="kaas-demo-primary" @click="openCreate()">Create cluster</button>
+      <button type="button" class="kaas-demo-primary" @click="openCreate()">ساخت کلاستر</button>
      </div>
 
-     <div class="kaas-demo-metrics" aria-label="Cluster summary">
-      <article class="kaas-demo-metric"><span>Total clusters</span><strong>3</strong></article>
-      <article class="kaas-demo-metric kaas-demo-metric-ready"><span>Ready</span><strong>2</strong></article>
-      <article class="kaas-demo-metric kaas-demo-metric-warn"><span>Reconciling</span><strong>1</strong></article>
-      <article class="kaas-demo-metric"><span>Failed</span><strong>0</strong></article>
+     <div class="kaas-demo-metrics" aria-label="خلاصهٔ کلاستر">
+      <article class="kaas-demo-metric"><span>کل کلاسترها</span><strong>3</strong></article>
+      <article class="kaas-demo-metric kaas-demo-metric-ready"><span>آماده</span><strong>2</strong></article>
+      <article class="kaas-demo-metric kaas-demo-metric-warn"><span>در حال هماهنگی</span><strong>1</strong></article>
+      <article class="kaas-demo-metric"><span>ناموفق</span><strong>0</strong></article>
      </div>
 
      <div class="kaas-demo-inventory">
@@ -848,13 +849,13 @@
          <p class="kaas-demo-cluster-tpl">Production · v1.30</p>
          <h4>nebula-lab</h4>
         </div>
-        <span class="kaas-demo-badge kaas-demo-badge-ready"><span class="kaas-demo-dot kaas-demo-dot-ready"></span>Ready</span>
+        <span class="kaas-demo-badge kaas-demo-badge-ready"><span class="kaas-demo-dot kaas-demo-dot-ready"></span>آماده</span>
        </div>
        <dl class="kaas-demo-facts">
-        <div><dt>Kubernetes</dt><dd>v1.30</dd></div>
-        <div><dt>Control plane</dt><dd>standard-2</dd></div>
-        <div><dt>Workers</dt><dd>3 × medium</dd></div>
-        <div><dt>Created</dt><dd>2d ago</dd></div>
+        <div><dt>کوبرنتیز</dt><dd>v1.30</dd></div>
+        <div><dt>کنترل‌پلین</dt><dd>standard-2</dd></div>
+        <div><dt>نودهای کارگر</dt><dd>3 × medium</dd></div>
+        <div><dt>ساخته‌شده</dt><dd>۲ روز پیش</dd></div>
        </dl>
       </article>
 
@@ -864,13 +865,13 @@
          <p class="kaas-demo-cluster-tpl">Standard · v1.29</p>
          <h4>atlas-staging</h4>
         </div>
-        <span class="kaas-demo-badge kaas-demo-badge-ready"><span class="kaas-demo-dot kaas-demo-dot-ready"></span>Ready</span>
+        <span class="kaas-demo-badge kaas-demo-badge-ready"><span class="kaas-demo-dot kaas-demo-dot-ready"></span>آماده</span>
        </div>
        <dl class="kaas-demo-facts">
-        <div><dt>Kubernetes</dt><dd>v1.29</dd></div>
-        <div><dt>Control plane</dt><dd>standard-2</dd></div>
-        <div><dt>Workers</dt><dd>2 × small</dd></div>
-        <div><dt>Created</dt><dd>9d ago</dd></div>
+        <div><dt>کوبرنتیز</dt><dd>v1.29</dd></div>
+        <div><dt>کنترل‌پلین</dt><dd>standard-2</dd></div>
+        <div><dt>نودهای کارگر</dt><dd>2 × small</dd></div>
+        <div><dt>ساخته‌شده</dt><dd>۹ روز پیش</dd></div>
        </dl>
       </article>
 
@@ -880,23 +881,23 @@
          <p class="kaas-demo-cluster-tpl">Production · v1.30</p>
          <h4>orion-batch</h4>
         </div>
-        <span class="kaas-demo-badge kaas-demo-badge-warn"><span class="kaas-demo-dot kaas-demo-dot-warn"></span>Reconciling</span>
+        <span class="kaas-demo-badge kaas-demo-badge-warn"><span class="kaas-demo-dot kaas-demo-dot-warn"></span>در حال هماهنگی</span>
        </div>
        <dl class="kaas-demo-facts">
-        <div><dt>Kubernetes</dt><dd>v1.30</dd></div>
-        <div><dt>Control plane</dt><dd>standard-4</dd></div>
-        <div><dt>Workers</dt><dd>5 × large</dd></div>
-        <div><dt>Created</dt><dd>just now</dd></div>
+        <div><dt>کوبرنتیز</dt><dd>v1.30</dd></div>
+        <div><dt>کنترل‌پلین</dt><dd>standard-4</dd></div>
+        <div><dt>نودهای کارگر</dt><dd>5 × large</dd></div>
+        <div><dt>ساخته‌شده</dt><dd>هم‌اکنون</dd></div>
        </dl>
       </article>
      </div>
 
-     <div class="kaas-demo-activity" aria-label="Recent Kubernetes activity">
-      <p class="kaas-demo-activity-title">Recent activity</p>
+     <div class="kaas-demo-activity" aria-label="فعالیت اخیر کوبرنتیز">
+      <p class="kaas-demo-activity-title">فعالیت اخیر</p>
       <ul>
-       <li><span class="kaas-demo-dot kaas-demo-dot-warn"></span>Provisioning <strong>orion-batch</strong> · reconciling node groups</li>
-       <li><span class="kaas-demo-dot kaas-demo-dot-ready"></span>Resized <strong>nebula-lab</strong> workers to 3 × medium</li>
-       <li><span class="kaas-demo-dot kaas-demo-dot-ready"></span>Cluster <strong>atlas-staging</strong> reached Ready</li>
+       <li><span class="kaas-demo-dot kaas-demo-dot-warn"></span>تأمین منابع <strong>orion-batch</strong> · در حال هماهنگی گروه‌های نود</li>
+       <li><span class="kaas-demo-dot kaas-demo-dot-ready"></span>تغییر اندازهٔ نودهای کارگر <strong>nebula-lab</strong> به 3 × medium</li>
+       <li><span class="kaas-demo-dot kaas-demo-dot-ready"></span>کلاستر <strong>atlas-staging</strong> به وضعیت آماده رسید</li>
       </ul>
      </div>
     </section>
@@ -905,96 +906,96 @@
     <section class="kaas-demo-view kaas-demo-create" x-show="view === 'create'" x-cloak aria-labelledby="kaas-demo-create-title-hero">
      <div class="kaas-demo-header">
       <div>
-       <p class="kaas-demo-eyebrow">Kubernetes create</p>
-       <h3 id="kaas-demo-create-title-hero">Create Kubernetes cluster</h3>
-       <p>Choose a template, size the topology, review preflight, and launch.</p>
+       <p class="kaas-demo-eyebrow">ساخت کوبرنتیز</p>
+       <h3 id="kaas-demo-create-title-hero">ساخت کلاستر کوبرنتیز</h3>
+       <p>یک قالب انتخاب کنید، توپولوژی را اندازه بگذارید، پیش‌پرواز را مرور کنید و راه‌اندازی کنید.</p>
       </div>
-      <button type="button" class="kaas-demo-ghost" @click="view = 'clusters'">Back to clusters</button>
+      <button type="button" class="kaas-demo-ghost" @click="view = 'clusters'">بازگشت به کلاسترها</button>
      </div>
 
-     <ol class="kaas-demo-stepper" aria-label="Create cluster steps">
-      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 1, 'kaas-demo-step-done': step > 1 }" @click="step = 1"><b>1</b>Template</button></li>
-      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 2, 'kaas-demo-step-done': step > 2 }" @click="step = 2"><b>2</b>Topology</button></li>
-      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 3, 'kaas-demo-step-done': step > 3 }" @click="step = 3"><b>3</b>Add-ons</button></li>
-      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 4, 'kaas-demo-step-done': step > 4 }" @click="step = 4"><b>4</b>Schedule</button></li>
-      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 5 }" @click="step = 5"><b>5</b>Review</button></li>
+     <ol class="kaas-demo-stepper" aria-label="مراحل ساخت کلاستر">
+      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 1, 'kaas-demo-step-done': step > 1 }" @click="step = 1"><b>1</b>قالب</button></li>
+      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 2, 'kaas-demo-step-done': step > 2 }" @click="step = 2"><b>2</b>توپولوژی</button></li>
+      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 3, 'kaas-demo-step-done': step > 3 }" @click="step = 3"><b>3</b>افزونه‌ها</button></li>
+      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 4, 'kaas-demo-step-done': step > 4 }" @click="step = 4"><b>4</b>زمان‌بندی</button></li>
+      <li><button type="button" :class="{ 'kaas-demo-step-active': step === 5 }" @click="step = 5"><b>5</b>مرور</button></li>
      </ol>
 
      <div class="kaas-demo-panel">
       
       <div class="kaas-demo-step" x-show="step === 1">
-       <p class="kaas-demo-eyebrow">Template and intent</p>
-       <h4>Name the cluster and choose an approved template.</h4>
-       <label class="kaas-demo-field"><span>Cluster name</span><input type="text" value="nebula-lab" readonly aria-readonly="true"></label>
+       <p class="kaas-demo-eyebrow">قالب و هدف</p>
+       <h4>کلاستر را نام‌گذاری و یک قالب تأییدشده انتخاب کنید.</h4>
+       <label class="kaas-demo-field"><span>نام کلاستر</span><input type="text" value="nebula-lab" readonly aria-readonly="true"></label>
        <div class="kaas-demo-tpl-grid">
         <article class="kaas-demo-tpl kaas-demo-tpl-selected">
-         <p>Production Kubernetes</p>
+         <p>کوبرنتیز production</p>
          <strong>v1.30</strong>
-         <dl><div><dt>Control plane</dt><dd>standard-2</dd></div><div><dt>Node size</dt><dd>medium</dd></div></dl>
+         <dl><div><dt>کنترل‌پلین</dt><dd>standard-2</dd></div><div><dt>اندازهٔ نود</dt><dd>medium</dd></div></dl>
         </article>
         <article class="kaas-demo-tpl">
-         <p>Standard Kubernetes</p>
+         <p>کوبرنتیز standard</p>
          <strong>v1.29</strong>
-         <dl><div><dt>Control plane</dt><dd>standard-2</dd></div><div><dt>Node size</dt><dd>small</dd></div></dl>
+         <dl><div><dt>کنترل‌پلین</dt><dd>standard-2</dd></div><div><dt>اندازهٔ نود</dt><dd>small</dd></div></dl>
         </article>
        </div>
       </div>
 
       
       <div class="kaas-demo-step" x-show="step === 2" x-cloak>
-       <p class="kaas-demo-eyebrow">Topology and size</p>
-       <h4>Control plane and worker node groups.</h4>
-       <label class="kaas-demo-field"><span>Control-plane size</span><input type="text" value="standard-2" readonly aria-readonly="true"></label>
+       <p class="kaas-demo-eyebrow">توپولوژی و اندازه</p>
+       <h4>کنترل‌پلین و گروه‌های نودِ کارگر.</h4>
+       <label class="kaas-demo-field"><span>اندازهٔ کنترل‌پلین</span><input type="text" value="standard-2" readonly aria-readonly="true"></label>
        <article class="kaas-demo-nodegroup">
-        <div class="kaas-demo-nodegroup-head"><span class="kaas-demo-tag">Fixed</span><strong>workers</strong></div>
-        <dl><div><dt>Node size</dt><dd>medium</dd></div><div><dt>Number of nodes</dt><dd>3</dd></div></dl>
+        <div class="kaas-demo-nodegroup-head"><span class="kaas-demo-tag">ثابت</span><strong>کارگرها</strong></div>
+        <dl><div><dt>اندازهٔ نود</dt><dd>medium</dd></div><div><dt>تعداد نودها</dt><dd>3</dd></div></dl>
        </article>
-       <p class="kaas-demo-help">Add node groups to mix machine sizes. Autoscaling node groups arrive next release.</p>
+       <p class="kaas-demo-help">برای ترکیب اندازه‌های ماشین، گروه‌های نود اضافه کنید. گروه‌های نود با مقیاس‌گذاری خودکار در نسخهٔ بعد می‌آیند.</p>
       </div>
 
       
       <div class="kaas-demo-step" x-show="step === 3" x-cloak>
-       <p class="kaas-demo-eyebrow">Add-ons and access</p>
-       <h4>Enable the essential services.</h4>
-       <div class="kaas-demo-option kaas-demo-option-on"><span>Autohealing</span><strong>Enabled</strong></div>
-       <div class="kaas-demo-option kaas-demo-option-on"><span>Monitoring</span><strong>Enabled</strong></div>
-       <div class="kaas-demo-option"><span>Ingress</span><strong>Optional</strong></div>
-       <p class="kaas-demo-help">Kubeconfig is generated once the cluster is provisioned — download it from the cluster page.</p>
+       <p class="kaas-demo-eyebrow">افزونه‌ها و دسترسی</p>
+       <h4>سرویس‌های ضروری را فعال کنید.</h4>
+       <div class="kaas-demo-option kaas-demo-option-on"><span>خوددرمانی</span><strong>فعال</strong></div>
+       <div class="kaas-demo-option kaas-demo-option-on"><span>مانیتورینگ</span><strong>فعال</strong></div>
+       <div class="kaas-demo-option"><span>Ingress</span><strong>اختیاری</strong></div>
+       <p class="kaas-demo-help">kubeconfig پس از تأمین منابع کلاستر ایجاد می‌شود — آن را از صفحهٔ کلاستر دانلود کنید.</p>
       </div>
 
       
       <div class="kaas-demo-step" x-show="step === 4" x-cloak>
-       <p class="kaas-demo-eyebrow">Schedule and cost</p>
-       <h4>Preflight estimates resources before launch.</h4>
+       <p class="kaas-demo-eyebrow">زمان‌بندی و هزینه</p>
+       <h4>پیش‌پرواز پیش از راه‌اندازی، منابع را برآورد می‌کند.</h4>
        <div class="kaas-demo-cost">
-        <div class="kaas-demo-cost-row"><span>Worker capacity</span><strong>3 machines</strong></div>
-        <div class="kaas-demo-cost-row"><span>Quota estimate</span><strong>8 vCPU · 24 GB</strong></div>
-        <div class="kaas-demo-cost-row"><span>Wallet check</span><strong>Ready</strong></div>
+        <div class="kaas-demo-cost-row"><span>ظرفیت کارگر</span><strong>۳ ماشین</strong></div>
+        <div class="kaas-demo-cost-row"><span>برآورد سهمیه</span><strong>8 vCPU · 24 GB</strong></div>
+        <div class="kaas-demo-cost-row"><span>بررسی کیف‌پول</span><strong>آماده</strong></div>
        </div>
-       <p class="kaas-demo-help">Expiration scheduling is feature-gated and validated again server-side.</p>
+       <p class="kaas-demo-help">زمان‌بندی انقضا قابلیت‌محور است و دوباره در سمت سرور اعتبارسنجی می‌شود.</p>
       </div>
 
       
       <div class="kaas-demo-step" x-show="step === 5" x-cloak>
-       <p class="kaas-demo-eyebrow">Review and launch</p>
-       <h4>Confirm the request summary.</h4>
+       <p class="kaas-demo-eyebrow">مرور و راه‌اندازی</p>
+       <h4>خلاصهٔ درخواست را تأیید کنید.</h4>
        <div class="kaas-demo-review">
-        <div><span>Name</span><strong>nebula-lab</strong></div>
-        <div><span>Template</span><strong>Production · v1.30</strong></div>
-        <div><span>Workers</span><strong>3 × medium</strong></div>
-        <div><span>Add-ons</span><strong>Autohealing + monitoring</strong></div>
+        <div><span>نام</span><strong>nebula-lab</strong></div>
+        <div><span>قالب</span><strong>Production · v1.30</strong></div>
+        <div><span>نودهای کارگر</span><strong>3 × medium</strong></div>
+        <div><span>افزونه‌ها</span><strong>خوددرمانی + مانیتورینگ</strong></div>
        </div>
        <label class="kaas-demo-ack">
         <input type="checkbox" x-model="acknowledged">
-        <span>I understand provisioning starts a managed Kubernetes cluster.</span>
+        <span>می‌دانم که تأمین منابع، یک کلاستر کوبرنتیزِ مدیریت‌شده را آغاز می‌کند.</span>
        </label>
       </div>
      </div>
 
      <div class="kaas-demo-actions">
-      <button type="button" class="kaas-demo-ghost" @click="prev()" :disabled="step === 1">Previous</button>
-      <button type="button" class="kaas-demo-next" x-show="step < 5" @click="next()">Next</button>
-      <button type="button" class="kaas-demo-launch" x-show="step === 5" :disabled="!acknowledged" @click="launchPrompt = true">Launch cluster</button>
+      <button type="button" class="kaas-demo-ghost" @click="prev()" :disabled="step === 1">قبلی</button>
+      <button type="button" class="kaas-demo-next" x-show="step < 5" @click="next()">بعدی</button>
+      <button type="button" class="kaas-demo-launch" x-show="step === 5" :disabled="!acknowledged" @click="launchPrompt = true">راه‌اندازی کلاستر</button>
      </div>
     </section>
 
@@ -1008,12 +1009,12 @@
          aria-modal="true"
          aria-labelledby="kaas-demo-prompt-title-hero">
      <div class="kaas-demo-prompt-panel">
-      <p class="kaas-demo-eyebrow">Ready to launch</p>
-      <h3 id="kaas-demo-prompt-title-hero">Create your real Kubernetes cluster in WECORE Hub</h3>
-      <p>This page is an interactive product preview. Open <strong>hub.wecore.ir</strong> to provision and manage a live cluster.</p>
+      <p class="kaas-demo-eyebrow">آمادهٔ راه‌اندازی</p>
+      <h3 id="kaas-demo-prompt-title-hero">کلاستر واقعی کوبرنتیز خود را در WECORE Hub بسازید</h3>
+      <p>این صفحه یک پیش‌نمایش تعاملی محصول است. برای تأمین منابع و مدیریت یک کلاستر زنده، <strong>hub.wecore.ir</strong> را باز کنید.</p>
       <div class="kaas-demo-prompt-actions">
-       <a href="https://hub.wecore.ir" target="_blank" rel="noopener noreferrer">Open Hub</a>
-       <button type="button" @click="launchPrompt = false">Stay in preview</button>
+       <a href="https://hub.wecore.ir" target="_blank" rel="noopener noreferrer">ورود به هاب</a>
+       <button type="button" @click="launchPrompt = false">ماندن در پیش‌نمایش</button>
       </div>
      </div>
     </div>
@@ -1036,8 +1037,8 @@
        <div class="caas-stats-grid" data-hd-animate="fade-up">
         
         <div class="caas-stats-item">
-         <div class="hd-h3 hd-text-accent">۹۹.۹۵٪</div>
-         <div class="hd-text-sm hd-text-muted">SLA کنترل‌پلین</div>
+         <div class="hd-h3 hd-text-accent">HA</div>
+         <div class="hd-text-sm hd-text-muted">کنترل‌پلین دسترس‌پذیر بالا</div>
         </div>
         
         <div class="caas-stats-item">
@@ -1051,8 +1052,8 @@
         </div>
         
         <div class="caas-stats-item">
-         <div class="hd-h3 hd-text-accent">۲۴/۷</div>
-         <div class="hd-text-sm hd-text-muted">پشتیبانی مهندسی</div>
+         <div class="hd-h3 hd-text-accent">مدیریت‌شده</div>
+         <div class="hd-text-sm hd-text-muted">کنترل‌پلین و ارتقاها</div>
         </div>
         
        </div>
@@ -1139,7 +1140,7 @@
          <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
          <div>
           <h4 class="hd-h6">بدون عملیات کنترل‌پلین</h4>
-          <p class="hd-text-sm hd-text-muted">ما etcd و کنترل‌پلین را اجرا، وصله و ارتقا می‌دهیم. هیچ‌گاه برای یک API server خراب در نیمه‌شب بیدار نمی‌شوید — کنترل‌پلینِ مدیریت‌شده SLA معادل ۹۹.۹۵٪ دارد.</p>
+          <p class="hd-text-sm hd-text-muted">ما etcd و کنترل‌پلین را اجرا، وصله و ارتقا می‌دهیم. هیچ‌گاه برای یک API server خراب در نیمه‌شب بیدار نمی‌شوید — کنترل‌پلینِ مدیریت‌شده در طرح تولید به‌صورت دسترس‌پذیر بالا (۳ نودی) اجرا می‌شود.</p>
          </div>
         </div>
         
@@ -1447,7 +1448,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted"><strong>WECORE اداره می‌کند:</strong> کنترل‌پلین کوبرنتیز (etcd، API server، scheduler)، ارتقای نسخه، خوددرمانی نودها و مانیتورینگ و واکنش به حادثهٔ ۲۴/۷. <strong>شما اداره می‌کنید:</strong> بارهای کاری، namespaceها، deploymentها، serviceها و اندازه‌گذاری گروه‌های نودِ کارگر. کنترل‌پلینِ مدیریت‌شده SLA معادل ۹۹.۹۵٪ دارد.</p>
+              <p class="hd-text-sm hd-text-muted"><strong>WECORE اداره می‌کند:</strong> کنترل‌پلین کوبرنتیز (etcd، API server، scheduler)، ارتقای نسخه، خوددرمانی نودها و مانیتورینگ و واکنش به حادثه. <strong>شما اداره می‌کنید:</strong> بارهای کاری، namespaceها، deploymentها، serviceها و اندازه‌گذاری گروه‌های نودِ کارگر. کنترل‌پلینِ مدیریت‌شده در طرح تولید به‌صورت دسترس‌پذیر بالا (۳ نودی) اجرا می‌شود.</p>
              </div>
             </div>
            </div>

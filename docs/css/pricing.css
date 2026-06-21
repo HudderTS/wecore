@@ -351,3 +351,37 @@ html:has(.pricing-product) { scroll-behavior: smooth; }
   }
   .pricing-table .is-price { text-align: end; }
 }
+
+/* --------------------------------------------------------------------------
+   Deployment models + cost drivers (price-free rebuild)
+   -------------------------------------------------------------------------- */
+.pricing-models {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--hd-space-md);
+  align-items: stretch;
+}
+.pricing-model-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border-radius: var(--hd-radius);
+  border: var(--hd-button-border) solid var(--hd-color-neutral-300);
+  background: var(--hd-color-white);
+}
+.pricing-model-card .pricing-feature-list { margin-block-start: var(--hd-space-sm); }
+.pricing-roadmap-note { max-width: var(--hd-width-md); margin-inline: auto; }
+
+.pricing-drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--hd-space-md);
+}
+
+@media screen and (max-width: 991px) {
+  .pricing-models { grid-template-columns: 1fr; }
+  .pricing-drivers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media screen and (max-width: 600px) {
+  .pricing-drivers-grid { grid-template-columns: 1fr; }
+}

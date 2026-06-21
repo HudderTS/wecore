@@ -15,7 +15,7 @@
   
   <link href="https://wecore.ir/fa/caas/" hreflang="fa" rel="alternate"/>
   <link href="https://wecore.ir/en/caas/" hreflang="en" rel="alternate"/>
-  <link href="https://wecore.ir/en/caas/" hreflang="x-default" rel="alternate"/>
+  <link href="https://wecore.ir/fa/caas/" hreflang="x-default" rel="alternate"/>
   <meta content="ابر خصوصی | وِی‌کُر" property="og:title"/>
   <meta content="ابرهای OpenStack روی سرورهای اختصاصی؛ یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph را در چند دقیقه مستقر کنید — بدون سربار هایپروایزر و بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی." property="og:description"/>
   <meta content="https://wecore.ir/fa/caas/" property="og:url"/>
@@ -232,7 +232,7 @@
 </script>
 
    <a class="hd-skip-link" href="#main-content">
-    Skip to content
+    پرش به محتوا
    </a>
    <div class="navbar hd-nav" role="banner"
         x-data="navbar"
@@ -453,7 +453,7 @@
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
-               بلاگ
+               مقالات
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
@@ -466,7 +466,7 @@
 
             
             <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
-             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <img alt="پیش‌نمایش پلتفرم WECORE" loading="lazy" src="../../img/nav/platform-preview.avif"/>
              <div class="nav-dropdown-buy-content">
               <div class="nav-dropdown-buy-heading">
                <div>
@@ -606,8 +606,8 @@
                 aria-expanded="false"
                 :aria-expanded="menuOpen"
                 aria-controls="nav-primary-menu"
-                aria-label="Open menu"
-                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+                aria-label="باز کردن منو"
+                :aria-label="menuOpen ? 'بستن منو' : 'باز کردن منو'">
          <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
         </button>
        </div>
@@ -693,8 +693,9 @@
      <div class="hd-section-sm caas-hero-wrap">
       <div class="hd-container">
        <div class="hd-container-md" data-hd-animate="fade-up">
-        <div class="hd-badge hd-text-300">
-         CaaS
+        <div class="pricing-spec-eyebrow">
+         <div class="hd-badge hd-text-300">CaaS</div>
+         <span class="pricing-status-pill">دسترسی زودهنگام</span>
         </div>
         <div class="hd-vspace-sm"></div>
         <h1 class="hd-text-alternate">
@@ -702,15 +703,15 @@
         </h1>
         <div class="hd-vspace-sm"></div>
         <div class="hd-text-lg hd-text-muted">
-         ابرهای OpenStack بر روی سرورهای اختصاصی — یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph را در چند دقیقه مستقر کنید. بدون سربار هایپروایزر، بدون همسایهٔ پُرسروصدا، بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی.
+         ابرهای OpenStack بر روی سرورهای اختصاصی — مقصد تیم‌هایی که با گران‌شدن لایسنس Broadcom از VMware کوچ می‌کنند. یک کلاستر ۳ نودی کامل با ذخیره‌سازی Ceph، مستقر در چند دقیقه: بدون سربار هایپروایزر، بدون همسایهٔ پُرسروصدا، بدون هزینهٔ لایسنس به‌ازای هر ماشین مجازی.
         </div>
         <div class="hd-vspace-sm"></div>
 
         
         <div class="hd-button-group hd-justify-center">
          
-         <a class="hd-button hd-button-alternate" href="../../fa/pricing/">
-          مشاهدهٔ قیمت‌ها
+         <a class="hd-button hd-button-alternate" href="../../fa/demo">
+          درخواست دسترسی زودهنگام
          </a>
          
          <a class="hd-button hd-button-secondary" href="../../fa/contact">
@@ -727,7 +728,7 @@
          
          <div class="caas-hero-trust-item">
           <img alt="" aria-hidden="true" class="caas-hero-trust-icon" loading="lazy" src="../../img/icons/checkmark.svg"/>
-          <span class="hd-text-tiny hd-text-medium">SLA پایداری ۹۹.۹٪</span>
+          <span class="hd-text-tiny hd-text-medium">مسیر مهاجرت از VMware</span>
          </div>
          
          <div class="caas-hero-trust-item">
@@ -751,7 +752,7 @@
         <div class="hd-vspace-sm"></div>
         
         <div class="caas-hero-promo hd-text-sm hd-text-medium">
-         ۵۰٪ تخفیف ماه اول استقرار ابر خصوصی — کد تخفیف: <strong>CLOUD50</strong>
+         ماژول دسترسی زودهنگام: <strong>ابر خصوصی</strong> — پذیرش تیم‌های پایلوت در حال مهاجرت از VMware/Broadcom.
         </div>
         
        </div>
@@ -767,8 +768,8 @@
        <div class="caas-stats-grid" data-hd-animate="fade-up">
         
         <div class="caas-stats-item">
-         <div class="hd-h3 hd-text-accent">۹۹.۹٪</div>
-         <div class="hd-text-sm hd-text-muted">SLA پایداری</div>
+         <div class="hd-h3 hd-text-accent">بدون لایسنس Broadcom</div>
+         <div class="hd-text-sm hd-text-muted">نه به‌ازای هر ماشین، نه هر هسته</div>
         </div>
         
         <div class="caas-stats-item">
@@ -777,8 +778,8 @@
         </div>
         
         <div class="caas-stats-item">
-         <div class="hd-h3 hd-text-accent">۲۴/۷</div>
-         <div class="hd-text-sm hd-text-muted">پشتیبانی مهندسی</div>
+         <div class="hd-h3 hd-text-accent">مدیریت‌شده</div>
+         <div class="hd-text-sm hd-text-muted">پلتفرم و ارتقاها</div>
         </div>
         
         <div class="caas-stats-item">
@@ -885,16 +886,16 @@
         <div class="caas-value-card">
          <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
          <div>
-          <h4 class="hd-h6">بدون هزینهٔ لایسنس به‌ازای هر VM</h4>
-          <p class="hd-text-sm hd-text-muted">۱۰ ماشین مجازی یا ۱۰۰۰ ماشین اجرا کنید. برخلاف VMware vSphere یا ابرهای عمومی، هزینهٔ ماهانه شما با تعداد ماشین‌های مجازی تغییر نمی‌کند. سخت‌افزار متعلق به شماست.</p>
+          <h4 class="hd-h6">خداحافظی با لایسنس VMware</h4>
+          <p class="hd-text-sm hd-text-muted">۱۰ ماشین مجازی یا ۱۰۰۰ ماشین اجرا کنید. برخلاف VMware vSphere، هزینهٔ شما با تعداد ماشین‌ها یا سوکت‌های پردازنده بالا نمی‌رود — و همان‌طور که لایسنس به‌ازای هستهٔ Broadcom گران‌تر می‌شود، همان بارها روی OpenStack متن‌باز اجرا می‌شوند که خودتان آن را پارتیشن‌بندی می‌کنید.</p>
          </div>
         </div>
         
         <div class="caas-value-card">
          <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
          <div>
-          <h4 class="hd-h6">قیمت‌گذاری ماهانهٔ قابل پیش‌بینی</h4>
-          <p class="hd-text-sm hd-text-muted">نرخ ثابت ماهانه به‌ازای هر کلاستر. بدون هزینهٔ غافلگیرکنندهٔ ترافیک خروجی، بدون هزینهٔ اضافی به‌ازای هر هستهٔ مجازی و بدون هزینهٔ IOPS. از روز اول بودجه خود را دقیق برنامه‌ریزی کنید.</p>
+          <h4 class="hd-h6">قیمت‌گذاری ثابت به‌ازای هر کلاستر</h4>
+          <p class="hd-text-sm hd-text-muted">یک نرخ قابل‌پیش‌بینی به‌ازای هر کلاستر، به‌جای لایسنس به‌ازای هسته یا سوکت — بدون هزینهٔ غافلگیرکنندهٔ ترافیک خروجی، بدون هزینهٔ اضافی به‌ازای هر هستهٔ مجازی و بدون هزینهٔ IOPS. در دورهٔ دسترسی زودهنگام، قیمت بر پایهٔ پیشنهاد اختصاصی است.</p>
          </div>
         </div>
         
@@ -910,7 +911,7 @@
          <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
          <div>
           <h4 class="hd-h6">ارتقاء مدیریت‌شدهٔ پلتفرم</h4>
-          <p class="hd-text-sm hd-text-muted">ما ارتقاء نسخه‌های OpenStack، بازمتعادل‌سازی Ceph، چرخهٔ عمر سخت‌افزار و مانیتورینگ ۲۴/۷ را مدیریت می‌کنیم. تیم شما روی وظایف کاری تمرکز می‌کند، نه عملیات زیرساختی.</p>
+          <p class="hd-text-sm hd-text-muted">ما ارتقاء نسخه‌های OpenStack، بازمتعادل‌سازی Ceph، چرخهٔ عمر سخت‌افزار و مانیتورینگ را مدیریت می‌کنیم. تیم شما روی وظایف کاری تمرکز می‌کند، نه عملیات زیرساختی.</p>
          </div>
         </div>
         
@@ -1072,15 +1073,6 @@
          </tbody>
         </table>
        </div>
-
-       <div class="hd-vspace-sm"></div>
-       <div class="caas-compare-trust hd-text-tiny hd-text-muted hd-text-center" data-hd-animate="fade-up">
-        <span>BBB rating: A+</span>
-        <span aria-hidden="true">·</span>
-        <span>Since 2024</span>
-        <span aria-hidden="true">·</span>
-        <span>Secure payments</span>
-       </div>
       </div>
      </div>
     </section>
@@ -1105,7 +1097,7 @@
         <div class="caas-region-card">
          <div class="caas-region-image-wrap">
           <img alt="تهران" class="caas-region-image" loading="lazy" src="../../img/caas/region-tehran.avif"/>
-          <div class="caas-region-status">فعال</div>
+          <div class="caas-region-status">دسترسی زودهنگام</div>
          </div>
          <div class="hd-vspace-xs"></div>
          <div class="hd-h6">تهران</div>
@@ -1170,7 +1162,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">CaaS یک <strong>ابر خصوصی OpenStack بر روی سرورهای اختصاصی فلزی</strong> است که توسط WECORE مدیریت می‌شود. شما یک کلاستر ۳ نودی (یا بزرگ‌تر) با سرویس‌های صفحه کنترل OpenStack، ذخیره‌سازی هم‌گرای Ceph و شبکهٔ خصوصی دریافت می‌کنید — همه در چند دقیقه مستقر می‌شود. شما دسترسی ریشه به صفحه کنترل دارید؛ ما سخت‌افزار، ارتقاء پلتفرم و مانیتورینگ ۲۴/۷ را مدیریت می‌کنیم.</p>
+              <p class="hd-text-sm hd-text-muted">CaaS یک <strong>ابر خصوصی OpenStack بر روی سرورهای اختصاصی فلزی</strong> است که توسط WECORE مدیریت می‌شود. شما یک کلاستر ۳ نودی (یا بزرگ‌تر) با سرویس‌های صفحه کنترل OpenStack، ذخیره‌سازی هم‌گرای Ceph و شبکهٔ خصوصی دریافت می‌کنید — همه در چند دقیقه مستقر می‌شود. شما دسترسی ریشه به صفحه کنترل دارید؛ ما سخت‌افزار، ارتقاء پلتفرم و مانیتورینگ را مدیریت می‌کنیم.</p>
              </div>
             </div>
            </div>
@@ -1183,7 +1175,7 @@
                   aria-expanded="false" :aria-expanded="active === 1"
                   @click="active = (active === 1 ? null : 1)">
            <div class="faq_question_header">
-            <div>چقدر سریع می‌توانم یک ابر خصوصی آماده دریافت کنم؟</div>
+            <div>آیا می‌توانم از VMware vSphere به CaaS مهاجرت کنم؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1193,7 +1185,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">یک کلاستر استاندارد ۳ نودی OpenStack + Ceph در <strong>کمتر از ۱۰ دقیقه</strong> مستقر می‌شود. کلاسترهای بزرگ‌تر به‌طور خطی مقیاس می‌گیرند — استقرار ۵ نودی در کمتر از ۱۵ دقیقه کامل می‌شود. شما بلافاصله پس از اتمام استقرار، دسترسی API و داشبورد Horizon را دریافت می‌کنید.</p>
+              <p class="hd-text-sm hd-text-muted">بله — دقیقاً CaaS برای همین ساخته شده است. همان‌طور که <strong>تغییرات لایسنس Broadcom هزینهٔ VMware را بالا می‌برد</strong>، بسیاری از تیم‌ها به OpenStack متن‌باز کوچ می‌کنند که قابلیت‌های معادل (یا بهتری) ارائه می‌دهد: Nova جایگزین مدیریت پردازش vCenter می‌شود، Neutron جایگزین شبکه NSX، Cinder + Ceph جایگزین ذخیره‌سازی vSAN و Keystone جایگزین RBAC vSphere. ما راهنمایی مهاجرت ارائه می‌دهیم و می‌توانیم یک کلاستر جایگزین را برای شما اندازه‌گذاری کنیم.</p>
              </div>
             </div>
            </div>
@@ -1206,7 +1198,7 @@
                   aria-expanded="false" :aria-expanded="active === 2"
                   @click="active = (active === 2 ? null : 2)">
            <div class="faq_question_header">
-            <div>آیا واقعاً دسترسی ریشه دارم؟</div>
+            <div>چقدر سریع می‌توانم یک ابر خصوصی آماده دریافت کنم؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1216,7 +1208,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted"><strong>بله.</strong> شما دسترسی SSH و اطلاعات کاربری ادمین به صفحه کنترل OpenStack دارید. سیاست‌های زمان‌بندی Nova را تنظیم کنید، شبکه Neutron را تغییر دهید، گروه‌های جای‌گذاری Ceph را مدیریت کنید — پشته متعلق به شماست. ما سخت‌افزار (تعویض درایو، فریمور، وصله‌های کرنل) را مدیریت می‌کنیم و ارتقاء نسخه‌های OpenStack را بدون قطعی سرویس انجام می‌دهیم.</p>
+              <p class="hd-text-sm hd-text-muted">یک کلاستر استاندارد ۳ نودی OpenStack + Ceph در <strong>کمتر از ۱۰ دقیقه</strong> مستقر می‌شود. کلاسترهای بزرگ‌تر به‌طور خطی مقیاس می‌گیرند — استقرار ۵ نودی در کمتر از ۱۵ دقیقه کامل می‌شود. شما بلافاصله پس از اتمام استقرار، دسترسی API و داشبورد Horizon را دریافت می‌کنید.</p>
              </div>
             </div>
            </div>
@@ -1229,7 +1221,7 @@
                   aria-expanded="false" :aria-expanded="active === 3"
                   @click="active = (active === 3 ? null : 3)">
            <div class="faq_question_header">
-            <div>قیمت‌گذاری CaaS چه تفاوتی با سرورهای ابری یا HPCaaS دارد؟</div>
+            <div>آیا واقعاً دسترسی ریشه دارم؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1239,7 +1231,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">سرورهای ابری و HPCaaS <strong>ساعتی و بر اساس مصرف</strong> محاسبه می‌شوند — شما به‌میزان منابع مصرفی پرداخت می‌کنید. CaaS <strong>قیمت‌گذاری ماهانهٔ ثابت</strong> به‌ازای هر کلاستر دارد: یک صورتحساب قابل پیش‌بینی بدون توجه به تعداد ماشین‌های مجازی یا حجم ترافیک داخلی. این مدل برای وظایف پایدار، پلتفرم‌های SaaS و محیط‌های حساس به انطباق ایده‌آل است.</p>
+              <p class="hd-text-sm hd-text-muted"><strong>بله.</strong> شما دسترسی SSH و اطلاعات کاربری ادمین به صفحه کنترل OpenStack دارید. سیاست‌های زمان‌بندی Nova را تنظیم کنید، شبکه Neutron را تغییر دهید، گروه‌های جای‌گذاری Ceph را مدیریت کنید — پشته متعلق به شماست. ما سخت‌افزار (تعویض درایو، فریمور، وصله‌های کرنل) را مدیریت می‌کنیم و ارتقاء نسخه‌های OpenStack را بدون قطعی سرویس انجام می‌دهیم.</p>
              </div>
             </div>
            </div>
@@ -1252,7 +1244,7 @@
                   aria-expanded="false" :aria-expanded="active === 4"
                   @click="active = (active === 4 ? null : 4)">
            <div class="faq_question_header">
-            <div>آیا می‌توانم نودهای GPU به ابر خصوصی خود اضافه کنم؟</div>
+            <div>قیمت‌گذاری CaaS چگونه خواهد بود؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1262,7 +1254,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">بله. می‌توانید <strong>نودهای NVIDIA GPU</strong> را برای آموزش مدل، استنتاج، ترانسکدینگ یا مصورسازی به کلاستر خود متصل کنید. نودهای GPU به‌عنوان افزونه به نرخ ماهانهٔ کلاستر شما محاسبه می‌شوند.</p>
+              <p class="hd-text-sm hd-text-muted">CaaS <strong>به‌ازای هر کلاستر</strong> اندازه‌گذاری می‌شود، نه به‌ازای هر ماشین — یک نرخ قابل‌پیش‌بینی برای کل کلاستر، فارغ از تعداد ماشین‌های مجازی یا حجم ترافیک داخلی، به‌جای لایسنس به‌ازای هسته یا سوکت به‌سبک VMware. در دورهٔ <strong>دسترسی زودهنگام</strong>، قیمت بر پایهٔ پیشنهاد اختصاصی است: بار کاری‌تان را بگویید تا یک کلاستر را اندازه‌گذاری و یک پیشنهاد قیمت اختصاصی آماده کنیم.</p>
              </div>
             </div>
            </div>
@@ -1275,7 +1267,7 @@
                   aria-expanded="false" :aria-expanded="active === 5"
                   @click="active = (active === 5 ? null : 5)">
            <div class="faq_question_header">
-            <div>WECORE چه چیزهایی را مدیریت می‌کند و من چه چیزهایی را؟</div>
+            <div>آیا می‌توانم نودهای GPU به ابر خصوصی خود اضافه کنم؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1285,7 +1277,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted"><strong>WECORE مدیریت می‌کند:</strong> چرخهٔ عمر سخت‌افزار، ارتقاء نسخه‌های صفحه کنترل OpenStack، سلامت و بازمتعادل‌سازی کلاستر Ceph، ساختار شبکه، مانیتورینگ ۲۴/۷ و پاسخ به رخدادها. <strong>شما مدیریت می‌کنید:</strong> ماشین‌های مجازی، شبکه‌های مستأجر، گروه‌های امنیتی، ایمیج‌ها، حجم‌ها و اپلیکیشن‌های خود. به آن مانند یک پلتفرم مدیریت‌شده فکر کنید — ما ابر را اجرا می‌کنیم تا شما وظایف کاری خود را اجرا کنید.</p>
+              <p class="hd-text-sm hd-text-muted">بله. می‌توانید <strong>نودهای NVIDIA GPU</strong> را برای آموزش مدل، استنتاج، ترانسکدینگ یا مصورسازی به کلاستر خود متصل کنید. نودهای GPU به‌عنوان افزونه و همراه با کلاستر شما قیمت‌گذاری می‌شوند.</p>
              </div>
             </div>
            </div>
@@ -1298,7 +1290,7 @@
                   aria-expanded="false" :aria-expanded="active === 6"
                   @click="active = (active === 6 ? null : 6)">
            <div class="faq_question_header">
-            <div>ذخیره‌سازی Ceph چگونه در یک کلاستر CaaS کار می‌کند؟</div>
+            <div>WECORE چه چیزهایی را مدیریت می‌کند و من چه چیزهایی را؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 6 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1308,7 +1300,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">Ceph به‌عنوان یک <strong>سیستم ذخیره‌سازی توزیع‌شدهٔ هم‌گرا</strong> روی تمام نودهای کلاستر شما مستقر می‌شود. داده‌ها برای دوام با تکثیر ۳ برابری ذخیره می‌شوند. Ceph سه واسط ارائه می‌دهد: <strong>RBD</strong> (ذخیره‌سازی بلوکی برای دیسک‌های VM، یکپارچه با Cinder)، <strong>RADOSGW</strong> (ذخیره‌سازی شیء‌گرای S3-compatible) و <strong>CephFS</strong> (فایل‌سیستم POSIX اشتراکی). نیازی به SAN یا NAS خارجی ندارید.</p>
+              <p class="hd-text-sm hd-text-muted"><strong>WECORE مدیریت می‌کند:</strong> چرخهٔ عمر سخت‌افزار، ارتقاء نسخه‌های صفحه کنترل OpenStack، سلامت و بازمتعادل‌سازی کلاستر Ceph، ساختار شبکه، مانیتورینگ و پاسخ به رخدادها. <strong>شما مدیریت می‌کنید:</strong> ماشین‌های مجازی، شبکه‌های مستأجر، گروه‌های امنیتی، ایمیج‌ها، حجم‌ها و اپلیکیشن‌های خود. به آن مانند یک پلتفرم مدیریت‌شده فکر کنید — ما ابر را اجرا می‌کنیم تا شما وظایف کاری خود را اجرا کنید.</p>
              </div>
             </div>
            </div>
@@ -1321,7 +1313,7 @@
                   aria-expanded="false" :aria-expanded="active === 7"
                   @click="active = (active === 7 ? null : 7)">
            <div class="faq_question_header">
-            <div>آیا می‌توانم از VMware vSphere به CaaS مهاجرت کنم؟</div>
+            <div>ذخیره‌سازی Ceph چگونه در یک کلاستر CaaS کار می‌کند؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 7 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1331,7 +1323,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">بله. بسیاری از تیم‌ها برای اجتناب از هزینه‌های لایسنس Broadcom از VMware مهاجرت می‌کنند. OpenStack قابلیت‌های معادل (یا بهتری) ارائه می‌دهد: Nova جایگزین مدیریت پردازش vCenter می‌شود، Neutron جایگزین شبکه NSX می‌شود، Cinder + Ceph جایگزین ذخیره‌سازی vSAN می‌شود و Keystone جایگزین RBAC vSphere می‌شود. ما راهنمایی مهاجرت ارائه می‌دهیم و می‌توانیم یک کلاستر جایگزین برای شما اندازه‌گیری کنیم.</p>
+              <p class="hd-text-sm hd-text-muted">Ceph به‌عنوان یک <strong>سیستم ذخیره‌سازی توزیع‌شدهٔ هم‌گرا</strong> روی تمام نودهای کلاستر شما مستقر می‌شود. داده‌ها برای دوام با تکثیر ۳ برابری ذخیره می‌شوند. Ceph سه واسط ارائه می‌دهد: <strong>RBD</strong> (ذخیره‌سازی بلوکی برای دیسک‌های VM، یکپارچه با Cinder)، <strong>RADOSGW</strong> (ذخیره‌سازی شیء‌گرای S3-compatible) و <strong>CephFS</strong> (فایل‌سیستم POSIX اشتراکی). نیازی به SAN یا NAS خارجی ندارید.</p>
              </div>
             </div>
            </div>
@@ -1351,17 +1343,17 @@
      <div class="hd-section-sm">
       <div class="hd-container">
        <div class="plan_hero_content caas-cta" data-hd-animate="fade-up">
-        <div class="hd-badge hd-text-300">آمادهٔ شروع؟</div>
+        <div class="hd-badge hd-text-300">دسترسی زودهنگام</div>
         <div class="hd-vspace-xs"></div>
         <h2 class="hd-text-alternate caas-cta-heading">
-         ابر خصوصی خود را در
-         <em>چند دقیقه</em> مستقر کنید.
+         از VMware کوچ کنید،
+         <em>به‌شیوهٔ خودتان.</em>
         </h2>
         <div class="hd-vspace-sm"></div>
-        <div class="hd-text-muted hd-max-md">یک کلاستر اختصاصی OpenStack &#43; Ceph متناسب با وظایف کاری خود دریافت کنید. قیمت‌گذاری ماهانهٔ ثابت، دسترسی ریشه کامل، ارتقاء مدیریت‌شدهٔ پلتفرم.</div>
+        <div class="hd-text-muted hd-max-md">یک کلاستر اختصاصی OpenStack &#43; Ceph متناسب با وظایف کاری خود دریافت کنید — با دسترسی ریشه کامل، ارتقاء مدیریت‌شده و یک مسیر تمیز برای مهاجرت از VMware و لایسنس Broadcom. به برنامهٔ دسترسی زودهنگام بپیوندید تا آن را با شما اندازه‌گذاری کنیم.</div>
         <div class="hd-vspace-lg"></div>
         <div class="hd-button-group hd-align-center">
-         <a class="hd-button hd-button-alternate" href="../../fa/demo">رزرو دمو</a>
+         <a class="hd-button hd-button-alternate" href="../../fa/demo">درخواست دسترسی زودهنگام</a>
          <a class="hd-button hd-button-alternate-secondary" href="../../fa/contact">تماس با فروش</a>
         </div>
        </div>
@@ -1565,11 +1557,11 @@
      <svg class="caas-construction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
       <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8 7.2 20l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.3-2.3 2.5-2.5z"/>
      </svg>
-     <div class="hd-badge hd-text-300">به‌زودی</div>
+     <div class="hd-badge hd-text-300">دسترسی زودهنگام</div>
      <div class="hd-vspace-xs"></div>
-     <h2 class="hd-h4" id="caas-construction-title">این سرویس در دست ساخت است</h2>
+     <h2 class="hd-h4" id="caas-construction-title">ابر خصوصی در دسترسِ زودهنگام است</h2>
      <div class="hd-vspace-xs"></div>
-     <p class="hd-text-sm hd-text-muted">سرویس ابر خصوصی (CaaS) ما هنوز کاملاً آماده نیست — در حال انجام آخرین مراحل هستیم و به‌زودی در دسترس قرار می‌گیرد. در این میان می‌توانید صفحه را مرور کنید.</p>
+     <p class="hd-text-sm hd-text-muted">ابر خصوصی WECORE در دسترسِ زودهنگام در حال عرضه است — هم‌اکنون تیم‌های پایلوت را پذیرش می‌کنیم، با تمرکز بر مهاجرت از VMware و لایسنس Broadcom. درخواست دسترسی بدهید تا یک کلاستر را با شما اندازه‌گذاری کنیم؛ در این میان می‌توانید صفحه را مرور کنید.</p>
      <div class="caas-construction-actions">
       <button type="button" class="hd-button" @click="open = false">ادامه و مشاهدهٔ پیش‌نمایش</button>
      </div>

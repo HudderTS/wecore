@@ -10,14 +10,14 @@
   
   
   <title>سرویس مدل‌های زبانی بزرگ | وِی‌کُر</title>
-  <meta content="مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید. یک مدل از Hugging Face انتخاب کنید، در یک گام با vLLM مستقر کنید و یک رابط گفت‌وگو به‌همراه یک API سازگار با OpenAI بگیرید — خوداِمیزبان روی زیرساخت Kubernetes و GPU وی‌کُر، با داده‌ای که هرگز از ابر شما خارج نمی‌شود." name="description"/>
+  <meta content="مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید. یک مدل از Hugging Face انتخاب کنید، در یک گام با vLLM مستقر کنید و یک رابط گفت‌وگو به‌همراه یک API سازگار با OpenAI بگیرید — خوداِمیزبان روی زیرساخت Kubernetes و GPU WECORE، با داده‌ای که هرگز از ابر شما خارج نمی‌شود." name="description"/>
   <link href="https://wecore.ir/fa/llm/" rel="canonical"/>
   
   <link href="https://wecore.ir/fa/llm/" hreflang="fa" rel="alternate"/>
   <link href="https://wecore.ir/en/llm/" hreflang="en" rel="alternate"/>
-  <link href="https://wecore.ir/en/llm/" hreflang="x-default" rel="alternate"/>
+  <link href="https://wecore.ir/fa/llm/" hreflang="x-default" rel="alternate"/>
   <meta content="سرویس مدل‌های زبانی بزرگ | وِی‌کُر" property="og:title"/>
-  <meta content="مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید. یک مدل از Hugging Face انتخاب کنید، در یک گام با vLLM مستقر کنید و یک رابط گفت‌وگو به‌همراه یک API سازگار با OpenAI بگیرید — خوداِمیزبان روی زیرساخت Kubernetes و GPU وی‌کُر، با داده‌ای که هرگز از ابر شما خارج نمی‌شود." property="og:description"/>
+  <meta content="مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید. یک مدل از Hugging Face انتخاب کنید، در یک گام با vLLM مستقر کنید و یک رابط گفت‌وگو به‌همراه یک API سازگار با OpenAI بگیرید — خوداِمیزبان روی زیرساخت Kubernetes و GPU WECORE، با داده‌ای که هرگز از ابر شما خارج نمی‌شود." property="og:description"/>
   <meta content="https://wecore.ir/fa/llm/" property="og:url"/>
   <meta content="https://wecore.ir/img/og/wecore-og.jpg" property="og:image"/>
   <meta content="WECORE" property="og:site_name"/>
@@ -25,7 +25,7 @@
   <meta content="fa_IR" property="og:locale"/>
   <meta content="en_US" property="og:locale:alternate"/>
   <meta content="سرویس مدل‌های زبانی بزرگ | وِی‌کُر" name="twitter:title"/>
-  <meta content="مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید. یک مدل از Hugging Face انتخاب کنید، در یک گام با vLLM مستقر کنید و یک رابط گفت‌وگو به‌همراه یک API سازگار با OpenAI بگیرید — خوداِمیزبان روی زیرساخت Kubernetes و GPU وی‌کُر، با داده‌ای که هرگز از ابر شما خارج نمی‌شود." name="twitter:description"/>
+  <meta content="مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید. یک مدل از Hugging Face انتخاب کنید، در یک گام با vLLM مستقر کنید و یک رابط گفت‌وگو به‌همراه یک API سازگار با OpenAI بگیرید — خوداِمیزبان روی زیرساخت Kubernetes و GPU WECORE، با داده‌ای که هرگز از ابر شما خارج نمی‌شود." name="twitter:description"/>
   <meta content="https://wecore.ir/img/og/wecore-og.jpg" name="twitter:image"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -232,7 +232,7 @@
 </script>
 
    <a class="hd-skip-link" href="#main-content">
-    Skip to content
+    پرش به محتوا
    </a>
    <div class="navbar hd-nav" role="banner"
         x-data="navbar"
@@ -453,7 +453,7 @@
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
-               بلاگ
+               مقالات
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
@@ -466,7 +466,7 @@
 
             
             <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
-             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <img alt="پیش‌نمایش پلتفرم WECORE" loading="lazy" src="../../img/nav/platform-preview.avif"/>
              <div class="nav-dropdown-buy-content">
               <div class="nav-dropdown-buy-heading">
                <div>
@@ -606,8 +606,8 @@
                 aria-expanded="false"
                 :aria-expanded="menuOpen"
                 aria-controls="nav-primary-menu"
-                aria-label="Open menu"
-                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+                aria-label="باز کردن منو"
+                :aria-label="menuOpen ? 'بستن منو' : 'باز کردن منو'">
          <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
         </button>
        </div>
@@ -693,11 +693,14 @@
       <div class="hd-container">
        <div class="llm-hero-layout">
         <div class="llm-hero-copy" data-hd-animate="fade-up">
-         <div class="hd-badge hd-text-300">LLMaaS</div>
+         <div class="pricing-spec-eyebrow">
+          <div class="hd-badge hd-text-300">LLMaaS</div>
+          <span class="pricing-status-pill">دسترسی زودهنگام</span>
+         </div>
          <div class="hd-vspace-sm"></div>
          <h1 class="hd-text-alternate">مدل‌های زبانی متن‌باز را روی GPUهای خودتان راه‌اندازی کنید.</h1>
          <div class="hd-vspace-sm"></div>
-         <div class="hd-text-lg hd-text-muted">یک راه‌انداز خوداِمیزبانِ LLM برای ابر وی‌کُر شما. یک مدل متن‌باز از Hugging Face انتخاب کنید، آن را در یک گام روی نودهای GPU مستقر کنید و یک رابط گفت‌وگوی آماده به‌همراه یک API سازگار با OpenAI بگیرید — سرویس‌دهی با vLLM، با پرامپت‌ها و داده‌هایی که هرگز از زیرساخت شما خارج نمی‌شوند.</div>
+         <div class="hd-text-lg hd-text-muted">یک راه‌انداز خودمیزبانِ LLM برای ابر WECORE شما. یک مدل متن‌باز از Hugging Face انتخاب کنید، آن را در یک گام روی نودهای GPU مستقر کنید و یک رابط گفت‌وگوی آماده به‌همراه یک API سازگار با OpenAI بگیرید — سرویس‌دهی با vLLM، با پرامپت‌ها و داده‌هایی که هرگز از زیرساخت شما خارج نمی‌شوند.</div>
          <div class="hd-vspace-sm"></div>
 
          
@@ -708,7 +711,7 @@
           </a>
           
           <a class="hd-button hd-button-alternate-secondary" href="../../fa/contact">
-           گفت‌وگو با وی‌کُر
+           گفت‌وگو با WECORE
           </a>
           
          </div>
@@ -745,7 +748,7 @@
          <div class="hd-vspace-sm"></div>
          
          <div class="llm-hero-promo hd-text-sm hd-text-medium">
-          ماژول به‌زودی: <strong>LLMaaS</strong> — ساخته‌شده روی بنیان‌های Kubernetes، GPU و سرور ابری وی‌کُر.
+          ماژول دسترسی زودهنگام: <strong>LLMaaS</strong> — ساخته‌شده روی بنیان‌های Kubernetes، GPU و سرور ابری WECORE.
          </div>
          
         </div>
@@ -753,7 +756,7 @@
         
         <div class="llm-hero-visual" data-hd-animate="fade-up-2">
          <div class="llm-visual-card">
-          <div class="llm-chat" role="img" aria-label="یک رابط گفت‌وگو که با یک مدل زبانی خوداِمیزبان پشتیبانی می‌شود، به یک پرامپت پاسخ می‌دهد و هم‌زمان یک endpoint سازگار با OpenAI ارائه می‌کند.">
+          <div class="llm-chat" role="img" aria-label="یک رابط گفت‌وگو که با یک مدل زبانی خودمیزبان پشتیبانی می‌شود، به یک پرامپت پاسخ می‌دهد و هم‌زمان یک endpoint سازگار با OpenAI ارائه می‌کند.">
            <div class="llm-chat-top">
             <div class="llm-window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
             <span class="llm-model-pill">Llama-3.1-8B-Instruct · vLLM · 1×A100</span>
@@ -801,7 +804,7 @@
         </div>
         
         <div class="llm-stat-card">
-         <div class="hd-h3">خوداِمیزبان</div>
+         <div class="hd-h3">خودمیزبان</div>
          <div class="hd-text-sm hd-text-muted">روی GPUهای شما اجرا می‌شود، داده سرِجا می‌ماند</div>
         </div>
         
@@ -823,7 +826,7 @@
          <span class="hd-text-secondary">بدون خروج از ابر شما.</span>
         </h2>
         <div class="hd-vspace-xs"></div>
-        <div class="hd-text-muted hd-max-lg">با الهام از راه‌اندازِ Azimuth LLM، وی‌کُر یک مدل متن‌باز انتخاب‌شده را روی نودهای GPU خودتان به یک اپ گفت‌وگو و API در حال اجرا تبدیل می‌کند — بدون نیاز به ساختِ زیرساخت استنتاج.</div>
+        <div class="hd-text-muted hd-max-lg">با الهام از راه‌اندازِ Azimuth LLM، WECORE یک مدل متن‌باز انتخاب‌شده را روی نودهای GPU خودتان به یک اپ گفت‌وگو و API در حال اجرا تبدیل می‌کند — بدون نیاز به ساختِ زیرساخت استنتاج.</div>
        </div>
        <div class="hd-vspace-lg"></div>
        <div class="llm-workflow-grid" data-hd-animate="fade-up-2">
@@ -841,7 +844,7 @@
          <div class="hd-vspace-xs"></div>
          <h3 class="hd-h5">اندازهٔ GPU را تعیین کنید</h3>
          <div class="hd-vspace-xs"></div>
-         <p class="hd-text-sm hd-text-muted">یک فلیور GPU و تعداد replica را از استخرهای Kubernetes وی‌کُر خود انتخاب کنید. بررسی‌های پیش‌پرواز پیش از اجرا تأیید می‌کنند که VRAM و سهمیه با مدل می‌خوانند.</p>
+         <p class="hd-text-sm hd-text-muted">یک فلیور GPU و تعداد replica را از استخرهای Kubernetes WECORE خود انتخاب کنید. بررسی‌های پیش‌پرواز پیش از اجرا تأیید می‌کنند که VRAM و سهمیه با مدل می‌خوانند.</p>
         </div>
         
         <div class="llm-workflow-card">
@@ -849,7 +852,7 @@
          <div class="hd-vspace-xs"></div>
          <h3 class="hd-h5">در یک گام راه‌اندازی کنید</h3>
          <div class="hd-vspace-xs"></div>
-         <p class="hd-text-sm hd-text-muted">وی‌کُر vLLM و یک اپ وب گفت‌وگو را برای شما مستقر می‌کند — وزن‌های مدل دریافت، سرویس‌دهی و سلامت‌سنجی می‌شوند و پشت ورود یکپارچه (SSO) عرضه می‌گردند.</p>
+         <p class="hd-text-sm hd-text-muted">WECORE vLLM و یک اپ وب گفت‌وگو را برای شما مستقر می‌کند — وزن‌های مدل دریافت، سرویس‌دهی و سلامت‌سنجی می‌شوند و پشت ورود یکپارچه (SSO) عرضه می‌گردند.</p>
         </div>
         
         <div class="llm-workflow-card">
@@ -964,7 +967,7 @@
         <div class="llm-console-card" data-hd-animate="fade-up-2">
          <div class="llm-console-header">
           <span>llm-launch</span>
-          <span class="llm-status-pill">خوداِمیزبان</span>
+          <span class="llm-status-pill">خودمیزبان</span>
          </div>
          <pre><code>model:   meta-llama/Llama-3.1-8B-Instruct
 backend: vllm (openai-compatible)
@@ -988,13 +991,13 @@ status:  SERVING  ·  142 tok/s
         <div class="llm-platform-card">
          <h3 class="hd-h5">endpoint سازگار با OpenAI</h3>
          <div class="hd-vspace-xs"></div>
-         <p class="hd-text-sm hd-text-muted">یک API گفت‌وگو و تکمیل پایدار /v1 یعنی SDKها، عامل‌ها و ابزارهای موجود تنها با تغییر یک base URL به وی‌کُر اشاره می‌کنند.</p>
+         <p class="hd-text-sm hd-text-muted">یک API گفت‌وگو و تکمیل پایدار /v1 یعنی SDKها، عامل‌ها و ابزارهای موجود تنها با تغییر یک base URL به WECORE اشاره می‌کنند.</p>
         </div>
         
         <div class="llm-platform-card">
          <h3 class="hd-h5">مقیاس‌گذاری خودکار روی Kubernetes</h3>
          <div class="hd-vspace-xs"></div>
-         <p class="hd-text-sm hd-text-muted">replicaها به‌صورت یک سرویس روی استخرهای GPU روی KaaS وی‌کُر اجرا می‌شوند، با سلامت‌سنجی، به‌روزرسانی چرخشی و گسترش زیر بار.</p>
+         <p class="hd-text-sm hd-text-muted">replicaها به‌صورت یک سرویس روی استخرهای GPU روی KaaS WECORE اجرا می‌شوند، با سلامت‌سنجی، به‌روزرسانی چرخشی و گسترش زیر بار.</p>
         </div>
         
         <div class="llm-platform-card">
@@ -1095,7 +1098,7 @@ status:  SERVING  ·  142 tok/s
          <div class="hd-vspace-sm"></div>
          <div class="llm-stack-list">
           
-          <span>Kubernetes وی‌کُر</span>
+          <span>Kubernetes WECORE</span>
           
           <span>استخرهای نود GPU</span>
           
@@ -1117,21 +1120,21 @@ status:  SERVING  ·  142 tok/s
      <div class="hd-section-md">
       <div class="hd-container">
        <div class="llm-section-heading hd-align-center hd-text-center" data-hd-animate="fade-up">
-        <div class="hd-badge">چرا وی‌کُر</div>
+        <div class="hd-badge">چرا WECORE</div>
         <div class="hd-vspace-xs"></div>
         <h2>
          تجربه‌ای شبیه API،
-         <span class="hd-text-secondary">اجرای خوداِمیزبان.</span>
+         <span class="hd-text-secondary">اجرای خودمیزبان.</span>
         </h2>
        </div>
        <div class="hd-vspace-lg"></div>
        <div class="llm-compare-table" data-hd-animate="fade-up-2">
         <div class="llm-compare-row llm-compare-head">
-         <div>بُعد</div><div>APIهای میزبانی‌شدهٔ LLM</div><div>LLMaaS وی‌کُر</div>
+         <div>بُعد</div><div>APIهای میزبانی‌شدهٔ LLM</div><div>LLMaaS WECORE</div>
         </div>
         
         <div class="llm-compare-row">
-         <div>جای اجرا</div><div>SaaS فروشنده، اجارهٔ مشترک</div><div>استخرهای GPU و Kubernetes وی‌کُر شما</div>
+         <div>جای اجرا</div><div>SaaS فروشنده، اجارهٔ مشترک</div><div>استخرهای GPU و Kubernetes WECORE شما</div>
         </div>
         
         <div class="llm-compare-row">
@@ -1165,7 +1168,7 @@ status:  SERVING  ·  142 tok/s
         <div class="hd-vspace-xs"></div>
         <h2 class="hd-text-center">پرسش‌های سرویس مدل زبانی، پاسخ داده شد</h2>
         <div class="hd-vspace-sm"></div>
-        <div class="hd-text-center hd-text-muted">راه‌انداز چیست، چه چیزی سرویس‌دهی می‌کند و چطور با زیرساخت وی‌کُر جور می‌شود</div>
+        <div class="hd-text-center hd-text-muted">راه‌انداز چیست، چه چیزی سرویس‌دهی می‌کند و چطور با زیرساخت WECORE جور می‌شود</div>
         <div class="hd-vspace-lg"></div>
        </div>
        <div class="hd-align-center">
@@ -1177,7 +1180,7 @@ status:  SERVING  ·  142 tok/s
                   aria-expanded="false" :aria-expanded="active === 0"
                   @click="active = (active === 0 ? null : 0)">
            <div class="faq_question_header">
-            <div>دقیقاً LLMaaS وی‌کُر چیست؟</div>
+            <div>دقیقاً LLMaaS WECORE چیست؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -1187,7 +1190,7 @@ status:  SERVING  ·  142 tok/s
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">این یک <strong>راه‌انداز LLM</strong> خوداِمیزبان است: شما یک مدل متن‌باز انتخاب می‌کنید و وی‌کُر آن را روی نودهای GPU شما به‌همراه یک رابط گفت‌وگوی وب و یک API سازگار با OpenAI مستقر می‌کند. این الگو از اپ‌های <strong>Azimuth LLM</strong> شرکت StackHPC الهام گرفته و برای اجرا روی زیرساخت Kubernetes، GPU و OpenStack وی‌کُر سازگار شده است.</p>
+              <p class="hd-text-sm hd-text-muted">این یک <strong>راه‌انداز LLM</strong> خودمیزبان است: شما یک مدل متن‌باز انتخاب می‌کنید و WECORE آن را روی نودهای GPU شما به‌همراه یک رابط گفت‌وگوی وب و یک API سازگار با OpenAI مستقر می‌کند. این الگو از اپ‌های <strong>Azimuth LLM</strong> شرکت StackHPC الهام گرفته و برای اجرا روی زیرساخت Kubernetes، GPU و OpenStack WECORE سازگار شده است.</p>
              </div>
             </div>
            </div>
@@ -1256,7 +1259,7 @@ status:  SERVING  ·  142 tok/s
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">هیچ‌جای بیرون از ابر شما. پرامپت‌ها، پاسخ‌ها، وزن‌های مدل و لاگ‌ها روی <strong>فضای ذخیره‌سازی اپراتور درون زیرساخت وی‌کُر شما</strong> می‌مانند. هیچ فراخوانی API شخص ثالث و هیچ خروج داده‌ای به فروشندهٔ مدل وجود ندارد، که آن را برای بارهای کاری حساس و تحت‌مقررات بسیار مناسب می‌کند.</p>
+              <p class="hd-text-sm hd-text-muted">هیچ‌جای بیرون از ابر شما. پرامپت‌ها، پاسخ‌ها، وزن‌های مدل و لاگ‌ها روی <strong>فضای ذخیره‌سازی اپراتور درون زیرساخت WECORE شما</strong> می‌مانند. هیچ فراخوانی API شخص ثالث و هیچ خروج داده‌ای به فروشندهٔ مدل وجود ندارد، که آن را برای بارهای کاری حساس و تحت‌مقررات بسیار مناسب می‌کند.</p>
              </div>
             </div>
            </div>
@@ -1279,7 +1282,7 @@ status:  SERVING  ·  142 tok/s
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">LLMaaS به‌صورت یک سرویس روی استخرهای نود GPU <strong>Kubernetes وی‌کُر (KaaS)</strong> شما اجرا می‌شود. هر مدل یک deployment با سلامت‌سنجی، به‌روزرسانی چرخشی و گسترش زیر بار است؛ دسترسی از طریق ingress و پشت <strong>ورود یکپارچه (SSO)</strong> عرضه می‌شود.</p>
+              <p class="hd-text-sm hd-text-muted">LLMaaS به‌صورت یک سرویس روی استخرهای نود GPU <strong>Kubernetes WECORE (KaaS)</strong> شما اجرا می‌شود. هر مدل یک deployment با سلامت‌سنجی، به‌روزرسانی چرخشی و گسترش زیر بار است؛ دسترسی از طریق ingress و پشت <strong>ورود یکپارچه (SSO)</strong> عرضه می‌شود.</p>
              </div>
             </div>
            </div>
@@ -1344,18 +1347,18 @@ status:  SERVING  ·  142 tok/s
      <div class="hd-section-sm">
       <div class="hd-container">
        <div class="plan_hero_content llm-cta" data-hd-animate="fade-up">
-        <div class="hd-badge hd-text-300">به‌زودی</div>
+        <div class="hd-badge hd-text-300">دسترسی زودهنگام</div>
         <div class="hd-vspace-xs"></div>
         <h2 class="hd-text-alternate llm-cta-heading">
          GPUهای خود را به
          <em>یک endpoint خصوصی هوش مصنوعی</em> تبدیل کنید.
         </h2>
         <div class="hd-vspace-sm"></div>
-        <div class="hd-text-muted hd-max-md">LLMaaS وی‌کُر برای تیم‌هایی است که راحتیِ یک API میزبانی‌شدهٔ LLM را می‌خواهند بدون فرستادن پرامپت‌ها و داده به یک فروشندهٔ عمومی — مدل‌های متن‌باز، یک endpoint سازگار با OpenAI و یک رابط گفت‌وگو، همه روی زیرساختی که خودتان کنترل می‌کنید.</div>
+        <div class="hd-text-muted hd-max-md">LLMaaS WECORE برای تیم‌هایی است که راحتیِ یک API میزبانی‌شدهٔ LLM را می‌خواهند بدون فرستادن پرامپت‌ها و داده به یک فروشندهٔ عمومی — مدل‌های متن‌باز، یک endpoint سازگار با OpenAI و یک رابط گفت‌وگو، همه روی زیرساختی که خودتان کنترل می‌کنید.</div>
         <div class="hd-vspace-lg"></div>
         <div class="hd-button-group hd-align-center">
          <a class="hd-button hd-button-alternate" href="../../fa/demo">درخواست دمو</a>
-         <a class="hd-button hd-button-alternate-secondary" href="../../fa/contact">گفت‌وگو با وی‌کُر</a>
+         <a class="hd-button hd-button-alternate-secondary" href="../../fa/contact">گفت‌وگو با WECORE</a>
         </div>
        </div>
       </div>
@@ -1558,11 +1561,11 @@ status:  SERVING  ·  142 tok/s
      <svg class="llm-construction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
       <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8 7.2 20l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.3-2.3 2.5-2.5z"/>
      </svg>
-     <div class="hd-badge hd-text-300">به‌زودی</div>
+     <div class="hd-badge hd-text-300">دسترسی زودهنگام</div>
      <div class="hd-vspace-xs"></div>
-     <h2 class="hd-h4" id="llm-construction-title">این سرویس در دست ساخت است</h2>
+     <h2 class="hd-h4" id="llm-construction-title">LLMaaS در دسترسِ زودهنگام است</h2>
      <div class="hd-vspace-xs"></div>
-     <p class="hd-text-sm hd-text-muted">راه‌اندازِ سرویس مدل‌های زبانی بزرگ (LLMaaS) ما هنوز کاملاً آماده نیست — در حال زدن آخرین دستی‌ها هستیم و به‌زودی در دسترس خواهد بود. در این فاصله می‌توانید نگاهی به صفحه بیندازید.</p>
+     <p class="hd-text-sm hd-text-muted">LLMaaS WECORE در دسترسِ زودهنگام در حال عرضه است — درخواست دسترسی بدهید تا مدل‌های متن‌باز را روی GPUهای شما، با یک endpoint سازگار با OpenAI و پرامپت‌هایی که درون زیرساخت شما می‌مانند، راه‌اندازی کنیم. در این فاصله می‌توانید نگاهی به صفحه بیندازید.</p>
      <div class="llm-construction-actions">
       <button type="button" class="hd-button" @click="open = false">ادامه به پیش‌نمایش</button>
      </div>

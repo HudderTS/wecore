@@ -15,7 +15,7 @@
   
   <link href="https://wecore.ir/fa/articles/cloud-servers/" hreflang="fa" rel="alternate"/>
   <link href="https://wecore.ir/en/articles/cloud-servers/" hreflang="en" rel="alternate"/>
-  <link href="https://wecore.ir/en/articles/cloud-servers/" hreflang="x-default" rel="alternate"/>
+  <link href="https://wecore.ir/fa/articles/cloud-servers/" hreflang="x-default" rel="alternate"/>
   <meta content="سرور ابری: محاسبات در چند دقیقه — حالا با GPU ابری | وِی‌کُر" property="og:title"/>
   <meta content="خلاصهٔ کوتاه: یک ماشین مجازی مبتنی بر NVMe را در کمتر از دو دقیقه بالا بیاورید، ساعتی بپردازید و دسترسی کامل root داشته باشید — و هر وقت کاری به شتاب‌دهی نیاز داشت، از همین ماژول یک سرور GPU ابری با کارت‌های A10، L40S یا A100 راه‌اندازی کنید." property="og:description"/>
   <meta content="https://wecore.ir/fa/articles/cloud-servers/" property="og:url"/>
@@ -231,7 +231,7 @@
 </script>
 
    <a class="hd-skip-link" href="#main-content">
-    Skip to content
+    پرش به محتوا
    </a>
    <div class="navbar hd-nav" role="banner"
         x-data="navbar"
@@ -452,7 +452,7 @@
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../../fa/articles/">
-               بلاگ
+               مقالات
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../../fa/#">
@@ -465,7 +465,7 @@
 
             
             <a class="nav-dropdown-column is-buy-template" href="../../../fa/contact" >
-             <img alt="WECORE platform preview" loading="lazy" src="../../../img/nav/platform-preview.avif"/>
+             <img alt="پیش‌نمایش پلتفرم WECORE" loading="lazy" src="../../../img/nav/platform-preview.avif"/>
              <div class="nav-dropdown-buy-content">
               <div class="nav-dropdown-buy-heading">
                <div>
@@ -605,8 +605,8 @@
                 aria-expanded="false"
                 :aria-expanded="menuOpen"
                 aria-controls="nav-primary-menu"
-                aria-label="Open menu"
-                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+                aria-label="باز کردن منو"
+                :aria-label="menuOpen ? 'بستن منو' : 'باز کردن منو'">
          <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../../img/icons/menu.svg"/>
         </button>
        </div>
@@ -739,7 +739,7 @@
        data-hd-animate="fade-up-2"
        loading="lazy"
        sizes="100vw"
-       src="../../../img/product/premium.jpg"
+       src="../../../img/posts/cloud-servers.jpg"
        />
        
       </div>
@@ -756,7 +756,7 @@
 </p>
 <h2>سرور ابری چیست؟</h2>
 <p>
-سرور ابری یک ماشین مجازی است که روی زیرساخت محاسباتی مشترک و مبتنی بر NVMe وی‌کُر اجرا می‌شود. هر نمونه با vCPU، RAM و ذخیره‌سازی محلی NVMe اختصاصی، یک IPv4 و IPv6 عمومی، و دسترسی کامل root از همان نخستین بوت ارائه می‌شود. هیچ صف استقراری و هیچ تیکتی در کار نیست — خودتان از پنل یا API راه‌اندازی می‌کنید و در چند دقیقه در حال اجرا هستید.
+سرور ابری یک ماشین مجازی است که روی زیرساخت محاسباتی مشترک و مبتنی بر NVMe WECORE اجرا می‌شود. هر نمونه با vCPU، RAM و ذخیره‌سازی محلی NVMe اختصاصی، یک IPv4 و IPv6 عمومی، و دسترسی کامل root از همان نخستین بوت ارائه می‌شود. هیچ صف استقراری و هیچ تیکتی در کار نیست — خودتان از پنل یا API راه‌اندازی می‌کنید و در چند دقیقه در حال اجرا هستید.
 </p>
 <p>
 محاسبات در سه خانواده ارائه می‌شود تا به‌جای پرداخت اضافه بابت یک جعبهٔ همه‌کاره، متناسب با شکل بار کاری اندازه‌گذاری کنید:
@@ -793,7 +793,7 @@
 <h2>چرا تیم‌ها سرور ابری را انتخاب می‌کنند</h2>
 <ul role="list">
 <li>
-<strong>فقط بابت آنچه روشن است بپردازید.</strong> صورتحساب ساعتی است و به یک سقف ماهانهٔ تمیز محدود می‌شود، پس سروری که تمام ماه روشن بماند هرگز بیش از قیمت ماهانه‌اش هزینه ندارد.
+<strong>فقط بابت آنچه روشن است می‌پردازید.</strong> صورتحساب ساعتی و قابل پیش‌بینی است و مصرف به‌صورت شفاف اندازه‌گیری می‌شود — بدون هزینهٔ پنهان.
 </li>
 <li>
 <strong>NVMe در همه‌جا.</strong> NVMe محلی روی هر پلن — دیسکِ کم‌تأخیر و یکنواخت، بدون محدودسازی IOPS به‌خاطر همسایهٔ پرسر‌و‌صدا.
@@ -809,7 +809,7 @@
 «نباید مجبور باشید میان سرعت و کنترل یکی را انتخاب کنید. سرور ابری هر دو را می‌دهد — یک ماشین واقعی با دسترسی کامل root در دو دقیقه، و یک GPU هر وقت کار به آن نیاز داشت.»
 </blockquote>
 <p>
-چه میزبان یک اپ وب باشید، چه پایگاه‌داده‌ای اجرا کنید، چه یک پایپ‌لاین CI را برست کنید یا یک مدل هوش مصنوعی را روی GPU سرو کنید — سرور بعدی شما تنها چند دقیقه فاصله دارد. حساب‌های جدید با اعتبار راه‌اندازی آغاز می‌شوند — یک خانواده انتخاب کنید، یک اندازه برگزینید و راه‌اندازی کنید.
+چه میزبان یک اپ وب باشید، چه پایگاه‌داده‌ای اجرا کنید، چه یک پایپ‌لاین CI را برست کنید یا یک مدل هوش مصنوعی را روی GPU سرو کنید — سرور بعدی شما تنها چند دقیقه فاصله دارد — روی زیرساخت خودتان یا روی WECORE Hub. یک خانواده انتخاب کنید، یک اندازه برگزینید و راه‌اندازی کنید.
 </p>
 
          </div>
@@ -841,7 +841,7 @@
         <div class="updates_feed_grid" role="list">
          
          <a class="updates_feed_card" href="../../../fa/articles/cloud-hpc-guide/" role="listitem">
- <img alt="HPC ابری: راهنمای قطعی محاسبات با کارایی بالا در عصر ابر" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/hpc/hero-workload-1.avif"/>
+ <img alt="HPC ابری: راهنمای قطعی محاسبات با کارایی بالا در عصر ابر" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/posts/cloud-hpc.jpg"/>
  <div class="updates_feed_content">
   <div>
    <h3 class="hd-h5">HPC ابری: راهنمای قطعی محاسبات با کارایی بالا در عصر ابر</h3>
@@ -849,7 +849,7 @@
    <div class="hd-text-secondary articles_excerpt">HPC چیست، چه تفاوتی با ابرکامپیوترها دارد و چرا HPC ابری در حال بازتعریف پژوهش، علم و صنعت است؟ نگاهی عمیق به فناوری، بازار و رویکرد WECORE.</div>
    <div class="hd-vspace-xxs"></div>
    <div class="updates-info">
-    <div class="updates_badge">June 13, 2026</div>
+    <div class="updates_badge">13 ژوئن 2026</div>
     <div class="hd-text-tiny">HPC</div>
    </div>
    <div class="hd-vspace-xxs"></div>
@@ -863,15 +863,15 @@
 
          
          <a class="updates_feed_card" href="../../../fa/articles/kubernetes-as-a-service/" role="listitem">
- <img alt="KaaS به زبان ساده: کوبرنتیز به‌عنوان سرویس چگونه به سازمان‌ها کمک می‌کند سریع‌تر منتشر کنند" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/caas/hero-dc-engineer.jpg"/>
+ <img alt="KaaS به زبان ساده: کوبرنتیز به‌عنوان سرویس چگونه به سازمان‌ها کمک می‌کند سریع‌تر منتشر کنند" class="updates_feed_image" loading="lazy" sizes="(max-width: 47.9375rem) 100vw, (max-width: 61.9375rem) 50vw, 33vw" src="../../../img/posts/kubernetes.jpg"/>
  <div class="updates_feed_content">
   <div>
    <h3 class="hd-h5">KaaS به زبان ساده: کوبرنتیز به‌عنوان سرویس چگونه به سازمان‌ها کمک می‌کند سریع‌تر منتشر کنند</h3>
    <div class="hd-vspace-xxs"></div>
-   <div class="hd-text-secondary articles_excerpt">خلاصهٔ کوتاه: کوبرنتیز به‌عنوان سرویس، کلاسترهای production را از روی قالب‌های تأییدشده در چند دقیقه تحویل می‌دهد — کنترل‌پلینِ مدیریت‌شده، گروه‌های نودِ کارگر که خودتان اندازه می‌گذارید و خوددرمانیِ داخلی — تا تیم شما به‌جای مراقبت از زیرساخت، نرم‌افزار منتشر کند.</div>
+   <div class="hd-text-secondary articles_excerpt">خلاصهٔ کوتاه: کوبرنتیز به‌عنوان سرویس، کلاسترهای آمادهٔ تولید را از روی قالب‌های تأییدشده در چند دقیقه تحویل می‌دهد — کنترل‌پلینِ مدیریت‌شده، گروه‌های نودِ کارگر که خودتان اندازه می‌گذارید و خودترمیمیِ داخلی — تا تیم شما به‌جای مراقبت از زیرساخت، نرم‌افزار منتشر کند.</div>
    <div class="hd-vspace-xxs"></div>
    <div class="updates-info">
-    <div class="updates_badge">June 13, 2026</div>
+    <div class="updates_badge">13 ژوئن 2026</div>
     <div class="hd-text-tiny">Cloud</div>
    </div>
    <div class="hd-vspace-xxs"></div>

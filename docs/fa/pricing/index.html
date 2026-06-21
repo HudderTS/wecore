@@ -15,7 +15,7 @@
   
   <link href="https://wecore.ir/fa/pricing/" hreflang="fa" rel="alternate"/>
   <link href="https://wecore.ir/en/pricing/" hreflang="en" rel="alternate"/>
-  <link href="https://wecore.ir/en/pricing/" hreflang="x-default" rel="alternate"/>
+  <link href="https://wecore.ir/fa/pricing/" hreflang="x-default" rel="alternate"/>
   <meta content="قیمت‌گذاری | وِی‌کُر" property="og:title"/>
   <meta content="قیمت‌گذاری منعطف و شفاف برای بارهای کاری هوش مصنوعی و HPC. پرداخت به‌میزان مصرف به‌صورت ساعتی یا رزرو ظرفیت — مدلی را انتخاب کنید که با مصرف و نیازهای کنترلی شما هم‌خوان باشد." property="og:description"/>
   <meta content="https://wecore.ir/fa/pricing/" property="og:url"/>
@@ -69,11 +69,6 @@
 
 
 
-<script>
-  document.addEventListener('alpine:init', () => {
-    Alpine.store('pricing', { period: 'hourly' });
-  });
-</script>
  <body>
   <div class="page-wrapper">
 
@@ -238,7 +233,7 @@
 </script>
 
    <a class="hd-skip-link" href="#main-content">
-    Skip to content
+    پرش به محتوا
    </a>
    <div class="navbar hd-nav" role="banner"
         x-data="navbar"
@@ -459,7 +454,7 @@
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
-               بلاگ
+               مقالات
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
@@ -472,7 +467,7 @@
 
             
             <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
-             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <img alt="پیش‌نمایش پلتفرم WECORE" loading="lazy" src="../../img/nav/platform-preview.avif"/>
              <div class="nav-dropdown-buy-content">
               <div class="nav-dropdown-buy-heading">
                <div>
@@ -612,8 +607,8 @@
                 aria-expanded="false"
                 :aria-expanded="menuOpen"
                 aria-controls="nav-primary-menu"
-                aria-label="Open menu"
-                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+                aria-label="باز کردن منو"
+                :aria-label="menuOpen ? 'بستن منو' : 'باز کردن منو'">
          <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
         </button>
        </div>
@@ -690,7 +685,7 @@
     </div>
    </div>
 
-   <main class="main-wrapper" id="main-content" x-data="{}">
+   <main class="main-wrapper" id="main-content">
 
     
     <section class="section_pricing_hero">
@@ -702,100 +697,179 @@
         </div>
         <div class="hd-vspace-sm"></div>
         <h1 class="hd-text-center">
-         قیمت‌گذاری ساخته‌شده برای بارهای کاری فنی
+         قیمت‌گذاری متناسب با استقرار شما
         </h1>
         <div class="hd-vspace-sm"></div>
-        <div class="hd-text-center">
-         قیمت‌گذاری ساعتی و مبتنی‌بر مصرف برای سرورها، کلاسترها و GPUها — همراه با نمای ماهانهٔ شفاف. یک محصول را انتخاب کنید، سپس یک طرح.
+        <div class="hd-text-center hd-text-muted">
+         WECORE روی زیرساخت خودتان (On-Premise) یا روی WECORE Hub مستقر می‌شود؛ قیمت بر پایهٔ مدل استقرار، اندازهٔ زیرساخت و سطح پشتیبانی تعیین می‌شود — نه یک تعرفهٔ ثابت خرده‌فروشی. مدل مناسب را انتخاب کنید و یک پیشنهاد اختصاصی بگیرید.
         </div>
-        <div class="hd-vspace-sm"></div>
+        <div class="hd-vspace-md"></div>
 
-        
-        <div class="pricing-toggle-row hd-justify-center">
-         <div class="pricing-toggle hd-segmented" role="group" aria-label="دورهٔ صورتحساب">
-          <button type="button" class="pricing-toggle-btn hd-segmented-item"
-                  :class="{ 'is-active': $store.pricing.period === 'hourly' }"
-                  :aria-pressed="$store.pricing.period === 'hourly'"
-                  @click="$store.pricing.period = 'hourly'">
-           ساعتی
-          </button>
-          <button type="button" class="pricing-toggle-btn hd-segmented-item"
-                  :class="{ 'is-active': $store.pricing.period === 'monthly' }"
-                  :aria-pressed="$store.pricing.period === 'monthly'"
-                  @click="$store.pricing.period = 'monthly'">
-           ماهانه
-          </button>
-         </div>
-         <div class="pricing-toggle-note hd-text-tiny hd-text-muted">ماهانه = ساعتی × 730</div>
-        </div>
-
-        <div class="hd-vspace-sm"></div>
         
         <div class="hd-button-group hd-align-center">
          
-         <a class="hd-button " href="../../fa/demo">
-          رزرو دمو
+         <a class="hd-button " href="../../fa/contact">
+          گفت‌وگو با فروش
          </a>
          
-         <a class="hd-button hd-button-secondary" href="../../fa/contact">
-          گفتگو با فروش
+         <a class="hd-button hd-button-secondary" href="../../fa/demo">
+          درخواست دمو
          </a>
          
         </div>
         
-        <div class="hd-vspace-sm"></div>
-        <p class="pricing-disclaimer hd-text-tiny hd-text-muted">
-         قیمت‌های نمایشی و آزمایشی. این اعداد از مدل نرخ واحد داخلی WECORE به‌دست آمده‌اند — پردازنده 3,000، حافظه 600 و فضای ذخیره‌سازی 120 تومان به‌ازای هر واحد-ساعت؛ مارکت‌پلیس 5,100 تومان به‌ازای هر هسته-ساعت × پروفایل — با نرخ آزمایشی 1 دلار = 60,000 تومان و ماهانه = ساعتی × 730. این‌ها قیمت قطعی نیستند؛ قیمت نهایی هنگام عرضه اعلام می‌شود.
-
-        </p>
        </div>
       </div>
      </div>
     </section>
 
     
-    <div class="pricing-prodnav-wrap">
-     <div class="hd-container">
-      <nav class="pricing-prodnav" aria-label="Products">
-       <div class="pricing-prodnav-links">
-        
-        <a class="pricing-prodnav-link" href="#cloud-servers">سرورهای ابری</a>
-        
-        <a class="pricing-prodnav-link" href="#kubernetes">کوبرنتیز</a>
-        
-        <a class="pricing-prodnav-link" href="#cloud-hpc">اچ‌پی‌سی ابری</a>
-        
-        <a class="pricing-prodnav-link" href="#marketplace">مارکت‌پلیس</a>
-        
-        <a class="pricing-prodnav-link" href="#llm">مدل زبانی (LLM)</a>
-        
-        <a class="pricing-prodnav-link" href="#cloud-desktop">دسکتاپ ابری</a>
-        
-       </div>
-       <div class="pricing-toggle pricing-toggle-compact hd-segmented" role="group" aria-label="دورهٔ صورتحساب">
-        <button type="button" class="pricing-toggle-btn hd-segmented-item"
-                :class="{ 'is-active': $store.pricing.period === 'hourly' }"
-                :aria-pressed="$store.pricing.period === 'hourly'"
-                @click="$store.pricing.period = 'hourly'">
-         ساعتی
-        </button>
-        <button type="button" class="pricing-toggle-btn hd-segmented-item"
-                :class="{ 'is-active': $store.pricing.period === 'monthly' }"
-                :aria-pressed="$store.pricing.period === 'monthly'"
-                @click="$store.pricing.period = 'monthly'">
-         ماهانه
-        </button>
-       </div>
-      </nav>
-     </div>
-    </div>
-
     
-    
-    <section class="section_pricing_product pricing-product" id="cloud-servers">
+    <section class="section_pricing_models hd-bg-secondary">
      <div class="hd-section-md">
       <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">مدل‌های استقرار</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         سه راه برای
+         <span class="hd-text-secondary">اجرای WECORE.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">همان پلتفرم، با مدلی که با هدف سازمان شما هم‌خوان است. زیربنا یکسان است؛ تنها جای اجرا و مالکیت فرق می‌کند.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="pricing-models" data-hd-animate="fade-up-2">
+        
+        <div class="pricing-model-card">
+         <div class="hd-badge hd-text-300">تمرکز فعلی</div><div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">استقرار On-Premise</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">برای جایی که حداکثر حاکمیت داده اولویت است. WECORE روی زیرساخت در مالکیت یا اجارهٔ خودتان مستقر می‌شود؛ داده و کنترل‌پلین نزد شما می‌ماند.</p>
+         
+         <ul class="pricing-feature-list" role="list">
+          <li class="pricing-feature">تک‌مستأجر، روی سخت‌افزار خودتان</li><li class="pricing-feature">حاکمیت کامل داده، بدون خروج داده</li><li class="pricing-feature">مناسب سازمان‌ها، صنایع و محیط‌های بسته</li>
+         </ul>
+         
+        </div>
+        
+        <div class="pricing-model-card">
+         <div class="hd-badge hd-text-300">تمرکز فعلی</div><div class="hd-vspace-xs"></div>
+         <h3 class="hd-h5">پیوستن به WECORE Hub</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">برای جایی که می‌خواهد از زیرساختش درآمد بسازد. ظرفیت خود را به Hub بپیوندید و آن را به محصول قابل عرضه و قابل صورتحساب تبدیل کنید.</p>
+         
+         <ul class="pricing-feature-list" role="list">
+          <li class="pricing-feature">ظرفیت خام را به محصول قابل فروش تبدیل می‌کند</li><li class="pricing-feature">کاتالوگ، سهمیه و صورتحساب آماده</li><li class="pricing-feature">مناسب دانشگاه‌ها و دیتاسنترها</li>
+         </ul>
+         
+        </div>
+        
+        <div class="pricing-model-card">
+         
+         <h3 class="hd-h5">ترکیبی (هیبرید)</h3>
+         <div class="hd-vspace-xs"></div>
+         <p class="hd-text-sm hd-text-muted">زیرساخت خود را داشته باشید و هنگام اوج تقاضا به ظرفیت Hub سرریز کنید — یک پلتفرم، دو منبع ظرفیت.</p>
+         
+         <ul class="pricing-feature-list" role="list">
+          <li class="pricing-feature">سرریز به Hub در اوج بار</li><li class="pricing-feature">همان جریان کاری در هر دو سو</li><li class="pricing-feature">تعادل میان مالکیت و کشسانی</li>
+         </ul>
+         
+        </div>
+        
+       </div>
+       
+       <div class="hd-vspace-md"></div>
+       <p class="pricing-roadmap-note hd-text-tiny hd-text-muted hd-text-center">سرویس ابر عمومیِ سلف‌سرویس و ساعتی روی نقشهٔ راه است و در فاز فعلی ارائه نمی‌شود.</p>
+       
+      </div>
+     </div>
+    </section>
+    
 
+    
+    
+    <section class="section_pricing_drivers">
+     <div class="hd-section-md">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">هزینه بر چه اساسی است؟</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         آنچه قیمت را
+         <span class="hd-text-secondary">تعیین می‌کند.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">به‌جای یک تعرفهٔ ثابت، قیمت هر استقرار بر پایهٔ همین محورها برآورد و در قالب یک پیشنهاد اختصاصی ارائه می‌شود.</div>
+       </div>
+       <div class="hd-vspace-lg"></div>
+       <div class="pricing-drivers-grid" data-hd-animate="fade-up-2">
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">اندازهٔ زیرساخت</h4>
+          <p class="hd-text-sm hd-text-muted">تعداد نود، هسته و حافظه — و اینکه کلاستر چه مقیاسی دارد و چه‌قدر پایدار اجرا می‌شود.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">GPU و شتاب‌دهنده</h4>
+          <p class="hd-text-sm hd-text-muted">تعداد و نوع کارت‌های GPU برای بارهای هوش مصنوعی، شبیه‌سازی و استنتاج.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">ذخیره‌سازی و شبکه</h4>
+          <p class="hd-text-sm hd-text-muted">ظرفیت ذخیره‌سازی NVMe/Ceph، نوع شبکه و نیازهای ترافیک.</p>
+         </div>
+        </div>
+        
+        <div class="caas-value-card">
+         <img alt="" aria-hidden="true" class="caas-value-check" loading="lazy" src="../../img/icons/checkmark.svg"/>
+         <div>
+          <h4 class="hd-h6">مدل استقرار و پشتیبانی</h4>
+          <p class="hd-text-sm hd-text-muted">On-Premise، Hub یا ترکیبی؛ به‌همراه سطح پشتیبانی، استقرار و یکپارچه‌سازی موردنیاز.</p>
+         </div>
+        </div>
+        
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    <section class="section_pricing_products_intro hd-bg-secondary">
+     <div class="hd-section-sm">
+      <div class="hd-container">
+       <div class="hd-align-center hd-text-center" data-hd-animate="fade-up">
+        <div class="hd-badge hd-text-center">محصولات</div>
+        <div class="hd-vspace-xs"></div>
+        <h2>
+         ظرفیت‌ها،
+         <span class="hd-text-secondary">نه تعرفه‌ها.</span>
+        </h2>
+        <div class="hd-vspace-xs"></div>
+        <div class="hd-text-muted">محدودهٔ هر محصول را ببینید و برای استقرار موردنظر خود یک پیشنهاد قیمت بگیرید.</div>
+       </div>
+      </div>
+     </div>
+    </section>
+    
+
+    
+    
+    
+    
+    <section class="section_pricing_product pricing-product hd-bg-secondary" id="cloud-servers">
+     <div class="hd-section-md">
+      <div class="hd-container">
        <div class="pricing-product-grid" data-hd-animate="fade-up">
         
         <div class="plan_hero_content pricing-spec-card">
@@ -806,7 +880,7 @@
          <div class="hd-vspace-xs"></div>
          <h2 class="hd-h3 hd-text-alternate">سرورهای ابری</h2>
          <div class="hd-vspace-xs"></div>
-         <div class="hd-text-muted">ماشین‌های مجازی با صورتحساب ساعتی، فضای NVMe و خروجی منصفانه. یک خانواده را انتخاب کنید، سپس یک طرح.</div>
+         <div class="hd-text-muted">ماشین‌های مجازی روی زیرساخت مبتنی بر NVMe — روی زیرساخت خودتان یا روی Hub. یک خانواده و یک اندازه انتخاب کنید و دسترسی کامل root بگیرید.</div>
          <div class="hd-vspace-sm"></div>
 
          <div class="pricing-chips">
@@ -827,472 +901,57 @@
           </div>
           
           <div class="pricing-chip">
-           <span class="pricing-chip-label">شبکه</span>
-           <span class="pricing-chip-value">خروجی منصفانه</span>
+           <span class="pricing-chip-label">دسترسی</span>
+           <span class="pricing-chip-value">root کامل</span>
           </div>
           
          </div>
 
          <div class="hd-vspace-sm"></div>
-         <div class="divider"></div>
-         <div class="hd-vspace-sm"></div>
-
-         <div class="pricing-startfrom">
-          <div class="hd-text-tiny hd-text-muted">Starting from</div>
-          <div class="plan_hero_price">
-           <div class="hd-h2 hd-text-alternate">
-            <span x-show="$store.pricing.period === 'hourly'">5,400</span>
-            <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,942,000</span>
-           </div>
-           <div class="hd-text-muted">
-            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
-           </div>
-          </div>
-         </div>
-
-         <div class="hd-vspace-sm"></div>
-         <a class="hd-button hd-button-alternate hd-max-full" href="../../fa/contact">ایجاد سرور</a>
+         <a class="hd-button hd-button-alternate hd-max-full" href="../../fa/contact">درخواست قیمت</a>
         </div>
 
         
         <div class="pricing-product-side">
-         <div class="hd-badge">Highlights</div>
+         <div class="hd-badge">نکات کلیدی</div>
          <div class="hd-vspace-sm"></div>
          <ul class="pricing-feature-list" role="list">
           
-          <li class="pricing-feature">فقط بابت آنچه در حال اجراست بپردازید — صورتحساب ساعتی با نمای ماهانهٔ شفاف</li>
-          
           <li class="pricing-feature">خانواده‌های عمومی، بهینهٔ پردازنده و بهینهٔ حافظه</li>
           
-          <li class="pricing-feature">یک IPv4 عمومی &#43; IPv6 رایگان؛ خروجی تحت سهمیهٔ مصرف منصفانه</li>
+          <li class="pricing-feature">یک IPv4 عمومی &#43; IPv6؛ ذخیره‌سازی NVMe</li>
           
-          <li class="pricing-feature">دسترسی روت، انتخاب ایمیج سیستم‌عامل، آماده در چند دقیقه</li>
+          <li class="pricing-feature">دسترسی root، انتخاب ایمیج سیستم‌عامل، آماده در چند دقیقه</li>
           
          </ul>
          
         </div>
        </div>
-
-       <div class="hd-vspace-lg"></div>
-
-       
-       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
-        
-        <div class="pricing-tabstrip" role="tablist" aria-label="سرورهای ابری options">
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 0 }"
-                 :aria-selected="tab === 0"
-                 @click="tab = 0">
-          عمومی
-         </button>
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 1 }"
-                 :aria-selected="tab === 1"
-                 @click="tab = 1">
-          بهینهٔ پردازنده
-         </button>
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 2 }"
-                 :aria-selected="tab === 2"
-                 @click="tab = 2">
-          بهینهٔ حافظه
-         </button>
-         
-        </div>
-        
-
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 0">
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">طرح</th><th scope="col">vCPU</th><th scope="col">حافظه</th><th scope="col">فضا</th>
-             <th scope="col" class="is-price">قیمت</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="طرح">g1.small</td>
-             
-             <td data-label="vCPU">1</td>
-             
-             <td data-label="حافظه">4 گیگابایت</td>
-             
-             <td data-label="فضا">50 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">5,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,942,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">g2.medium</td>
-             
-             <td data-label="vCPU">2</td>
-             
-             <td data-label="حافظه">8 گیگابایت</td>
-             
-             <td data-label="فضا">80 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">10,800 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">g4.large</td>
-             
-             <td data-label="vCPU">4</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td data-label="فضا">160 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">21,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">g8.xlarge</td>
-             
-             <td data-label="vCPU">8</td>
-             
-             <td data-label="حافظه">32 گیگابایت</td>
-             
-             <td data-label="فضا">320 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">43,200 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>31,536,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">g16.2xlarge</td>
-             
-             <td data-label="vCPU">16</td>
-             
-             <td data-label="حافظه">64 گیگابایت</td>
-             
-             <td data-label="فضا">640 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">86,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>63,072,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 1" x-cloak>
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">طرح</th><th scope="col">vCPU</th><th scope="col">حافظه</th><th scope="col">فضا</th>
-             <th scope="col" class="is-price">قیمت</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="طرح">c2.medium</td>
-             
-             <td data-label="vCPU">2</td>
-             
-             <td data-label="حافظه">4 گیگابایت</td>
-             
-             <td data-label="فضا">60 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">8,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>6,132,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">c4.large</td>
-             
-             <td data-label="vCPU">4</td>
-             
-             <td data-label="حافظه">8 گیگابایت</td>
-             
-             <td data-label="فضا">100 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">16,800 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>12,264,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">c8.xlarge</td>
-             
-             <td data-label="vCPU">8</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td data-label="فضا">200 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">33,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>24,528,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">c16.2xlarge</td>
-             
-             <td data-label="vCPU">16</td>
-             
-             <td data-label="حافظه">32 گیگابایت</td>
-             
-             <td data-label="فضا">320 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">67,200 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>49,056,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">c32.4xlarge</td>
-             
-             <td data-label="vCPU">32</td>
-             
-             <td data-label="حافظه">64 گیگابایت</td>
-             
-             <td data-label="فضا">480 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">134,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>98,112,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 2" x-cloak>
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">طرح</th><th scope="col">vCPU</th><th scope="col">حافظه</th><th scope="col">فضا</th>
-             <th scope="col" class="is-price">قیمت</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="طرح">m2.large</td>
-             
-             <td data-label="vCPU">2</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td data-label="فضا">80 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">15,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>11,388,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">m4.xlarge</td>
-             
-             <td data-label="vCPU">4</td>
-             
-             <td data-label="حافظه">32 گیگابایت</td>
-             
-             <td data-label="فضا">160 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">31,200 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>22,776,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">m8.2xlarge</td>
-             
-             <td data-label="vCPU">8</td>
-             
-             <td data-label="حافظه">64 گیگابایت</td>
-             
-             <td data-label="فضا">320 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">62,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>45,552,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">m16.4xlarge</td>
-             
-             <td data-label="vCPU">16</td>
-             
-             <td data-label="حافظه">128 گیگابایت</td>
-             
-             <td data-label="فضا">640 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">124,800 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>91,104,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="طرح">m32.8xlarge</td>
-             
-             <td data-label="vCPU">32</td>
-             
-             <td data-label="حافظه">256 گیگابایت</td>
-             
-             <td data-label="فضا">1000 گیگابایت NVMe</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">249,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>182,208,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-       </div>
-
-       
-       
-       <div class="hd-vspace-md"></div>
-       <div class="pricing-addons">
-        <div class="hd-text-sm hd-text-medium">افزودنی‌ها</div>
-        <div class="hd-vspace-xs"></div>
-        <div class="pricing-table-scroll">
-         <table class="pricing-table pricing-table-addons">
-          <thead>
-           <tr>
-            <th scope="col">مورد</th>
-            <th scope="col" class="is-price">Price</th>
-           </tr>
-          </thead>
-          <tbody>
-           
-           
-           <tr>
-            
-            <td data-label="مورد">فضای بلاک اضافی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">120 تومان / گیگابایت·ساعت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 تومان / گیگابایت·ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">آدرس IPv4 عمومی اضافی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">—</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>90,000 تومان / ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">ترافیک خروجی فراتر از مصرف منصفانه</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">600 تومان / گیگابایت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>600 تومان / گیگابایت</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">پشتیبان اسنپ‌شات (هر سرور)</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">&#43;20٪ پلن</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>&#43;20٪ پلن</span>
-            </td>
-           </tr>
-           
-          </tbody>
-         </table>
-        </div>
-       </div>
-       
-
       </div>
      </div>
     </section>
     
-    <section class="section_pricing_product pricing-product" id="kubernetes">
+    <section class="section_pricing_product pricing-product hd-bg-secondary" id="kubernetes">
      <div class="hd-section-md">
       <div class="hd-container">
-
        <div class="pricing-product-grid" data-hd-animate="fade-up">
         
         <div class="plan_hero_content pricing-spec-card">
          <div class="pricing-spec-eyebrow">
           <div class="hd-badge">کوبرنتیز مدیریت‌شده</div>
-          
+          <span class="pricing-status-pill">بتا</span>
          </div>
          <div class="hd-vspace-xs"></div>
          <h2 class="hd-h3 hd-text-alternate">کوبرنتیز</h2>
          <div class="hd-vspace-xs"></div>
-         <div class="hd-text-muted">کنترل‌پلین مدیریت‌شده با گروه‌نودهای کارگر خودمقیاس. کنترل‌پلین رایگان در حالت توسعه — فقط بابت نودهای در حال اجرا بپردازید.</div>
+         <div class="hd-text-muted">کنترل‌پلین مدیریت‌شده با گروه‌نودهای کارگرِ خودمقیاس. روی استقرار خصوصی شما یا روی Hub.</div>
          <div class="hd-vspace-sm"></div>
 
          <div class="pricing-chips">
           
           <div class="pricing-chip">
            <span class="pricing-chip-label">کنترل‌پلین</span>
-           <span class="pricing-chip-value">رایگان – HA</span>
+           <span class="pricing-chip-value">توسعه – HA</span>
           </div>
           
           <div class="pricing-chip">
@@ -1313,37 +972,18 @@
          </div>
 
          <div class="hd-vspace-sm"></div>
-         <div class="divider"></div>
-         <div class="hd-vspace-sm"></div>
-
-         <div class="pricing-startfrom">
-          <div class="hd-text-tiny hd-text-muted">Starting from</div>
-          <div class="plan_hero_price">
-           <div class="hd-h2 hd-text-alternate">
-            <span x-show="$store.pricing.period === 'hourly'">رایگان</span>
-            <span x-show="$store.pricing.period === 'monthly'" x-cloak>رایگان</span>
-           </div>
-           <div class="hd-text-muted">
-            کنترل‌پلین
-           </div>
-          </div>
-         </div>
-
-         <div class="hd-vspace-sm"></div>
          <a class="hd-button hd-button-alternate hd-max-full" href="../../fa/contact">طراحی کلاستر</a>
         </div>
 
         
         <div class="pricing-product-side">
-         <div class="hd-badge">Highlights</div>
+         <div class="hd-badge">نکات کلیدی</div>
          <div class="hd-vspace-sm"></div>
          <ul class="pricing-feature-list" role="list">
           
-          <li class="pricing-feature">کنترل‌پلین رایگان در حالت توسعه؛ کنترل‌پلین دسترس‌پذیر بالا در حالت تولید</li>
+          <li class="pricing-feature">کنترل‌پلین توسعه؛ کنترل‌پلینِ دسترس‌پذیر بالا (۳ نودی) در طرح تولید</li>
           
-          <li class="pricing-feature">گروه‌نودهای کارگر به‌ازای هر نود صورتحساب می‌شوند، حداقل 2 گیگابایت حافظه، با پشتیبانی از خودمقیاسی</li>
-          
-          <li class="pricing-feature">سه حالت صورتحساب: مشاهده‌ای (پرداخت بابت نودهای در حال اجرا)، رزروی (پرداخت بابت ظرفیت رزروشده)، ترکیبی</li>
+          <li class="pricing-feature">گروه‌نودهای کارگر با پشتیبانی از خودمقیاسی</li>
           
           <li class="pricing-feature">ارتقاهای مدیریت‌شده، اینگرس و مانیتورینگ به‌صورت توکار</li>
           
@@ -1351,217 +991,13 @@
          
         </div>
        </div>
-
-       <div class="hd-vspace-lg"></div>
-
-       
-       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
-        
-        <div class="pricing-tabstrip" role="tablist" aria-label="کوبرنتیز options">
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 0 }"
-                 :aria-selected="tab === 0"
-                 @click="tab = 0">
-          کنترل‌پلین
-         </button>
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 1 }"
-                 :aria-selected="tab === 1"
-                 @click="tab = 1">
-          گروه‌نودهای کارگر
-         </button>
-         
-        </div>
-        
-
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 0">
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">سطح</th><th scope="col">نودها</th><th scope="col">دسترس‌پذیری بالا</th>
-             <th scope="col" class="is-price">قیمت</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="سطح">توسعه</td>
-             
-             <td data-label="نودها">1 (بدون HA)</td>
-             
-             <td data-label="دسترس‌پذیری بالا">خیر</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">رایگان</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>رایگان</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="سطح">تولید</td>
-             
-             <td data-label="نودها">3 (HA)</td>
-             
-             <td data-label="دسترس‌پذیری بالا">بله</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">25,200 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>18,396,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 1" x-cloak>
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">اندازه نود</th><th scope="col">vCPU</th><th scope="col">حافظه</th>
-             <th scope="col" class="is-price">قیمت هر نود</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="اندازه نود">worker-2</td>
-             
-             <td data-label="vCPU">2</td>
-             
-             <td data-label="حافظه">8 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">10,800 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="اندازه نود">worker-4</td>
-             
-             <td data-label="vCPU">4</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">21,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="اندازه نود">worker-8</td>
-             
-             <td data-label="vCPU">8</td>
-             
-             <td data-label="حافظه">32 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">43,200 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>31,536,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="اندازه نود">worker-16</td>
-             
-             <td data-label="vCPU">16</td>
-             
-             <td data-label="حافظه">64 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">86,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>63,072,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-       </div>
-
-       
-       
-       <div class="hd-vspace-md"></div>
-       <div class="pricing-addons">
-        <div class="hd-text-sm hd-text-medium">افزودنی‌ها</div>
-        <div class="hd-vspace-xs"></div>
-        <div class="pricing-table-scroll">
-         <table class="pricing-table pricing-table-addons">
-          <thead>
-           <tr>
-            <th scope="col">مورد</th>
-            <th scope="col" class="is-price">Price</th>
-           </tr>
-          </thead>
-          <tbody>
-           
-           
-           <tr>
-            
-            <td data-label="مورد">متعادل‌کنندهٔ بار مدیریت‌شده</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">—</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>180,000 تومان / ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">IP شناور</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">—</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>90,000 تومان / ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">فضای والیوم پایا</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">120 تومان / گیگابایت·ساعت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 تومان / گیگابایت·ماه</span>
-            </td>
-           </tr>
-           
-          </tbody>
-         </table>
-        </div>
-       </div>
-       
-
       </div>
      </div>
     </section>
     
-    <section class="section_pricing_product pricing-product" id="cloud-hpc">
+    <section class="section_pricing_product pricing-product hd-bg-secondary" id="cloud-hpc">
      <div class="hd-section-md">
       <div class="hd-container">
-
        <div class="pricing-product-grid" data-hd-animate="fade-up">
         
         <div class="plan_hero_content pricing-spec-card">
@@ -1572,7 +1008,7 @@
          <div class="hd-vspace-xs"></div>
          <h2 class="hd-h3 hd-text-alternate">اچ‌پی‌سی ابری</h2>
          <div class="hd-vspace-xs"></div>
-         <div class="hd-text-muted">یک کلاستر Slurm کاملاً پیکربندی‌شده با Open OnDemand. نودهای کنترل، لاگین و محاسبه به‌ازای هر نود-ساعت صورتحساب و جمع می‌شوند.</div>
+         <div class="hd-text-muted">یک کلاستر Slurm کاملاً پیکربندی‌شده با Open OnDemand — ابری، خصوصی یا ترکیبی.</div>
          <div class="hd-vspace-sm"></div>
 
          <div class="pricing-chips">
@@ -1600,37 +1036,18 @@
          </div>
 
          <div class="hd-vspace-sm"></div>
-         <div class="divider"></div>
-         <div class="hd-vspace-sm"></div>
-
-         <div class="pricing-startfrom">
-          <div class="hd-text-tiny hd-text-muted">Starting from</div>
-          <div class="plan_hero_price">
-           <div class="hd-h2 hd-text-alternate">
-            <span x-show="$store.pricing.period === 'hourly'">10,800</span>
-            <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000</span>
-           </div>
-           <div class="hd-text-muted">
-            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
-           </div>
-          </div>
-         </div>
-
-         <div class="hd-vspace-sm"></div>
          <a class="hd-button hd-button-alternate hd-max-full" href="../../fa/hpc">ساخت کلاستر</a>
         </div>
 
         
         <div class="pricing-product-side">
-         <div class="hd-badge">Highlights</div>
+         <div class="hd-badge">نکات کلیدی</div>
          <div class="hd-vspace-sm"></div>
          <ul class="pricing-feature-list" role="list">
           
           <li class="pricing-feature">زمان‌بندی دسته‌ای با Slurm؛ دسترسی مرورگری از طریق Open OnDemand</li>
           
-          <li class="pricing-feature">صورتحساب به‌ازای هر نود-ساعت، جمع‌شده روی نقش‌های کنترل، لاگین و محاسبه</li>
-          
-          <li class="pricing-feature">افزودن پارتیشن‌های اضافی Slurm (استخرهای محاسباتی) متناسب با بار کاری</li>
+          <li class="pricing-feature">پارتیشن‌های اضافی Slurm متناسب با بار کاری</li>
           
           <li class="pricing-feature">مانیتورینگ Prometheus &#43; Grafana به‌صورت توکار</li>
           
@@ -1638,257 +1055,13 @@
          
         </div>
        </div>
-
-       <div class="hd-vspace-lg"></div>
-
-       
-       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
-        
-        <div class="pricing-tabstrip" role="tablist" aria-label="اچ‌پی‌سی ابری options">
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 0 }"
-                 :aria-selected="tab === 0"
-                 @click="tab = 0">
-          کنترل
-         </button>
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 1 }"
-                 :aria-selected="tab === 1"
-                 @click="tab = 1">
-          لاگین
-         </button>
-         
-         <button type="button" class="pricing-tab" role="tab"
-                 :class="{ 'is-active': tab === 2 }"
-                 :aria-selected="tab === 2"
-                 @click="tab = 2">
-          محاسبه
-         </button>
-         
-        </div>
-        
-
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 0">
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">نود</th><th scope="col">vCPU</th><th scope="col">حافظه</th>
-             <th scope="col" class="is-price">قیمت هر نود</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="نود">hpc-control</td>
-             
-             <td data-label="vCPU">4</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">21,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 1" x-cloak>
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">نود</th><th scope="col">vCPU</th><th scope="col">حافظه</th>
-             <th scope="col" class="is-price">قیمت هر نود</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="نود">hpc-login</td>
-             
-             <td data-label="vCPU">2</td>
-             
-             <td data-label="حافظه">8 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">10,800 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>7,884,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="نود">hpc-login-lg</td>
-             
-             <td data-label="vCPU">4</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">21,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>15,768,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 2" x-cloak>
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">نود</th><th scope="col">vCPU</th><th scope="col">حافظه</th>
-             <th scope="col" class="is-price">قیمت هر نود</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="نود">compute-c8</td>
-             
-             <td data-label="vCPU">8</td>
-             
-             <td data-label="حافظه">16 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">33,600 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>24,528,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="نود">compute-c16</td>
-             
-             <td data-label="vCPU">16</td>
-             
-             <td data-label="حافظه">32 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">67,200 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>49,056,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="نود">compute-c32</td>
-             
-             <td data-label="vCPU">32</td>
-             
-             <td data-label="حافظه">64 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">134,400 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>98,112,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="نود">compute-m16</td>
-             
-             <td data-label="vCPU">16</td>
-             
-             <td data-label="حافظه">128 گیگابایت</td>
-             
-             <td class="is-price" data-label="قیمت هر نود">
-              <span x-show="$store.pricing.period === 'hourly'">124,800 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>91,104,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-       </div>
-
-       
-       
-       <div class="hd-vspace-md"></div>
-       <div class="pricing-addons">
-        <div class="hd-text-sm hd-text-medium">افزودنی‌ها</div>
-        <div class="hd-vspace-xs"></div>
-        <div class="pricing-table-scroll">
-         <table class="pricing-table pricing-table-addons">
-          <thead>
-           <tr>
-            <th scope="col">مورد</th>
-            <th scope="col" class="is-price">Price</th>
-           </tr>
-          </thead>
-          <tbody>
-           
-           
-           <tr>
-            
-            <td data-label="مورد">دسترسی وب Open OnDemand</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">شامل</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>شامل</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">فضای اسکرچ اشتراکی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">120 تومان / گیگابایت·ساعت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 تومان / گیگابایت·ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">مانیتورینگ کلاستر (Grafana)</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">شامل</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>شامل</span>
-            </td>
-           </tr>
-           
-          </tbody>
-         </table>
-        </div>
-       </div>
-       
-
       </div>
      </div>
     </section>
     
-    <section class="section_pricing_product pricing-product" id="marketplace">
+    <section class="section_pricing_product pricing-product hd-bg-secondary" id="marketplace">
      <div class="hd-section-md">
       <div class="hd-container">
-
        <div class="pricing-product-grid" data-hd-animate="fade-up">
         
         <div class="plan_hero_content pricing-spec-card">
@@ -1899,7 +1072,7 @@
          <div class="hd-vspace-xs"></div>
          <h2 class="hd-h3 hd-text-alternate">مارکت‌پلیس</h2>
          <div class="hd-vspace-xs"></div>
-         <div class="hd-text-muted">نرم‌افزار علمی آمادهٔ اجرا روی Slurm مدیریت‌شده. قیمت‌گذاری به‌ازای هر هسته-ساعت با نرخ پایه، مقیاس‌شده با ضریب پروفایل نود.</div>
+         <div class="hd-text-muted">نرم‌افزار علمی آمادهٔ اجرا روی Slurm مدیریت‌شده، با اجرای یک‌کلیکی.</div>
          <div class="hd-vspace-sm"></div>
 
          <div class="pricing-chips">
@@ -1920,27 +1093,10 @@
           </div>
           
           <div class="pricing-chip">
-           <span class="pricing-chip-label">نرخ پایه</span>
-           <span class="pricing-chip-value">5,100 تومان / هسته·ساعت</span>
+           <span class="pricing-chip-label">لایسنس</span>
+           <span class="pricing-chip-value">پشتیبانی از BYOL</span>
           </div>
           
-         </div>
-
-         <div class="hd-vspace-sm"></div>
-         <div class="divider"></div>
-         <div class="hd-vspace-sm"></div>
-
-         <div class="pricing-startfrom">
-          <div class="hd-text-tiny hd-text-muted">Starting from</div>
-          <div class="plan_hero_price">
-           <div class="hd-h2 hd-text-alternate">
-            <span x-show="$store.pricing.period === 'hourly'">5,100</span>
-            <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,723,000</span>
-           </div>
-           <div class="hd-text-muted">
-            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
-           </div>
-          </div>
          </div>
 
          <div class="hd-vspace-sm"></div>
@@ -1949,17 +1105,15 @@
 
         
         <div class="pricing-product-side">
-         <div class="hd-badge">Highlights</div>
+         <div class="hd-badge">نکات کلیدی</div>
          <div class="hd-vspace-sm"></div>
          <ul class="pricing-feature-list" role="list">
           
           <li class="pricing-feature">اجرای شبیه‌سازی با یک کلیک روی بک‌اند Slurm مدیریت‌شده</li>
           
-          <li class="pricing-feature">هزینه = هسته‌ها × قیمت هر هسته × تعداد نود؛ نرخ پایه 0.085 دلار/هسته-ساعت</li>
-          
-          <li class="pricing-feature">پروفایل حافظه ×1.35، پروفایل بصری‌سازی GPU ×3.9</li>
-          
           <li class="pricing-feature">پشتیبانی از لایسنس اختصاصی (BYOL) برای بسته‌های محدود</li>
+          
+          <li class="pricing-feature">فضای پروژهٔ اشتراکی و نشست بصری‌سازی راه‌دور</li>
           
          </ul>
          
@@ -1996,155 +1150,24 @@
          
         </div>
        </div>
-
-       <div class="hd-vspace-lg"></div>
-
-       
-       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
-        
-
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 0">
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">پروفایل</th><th scope="col">هسته در هر نود</th><th scope="col">GPU</th><th scope="col">ضریب</th>
-             <th scope="col" class="is-price">قیمت هر هسته</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="پروفایل">CFD Standard 32</td>
-             
-             <td data-label="هسته در هر نود">32</td>
-             
-             <td data-label="GPU">—</td>
-             
-             <td data-label="ضریب">×1.0</td>
-             
-             <td class="is-price" data-label="قیمت هر هسته">
-              <span x-show="$store.pricing.period === 'hourly'">5,100 تومان / هسته·ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>3,723,000 تومان / هسته·ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="پروفایل">CFD Memory 64</td>
-             
-             <td data-label="هسته در هر نود">64</td>
-             
-             <td data-label="GPU">—</td>
-             
-             <td data-label="ضریب">×1.35</td>
-             
-             <td class="is-price" data-label="قیمت هر هسته">
-              <span x-show="$store.pricing.period === 'hourly'">6,885 تومان / هسته·ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>5,026,050 تومان / هسته·ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="پروفایل">Visualization GPU A10</td>
-             
-             <td data-label="هسته در هر نود">16</td>
-             
-             <td data-label="GPU">1× A10</td>
-             
-             <td data-label="ضریب">×3.9</td>
-             
-             <td class="is-price" data-label="قیمت هر هسته">
-              <span x-show="$store.pricing.period === 'hourly'">19,890 تومان / هسته·ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>14,519,700 تومان / هسته·ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-       </div>
-
-       
-       
-       <div class="hd-vspace-md"></div>
-       <div class="pricing-addons">
-        <div class="hd-text-sm hd-text-medium">افزودنی‌ها</div>
-        <div class="hd-vspace-xs"></div>
-        <div class="pricing-table-scroll">
-         <table class="pricing-table pricing-table-addons">
-          <thead>
-           <tr>
-            <th scope="col">مورد</th>
-            <th scope="col" class="is-price">Price</th>
-           </tr>
-          </thead>
-          <tbody>
-           
-           
-           <tr>
-            
-            <td data-label="مورد">لایسنس اختصاصی (GAUSSIAN)</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">—</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>—</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">فضای پروژهٔ اشتراکی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">120 تومان / گیگابایت·ساعت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 تومان / گیگابایت·ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">دسکتاپ راه‌دور / نشست بصری‌سازی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">19,890 تومان / هسته·ساعت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>14,519,700 تومان / هسته·ماه</span>
-            </td>
-           </tr>
-           
-          </tbody>
-         </table>
-        </div>
-       </div>
-       
-
       </div>
      </div>
     </section>
     
-    <section class="section_pricing_product pricing-product" id="llm">
+    <section class="section_pricing_product pricing-product hd-bg-secondary" id="llm">
      <div class="hd-section-md">
       <div class="hd-container">
-
        <div class="pricing-product-grid" data-hd-animate="fade-up">
         
         <div class="plan_hero_content pricing-spec-card">
          <div class="pricing-spec-eyebrow">
           <div class="hd-badge">استنتاج</div>
-          <span class="pricing-status-pill">در حال عرضه</span>
+          <span class="pricing-status-pill">دسترسی زودهنگام</span>
          </div>
          <div class="hd-vspace-xs"></div>
          <h2 class="hd-h3 hd-text-alternate">مدل زبانی (LLM)</h2>
          <div class="hd-vspace-xs"></div>
-         <div class="hd-text-muted">سرو مدل‌های متن‌باز مانند Qwen روی یک اندپوینت مدیریت‌شدهٔ vLLM. اکنون قیمت‌گذاری به‌ازای هر اینستنس GPU؛ صورتحساب توکنی به‌زودی.</div>
+         <div class="hd-text-muted">سرو مدل‌های متن‌باز مانند Qwen روی یک اندپوینت مدیریت‌شدهٔ vLLM — روی ناوگان GPU خودتان.</div>
          <div class="hd-vspace-sm"></div>
 
          <div class="pricing-chips">
@@ -2165,27 +1188,10 @@
           </div>
           
           <div class="pricing-chip">
-           <span class="pricing-chip-label">صورتحساب</span>
-           <span class="pricing-chip-value">هر GPU·ساعت (توکنی به‌زودی)</span>
+           <span class="pricing-chip-label">اندپوینت</span>
+           <span class="pricing-chip-value">سازگار با OpenAI</span>
           </div>
           
-         </div>
-
-         <div class="hd-vspace-sm"></div>
-         <div class="divider"></div>
-         <div class="hd-vspace-sm"></div>
-
-         <div class="pricing-startfrom">
-          <div class="hd-text-tiny hd-text-muted">Starting from</div>
-          <div class="plan_hero_price">
-           <div class="hd-h2 hd-text-alternate">
-            <span x-show="$store.pricing.period === 'hourly'">90,000</span>
-            <span x-show="$store.pricing.period === 'monthly'" x-cloak>65,700,000</span>
-           </div>
-           <div class="hd-text-muted">
-            <span x-show="$store.pricing.period === 'hourly'">Toman / hr</span><span x-show="$store.pricing.period === 'monthly'" x-cloak>Toman / mo</span>
-           </div>
-          </div>
          </div>
 
          <div class="hd-vspace-sm"></div>
@@ -2194,7 +1200,7 @@
 
         
         <div class="pricing-product-side">
-         <div class="hd-badge">Highlights</div>
+         <div class="hd-badge">نکات کلیدی</div>
          <div class="hd-vspace-sm"></div>
          <ul class="pricing-feature-list" role="list">
           
@@ -2202,160 +1208,12 @@
           
           <li class="pricing-feature">کاتالوگ مدل‌های متن‌باز با لایسنس تأییدشده (Qwen 3.6 27B و بیشتر)</li>
           
-          <li class="pricing-feature">صورتحساب به‌ازای هر اینستنس GPU اکنون؛ صورتحساب توکنی هنگام عرضه</li>
-          
           <li class="pricing-feature">رزرو GPU اختصاصی برای بارهای استنتاج پایدار</li>
           
          </ul>
          
         </div>
        </div>
-
-       <div class="hd-vspace-lg"></div>
-
-       
-       <div class="pricing-tabs" x-data="{ tab: 0 }" data-hd-animate="fade-up-2">
-        
-
-        
-        
-        
-        <div class="pricing-tabpanel" role="tabpanel"
-             x-show="tab === 0">
-         <div class="pricing-table-scroll">
-          <table class="pricing-table">
-           <thead>
-            <tr>
-             <th scope="col">اینستنس</th><th scope="col">GPU</th><th scope="col">VRAM</th><th scope="col">مدل مناسب</th>
-             <th scope="col" class="is-price">قیمت</th>
-            </tr>
-           </thead>
-           <tbody>
-            
-            <tr>
-             
-             <td data-label="اینستنس">llm.a10</td>
-             
-             <td data-label="GPU">1× A10</td>
-             
-             <td data-label="VRAM">24 گیگابایت</td>
-             
-             <td data-label="مدل مناسب">مدل‌های کوچک / 7B</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">90,000 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>65,700,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="اینستنس">llm.l40s</td>
-             
-             <td data-label="GPU">1× L40S</td>
-             
-             <td data-label="VRAM">48 گیگابایت</td>
-             
-             <td data-label="مدل مناسب">استنتاج Qwen 27B</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">180,000 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>131,400,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="اینستنس">llm.a100</td>
-             
-             <td data-label="GPU">1× A100</td>
-             
-             <td data-label="VRAM">80 گیگابایت</td>
-             
-             <td data-label="مدل مناسب">Qwen 27B با توان عملیاتی بالا</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">360,000 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>262,800,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-            <tr>
-             
-             <td data-label="اینستنس">llm.a100x2</td>
-             
-             <td data-label="GPU">2× A100</td>
-             
-             <td data-label="VRAM">160 گیگابایت</td>
-             
-             <td data-label="مدل مناسب">زمینهٔ بلند / دسته‌ای</td>
-             
-             <td class="is-price" data-label="قیمت">
-              <span x-show="$store.pricing.period === 'hourly'">720,000 تومان / ساعت</span>
-              <span x-show="$store.pricing.period === 'monthly'" x-cloak>525,600,000 تومان / ماه</span>
-             </td>
-            </tr>
-            
-           </tbody>
-          </table>
-         </div>
-        </div>
-        
-       </div>
-
-       
-       
-       <div class="hd-vspace-md"></div>
-       <div class="pricing-addons">
-        <div class="hd-text-sm hd-text-medium">افزودنی‌ها</div>
-        <div class="hd-vspace-xs"></div>
-        <div class="pricing-table-scroll">
-         <table class="pricing-table pricing-table-addons">
-          <thead>
-           <tr>
-            <th scope="col">مورد</th>
-            <th scope="col" class="is-price">Price</th>
-           </tr>
-          </thead>
-          <tbody>
-           
-           
-           <tr>
-            
-            <td data-label="مورد">قیمت‌گذاری توکنی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">به‌زودی</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>به‌زودی</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">فضای کش مدل پایا</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">120 تومان / گیگابایت·ساعت</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>87,600 تومان / گیگابایت·ماه</span>
-            </td>
-           </tr>
-           
-           <tr>
-            
-            <td data-label="مورد">GPU رزروی اختصاصی</td>
-            
-            <td class="is-price" data-label="Price">
-             <span x-show="$store.pricing.period === 'hourly'">—</span>
-             <span x-show="$store.pricing.period === 'monthly'" x-cloak>تماس بگیرید</span>
-            </td>
-           </tr>
-           
-          </tbody>
-         </table>
-        </div>
-       </div>
-       
-
       </div>
      </div>
     </section>
@@ -2432,7 +1290,7 @@
         <div class="hd-vspace-xs"></div>
         <h2 class="hd-text-center">پاسخ به پرسش‌های قیمت‌گذاری</h2>
         <div class="hd-vspace-sm"></div>
-        <div class="hd-text-center">صورتحساب چگونه کار می‌کند، این اعداد آزمایشی چه معنایی دارند و چگونه هزینه‌ها را کنترل کنید</div>
+        <div class="hd-text-center">قیمت چگونه تعیین می‌شود، چه چیزی بر آن اثر می‌گذارد و چگونه یک پیشنهاد اختصاصی بگیرید</div>
         <div class="hd-vspace-lg"></div>
        </div>
        <div class="hd-align-center">
@@ -2444,7 +1302,7 @@
                   aria-expanded="false" :aria-expanded="active === 0"
                   @click="active = (active === 0 ? null : 0)">
            <div class="faq_question_header">
-            <div>صورتحساب WECORE چگونه کار می‌کند؟</div>
+            <div>چرا قیمت ثابتی روی سایت نیست؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 0 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -2454,7 +1312,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">همه‌چیز مبتنی‌بر مصرف و ساعتی است. عدد ماهانهٔ نمایش‌داده‌شده صرفاً نرخ ساعتی × 730 (میانگین ساعات یک ماه) است تا مقایسه ساده شود — برای منابع درخواستی همچنان ساعتی صورتحساب می‌شوید.</p>
+              <p class="hd-text-sm hd-text-muted">چون WECORE یک ابر عمومیِ خرده‌فروشی نیست. هر استقرار بر پایهٔ مدل آن (On-Premise یا WECORE Hub)، اندازهٔ زیرساخت، GPU و سطح پشتیبانی برآورد می‌شود؛ بنابراین قیمت در قالب یک پیشنهاد اختصاصی ارائه می‌شود، نه یک تعرفهٔ یکسان.</p>
              </div>
             </div>
            </div>
@@ -2467,7 +1325,7 @@
                   aria-expanded="false" :aria-expanded="active === 1"
                   @click="active = (active === 1 ? null : 1)">
            <div class="faq_question_header">
-            <div>آیا این قیمت‌ها نهایی‌اند؟</div>
+            <div>تفاوت On-Premise و WECORE Hub در هزینه چیست؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 1 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -2477,7 +1335,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">خیر. هر عدد در این صفحه یک <strong>مقدار نمایشی و آزمایشی</strong> به تومان است که از مدل نرخ واحد داخلی ما با نرخ آزمایشی 1 دلار = 60,000 تومان به‌دست آمده است. این اعداد کل نردبان قیمت را سازگار نگه می‌دارند، اما قیمت قطعی نیستند — قیمت نهایی هنگام عرضه اعلام می‌شود.</p>
+              <p class="hd-text-sm hd-text-muted"><strong>On-Premise</strong> روی زیرساخت در مالکیت/اجارهٔ خودتان مستقر می‌شود و معمولاً حول استقرار، لایسنس پلتفرم و پشتیبانی قیمت‌گذاری می‌شود. <strong>WECORE Hub</strong> برای زمانی است که می‌خواهید از ظرفیتتان درآمد بسازید؛ مدل اقتصادی آن حول عرضه و صورتحساب همان ظرفیت شکل می‌گیرد.</p>
              </div>
             </div>
            </div>
@@ -2490,7 +1348,7 @@
                   aria-expanded="false" :aria-expanded="active === 2"
                   @click="active = (active === 2 ? null : 2)">
            <div class="faq_question_header">
-            <div>کلید ساعتی ⇄ ماهانه چه چیزی را تغییر می‌دهد؟</div>
+            <div>چه چیزهایی روی قیمت اثر می‌گذارد؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 2 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -2500,7 +1358,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">فقط نما را. ماهانه = ساعتی × 730. برای مقایسهٔ برآورد ماهانه با نرخ ساعتی که واقعاً پرداخت می‌کنید، آن را جابه‌جا کنید.</p>
+              <p class="hd-text-sm hd-text-muted">اندازهٔ زیرساخت (نود، هسته، حافظه)، تعداد و نوع GPU، ذخیره‌سازی و شبکه، و مدل استقرار و سطح پشتیبانی. همین محورها هستند که برآورد را شکل می‌دهند.</p>
              </div>
             </div>
            </div>
@@ -2513,7 +1371,7 @@
                   aria-expanded="false" :aria-expanded="active === 3"
                   @click="active = (active === 3 ? null : 3)">
            <div class="faq_question_header">
-            <div>مصرفی یا ظرفیت رزروشده؟</div>
+            <div>آیا صورتحساب ساعتی هم ممکن است؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 3 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -2523,7 +1381,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">منابع درخواستی فقط هنگام اجرا صورتحساب می‌شوند (حالت <em>مشاهده‌ای</em>). برای بارهای پایدار می‌توانید ظرفیت رزرو کنید (<em>رزروی</em>) یا روی کلاسترهای کوبرنتیز و اچ‌پی‌سی هر دو را ترکیب کنید (<em>ترکیبی</em>).</p>
+              <p class="hd-text-sm hd-text-muted">بله، در جایی که با مدل استقرار شما هم‌خوان باشد می‌توان مصرف را ساعتی اندازه گرفت؛ اما این صفحه دربارهٔ تعرفهٔ خرده‌فروشی نیست. سرویس ابر عمومیِ سلف‌سرویسِ ساعتی روی نقشهٔ راه است.</p>
              </div>
             </div>
            </div>
@@ -2536,7 +1394,7 @@
                   aria-expanded="false" :aria-expanded="active === 4"
                   @click="active = (active === 4 ? null : 4)">
            <div class="faq_question_header">
-            <div>چگونه صورتحساب را متوقف کنم؟</div>
+            <div>چگونه یک پیشنهاد قیمت بگیرم؟</div>
            </div>
            <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 4 }">
             <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
@@ -2546,76 +1404,7 @@
            <div class="hd-faq-panel-inner">
             <div class="faq_answer-wrapper">
              <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">منبع را خاموش یا حذف کنید. سرورها و کلاسترها تا زمانی که فعال‌اند صورتحساب می‌شوند؛ حذف کلاستر بلافاصله صورتحساب آن را متوقف می‌کند.</p>
-             </div>
-            </div>
-           </div>
-          </div>
-         </div>
-         
-         <div class="faq_accordion">
-          <button type="button" class="faq_question hd-faq-trigger"
-                  id="pfaq-trigger-5" aria-controls="pfaq-panel-5"
-                  aria-expanded="false" :aria-expanded="active === 5"
-                  @click="active = (active === 5 ? null : 5)">
-           <div class="faq_question_header">
-            <div>آیا انتقال داده هزینه دارد؟</div>
-           </div>
-           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 5 }">
-            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
-           </div>
-          </button>
-          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 5" :class="{ 'hd-faq-panel-open': active === 5 }" id="pfaq-panel-5">
-           <div class="hd-faq-panel-inner">
-            <div class="faq_answer-wrapper">
-             <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">ترافیک ورودی و داخل‌شبکه رایگان است. خروجی دارای سهمیهٔ مصرف منصفانه است؛ فراتر از آن، ترافیک به‌ازای هر گیگابایت با نرخ آزمایشی شبکه محاسبه می‌شود.</p>
-             </div>
-            </div>
-           </div>
-          </div>
-         </div>
-         
-         <div class="faq_accordion">
-          <button type="button" class="faq_question hd-faq-trigger"
-                  id="pfaq-trigger-6" aria-controls="pfaq-panel-6"
-                  aria-expanded="false" :aria-expanded="active === 6"
-                  @click="active = (active === 6 ? null : 6)">
-           <div class="faq_question_header">
-            <div>چه ارز و روش‌های پرداختی پشتیبانی می‌شود؟</div>
-           </div>
-           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 6 }">
-            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
-           </div>
-          </button>
-          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 6" :class="{ 'hd-faq-panel-open': active === 6 }" id="pfaq-panel-6">
-           <div class="hd-faq-panel-inner">
-            <div class="faq_answer-wrapper">
-             <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">قیمت‌ها به تومان اعلام می‌شوند. برای مشتریان ایرانی، پرداخت‌ها از طریق زرین‌پال به ریال تسویه می‌شود؛ صدور فاکتور سازمانی نیز در صورت درخواست ممکن است.</p>
-             </div>
-            </div>
-           </div>
-          </div>
-         </div>
-         
-         <div class="faq_accordion">
-          <button type="button" class="faq_question hd-faq-trigger"
-                  id="pfaq-trigger-7" aria-controls="pfaq-panel-7"
-                  aria-expanded="false" :aria-expanded="active === 7"
-                  @click="active = (active === 7 ? null : 7)">
-           <div class="faq_question_header">
-            <div>آیا در تخمین اندازه و قیمت یک استقرار کمک می‌کنید؟</div>
-           </div>
-           <div class="faq_icon hd-faq-icon" :class="{ 'hd-faq-icon-open': active === 7 }">
-            <img alt="" aria-hidden="true" class="icon-height-small" loading="lazy" src="../../img/icons/plus.svg"/>
-           </div>
-          </button>
-          <div class="faq_answer hd-faq-panel" :aria-hidden="active !== 7" :class="{ 'hd-faq-panel-open': active === 7 }" id="pfaq-panel-7">
-           <div class="hd-faq-panel-inner">
-            <div class="faq_answer-wrapper">
-             <div class="hd-max-lg">
-              <p class="hd-text-sm hd-text-muted">بله. یک دمو رزرو کنید یا با تیم ما صحبت کنید تا زیرساخت را متناسب با بار کاری شما تخمین بزنیم و یک پیشنهاد قیمت اختصاصی آماده کنیم.</p>
+              <p class="hd-text-sm hd-text-muted">یک دمو رزرو کنید یا با تیم ما صحبت کنید تا زیرساخت را متناسب با بار کاری شما تخمین بزنیم و یک پیشنهاد قیمت اختصاصی آماده کنیم.</p>
              </div>
             </div>
            </div>
@@ -2639,7 +1428,7 @@
         <div class="hd-vspace-xs"></div>
         <h2 class="hd-text-alternate">برای تخمین اندازهٔ این زیرساخت کمک می‌خواهید؟</h2>
         <div class="hd-vspace-sm"></div>
-        <div class="hd-text-muted">از بار کاری خود بگویید تا ترکیب مناسبی از سرورها، کلاسترها و GPUها طراحی کنیم و یک پیشنهاد قیمت اختصاصی آماده کنیم.</div>
+        <div class="hd-text-muted">از بار کاری و مدل استقرار موردنظرتان بگویید تا ترکیب مناسبی از نود، GPU و پشتیبانی طراحی کنیم و یک پیشنهاد قیمت اختصاصی آماده کنیم.</div>
         <div class="hd-vspace-lg"></div>
         <div class="hd-button-group hd-align-center">
          <a class="hd-button hd-button-alternate" href="../../fa/demo">رزرو دمو</a>

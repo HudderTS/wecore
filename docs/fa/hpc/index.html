@@ -15,7 +15,7 @@
   
   <link href="https://wecore.ir/fa/hpc/" hreflang="fa" rel="alternate"/>
   <link href="https://wecore.ir/en/hpc/" hreflang="en" rel="alternate"/>
-  <link href="https://wecore.ir/en/hpc/" hreflang="x-default" rel="alternate"/>
+  <link href="https://wecore.ir/fa/hpc/" hreflang="x-default" rel="alternate"/>
   <meta content="HPC ابری | وِی‌کُر" property="og:title"/>
   <meta content="یک پلتفرم HPC مبتنی بر Slurm به سه شکل: کاملاً میزبانی‌شده روی ابر وِی‌کُر، استقرار خصوصی روی زیرساخت خودتان، یا ترکیبی — تا هنگام اوج تقاضا به ابر سرریز کنید." property="og:description"/>
   <meta content="https://wecore.ir/fa/hpc/" property="og:url"/>
@@ -232,7 +232,7 @@
 </script>
 
    <a class="hd-skip-link" href="#main-content">
-    Skip to content
+    پرش به محتوا
    </a>
    <div class="navbar hd-nav" role="banner"
         x-data="navbar"
@@ -453,7 +453,7 @@
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/articles/">
-               بلاگ
+               مقالات
               </a>
               
               <a class="nav-dropdown-link hd-dropdown-link" href="../../fa/#">
@@ -466,7 +466,7 @@
 
             
             <a class="nav-dropdown-column is-buy-template" href="../../fa/contact" >
-             <img alt="WECORE platform preview" loading="lazy" src="../../img/nav/platform-preview.avif"/>
+             <img alt="پیش‌نمایش پلتفرم WECORE" loading="lazy" src="../../img/nav/platform-preview.avif"/>
              <div class="nav-dropdown-buy-content">
               <div class="nav-dropdown-buy-heading">
                <div>
@@ -606,8 +606,8 @@
                 aria-expanded="false"
                 :aria-expanded="menuOpen"
                 aria-controls="nav-primary-menu"
-                aria-label="Open menu"
-                :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+                aria-label="باز کردن منو"
+                :aria-label="menuOpen ? 'بستن منو' : 'باز کردن منو'">
          <img alt="" aria-hidden="true" class="nav-menu-icon" loading="lazy" src="../../img/icons/menu.svg"/>
         </button>
        </div>
@@ -711,7 +711,7 @@
        <div class="hd-vspace-lg"></div>
        <div class="overview_hero_grid" data-hd-animate="fade-up-2">
         <div class="overview_hero_grid-box is-left">
-         <div class="proof-dashboard-shell hpc-proof-shell" dir="ltr" role="img" aria-label="Live Slurm queue preview from the WECORE Cloud Panel">
+         <div class="proof-dashboard-shell hpc-proof-shell" dir="ltr" role="img" aria-label="پیش‌نمایش زندهٔ صف Slurm از Cloud Panel WECORE">
  <div class="proof-dashboard-browser">
   <div class="proof-browser-chrome" aria-hidden="true">
    <div class="proof-window-controls"><span></span><span></span><span></span></div>
@@ -742,21 +742,21 @@
       <svg viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5M3 7.5 12 12m-9-4.5V16l9 5m9-13.5L12 12m9-4.5V16l-9 5m0-9v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
      </span>
      <div>
-      <strong>Cloud HPC</strong>
-      <span>Slurm platforms</span>
+      <strong>HPC ابری</strong>
+      <span>پلتفرم‌های Slurm</span>
      </div>
     </div>
 
     <nav class="hpc-proof-nav">
-     <span class="hpc-proof-nav-btn hpc-proof-nav-active"><span>▤</span> Queue</span>
-     <span class="hpc-proof-nav-btn"><span>≡</span> Jobs</span>
-     <span class="hpc-proof-nav-btn"><span>◫</span> Partitions</span>
-     <span class="hpc-proof-nav-btn"><span>▢</span> Nodes</span>
+     <span class="hpc-proof-nav-btn hpc-proof-nav-active"><span>▤</span> صف</span>
+     <span class="hpc-proof-nav-btn"><span>≡</span> کارها</span>
+     <span class="hpc-proof-nav-btn"><span>◫</span> پارتیشن‌ها</span>
+     <span class="hpc-proof-nav-btn"><span>▢</span> نودها</span>
     </nav>
     <div class="hpc-proof-health">
      <span class="hpc-proof-dot hpc-proof-dot-ready"></span>
      <div>
-      <strong>Scheduler live</strong>
+      <strong>زمان‌بند زنده</strong>
       <span>squeue · scancel · sinfo</span>
      </div>
     </div>
@@ -767,30 +767,30 @@
     <div class="hpc-proof-view">
      <div class="hpc-proof-header">
       <div>
-       <p class="hpc-proof-eyebrow">Live Slurm queue</p>
+       <p class="hpc-proof-eyebrow">صف زندهٔ Slurm</p>
        <h3>aurora-research</h3>
       </div>
-      <span class="hpc-proof-refresh"><i></i>5s refresh</span>
+      <span class="hpc-proof-refresh"><i></i>تازه‌سازی هر ۵ ثانیه</span>
      </div>
 
      <div class="hpc-proof-stats">
-      <article class="hpc-proof-stat hpc-proof-stat-run"><span>Running</span><strong>2</strong></article>
-      <article class="hpc-proof-stat hpc-proof-stat-pend"><span>Pending</span><strong>1</strong></article>
-      <article class="hpc-proof-stat"><span>Partitions</span><strong>cpu · gpu</strong></article>
+      <article class="hpc-proof-stat hpc-proof-stat-run"><span>در حال اجرا</span><strong>2</strong></article>
+      <article class="hpc-proof-stat hpc-proof-stat-pend"><span>در انتظار</span><strong>1</strong></article>
+      <article class="hpc-proof-stat"><span>پارتیشن‌ها</span><strong>cpu · gpu</strong></article>
      </div>
 
      <div class="hpc-proof-queue">
       <div class="hpc-proof-queue-head">
-       <span>Job</span><span>State</span><span>Partition</span><span>Nodes</span><span>Time</span>
+       <span>کار</span><span>وضعیت</span><span>پارتیشن</span><span>نودها</span><span>زمان</span>
       </div>
       <div class="hpc-proof-queue-row hpc-proof-row-run">
-       <span>cfd-wing-sweep</span><strong>RUNNING</strong><span>gpu</span><span>4</span><span>02:14</span>
+       <span>cfd-wing-sweep</span><strong>در حال اجرا</strong><span>gpu</span><span>4</span><span>02:14</span>
       </div>
       <div class="hpc-proof-queue-row hpc-proof-row-run">
-       <span>genome-align</span><strong>RUNNING</strong><span>cpu</span><span>8</span><span>00:48</span>
+       <span>genome-align</span><strong>در حال اجرا</strong><span>cpu</span><span>8</span><span>00:48</span>
       </div>
       <div class="hpc-proof-queue-row hpc-proof-row-pend">
-       <span>mesh-refine-042</span><strong>PENDING</strong><span>gpu</span><span>2</span><span>--</span>
+       <span>mesh-refine-042</span><strong>در انتظار</strong><span>gpu</span><span>2</span><span>--</span>
       </div>
      </div>
 

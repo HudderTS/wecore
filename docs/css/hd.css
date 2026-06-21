@@ -384,6 +384,16 @@ summary:focus-visible,
   color: var(--hd-color-neutral-300);
 }
 
+/* Headings hard-code a black color, so on dark containers they need an
+   explicit light color or they render black-on-black (e.g. the popular
+   pricing plan's price/name, the updates featured-card heading). */
+.hd-text-alternate :is(h1, h2, h3, h4, h5, h6, .hd-h1, .hd-h2, .hd-h3, .hd-h4, .hd-h5, .hd-h6),
+.home_pricing_plan-box.is-dark :is(h1, h2, h3, h4, h5, h6, .hd-h1, .hd-h2, .hd-h3, .hd-h4, .hd-h5, .hd-h6),
+.home_updates_featured-card :is(h1, h2, h3, h4, h5, h6, .hd-h1, .hd-h2, .hd-h3, .hd-h4, .hd-h5, .hd-h6),
+.plan_hero_content :is(h1, h2, h3, h4, h5, h6, .hd-h1, .hd-h2, .hd-h3, .hd-h4, .hd-h5, .hd-h6) {
+  color: var(--hd-color-white);
+}
+
 .overview_banners_left .hd-text-secondary,
 .contact2_hero_content .hd-text-secondary {
   color: var(--hd-color-neutral-300);
